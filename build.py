@@ -12,6 +12,8 @@ META = DATA["meta"]
 CATS = DATA["categories"]
 PLANTS = DATA["plants"]
 ARCHIVE = DATA["archive"]
+PHOTO_FILE = ROOT / "data" / "photos.json"
+PHOTOS = json.loads(PHOTO_FILE.read_text(encoding="utf-8")) if PHOTO_FILE.exists() else {}
 CATMAP = {c["id"]: c for c in CATS}
 
 SITE = "https://plants.signupeverywhere.cc"
@@ -394,6 +396,31 @@ def build_species():
         prev_p = PLANTS[i - 1]
         next_p = PLANTS[(i + 1) % len(PLANTS)]
         tags = "".join(f'<span class="tag">{esc(t)}</span>' for t in p["tags"])
+        shots = PHOTOS.get(p["slug"], [])
+        field = ""
+        if shots:
+            figs = []
+            for i, ph in enumerate(shots[:2]):
+                cls = "field__item--wide" if i == 0 else "field__item--tall"
+                figs.append(f'''
+        <figure class="field__item {cls}">
+          <div class="field__frame">
+            <img src="/assets/img/field/{ph['file']}" alt="{esc(p['name'])} 实景" loading="lazy">
+          </div>
+          <figcaption class="field__cap">
+            <span>{esc(ph['caption'])}</span>
+            <span>{esc(ph['credit'])}</span>
+          </figcaption>
+        </figure>''')
+            field = f'''
+    <section class="field">
+      <div class="field__head">
+        <h2 class="field__title">野 外</h2>
+        <span class="field__sub">In the field</span>
+      </div>
+      <div class="field__grid">{''.join(figs)}
+      </div>
+    </section>'''
         habit_note = "常绿" if p["evergreen"] else "落叶 / 半落叶"
 
         html = head(
@@ -454,7 +481,7 @@ def build_species():
         </div>
       </div>
     </div>
-
+{field}
     <div class="adjacent">
       <a href="/species/{prev_p['slug']}">
         <div class="adjacent__k">← 上一则</div>
@@ -734,6 +761,13 @@ def main():
             shutil.copy(f, dst_img / f.name)
         else:
             missing.append(p["slug"])
+
+    fsrc = src_img / "field"
+    if fsrc.exists():
+        fdst = dst_img / "field"
+        fdst.mkdir(parents=True, exist_ok=True)
+        for f in fsrc.glob("*.webp"):
+            shutil.copy(f, fdst / f.name)
 
     build_index()
     build_atlas()
