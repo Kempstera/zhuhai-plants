@@ -46,10 +46,10 @@ def flower_text(months):
 
 def nav(prefix, active):
     items = [
-        ("index.html", "封面", "home"),
-        ("atlas.html", "图鉴", "atlas"),
-        ("roster.html", "名录", "roster"),
-        ("about.html", "关于", "about"),
+        ("", "封面", "home"),
+        ("atlas", "图鉴", "atlas"),
+        ("roster", "名录", "roster"),
+        ("about", "关于", "about"),
     ]
     lis = []
     for href, label, key in items:
@@ -107,7 +107,7 @@ def head(title, prefix, desc, active, extra_css=""):
 <body>
 <header class="site-head">
   <div class="site-head__inner">
-    <a class="brand" href="{prefix}index.html">
+    <a class="brand" href="{prefix}">
       <span class="brand__name">珠海草木志</span>
       <span class="brand__latin">Flora of Zhuhai</span>
     </a>
@@ -131,9 +131,9 @@ def foot(prefix):
       <div>
         <div class="foot__k">BROWSE</div>
         <div class="foot__links">
-          <a href="{prefix}atlas.html">图鉴总览</a>
-          <a href="{prefix}roster.html">补充名录</a>
-          <a href="{prefix}about.html">编例与说明</a>
+          <a href="{prefix}atlas">图鉴总览</a>
+          <a href="{prefix}roster">补充名录</a>
+          <a href="{prefix}about">编例与说明</a>
         </div>
       </div>
       <div>
@@ -157,11 +157,11 @@ def foot(prefix):
 
 # ---------------------------------------------------------------- 卡片
 
-def card_html(p, prefix="", show_lead=True):
+def card_html(p, prefix="/", show_lead=True):
     cat = CATMAP[p["cat"]]
     img = f'{prefix}assets/img/{p["slug"]}.webp'
     lead = f'<p class="card__lead">{esc(p["lead"])}</p>' if show_lead else ""
-    return f"""      <a class="card reveal" href="{prefix}species/{p['slug']}.html" data-cat="{p['cat']}" data-months="{','.join(map(str, p['months']))}" data-name="{esc(p['name'])} {esc(p['latin'])} {esc(p['alias'])} {esc(p['family'])}">
+    return f"""      <a class="card reveal" href="{prefix}species/{p['slug']}" data-cat="{p['cat']}" data-months="{','.join(map(str, p['months']))}" data-name="{esc(p['name'])} {esc(p['latin'])} {esc(p['alias'])} {esc(p['family'])}">
         <div class="card__plate">
           <img src="{img}" alt="{esc(p['name'])}（{esc(p['latin'])}）植物图谱" loading="lazy" width="900" height="1125">
         </div>
@@ -205,7 +205,7 @@ def build_index():
     for c in CATS:
         ps = [p for p in PLANTS if p["cat"] == c["id"]]
         vols.append(
-            f"""      <a class="volume__row reveal" href="atlas.html?cat={c['id']}">
+            f"""      <a class="volume__row reveal" href="/atlas?cat={c['id']}">
         <div class="volume__no">{c['no']}</div>
         <div>
           <h3 class="volume__name">{c['name']}</h3>
@@ -219,7 +219,7 @@ def build_index():
     picks = ["delonix-regia", "ficus-microcarpa", "bauhinia-blakeana", "handroanthus-chrysanthus",
              "bombax-ceiba", "roystonea-regia", "bougainvillea-spectabilis", "ixora-chinensis"]
     pickmap = {p["slug"]: p for p in PLANTS}
-    cards = "\n".join(card_html(pickmap[s], "", show_lead=False) for s in picks)
+    cards = "\n".join(card_html(pickmap[s], show_lead=False) for s in picks)
 
     stats = f"""        <div><b>{len(PLANTS) + len(ARCHIVE)}</b>收录物种</div>
         <div><b>{len(CATS)}</b>分卷</div>
@@ -228,7 +228,7 @@ def build_index():
 
     html = head(
         "珠海草木志 · 一座南亚热带城市的植物观察",
-        "", "珠海常见行道树、绿化带植物与园林花卉图鉴。细叶榕的荫凉、凤凰木的火、簕杜鹃的市中花色，六十余种草木的形态、花期与故事。",
+        "/", "珠海常见行道树、绿化带植物与园林花卉图鉴。细叶榕的荫凉、凤凰木的火、簕杜鹃的市中花色，六十余种草木的形态、花期与故事。",
         "home")
     html += palm_svg()
     html += f"""
@@ -317,12 +317,12 @@ def build_index():
         <h2 style="margin:10px 0 6px;font-size:26px;font-weight:400;letter-spacing:.08em">还有 {len(ARCHIVE)} 种，著录于名录</h2>
         <p style="margin:0;font-size:14px;color:var(--ink-faint)">白兰、芒果、鸡蛋花、荷花、苏铁……按科属与花期排列。</p>
       </div>
-      <a href="roster.html" class="chip" style="padding:12px 26px;font-size:13px">翻 阅 名 录 &nbsp;→</a>
+      <a href="/roster" class="chip" style="padding:12px 26px;font-size:13px">翻 阅 名 录 &nbsp;→</a>
     </div>
   </section>
 </main>
 """
-    html += foot("")
+    html += foot("/")
     (OUT / "index.html").write_text(html, encoding="utf-8")
 
 
@@ -334,7 +334,7 @@ def build_atlas():
     for c in CATS:
         chips.append(f'<button class="chip" data-cat="{c["id"]}">{c["name"]}</button>')
 
-    html = head("图鉴总览 · 珠海草木志", "", "珠海常见园林植物图鉴，共 28 种详解，可按类别、花期与名称检索。", "atlas")
+    html = head("图鉴总览 · 珠海草木志", "/", "珠海常见园林植物图鉴，共 28 种详解，可按类别、花期与名称检索。", "atlas")
     html += f"""
 <main>
   <section class="section section--tight" style="padding-bottom:28px">
@@ -369,7 +369,7 @@ def build_atlas():
   </section>
 </main>
 """
-    html += foot("")
+    html += foot("/")
     (OUT / "atlas.html").write_text(html, encoding="utf-8")
 
 
@@ -385,15 +385,15 @@ def build_species():
         habit_note = "常绿" if p["evergreen"] else "落叶 / 半落叶"
 
         html = head(
-            f"{p['name']} {p['latin']} · 珠海草木志", "../",
+            f"{p['name']} {p['latin']} · 珠海草木志", "/",
             f"{p['name']}（{p['latin']}），{p['family']}{p['genus']}，{p['habit']}，花期{flower_text(p['months'])}。{p['lead']}",
             "atlas")
         html += f"""
 <main class="detail">
   <div class="wrap">
     <div class="crumbs">
-      <a href="../index.html">封面</a><span>/</span>
-      <a href="../atlas.html?cat={p['cat']}">{cat['name']}</a><span>/</span>
+      <a href="/">封面</a><span>/</span>
+      <a href="/atlas?cat={p['cat']}">{cat['name']}</a><span>/</span>
       <span style="color:var(--ink-soft)">{p['name']}</span>
     </div>
 
@@ -444,12 +444,12 @@ def build_species():
     </div>
 
     <div class="adjacent">
-      <a href="{prev_p['slug']}.html">
+      <a href="/species/{prev_p['slug']}">
         <div class="adjacent__k">← 上一则</div>
         <div class="adjacent__n">{prev_p['name']}</div>
         <div class="adjacent__l">{prev_p['latin']}</div>
       </a>
-      <a href="{next_p['slug']}.html">
+      <a href="/species/{next_p['slug']}">
         <div class="adjacent__k">下一则 →</div>
         <div class="adjacent__n">{next_p['name']}</div>
         <div class="adjacent__l">{next_p['latin']}</div>
@@ -458,7 +458,7 @@ def build_species():
   </div>
 </main>
 """
-        html += foot("../")
+        html += foot("/")
         (OUT / "species" / f"{p['slug']}.html").write_text(html, encoding="utf-8")
 
 
@@ -490,7 +490,7 @@ def build_roster():
         </tr>"""
         )
 
-    html = head("补充名录 · 珠海草木志", "", "珠海常见园林植物补充名录，三十五种植物的科属、花期与形态要点。", "roster")
+    html = head("补充名录 · 珠海草木志", "/", "珠海常见园林植物补充名录，三十五种植物的科属、花期与形态要点。", "roster")
     html += f"""
 <main>
   <section class="section section--tight">
@@ -515,14 +515,14 @@ def build_roster():
   </section>
 </main>
 """
-    html += foot("")
+    html += foot("/")
     (OUT / "roster.html").write_text(html, encoding="utf-8")
 
 
 # ---------------------------------------------------------------- 关于
 
 def build_about():
-    html = head("编例与说明 · 珠海草木志", "", "珠海草木志的编写说明：分类方式、花期判定、插画来源与参考依据。", "about")
+    html = head("编例与说明 · 珠海草木志", "/", "珠海草木志的编写说明：分类方式、花期判定、插画来源与参考依据。", "about")
     html += """
 <main>
   <section class="section">
@@ -560,7 +560,7 @@ def build_about():
   </section>
 </main>
 """
-    html += foot("")
+    html += foot("/")
     (OUT / "about.html").write_text(html, encoding="utf-8")
 
 
@@ -590,7 +590,7 @@ JS = r"""/* 珠海草木志 */
 
   // 花历 → 图鉴
   document.querySelectorAll('.almanac__col').forEach(function (col) {
-    function go() { location.href = 'atlas.html?month=' + col.dataset.month; }
+    function go() { location.href = '/atlas?month=' + col.dataset.month; }
     col.addEventListener('click', go);
     col.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
   });
@@ -670,8 +670,8 @@ def build_404():
     <h1 style="margin:20px 0 16px;font-size:clamp(30px,5vw,46px);font-weight:400;letter-spacing:.1em">这一页，落进了草丛里</h1>
     <p style="margin:0 auto;max-width:440px;font-size:15.5px;line-height:2;color:var(--ink-soft)">你要找的页面大概被风带走了。不如回到封面，从一棵榕树重新开始。</p>
     <div style="margin-top:34px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-      <a href="/index.html" class="chip" style="padding:11px 26px">回到封面</a>
-      <a href="/atlas.html" class="chip" style="padding:11px 26px">翻看图鉴</a>
+      <a href="/" class="chip" style="padding:11px 26px">回到封面</a>
+      <a href="/atlas" class="chip" style="padding:11px 26px">翻看图鉴</a>
     </div>
   </div>
 </main>
@@ -684,12 +684,12 @@ SITE = "https://plants.signupeverywhere.cc"
 
 
 def build_meta_files():
-    urls = ["index.html", "atlas.html", "roster.html", "about.html"]
-    urls += [f"species/{p['slug']}.html" for p in PLANTS]
+    urls = ["", "atlas", "roster", "about"]
+    urls += [f"species/{p['slug']}" for p in PLANTS]
     entries = []
     for u in urls:
-        loc = f"{SITE}/{'' if u == 'index.html' else u}"
-        pri = "1.0" if u == "index.html" else ("0.8" if u in ("atlas.html", "roster.html") else "0.7")
+        loc = f"{SITE}/{u}"
+        pri = "1.0" if u == "" else ("0.8" if u in ("atlas", "roster") else "0.7")
         entries.append(
             f"  <url><loc>{loc}</loc><changefreq>monthly</changefreq><priority>{pri}</priority></url>"
         )
