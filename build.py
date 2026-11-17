@@ -14,6 +14,10 @@ PLANTS = DATA["plants"]
 ARCHIVE = DATA["archive"]
 CATMAP = {c["id"]: c for c in CATS}
 
+SITE = "https://plants.signupeverywhere.cc"
+
+SITE = "https://plants.signupeverywhere.cc"
+
 ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII"]
 
 # ---------------------------------------------------------------- helpers
@@ -88,7 +92,7 @@ def palm_svg():
     )
 
 
-def head(title, prefix, desc, active, extra_css=""):
+def head(title, prefix, desc, active, path="/", extra_css=""):
     return f"""<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -100,6 +104,14 @@ def head(title, prefix, desc, active, extra_css=""):
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(desc)}">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="珠海草木志">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:url" content="{SITE}{path}">
+<meta property="og:image" content="{SITE}/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="{SITE}{path}">
 <link rel="icon" href="{prefix}assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="{prefix}assets/css/style.css">
 {extra_css}
@@ -229,7 +241,7 @@ def build_index():
     html = head(
         "珠海草木志 · 一座南亚热带城市的植物观察",
         "/", "珠海常见行道树、绿化带植物与园林花卉图鉴。细叶榕的荫凉、凤凰木的火、簕杜鹃的市中花色，六十余种草木的形态、花期与故事。",
-        "home")
+        "home", "/")
     html += palm_svg()
     html += f"""
 <main>
@@ -334,7 +346,7 @@ def build_atlas():
     for c in CATS:
         chips.append(f'<button class="chip" data-cat="{c["id"]}">{c["name"]}</button>')
 
-    html = head("图鉴总览 · 珠海草木志", "/", "珠海常见园林植物图鉴，共 28 种详解，可按类别、花期与名称检索。", "atlas")
+    html = head("图鉴总览 · 珠海草木志", "/", "珠海常见园林植物图鉴，共 28 种详解，可按类别、花期与名称检索。", "atlas", "/atlas")
     html += f"""
 <main>
   <section class="section section--tight" style="padding-bottom:28px">
@@ -387,7 +399,7 @@ def build_species():
         html = head(
             f"{p['name']} {p['latin']} · 珠海草木志", "/",
             f"{p['name']}（{p['latin']}），{p['family']}{p['genus']}，{p['habit']}，花期{flower_text(p['months'])}。{p['lead']}",
-            "atlas")
+            "atlas", f"/species/{p['slug']}")
         html += f"""
 <main class="detail">
   <div class="wrap">
@@ -490,7 +502,7 @@ def build_roster():
         </tr>"""
         )
 
-    html = head("补充名录 · 珠海草木志", "/", "珠海常见园林植物补充名录，三十五种植物的科属、花期与形态要点。", "roster")
+    html = head("补充名录 · 珠海草木志", "/", "珠海常见园林植物补充名录，三十六种植物的科属、花期与形态要点。", "roster", "/roster")
     html += f"""
 <main>
   <section class="section section--tight">
@@ -522,7 +534,7 @@ def build_roster():
 # ---------------------------------------------------------------- 关于
 
 def build_about():
-    html = head("编例与说明 · 珠海草木志", "/", "珠海草木志的编写说明：分类方式、花期判定、插画来源与参考依据。", "about")
+    html = head("编例与说明 · 珠海草木志", "/", "珠海草木志的编写说明：分类方式、花期判定、插画来源与参考依据。", "about", "/about")
     html += """
 <main>
   <section class="section">
@@ -662,7 +674,7 @@ JS = r"""/* 珠海草木志 */
 
 
 def build_404():
-    html = head("页面走失 · 珠海草木志", "/", "这一页不见踪迹。", "")
+    html = head("页面走失 · 珠海草木志", "/", "这一页不见踪迹。", "", "/404")
     html += """
 <main class="section" style="min-height:60vh;display:flex;align-items:center">
   <div class="wrap" style="text-align:center">
@@ -678,9 +690,6 @@ def build_404():
 """
     html += foot("/")
     (OUT / "404.html").write_text(html, encoding="utf-8")
-
-
-SITE = "https://plants.signupeverywhere.cc"
 
 
 def build_meta_files():
@@ -709,6 +718,10 @@ def main():
     shutil.copy(ROOT / "assets/css/style.css", OUT / "assets/css/style.css")
     (OUT / "assets" / "js" / "site.js").write_text(JS, encoding="utf-8")
     (OUT / "assets" / "favicon.svg").write_text(FAVICON, encoding="utf-8")
+    if (ROOT / "assets" / "og.png").exists():
+        shutil.copy(ROOT / "assets" / "og.png", OUT / "assets" / "og.png")
+    if (ROOT / "assets" / "og.png").exists():
+        shutil.copy(ROOT / "assets" / "og.png", OUT / "assets" / "og.png")
 
     # 图片
     src_img = ROOT / "assets" / "img"
