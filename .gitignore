@@ -1,0 +1,5 @@
+# 原始生成图（大文件，不入库）；构建只用 assets/img/opt/*.webp
+/assets/img/*.png
+dist/
+__pycache__/
+.DS_Store

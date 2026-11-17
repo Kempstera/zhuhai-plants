@@ -1,0 +1,26 @@
+name: Build check
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build static site
+        working-directory: .
+        run: python3 build.py
+      - name: Verify output
+        run: |
+          test -f dist/index.html
+          test -f dist/atlas.html
+          test -f dist/sitemap.xml
+          n=$(ls dist/species/*.html | wc -l)
+          echo "species pages: $n"
+          test "$n" -ge 28
