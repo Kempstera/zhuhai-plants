@@ -522,6 +522,7 @@ a { color: inherit; text-decoration: none; }
   font-size: 14px;
   color: var(--ink);
   width: 100%;
+  min-width: 0;
   letter-spacing: .05em;
 }
 
@@ -1361,4 +1362,118 @@ a { color: inherit; text-decoration: none; }
   .fam { padding: 22px 0 18px; }
   .fam__list a { grid-template-columns: 92px 1fr auto; }
   .fam__cn { font-size: 17.5px; }
+}
+
+/* ---------------------------------------------------------------- 语言切换 */
+
+.nav__lang {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: .1em;
+  color: var(--moss) !important;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 4px 11px 3px !important;
+  margin-left: 2px;
+  line-height: 1.2;
+  transition: border-color .35s var(--ease), background .35s var(--ease), color .35s var(--ease);
+}
+.nav__lang::after { display: none; }
+.nav__lang:hover {
+  border-color: var(--moss);
+  background: rgba(255, 255, 255, .55);
+  color: var(--moss-deep) !important;
+}
+
+/* ---------------------------------------------------------------- 英文站微调
+   拉丁字母不宜沿用汉字的字距与行宽，按语种收紧 */
+
+html[lang="en"] .brand__name { letter-spacing: .035em; font-size: 19px; }
+html[lang="en"] .brand__latin { letter-spacing: .1em; font-size: 10px; }
+html[lang="en"] .nav { letter-spacing: .07em; gap: 22px; }
+html[lang="en"] .hero h1 { letter-spacing: .005em; line-height: 1.14; }
+html[lang="en"] .hero__note { letter-spacing: .1em; }
+html[lang="en"] .hero__sub { letter-spacing: .005em; }
+html[lang="en"] .eyebrow { letter-spacing: .24em; }
+html[lang="en"] .section__head h2 { letter-spacing: .01em; }
+html[lang="en"] .detail__name { letter-spacing: .005em; }
+html[lang="en"] .parts__k { letter-spacing: .14em; }
+html[lang="en"] .parts__row { grid-template-columns: 74px 1fr; }
+html[lang="en"] .facts dt { letter-spacing: .16em; }
+html[lang="en"] .facts dd { letter-spacing: .005em; font-size: 17px; }
+html[lang="en"] .field__title { letter-spacing: .14em; }
+html[lang="en"] .bloom__cn { letter-spacing: .005em; }
+html[lang="en"] .fam__f { letter-spacing: .02em; }
+html[lang="en"] .fam__list a { grid-template-columns: 178px 1fr auto; }
+html[lang="en"] .fam__sp { font-size: 14px; letter-spacing: .005em; }
+html[lang="en"] .card__name { letter-spacing: .01em; }
+html[lang="en"] .volume__name { letter-spacing: .01em; }
+html[lang="en"] .tag { letter-spacing: .06em; }
+html[lang="en"] .chip { letter-spacing: .07em; }
+html[lang="en"] .adjacent__n { letter-spacing: .01em; }
+html[lang="en"] .foot__p { letter-spacing: .005em; }
+html[lang="en"] .search { width: 244px; min-width: 0; }
+html[lang="en"] .bloom__head,
+html[lang="en"] .bloom__row,
+html[lang="en"] .bloom__tail { grid-template-columns: 272px 1fr 98px; }
+html[lang="en"] .bloom__inner { min-width: 780px; }
+html[lang="en"] .bloom__cn { font-size: 13.5px; letter-spacing: .005em; }
+html[lang="en"] .bloom__name { gap: 7px; }
+html[lang="en"] .bloom__f { font-size: 9px; letter-spacing: .03em; }
+html[lang="en"] .bloom__legend { letter-spacing: .06em; }
+html[lang="en"] .bloom__head .bloom__cap { letter-spacing: .12em; }
+html[lang="en"] .bloom__head,
+html[lang="en"] .bloom__row,
+html[lang="en"] .bloom__tail { grid-template-columns: 272px 1fr 98px; }
+html[lang="en"] .bloom__inner { min-width: 780px; }
+html[lang="en"] .bloom__cn { font-size: 13.5px; letter-spacing: .005em; }
+html[lang="en"] .bloom__name { gap: 7px; }
+html[lang="en"] .bloom__f { font-size: 9px; letter-spacing: .03em; }
+html[lang="en"] .bloom__legend { letter-spacing: .06em; }
+html[lang="en"] .bloom__head .bloom__cap { letter-spacing: .12em; }
+html[lang="en"] .search { width: 244px; min-width: 0; }
+html[lang="en"] .bloom__head,
+html[lang="en"] .bloom__row,
+html[lang="en"] .bloom__tail { grid-template-columns: 272px 1fr 98px; }
+html[lang="en"] .bloom__inner { min-width: 780px; }
+html[lang="en"] .bloom__cn { font-size: 13.5px; letter-spacing: .005em; }
+html[lang="en"] .bloom__name { gap: 7px; }
+html[lang="en"] .bloom__f { font-size: 9px; letter-spacing: .03em; }
+html[lang="en"] .bloom__legend { letter-spacing: .06em; }
+html[lang="en"] .bloom__head .bloom__cap { letter-spacing: .12em; }
+html[lang="en"] .bloom__head,
+html[lang="en"] .bloom__row,
+html[lang="en"] .bloom__tail { grid-template-columns: 272px 1fr 98px; }
+html[lang="en"] .bloom__inner { min-width: 780px; }
+html[lang="en"] .bloom__cn { font-size: 13.5px; letter-spacing: .005em; }
+html[lang="en"] .bloom__name { gap: 7px; }
+html[lang="en"] .bloom__f { font-size: 9px; letter-spacing: .03em; }
+html[lang="en"] .bloom__legend { letter-spacing: .06em; }
+html[lang="en"] .bloom__head .bloom__cap { letter-spacing: .12em; }
+
+@media (max-width: 640px) {
+  /* 英文导航较长，窄屏改为品牌一行、导航一行，避免横向溢出 */
+  html[lang="en"] .site-head__inner {
+    height: auto;
+    flex-wrap: wrap;
+    gap: 3px;
+    padding: 11px 20px 8px;
+  }
+  html[lang="en"] .brand { width: 100%; gap: 9px; }
+  html[lang="en"] .brand__name { font-size: 17px; letter-spacing: .035em; }
+  html[lang="en"] .nav {
+    width: 100%;
+    justify-content: space-between;
+    gap: 0;
+    font-size: 10.5px;
+    letter-spacing: .02em;
+  }
+  html[lang="en"] .nav__lang { font-size: 10px; padding: 3px 8px 2px !important; margin-left: 0; }
+  html[lang="en"] .fam__list a { grid-template-columns: 118px 1fr auto; }
+  html[lang="en"] .fam__sp { font-size: 13px; }
+  html[lang="en"] .bloom__head,
+  html[lang="en"] .bloom__row,
+  html[lang="en"] .bloom__tail { grid-template-columns: 232px 1fr 88px; }
+  html[lang="en"] .search { width: 100%; }
+  html[lang="en"] .plate__cap { flex-wrap: wrap; gap: 2px 12px; letter-spacing: .1em; }
 }

@@ -1,0 +1,1578 @@
+{
+ "plants": {
+  "ficus-microcarpa": {
+   "name": "Chinese Banyan",
+   "alias": "Banyan, Malayan banyan",
+   "habit": "Evergreen tree",
+   "origin": "South and south-west China to South-East Asia",
+   "color": "Flowers hidden in the fig",
+   "where": "Fenghuang Road, Lovers' Road, the arcaded streets of old Xiangzhou",
+   "lead": "The shade of the whole city is held up leaf by leaf.",
+   "body": "Summer in Zhuhai is long. Aerial roots hang from the branches like a rain that falls very slowly. A single crown can spread twenty metres, and at noon it cuts Fenghuang Road into light and dark — cyclists keep to the shadow without being told.",
+   "leaf": "Leaves elliptic to obovate, thickly leathery, deep glossy green, rounded at the tip.",
+   "flower": "The flowers are sealed inside the syconium and never seen. What passes for fruit is a swollen receptacle, paired in the axils, green at first and then flushed with pink.",
+   "note": "Branches snapped off by a typhoon push new shoots within a fortnight. This is the most dependable green a southern city has.",
+   "tags": [
+    "Evergreen",
+    "Deep shade",
+    "Aerial roots"
+   ]
+  },
+  "ficus-altissima": {
+   "name": "Council Tree",
+   "alias": "Lofty fig, elephant ear fig",
+   "habit": "Large evergreen tree",
+   "origin": "South China and Yunnan to South-East Asia",
+   "color": "Flowers hidden in the fig",
+   "where": "Jida, the square at Gongbei port, neighbourhood parks",
+   "lead": "Thicker and heavier than the banyan, and quicker to become an enormous umbrella.",
+   "body": "The leaves are broad and fleshy, like leather dipped in wax. It grows fast enough that ten years will raise a canopy you can shelter under. When new leaves unfold in spring the stipules are a vivid pink — a whole tree of pink tips, a small commotion in March that is easy to walk past.",
+   "leaf": "Leaves broadly ovate to elliptic, 10–20 cm, entire, lateral veins clear, stalks stout.",
+   "flower": "Syconia axillary, flattened spheres, orange-red to purple-red when ripe.",
+   "note": "It makes fewer aerial roots than the banyan, but stouter ones; on reaching the ground they often thicken into props, as though the trunk had been given extra legs.",
+   "tags": [
+    "Evergreen",
+    "Fast-growing",
+    "Broad crown"
+   ]
+  },
+  "ficus-benjamina": {
+   "name": "Weeping Fig",
+   "alias": "Benjamin fig, Java fig",
+   "habit": "Evergreen tree",
+   "origin": "Southern China and South-East Asia to northern Australia",
+   "color": "Pale yellow-green figs",
+   "where": "Housing courtyards, hotel forecourts, parks",
+   "lead": "Every branch droops a little, as though it had just been spoken to quietly.",
+   "body": "The leaves are small and thin, drawn out to a point, and their weight pulls the branches into a light arc. Its aerial roots are less ambitious than the banyan's, but it takes pruning just as well — in Zhuhai it belongs to gardens and lobbies rather than the kerb, because it looks formal and expects a little dignity.",
+   "leaf": "Leaves alternate, elliptic to ovate-elliptic, acuminate, thinly leathery, entire.",
+   "flower": "Syconia paired in the axils; the fruit is spherical, about a centimetre across, deep red to nearly black.",
+   "note": "One of the commonest indoor foliage trees in the world, and the only fig that does well both in an office lobby and in a rainforest. The city moved it indoors, and it treats its drooping branches as a form of courtesy.",
+   "tags": [
+    "Evergreen",
+    "Weeping habit",
+    "Courtyard tree"
+   ]
+  },
+  "ficus-virens": {
+   "name": "Big-leaf Banyan",
+   "alias": "Huangjue, large-leaved fig",
+   "habit": "Deciduous tree",
+   "origin": "South-west and south China to South-East Asia",
+   "color": "Pale yellow-green figs",
+   "where": "Fenghuang Road in old Xiangzhou, around Nankeng market, Tangjia old town",
+   "lead": "Half of Zhuhai's spring is produced by this tree changing its leaves.",
+   "body": "For one week at the end of March it drops every old leaf within a few days and immediately pushes new ones. For those days the tree is translucent, sunlight reaches the pavement, and walking beneath it you feel that something is missing. The fallen leaves cover the road; once rained on they lie like a sheet of wet copperplate. Old trunks carry buttresses and hanging roots, and a tree of enough years can become a wall, with sparrows and geckos living inside it.",
+   "leaf": "Leaves alternate, ovate-lanceolate, thinly leathery; new leaves pale yellow-green; the leaf-drop is very concentrated.",
+   "flower": "Syconia axillary; the fruit is spherical, pale yellow-green with a red blush when ripe, much eaten by birds.",
+   "note": "In Sichuan and Chongqing it is said to drop its leaves whenever it was planted. The rule is not strictly true, but watch it change leaves for a week in Zhuhai and the caprice seems entirely reasonable.",
+   "tags": [
+    "Deciduous",
+    "Spring leaf-change",
+    "Buttress roots"
+   ]
+  },
+  "cinnamomum-camphora": {
+   "name": "Camphor Tree",
+   "alias": "Camphor laurel",
+   "habit": "Evergreen tree",
+   "origin": "China south of the Yangtze",
+   "color": "Yellow-green",
+   "where": "Xiangzhou, the old streets of Tangjiawan, the Sun Yat-sen University campus",
+   "lead": "Crush one leaf and the whole street smells of medicine.",
+   "body": "The camphor is one of the few trees in a southern city that has a smell. In spring it changes leaves: the old turning red, the new pale yellow, three colours on one tree, falling to carpet the pavement with a dry rustle. Its wood holds camphor and was once used to line chests against insects.",
+   "leaf": "Leaves ovate with three main veins springing above the base; crushed, strongly of camphor; new growth often reddish brown.",
+   "flower": "Panicles axillary; flowers small, pale yellow-green, inconspicuous but loud with bees.",
+   "note": "The bark splits lengthwise and old trunks furrow deeply — a good clue to the age of a tree.",
+   "tags": [
+    "Evergreen",
+    "Aromatic",
+    "Native"
+   ]
+  },
+  "bischofia-javanica": {
+   "name": "Bishop Wood",
+   "alias": "Java bishopwood, autumn maple",
+   "habit": "Evergreen to semi-evergreen tree",
+   "origin": "South and central China to South-East Asia",
+   "color": "Yellow-green",
+   "where": "Renmin East Road, Nanping, neighbourhood arterial roads",
+   "lead": "Its name says maple, but autumn leaves it alone; it saves the colour for new growth.",
+   "body": "Bishop wood carries trifoliate leaves, broad and glossy, on a shape that is upright and contained — well suited to a street. When it changes leaves in spring the new foliage emerges dark red before turning green, so the autumn colour Zhuhai talks about actually happens in March.",
+   "leaf": "Leaves trifoliate; leaflets ovate, shallowly toothed, leathery and glossy.",
+   "flower": "Flowers small, dioecious, greenish, axillary, inconspicuous.",
+   "note": "The fruit ripens to small brown berries in hanging clusters, and the birds are fond of them.",
+   "tags": [
+    "Evergreen",
+    "Trifoliate",
+    "Foliage interest"
+   ]
+  },
+  "terminalia-mantaly": {
+   "name": "Madagascar Almond",
+   "alias": "Indian almond, sea almond",
+   "habit": "Deciduous tree",
+   "origin": "Madagascar",
+   "color": "Yellow-green",
+   "where": "Lovers' Road, Hengqin, around Huafa Mall",
+   "lead": "Its branches open outward tier upon tier, part umbrella and part pagoda.",
+   "body": "This is one of the few trees better seen without its leaves. After the winter drop the horizontal tiers stand exposed, legible as an architectural section. Then the new leaves come and the whole thing turns from grey to green — the most punctual change of clothes in the city.",
+   "leaf": "Leaves small, obovate, spirally clustered at the branch tips, turning red before they fall.",
+   "flower": "Flowers minute, greenish, in spikes, all but invisible among the leaves.",
+   "note": "In a typhoon its supple branches are pressed to one side and slowly right themselves afterwards — among the most wind-firm of southern trees.",
+   "tags": [
+    "Deciduous",
+    "Tiered branching",
+    "Wind-firm"
+   ]
+  },
+  "mangifera-indica": {
+   "name": "Mango",
+   "alias": "Common mango",
+   "habit": "Evergreen tree",
+   "origin": "India and Myanmar",
+   "color": "Pale yellow-green",
+   "where": "Old Xiangzhou, Ningxi, Nanping, the old streets of Qianshan",
+   "lead": "Summer in Zhuhai begins with a mango falling to the ground.",
+   "body": "In the old quarter the street mangoes stand so close that their crowns join into a green tunnel. They flower in April and May, the panicles packed with small pale yellow-green flowers and more bees than passers-by. Fruit ripens in July and August, a yellow bloom spreading over the green skin, giving slightly under a thumb — and every year someone stands beneath the tree with a long bamboo pole and an umbrella, waiting for a fruit to drop of its own accord. After a typhoon the road is full of green fruit, split open by wheels, and the street smells sweet for a day.",
+   "leaf": "Leaves alternate, leathery, long-lanceolate; new leaves purple-red, old ones deep glossy green.",
+   "flower": "Panicles terminal; flowers small and dense, pale yellow-green, five-petalled, honey-scented.",
+   "note": "Street mangoes are fibrous and sour and not really worth eating. Yet every June someone keeps watch beneath the tree. The arrangement between city and fruit tree here is this: no one asks for a harvest, only whether it is willing to bear.",
+   "tags": [
+    "Evergreen",
+    "Summer fruit",
+    "Old-street tree"
+   ]
+  },
+  "mangifera-persiciforma": {
+   "name": "Peach-shaped Mango",
+   "alias": "Tian-tao, wild mango",
+   "habit": "Evergreen tree",
+   "origin": "South China and Vietnam",
+   "color": "Pale yellow-green",
+   "where": "Lovers' Road, Jida, the main roads of Xiangzhou",
+   "lead": "A cousin of the mango, but more upright and far more silent.",
+   "body": "The shape is much tidier than a mango's: a straight trunk, a clear branch order, a crown that looks combed. The leaves are long-lanceolate and glossy too, almost identical from a distance; the difference is the fruit, small and lopsided like a flattened peach, and no good to eat even when ripe. Being no good to eat is precisely why it makes a good street tree: nobody comes with a bamboo pole.",
+   "leaf": "Leaves alternate, narrowly lanceolate, leathery, slightly wavy at the margin; new growth purple-red.",
+   "flower": "Panicles terminal; flowers small, pale yellow-green, faintly scented.",
+   "note": "On a list of street trees for South China this is close to the standard answer: takes pruning, stands up to typhoons, keeps a regular crown, suffers few pests. A tree that satisfies that many demands usually has to give up a little character.",
+   "tags": [
+    "Evergreen",
+    "Spring flowering",
+    "Street tree"
+   ]
+  },
+  "dracontomelon-duperreanum": {
+   "name": "Dao Tree",
+   "alias": "Dragon's-eye fruit, hen's-eye",
+   "habit": "Large evergreen tree",
+   "origin": "South China and Vietnam",
+   "color": "Yellow-white",
+   "where": "Old Xiangzhou, Wanzai, the old streets of Nanping",
+   "lead": "An old Cantonese street is usually a dao tree and a row of arcades, together.",
+   "body": "A native giant of the south, with visible buttresses and a round, dense crown. The stone of the fruit carries five hollows that resemble a face, which gave the tree its Chinese name. On a summer afternoon the shade beneath it is always full of men playing chess.",
+   "leaf": "Odd-pinnate; leaflets 5–11, ovate-lanceolate, entire, deep green.",
+   "flower": "Panicles terminal or axillary; flowers small, greenish white.",
+   "note": "The fruit is yellow and edible, sweet and sharp; the five holes in the stone make the little masks children like best.",
+   "tags": [
+    "Evergreen",
+    "Native",
+    "Buttress roots"
+   ]
+  },
+  "chukrasia-tabularis": {
+   "name": "Chittagong Wood",
+   "alias": "Indian mahogany, white cedar",
+   "habit": "Deciduous to semi-evergreen tree",
+   "origin": "South China and Yunnan to South Asia",
+   "color": "Yellow-white",
+   "where": "Jida Road, Qianshan, the courtyards of garden hotels",
+   "lead": "The trunk is straight and the bark splits into scales; the high point of the tree is its spring foliage.",
+   "body": "Its beauty is regularity. The pinnate leaves are arranged with discipline, the crown is umbrella-shaped and keeps its composure even after pruning. When the new leaves open in spring they are reddish brown and stand against the dark green of the old ones, layer upon layer.",
+   "leaf": "Bipinnate; leaflets ovate, acuminate; young leaves reddish brown.",
+   "flower": "Terminal panicles; flowers pale yellow, faintly scented.",
+   "note": "The timber is first-rate furniture wood, and some of the old Cantonese hardwood pieces came from trees of this family.",
+   "tags": [
+    "Deciduous",
+    "Bipinnate",
+    "Red new leaves"
+   ]
+  },
+  "alstonia-scholaris": {
+   "name": "Scholar Tree",
+   "alias": "Blackboard tree, devil's tree, milkwood pine",
+   "habit": "Evergreen tree",
+   "origin": "South China, South-East Asia and South Asia",
+   "color": "White-green",
+   "where": "The main roads of Jida, Xiangzhou and Gongbei",
+   "lead": "Walk through Jida on a November night and you will smell it before you see it.",
+   "body": "In flower the tree is covered in small white-green blossoms with a smell so emphatic it amounts to rudeness: some say medicated oil, some say herbal tea with too much sugar. The branches are whorled in tiers and narrow as they rise, so the tree reads as a pagoda; the latex is copious and was once used to make chewing gum, which is where the Chinese name comes from. The trunk is straight and the bark greyish white — an unusually geometric street tree for a southern city.",
+   "leaf": "Leaves in whorls of three to eight, obovate-oblong, leathery, lateral veins dense and parallel.",
+   "flower": "Terminal cymes; corolla white, salverform with five lobes, strongest at night.",
+   "note": "Its smell is the most complained-about plant smell of the Zhuhai year. Yet every November it fills the street as before — fragrance and stink are often separated by a single nose.",
+   "tags": [
+    "Evergreen",
+    "Autumn-winter flowering",
+    "Milky latex"
+   ]
+  },
+  "michelia-alba": {
+   "name": "White Champaca",
+   "alias": "White sandalwood, pak lan",
+   "habit": "Evergreen tree",
+   "origin": "Java; long in cultivation, wild origin unknown",
+   "color": "Pure white",
+   "where": "The mouths of old lanes in Xiangzhou, Tangjia old town, school grounds",
+   "lead": "Walk down an old lane at dusk in summer and you smell it before you think to look up.",
+   "body": "The petals are long and narrow and curl slightly outward, like a hand not quite opened. The scent is so strong that a single flower fills half a lane; Cantonese string them and sell three for two yuan, to hang on a car mirror or a lapel. It is a magnolia, an evergreen capable of ten metres, but in the old town it is usually cut low so that people can reach the flowers.",
+   "leaf": "Leaves alternate, narrowly elliptic, thinly leathery, bright green above, paler beneath.",
+   "flower": "Solitary in the axils; tepals eight to ten, narrow, white, intensely fragrant, at its best in summer.",
+   "note": "It almost never sets fruit — a hybrid of cultivation, carried on by cuttings and grafts. The white champacas of this city are, in a sense, divisions of a single tree.",
+   "tags": [
+    "Evergreen",
+    "Summer flowering",
+    "Intensely fragrant",
+    "Flowers worn"
+   ]
+  },
+  "syzygium-cumini": {
+   "name": "Java Plum",
+   "alias": "Malabar plum, black plum",
+   "habit": "Evergreen tree",
+   "origin": "South China to South and South-East Asia",
+   "color": "Pale yellow-white",
+   "where": "Parks, older housing estates, university campuses",
+   "lead": "In May the ground beneath it is stained purple-black, as though someone had upset an inkpot.",
+   "body": "The fruit turns from green to red to purple-black, hanging in bunches; the birds eat half and drop half, and the fallen fruit is trodden open and paints the pavement a mottled deep purple — the most unreasonable picture of early summer. The tree itself is orderly: grey-brown bark splitting lengthwise, opposite leathery leaves that smell faintly when crushed.",
+   "leaf": "Leaves opposite, broadly elliptic to obovate, leathery, veins clear, aromatic when crushed.",
+   "flower": "Axillary panicles; flowers small, pale yellow-white, stamens numerous like a fine brush.",
+   "note": "In India the fruit is made into jam and vinegar. Zhuhai leaves it alone, too astringent and too messy. But in May the birds hold a meeting in the tree, and for those days it is busier than a flowering one.",
+   "tags": [
+    "Evergreen",
+    "Spring flowering",
+    "Edible fruit",
+    "Bird-attracting"
+   ]
+  },
+  "syzygium-nervosum": {
+   "name": "Water Gum",
+   "alias": "Creek satinash",
+   "habit": "Evergreen tree",
+   "origin": "South China to South-East Asia",
+   "color": "Pale yellow-green",
+   "where": "Banks of the Qianshan River, lakesides, wetland margins",
+   "lead": "It will only grow where there is water, which is a kind of obstinacy.",
+   "body": "Its roots tolerate flooding, so riverbanks, pond edges and the shallows of wetlands are its territory. In flower the tree is all long stamens, opening in clusters that look like pale yellow-green brushes hung on the branches; when the wind moves, the filaments tremble together and the bees arrive before anyone else. The fruit is a small berry, purple-black when ripe, and bland.",
+   "leaf": "Leaves opposite, elliptic to oblong, leathery, lateral veins fine and parallel.",
+   "flower": "Cymes borne on leafless old wood; flowers pale yellow-green, stamens numerous and long.",
+   "note": "After the city cleaned up its inner waterways the water gums came back. It is the kind of indicator that says nothing: when the water is clean it returns by itself, uninvited.",
+   "tags": [
+    "Evergreen",
+    "Water-loving",
+    "Riverside tree"
+   ]
+  },
+  "acacia-confusa": {
+   "name": "Formosan Koa",
+   "alias": "Taiwan acacia, small Philippine acacia",
+   "habit": "Evergreen tree",
+   "origin": "Taiwan, China; the Philippines",
+   "color": "Golden yellow",
+   "where": "The foot of Banzhang Hill and Fenghuang Hill, the northern end of Lovers' Road",
+   "lead": "Its 'leaves' are not leaves at all but flattened leaf-stalks.",
+   "body": "It is easily misread: the long, slightly curved, willow-like blades are phyllodes, swollen stalks doing the work of leaves, and the true bipinnate leaves appear only on seedlings. In April and May the branch tips break out in small golden pom-poms, which are not petals but a crowd of stamens. It can take hold on poor hillsides before anything else will, and it is the pioneer of South China's bare-slope planting.",
+   "leaf": "Phyllodes sickle-shaped, leathery, with three to five parallel veins; true bipinnate leaves only in seedlings.",
+   "flower": "Spherical heads, golden yellow, composed of many stamens, axillary.",
+   "note": "Its Chinese name, xiangsi, means mutual longing, and comes from the pods: they split to show seeds scarlet as a heart, once strung into bracelets. On Zhuhai's hillsides it grows mixed with beefwood and ivy tree, in that blurred transition between city and hill.",
+   "tags": [
+    "Evergreen",
+    "Phyllodes",
+    "Pioneer species"
+   ]
+  },
+  "khaya-senegalensis": {
+   "name": "African Mahogany",
+   "alias": "Senegal mahogany, dry-zone mahogany",
+   "habit": "Evergreen tree",
+   "origin": "Tropical Africa, Senegal to Uganda",
+   "color": "Greenish white",
+   "where": "Renmin East Road, Yingbin Road, government compounds",
+   "lead": "The crown is as thick as a quilt; stand beneath it in summer and you feel cold.",
+   "body": "Introduced from West Africa, it looks more like a Zhuhai tree than many natives do: evergreen all year, dense and rounded, asking nothing of anyone. The leaves are pinnate, the leaflets opposite, leathery and polished, and when wind passes the whole crown only rustles lightly. Its timber is sold internationally as African mahogany and cut for furniture and boat planking; here it simply stands at the kerb and blocks the August sun.",
+   "leaf": "Paripinnate; leaflets in three or four pairs, ovate to elliptic, leathery, deep glossy green.",
+   "flower": "Axillary panicles; flowers small, four-petalled, whitish, inconspicuous.",
+   "note": "Watch how it changes leaves: not all at once but a little at a time, so you almost never see it bare. Most evergreens of the south work this way, breaking the business of falling into many small days.",
+   "tags": [
+    "Evergreen",
+    "Pinnate leaves",
+    "Dense crown"
+   ]
+  },
+  "senna-siamea": {
+   "name": "Siamese Senna",
+   "alias": "Siamese cassia, Bombay blackwood",
+   "habit": "Evergreen tree",
+   "origin": "South-East Asia",
+   "color": "Bright yellow",
+   "where": "Arterial roads, parks, school grounds",
+   "lead": "A knife will not bite it and fire will hardly burn through — hence the name.",
+   "body": "The wood is so hard that it was once used for knife handles and pestles. It flowers in late autumn, racemes of bright yellow hanging from the branch ends until the tree is full of them; the leaves are still deep green at the time, so yellow and green crowd together, loud and rather fine. The pods are flat and hang in rows, like beans pressed straight.",
+   "leaf": "Paripinnate; leaflets in six to ten pairs, elliptic, leathery.",
+   "flower": "Terminal racemes; corolla yellow, five-petalled, hanging in strings.",
+   "note": "In Xishuangbanna the Dai plant it for firewood: cut it and it resprouts, the more it is cut the better it grows, and one tree can supply a household for decades. Zhuhai never cuts it, only lets it flower once in November, which preserves the other half of its nature.",
+   "tags": [
+    "Evergreen",
+    "Autumn-winter flowering",
+    "Hardwood"
+   ]
+  },
+  "bombax-ceiba": {
+   "name": "Red Silk-cotton Tree",
+   "alias": "Kapok, cotton tree",
+   "habit": "Large deciduous tree",
+   "origin": "South China and Indochina",
+   "color": "Orange-red",
+   "where": "Seaside Park, around the Xiangzhou district government, school grounds",
+   "lead": "When it flowers it has not a single leaf — the whole tree is nothing but fire.",
+   "body": "In March the branches are still bare and the flowers are already full out. Orange-red cups appear before the leaves, and when they fall they strike the ground with a slap, thick as a small bowl. Old Cantonese call it the hero tree: the trunk straight and thorny, and it does not bend even as it falls.",
+   "leaf": "Palmate; leaflets five to seven, unfolding only after flowering, turning yellow before they drop.",
+   "flower": "Flowers large, cup-shaped, orange-red; petals thick and fleshy; stamens numerous, in bundles.",
+   "note": "After flowering come capsules that split and let white cotton fly out across the street — its seeds, sent by air.",
+   "tags": [
+    "Deciduous",
+    "Flowers before leaves",
+    "Large flowers"
+   ]
+  },
+  "delonix-regia": {
+   "name": "Flamboyant",
+   "alias": "Royal poinciana, flame tree",
+   "habit": "Deciduous tree",
+   "origin": "Madagascar",
+   "color": "Scarlet",
+   "where": "Lovers' Road, the university campuses, Jida",
+   "lead": "Late May in Zhuhai is a fire lit by the flamboyant.",
+   "body": "It drops every fern-like leaf first, then burns the flowers down from the top of the crown, red without reservation. Each flower has five petals, one streaked with white or yellow like an ember left in the fire. Afterwards come long sword-shaped pods that hang until winter, like a blade someone left behind.",
+   "leaf": "Bipinnate; many pinnae, leaflets fine as fern, the shade it casts light and broken.",
+   "flower": "Racemes terminal or axillary; corolla scarlet, the upper petal blotched yellow and white.",
+   "note": "In the south they say that when the flamboyant flowers, graduation has come. Its season is exactly the length of a farewell.",
+   "tags": [
+    "Deciduous",
+    "Summer flowering",
+    "Bipinnate"
+   ]
+  },
+  "ceiba-speciosa": {
+   "name": "Silk Floss Tree",
+   "alias": "Pink kapok, drunkard tree",
+   "habit": "Deciduous tree",
+   "origin": "South America: Brazil and Argentina",
+   "color": "Pink-purple",
+   "where": "Lovers' Road, Hengqin, Jinwan",
+   "lead": "From autumn it brushes pink along the branches, layer after layer, and does not stop until winter.",
+   "body": "The trunk is grey-green and, when young, crowded with conical spines, like armour that does not fit. After October the leaves fall and the flowers open one after another, pink-purple over the whole crown, lasting into December — the least autumnal autumn Zhuhai has.",
+   "leaf": "Palmate; leaflets five to seven, elliptic, toothed at the margin.",
+   "flower": "Flowers large, bell-shaped, pink to purple-red; petal bases yellow-white; centre blotched dark.",
+   "note": "The capsules that follow are packed with white cotton — the luggage it brought across the ocean.",
+   "tags": [
+    "Deciduous",
+    "Autumn-winter flowering",
+    "Thorny trunk"
+   ]
+  },
+  "erythrina-crista-galli": {
+   "name": "Cockspur Coral Tree",
+   "alias": "Cry-baby tree, Brazilian coral tree",
+   "habit": "Small deciduous tree",
+   "origin": "Brazil, Argentina and Uruguay",
+   "color": "Scarlet",
+   "where": "Park borders, gardens, housing estates",
+   "lead": "The flower opens downward, its finest petal facing the ground, like a sigh that was not quite suppressed.",
+   "body": "The coral trees share a habit: one standard petal much enlarged and hanging down. Here it is broad and reflexed, deep crimson, with wings and keel folded beneath, so the whole flower really does resemble a drooping cockscomb. It flowers in early summer, in strings at the branch ends, and the flowers fall whole, so the ground reddens quickly.",
+   "leaf": "Trifoliate; leaflets ovate to rhombic, entire; small prickles on stalks and branches.",
+   "flower": "Axillary racemes; corolla scarlet, the standard large and reflexed, hanging in strings.",
+   "note": "The genus takes its name from the Greek erythros, red. Dozens of red-flowered trees belong to it, scattered through the tropics from Madagascar to Hawaii: red seems to be their common dialect.",
+   "tags": [
+    "Deciduous",
+    "Summer flowering",
+    "Red flowers"
+   ]
+  },
+  "handroanthus-chrysanthus": {
+   "name": "Golden Trumpet Tree",
+   "alias": "Golden tabebuia, yellow ipê",
+   "habit": "Deciduous tree",
+   "origin": "Central and South America",
+   "color": "Golden yellow",
+   "where": "The Xiangzhou greenway, Tangjiawan, park entrances",
+   "lead": "It is splendid for ten days a year and spends the rest of the year preparing for them.",
+   "body": "At the end of February the leaves have not yet come and the flowers are already open. Funnel-shaped yellow flowers hang in clusters at the branch tips until the tree looks lit. The season is short, a week or two at its peak; one wind and the ground is covered, paving a golden road.",
+   "leaf": "Palmate; five leaflets, ovate-elliptic, opening after the flowers, yellow before they drop.",
+   "flower": "Corolla funnel-shaped, golden yellow, several together in clusters, opening before the leaves.",
+   "note": "Leaves come after the flowers, and flowers only after the leaves have gone — it practises renunciation very thoroughly.",
+   "tags": [
+    "Deciduous",
+    "Flowers before leaves",
+    "Brief season"
+   ]
+  },
+  "handroanthus-impetiginosus": {
+   "name": "Pink Trumpet Tree",
+   "alias": "Rose trumpet tree, pink ipê",
+   "habit": "Deciduous tree",
+   "origin": "Brazil and Paraguay",
+   "color": "Purple-red",
+   "where": "Lovers' Road, Hengqin, some stretches in Xiangzhou",
+   "lead": "The golden trumpet flowers in March; this one flowers before the Spring Festival, insisting on purple in the coldest weeks of the year.",
+   "body": "It flowers after the leaves have fallen, funnel-shaped blooms gathering into spheres that look like hydrangeas hung on the tree. There is almost no leaf at the time, so the colour is pure, undiluted by green. A single flower lasts two or three days and the whole season less than a month; when it falls it circles the ground, as though a length of purple silk had been cut into pieces.",
+   "leaf": "Palmate; five leaflets, shortly hairy, usually gone by flowering time.",
+   "flower": "Terminal panicles; corolla purple-red with a yellow throat, five-lobed.",
+   "note": "It has not been grown here long, yet it is already indispensable to photographs of the Spring Festival. It is a close relative of the golden trumpet: one flowers at New Year, the other at Qingming, stitching the south's winter to its spring.",
+   "tags": [
+    "Deciduous",
+    "Winter flowering",
+    "Flowers before leaves"
+   ]
+  },
+  "jacaranda-mimosifolia": {
+   "name": "Jacaranda",
+   "alias": "Blue flamboyant, fern tree",
+   "habit": "Deciduous tree",
+   "origin": "South America: Argentina and Bolivia",
+   "color": "Blue-violet",
+   "where": "University campuses, Hengqin, neighbourhood parks",
+   "lead": "A blue the south rarely permits. In April and May it turns the street into a darkroom.",
+   "body": "The flowers are tubular bells, the colour somewhere between blue and violet, and in a warm-toned city they look almost unreal. At its peak the flowers hide the leaves and the tree reads as a blue haze; the fallen petals pave the ground, so that walking there feels like stepping into a faded album.",
+   "leaf": "Bipinnate; leaflets minute, fern-like, the whole leaf light enough for wind to turn over.",
+   "flower": "Terminal panicles; corolla funnel-shaped, blue-violet, hanging in strings.",
+   "note": "In its homeland the jacaranda flowers with the rains; Zhuhai's rain arrives early, and its season moves earlier with it.",
+   "tags": [
+    "Deciduous",
+    "Blue-violet flowers",
+    "Spring flowering"
+   ]
+  },
+  "lagerstroemia-speciosa": {
+   "name": "Queen's Crape Myrtle",
+   "alias": "Giant crape myrtle",
+   "habit": "Deciduous tree",
+   "origin": "South China to South-East Asia",
+   "color": "Pink-purple",
+   "where": "Renmin West Road, the lakesides in the parks",
+   "lead": "In flower all summer, the petals thin enough to pass light, like crumpled rice paper.",
+   "body": "The petals are waved and crinkled at the edge, held in clusters at the branch tips from May into July. The bark is smooth and peels away in flakes to show paler skin beneath — cool and slippery under the hand.",
+   "leaf": "Leaves large, elliptic to oblong-lanceolate, subopposite, entire.",
+   "flower": "Terminal panicles; flowers pale red to purple-red, six petals with crinkled margins.",
+   "note": "The fruit is a round capsule that hangs on the bare branches through winter, like a string of small bells.",
+   "tags": [
+    "Deciduous",
+    "Summer flowering",
+    "Peeling bark"
+   ]
+  },
+  "lagerstroemia-indica": {
+   "name": "Crape Myrtle",
+   "alias": "Tickle tree, hundred-day red",
+   "habit": "Deciduous shrub or small tree",
+   "origin": "South China and South-East Asia",
+   "color": "Pink-purple",
+   "where": "Parks, street planters, housing estates",
+   "lead": "Scratch the trunk lightly and the whole tree shivers, like someone who is ticklish.",
+   "body": "The bark peels every year, cleanly, to show smooth pale skin beneath, cool and slippery under the hand. Because the top is heavy and the roots shallow, a firm push sets the whole plant swaying, which is where the Chinese nickname comes from. The flowers crowd the branch tips, petals crumpled like paper, and last three months.",
+   "leaf": "Leaves alternate or subopposite, elliptic to obovate, entire, almost stalkless.",
+   "flower": "Terminal panicles; six crumpled, clawed petals in pink, purple or white.",
+   "note": "The petals narrow to a claw at the base and crinkle at the edge like rice paper that has been crumpled — the surest way to know it. In Zhuhai it runs from June to September, filling the gap left when the flamboyant takes its leave.",
+   "tags": [
+    "Deciduous",
+    "Summer flowering",
+    "Long season",
+    "Smooth bark"
+   ]
+  },
+  "bauhinia-blakeana": {
+   "name": "Hong Kong Orchid Tree",
+   "alias": "Camel's foot tree",
+   "habit": "Evergreen tree",
+   "origin": "A hybrid: Bauhinia purpurea × B. variegata",
+   "color": "Purple-red",
+   "where": "Lovers' Road, Jida, the main streets of Xiangzhou",
+   "lead": "All winter, Zhuhai holds its colour up with this one tree.",
+   "body": "From November the orchid trees flower, on into March. The leaf is cleft at the tip like a camel's foot, or a heart folded once. The flowers are large and open, purple-red, one of the five petals veined darker. It almost never sets fruit: it is the child of two species that met by accident.",
+   "leaf": "Leaves nearly circular, cleft a third of the way, like a hoof or a butterfly.",
+   "flower": "Flowers large, purple-red; petals obovate; five fertile stamens; sterile.",
+   "note": "Being sterile, it can only be propagated from cuttings. Every Hong Kong orchid tree in the world is probably descended from a single mother plant.",
+   "tags": [
+    "Evergreen",
+    "Winter flowering",
+    "Sterile hybrid"
+   ]
+  },
+  "bauhinia-variegata": {
+   "name": "Pink Orchid Tree",
+   "alias": "Mountain ebony, poor man's orchid",
+   "habit": "Semi-deciduous tree",
+   "origin": "South China and India",
+   "color": "Pale pink",
+   "where": "Streets and parks in Xiangzhou, Jida and Qianshan",
+   "lead": "The red orchid tree flowers in winter and this one in early spring, with the whole Spring Festival between them.",
+   "body": "The flowers are pale pink to almost white, five petals spread open, one carrying a deep purple-red vein. It often flowers before the leaves, so when the tree is fully pink the foliage has not yet come and the whole thing hangs in the air like a cloud. Afterwards come long flat pods, hanging in rows — the most decisive difference between it and its famous relative.",
+   "leaf": "Leaves nearly circular, cleft about a third of their length, hoof-shaped.",
+   "flower": "Racemes; petals pale pink, the upper one veined dark; five fertile stamens.",
+   "note": "Zhuhai people call both trees by the same name. To tell them apart, look for pods: the one that bears them is this species; the one that never does is the Hong Kong orchid tree, a natural hybrid and sterile. Whether a flower can set fruit is sometimes the entire distance between two species.",
+   "tags": [
+    "Semi-deciduous",
+    "Early-spring flowering",
+    "Hoof-shaped leaves"
+   ]
+  },
+  "plumeria-rubra": {
+   "name": "Frangipani",
+   "alias": "Plumeria, temple tree",
+   "habit": "Small deciduous tree",
+   "origin": "Mexico and Central America",
+   "color": "White petals, egg-yolk centre",
+   "where": "The big parks, hotel gardens, courtyards in Jida and Xiangzhou",
+   "lead": "Cream outside, egg-yolk within — one flower, exactly a sliced egg.",
+   "body": "Five petals overlap into a small clockwise pinwheel; the flowers fall whole, unshattered, and can be picked up and pressed in a book. The tree itself is a little awkward — thick branches, white sap at the cut, bare as antlers in winter — but when it flowers the awkwardness is forgiven. Cantonese dry the blooms for five-flower tea: from branch to cup the colour never changes.",
+   "leaf": "Leaves alternate, clustered at the branch tips, long-elliptic, midrib prominent; the tree is quite bare in winter.",
+   "flower": "Terminal cymes; corolla salverform with five lobes, white outside and yellow within, sweetly scented, falling whole.",
+   "note": "The latex is toxic throughout, and anyone with sensitive skin should wear gloves when pruning. Yet the flowers go into tea: the same plant keeps the poison in its branches and opens the sweetness in its flowers.",
+   "tags": [
+    "Deciduous",
+    "Summer flowering",
+    "Fragrant",
+    "Flowers for tea"
+   ]
+  },
+  "hibiscus-mutabilis": {
+   "name": "Cotton Rose",
+   "alias": "Confederate rose, changeable rose",
+   "habit": "Deciduous shrub or small tree",
+   "origin": "China",
+   "color": "White turning pink-red",
+   "where": "Park watersides, courtyards, older housing estates",
+   "lead": "White in the morning, pink by noon, deep red by evening — one flower lives a whole life in a day.",
+   "body": "The flowers are large and soft, the petals thin enough to pass light, double forms layered like crumpled silk. The colour change comes from anthocyanins accumulating with temperature and light, so it deepens towards evening. The leaves are large and palmately lobed with blunt teeth, and by autumn the plant looks a little untidy — but while it is in flower nobody minds.",
+   "leaf": "Leaves broadly ovate to round-ovate, palmately five- to seven-lobed, bluntly toothed, hairy on both surfaces.",
+   "flower": "Solitary in the axils or at the tips; corolla large, white to pink to deep red, changing three times a day.",
+   "note": "An old garden manual says it should be planted at the water's edge, where the flower can look at itself — one of the oldest images in Chinese gardening. Few are planted by water in Zhuhai, but every late autumn, if a courtyard has one, someone will stand outside the wall to look.",
+   "tags": [
+    "Deciduous",
+    "Autumn flowering",
+    "Colour changes daily"
+   ]
+  },
+  "talipariti-tiliaceum": {
+   "name": "Sea Hibiscus",
+   "alias": "Mahoe, beach hibiscus",
+   "habit": "Evergreen shrub or small tree",
+   "origin": "Coasts of the Old World tropics",
+   "color": "Yellow with a dark red centre",
+   "where": "The coastal green belt along Lovers' Road, Qi'ao Island, the beaches",
+   "lead": "Bright yellow at dawn, dark red as it falls at dusk — one flower runs the whole day in a single shift.",
+   "body": "A coastal plant, tolerant of salt, wind and burial in sand, which is why it grows so contentedly in Zhuhai's seaside belt. The flowers are solitary in the axils, five-petalled, yellow turning orange-red with a ring of deep red at the centre; the staminal column projects and splits at the tip. The leaves are heart-shaped, thick and tough, densely covered with stellate hairs beneath, like felt under the fingers.",
+   "leaf": "Leaves alternate, cordate, leathery, entire or slightly wavy, densely grey-white tomentose beneath.",
+   "flower": "Solitary axillary; corolla yellow with a dark red centre, turning orange-red by afternoon; each lasts a day.",
+   "note": "In the Pacific islands people used it for rope, nets and sails — the bark fibre is extremely tough. It has another, quieter skill: at the coast it takes the first wave of salt spray so that the trees behind it do not have to.",
+   "tags": [
+    "Evergreen",
+    "Coastal",
+    "Colour changes daily",
+    "Salt-tolerant"
+   ]
+  },
+  "tecoma-stans": {
+   "name": "Yellow Trumpetbush",
+   "alias": "Yellow elder, trumpet flower",
+   "habit": "Evergreen shrub or small tree",
+   "origin": "Tropical America, Mexico to Argentina",
+   "color": "Bright yellow",
+   "where": "Lovers' Road, neighbourhood green spaces, Hengqin",
+   "lead": "From October to February, straight through the winter — the yellow tree that refuses to knock off.",
+   "body": "The corolla is funnel-shaped with five lobes, a clean bright yellow, clustered at the branch tips. The leaves are odd-pinnate, the leaflets toothed, and there is a faint smell when they are rubbed. Its season is oddly long, from late autumn into early spring with barely a pause, so on Zhuhai's flowering calendar it occupies all five winter columns by itself.",
+   "leaf": "Odd-pinnate; three to seven leaflets, lanceolate, toothed at the margin.",
+   "flower": "Terminal racemes; corolla funnel-shaped, bright yellow, five-lobed, margins slightly wavy.",
+   "note": "A native of the Americas, it has become invasive in South Africa, Australia and the Pacific islands — too vigorous, its seeds winged, one wind and there is a thicket. In Zhuhai it behaves, because the occasional cold night prunes it on the city's behalf.",
+   "tags": [
+    "Evergreen",
+    "Winter-spring flowering",
+    "Very long season"
+   ]
+  },
+  "senna-alata": {
+   "name": "Candlestick Senna",
+   "alias": "Ringworm bush, candle bush",
+   "habit": "Shrub or small tree",
+   "origin": "Tropical America",
+   "color": "Bright yellow",
+   "where": "Park entrances, roadside green belts, courtyards",
+   "lead": "The inflorescence stands upright, the yellow flowers ranked up the axis like a lit candle.",
+   "body": "The raceme carries dozens of yellow flowers packed along an upright axis, opening from the bottom upwards, so a single candle stays lit for more than a month. The leaves are pinnate, the leaflets large and broad, folding at night. The pod is the interesting part: four-angled, each angle bearing a thin wing, which is where the name comes from.",
+   "leaf": "Paripinnate; five to eight pairs of broadly oblong leaflets, rounded at the tip.",
+   "flower": "Terminal or axillary racemes; corolla yellow, five-petalled, densely ranked like a candle.",
+   "note": "In South-East Asia the leaves are used as a remedy for skin complaints, which is why it is called ringworm bush in English. A plant that flowers this loudly is quietly doing a pharmacist's work.",
+   "tags": [
+    "Evergreen",
+    "Autumn-winter flowering",
+    "Winged pods"
+   ]
+  },
+  "ficus-microcarpa-golden": {
+   "name": "Golden Banyan",
+   "alias": "Golden-leaved fig",
+   "habit": "Evergreen shrub",
+   "origin": "A garden cultivar",
+   "color": "Flowers hidden in the fig",
+   "where": "Central reservations across the city, estate walls",
+   "lead": "Clipped into a box, it is still a banyan — only dressed in gold.",
+   "body": "A garden form of the Chinese banyan: new leaves come out golden and turn green with age, so a trimmed hedge always carries a yellow-green edge. It is planted in quantity along central reservations and boundaries, and when the cut is clean it reads as a gold ribbon; rain makes the colour brighter still.",
+   "leaf": "Leaves elliptic; new growth golden, old leaves deep green; entire, glossy.",
+   "flower": "Syconia spherical, axillary, of little ornamental value.",
+   "note": "The more sun, the more gold. Planted in shade, a golden banyan will quietly revert to ordinary green.",
+   "tags": [
+    "Evergreen",
+    "Coloured foliage",
+    "Hedge"
+   ]
+  },
+  "loropetalum-chinense-rubrum": {
+   "name": "Chinese Fringe Flower",
+   "alias": "Red loropetalum",
+   "habit": "Evergreen shrub",
+   "origin": "Hunan and Jiangxi, China (selected form)",
+   "color": "Rose red",
+   "where": "Park hedges, central reservations, gardens",
+   "lead": "Purple-red leaves against rose-red ribbons of petal — it works one colour scheme to its limit.",
+   "body": "The petals are long and narrow as slips of paper, four to a cluster, opening among purple-red leaves so that from a distance the bush looks scattered with confetti. It takes clipping well and is usually cut into balls or low hedges; it is the most used red hedge plant in southern cities.",
+   "leaf": "Leaves ovate, purple-red to dark red, alternate, entire, shortly hairy above.",
+   "flower": "Flowers in clusters of three to eight; four linear rose-red petals, 1–2 cm long.",
+   "note": "In prolonged shade the leaves turn green and flowering drops off. It is one of the few shrubs that grows redder the harder the sun beats on it.",
+   "tags": [
+    "Evergreen",
+    "Coloured foliage",
+    "Spring flowering"
+   ]
+  },
+  "carmona-retusa": {
+   "name": "Fukien Tea",
+   "alias": "Philippine tea, scorpion bush",
+   "habit": "Evergreen shrub",
+   "origin": "South China and Taiwan to South-East Asia",
+   "color": "White",
+   "where": "Walls of older estates, park hedges, bonsai collections",
+   "lead": "Small dense leaves, tiny white flowers, scattered red fruit — the best-looking hedge in the city.",
+   "body": "The leaf surface is rough with short white bristles, like fine sandpaper under the fingers. It does not object to being cut into any shape and only thickens with clipping. Small white flowers come in summer, followed by orange-red berries hidden among the leaves like a tree hung with little beads.",
+   "leaf": "Leaves obovate, usually with three to five coarse teeth at the tip, rough and bristly above.",
+   "flower": "Flowers small, white, axillary; corolla bell-shaped, scented.",
+   "note": "It is also a standard subject of Lingnan bonsai — tolerant of pruning and easy to shape, a single plant can be kept for decades.",
+   "tags": [
+    "Evergreen",
+    "Hedge",
+    "Fruit interest"
+   ]
+  },
+  "murraya-paniculata": {
+   "name": "Orange Jasmine",
+   "alias": "Mock orange, China box",
+   "habit": "Evergreen shrub or small tree",
+   "origin": "South China and South-East Asia",
+   "color": "White",
+   "where": "Estate gates, park paths, old courtyards",
+   "lead": "Walking past at night you catch the scent first, and only then remember there is a hedge here.",
+   "body": "The flowers are white, five-petalled and very small, and startlingly fragrant. They open towards evening, when the scent travels furthest through the damp air. All summer it flowers in waves, and red berries follow.",
+   "leaf": "Odd-pinnate; three to nine leaflets, alternate, obovate, deep green and glossy.",
+   "flower": "Cymes terminal or axillary; flowers white, intensely fragrant, five petals, reflexed.",
+   "note": "Much of the scent comes from indole compounds, which smell unpleasant when concentrated and only become the familiar sweetness once diluted.",
+   "tags": [
+    "Evergreen",
+    "Fragrant",
+    "Hedge"
+   ]
+  },
+  "aglaia-odorata": {
+   "name": "Chinese Perfume Plant",
+   "alias": "Mock lime, orchid tree",
+   "habit": "Evergreen shrub or small tree",
+   "origin": "South China and South-East Asia",
+   "color": "Golden yellow",
+   "where": "Estate hedges, doorways of old houses, institutional beds",
+   "lead": "The flowers are the size of grains of rice and the scent is the size of a whole garden.",
+   "body": "Each flower is two or three millimetres across, golden, round as millet, packed onto panicles from May to the end of the year. Close up it is a clean honey sweetness, like a jar of osmanthus sugar just opened. The leaves are pinnate with three to five leathery, glossy leaflets, and the plant clips into something opaque, which is why Cantonese shape it into hedges and large spheres.",
+   "leaf": "Pinnate; three to five leaflets, obovate, leathery and glossy, entire.",
+   "flower": "Panicles axillary or terminal; flowers minute, golden as millet, sweetly scented.",
+   "note": "The flowers can be used to scent tea — Fujian jasmine tea occasionally takes a little of this to add the deeper layer. A shrub that turns up both in a flower bed and in a teacup is a coincidence peculiar to the south.",
+   "tags": [
+    "Evergreen",
+    "Year-round flowering",
+    "Fragrant",
+    "Hedge"
+   ]
+  },
+  "zanthoxylum-beecheyanum": {
+   "name": "Pepperwood",
+   "alias": "Beechey's prickly ash",
+   "habit": "Evergreen shrub",
+   "origin": "The Ogasawara Islands, Japan",
+   "color": "Yellow-green",
+   "where": "Low hedges, tree-pit edging, pots",
+   "lead": "Crush a leaf and the smell of pepper stays on your hand — it is a distant cousin of the pepper on the table.",
+   "body": "The leaves are small, dense, pinnate, the leaflets opposite and polished as if waxed. A member of the citrus family, it carries translucent oil glands that release a sharp spice when bruised. Slow-growing, tolerant of clipping, green all year, it is used in bulk for low hedges and the edging of tree pits — the least conspicuous and most labour-intensive layer of the city's planting.",
+   "leaf": "Odd-pinnate; five to thirteen obovate leaflets, leathery and glossy, with translucent oil dots.",
+   "flower": "Cymes axillary; flowers small, yellow-green, inconspicuous.",
+   "note": "It is dioecious and only the female plants bear small red fruit. Most planted stock is clonal, so a whole row of hedge may be two hundred divisions of one plant.",
+   "tags": [
+    "Evergreen",
+    "Aromatic",
+    "Low hedge"
+   ]
+  },
+  "buxus-sinica": {
+   "name": "Chinese Box",
+   "alias": "Boxwood",
+   "habit": "Evergreen shrub or small tree",
+   "origin": "China",
+   "color": "Yellow-green",
+   "where": "Formed hedges, institution frontages, old gardens",
+   "lead": "It grows so slowly that a year's growth can be measured with a fingernail.",
+   "body": "The leaves are small, opposite, obovate, slightly notched at the tip, leathery and shining; the branches are dense and the internodes short, so one clip produces a crisp geometric outline. The flowers are minute, clustered in the axils, greenish, without petals, and almost nobody notices them. Chinese gardens have used it for bonsai and formed hedges for a thousand years — the old name, thousand-year dwarf, refers both to its slowness and to how well it endures time.",
+   "leaf": "Leaves opposite, obovate to elliptic, rounded and slightly notched at the tip, leathery, entire.",
+   "flower": "Flowers clustered in the axils, small, greenish, apetalous, monoecious.",
+   "note": "The wood is fine-grained and was once carved into seals and combs. A box three hundred years old may still be shorter than a person: all its strength has gone into density.",
+   "tags": [
+    "Evergreen",
+    "Spring flowering",
+    "Takes clipping",
+    "Slow-growing"
+   ]
+  },
+  "fagraea-ceilanica": {
+   "name": "Perfume Tree",
+   "alias": "Ceylon fagraea",
+   "habit": "Evergreen shrub or small tree",
+   "origin": "South China to South-East Asia",
+   "color": "Creamy white",
+   "where": "Park hedges, office frontages, estate gates",
+   "lead": "The flower looks made of wax — that hard, smooth feel under the finger — and the scent is steady.",
+   "body": "The leaves are thick and shining, opposite, obovate, with margins rolled slightly back, so the whole plant looks glazed. The corolla is funnel-shaped and fleshy, creamy white turning faintly yellow, richly scented without being sharp, strongest at dusk. The trade calls it African jasmine; it is in fact a logania, no relation to jasmine at all — the name was marketing's, the family was botany's.",
+   "leaf": "Leaves opposite, obovate to oblong, thickly leathery, margins revolute, glossy above.",
+   "flower": "Cymes terminal; corolla funnel-shaped, fleshy, creamy to pale yellow, fragrant.",
+   "note": "Shade-tolerant, clip-tolerant, evergreen all year, it has become standard kit for office entrances. Whole rows are cut into neat walls and seldom flower — flowering wants a little neglect, and the city does not often allow it.",
+   "tags": [
+    "Evergreen",
+    "Spring-summer flowering",
+    "Fragrant",
+    "Shade-tolerant"
+   ]
+  },
+  "schefflera-arboricola": {
+   "name": "Dwarf Umbrella Tree",
+   "alias": "Hawaiian elf schefflera",
+   "habit": "Evergreen scrambling shrub",
+   "origin": "South China and Taiwan",
+   "color": "Pale green",
+   "where": "Ground cover under trees, walls, pots",
+   "lead": "Seven leaflets spread from a single centre, like a hand laid flat.",
+   "body": "The leaves are palmate, seven to nine leaflets arranged as an umbrella, which gives the plant its other name. The stems are supple and will climb a wall or a trunk, or trail along the ground as cover; it tolerates shade and does well even under the dense canopy of banyans and camphors. The flowers are small and pale green in umbels, followed by strings of orange-red berries.",
+   "leaf": "Palmate; seven to nine leaflets, obovate-oblong, leathery and glossy, entire.",
+   "flower": "Umbels gathered into panicles; flowers small, pale green, followed by orange-red berries.",
+   "note": "It is a close relative of the tall money tree sold in flower markets. One is kept indoors as a mascot, the other lies against a park wall as a hedge — two fates within one genus.",
+   "tags": [
+    "Evergreen",
+    "Shade-tolerant",
+    "Palmate",
+    "Ground cover and hedge"
+   ]
+  },
+  "codiaeum-variegatum": {
+   "name": "Croton",
+   "alias": "Variegated laurel, garden croton",
+   "habit": "Evergreen shrub",
+   "origin": "South-East Asia to the Pacific islands",
+   "color": "White (flowers minute)",
+   "where": "Gardens, hotel landscaping, park entrances",
+   "lead": "The leaf comes in a dozen shapes — broad, narrow, curled, deeply cut — as though one plant had changed its face many times.",
+   "body": "The leaves are the astonishment: within one genus they run from broad ovate to linear, from entire to deeply lobed, from green speckled with yellow to whole leaves of wine red. There are hundreds of garden forms. The flowers are small, white or yellow-green, in racemes, and genuinely not worth looking at — all the performance is in the foliage.",
+   "leaf": "Leaves alternate, variable in shape — broadly ovate, linear or fiddle-shaped — often twisted or lobed, inconstant in colour.",
+   "flower": "Racemes axillary; flowers small, white or yellow-green, monoecious.",
+   "note": "The sap is toxic and in the eye it is painful. Native to the coasts of the Moluccas, it was carried to European glasshouses and bred into several hundred forms in two centuries — the human wish for a louder leaf is written all over it.",
+   "tags": [
+    "Evergreen",
+    "Coloured foliage",
+    "Toxic sap"
+   ]
+  },
+  "ixora-chinensis": {
+   "name": "Chinese Ixora",
+   "alias": "Jungle geranium, flame of the woods",
+   "habit": "Evergreen shrub",
+   "origin": "South China to Malaysia",
+   "color": "Orange-red",
+   "where": "Park borders, roadside beds, estate entrances",
+   "lead": "Small clusters of orange-red, threading the whole summer together.",
+   "body": "The inflorescence is a cyme, dozens of small flowers pressed into a half-sphere, the colour running from orange to red at full saturation. It flowers from May to October, a season so long it seems unreasonable, which is why the south calls it hundred-day red.",
+   "leaf": "Leaves opposite, elliptic-lanceolate, leathery, acuminate; stipules united at the base.",
+   "flower": "Cymes terminal; corolla salverform, orange-red to deep red, four lobes.",
+   "note": "It flowers hardest around the Dragon Boat Festival, when the old boat races were held, and the name comes from that coincidence.",
+   "tags": [
+    "Evergreen",
+    "Long season",
+    "Border planting"
+   ]
+  },
+  "bougainvillea-spectabilis": {
+   "name": "Bougainvillea",
+   "alias": "Paper flower, lesser bougainvillea",
+   "habit": "Climbing shrub",
+   "origin": "South America: Brazil",
+   "color": "Purple-red",
+   "where": "Footbridges, walls and balconies across the city — the city flower of Zhuhai",
+   "lead": "You take those for petals; in fact three leaves have blushed on its behalf.",
+   "body": "Its most famous misunderstanding is the bright 'petals', which are bracts; the true flowers are the three inconspicuous white tubes at the centre. It tolerates drought and poor soil and grows more vigorous the harder it is cut, so on Zhuhai's footbridges and courtyard walls its colour is in view almost all year.",
+   "leaf": "Leaves ovate, alternate, green; bracts leaf-like, purple-red, orange-yellow or white.",
+   "flower": "Flowers small, terminal, in threes, each with a leaf-like bract; the bracts are the show.",
+   "note": "Zhuhai made it the city flower. It carries thorns, hence the first character of its Cantonese name — lek, a thorn.",
+   "tags": [
+    "Evergreen",
+    "Climbing",
+    "City flower",
+    "Grown for bracts"
+   ]
+  },
+  "hibiscus-rosa-sinensis": {
+   "name": "Chinese Hibiscus",
+   "alias": "Rose of China, shoeblack plant",
+   "habit": "Evergreen shrub",
+   "origin": "Southern China; origin of cultivation unknown",
+   "color": "Vermilion",
+   "where": "Estate beds, roadside hedges, institutional grounds",
+   "lead": "It is the kind of flower that has been looked at for thousands of years and still has not been looked at enough.",
+   "body": "The flowers are solitary in the axils, five petals spread almost flat, with the stamens fused into a central column topped by a dense cluster of anthers, like a brush dipped in gold dust. A single flower lasts one day, opening at dawn and falling at dusk, but the plant carries flowers almost all year, which is why Cantonese call it the big red flower: it is admired for not resting. There are many forms — double, frilled, orange, yellow, white — a single species cut into dozens of shapes.",
+   "leaf": "Leaves alternate, ovate to broadly ovate, acuminate, coarsely toothed, glossy.",
+   "flower": "Solitary in the upper axils; corolla funnel-shaped; staminal column long and projecting; style five-branched.",
+   "note": "It is the national flower of Malaysia and the state flower of Hawaii — yet its epithet, rosa-sinensis, means simply 'rose of China'. One name preserves the road it took out of the south.",
+   "tags": [
+    "Evergreen",
+    "Year-round flowering",
+    "One-day flowers"
+   ]
+  },
+  "nerium-oleander": {
+   "name": "Oleander",
+   "alias": "Rose bay",
+   "habit": "Evergreen shrub",
+   "origin": "The Mediterranean to India",
+   "color": "Pink",
+   "where": "Motorway slip roads, central reservations, the coastal belt",
+   "lead": "The heavier the traffic, the more seriously it flowers.",
+   "body": "Leaves like bamboo and flowers like peach, which is what its Chinese name says. It tolerates drought, salt, exhaust, wind and clipping — an almost perfect road plant, at the price of containing cardiac glycosides in every part, from leaf to root, from fresh flower to dead twig. Guangdong plants it in quantity along expressways and the coastal belt precisely because it is too bitter for any animal to browse: a plant that survives by being poisonous has been posted where nothing else survives at all.",
+   "leaf": "Leaves in whorls of three or four, narrowly lanceolate, leathery, midrib prominent, entire.",
+   "flower": "Cymes terminal; corolla funnel-shaped with five lobes, often double, in red, pink or white.",
+   "note": "A single leaf can poison a small child, and the smoke of burning prunings is toxic too. Yet it does hold back the dust and noise along the expressway — a kindness with conditions, and the conditions are worth knowing first.",
+   "tags": [
+    "Evergreen",
+    "Summer flowering",
+    "All parts toxic"
+   ]
+  },
+  "allamanda-cathartica": {
+   "name": "Golden Trumpet",
+   "alias": "Yellow allamanda, buttercup flower",
+   "habit": "Evergreen scrambling shrub",
+   "origin": "Brazil",
+   "color": "Bright yellow",
+   "where": "Park pergolas, garden walls, hotels",
+   "lead": "The flower is a trumpet with an opening almost indecently wide and a yellow close to glare.",
+   "body": "The stems are soft and cannot stand alone, so it must climb a wall or a frame — hence soft-branch allamanda. The corolla is funnel-shaped with five rounded, reflexed lobes, a little deeper in the throat; the bud resembles a chrysalis about to split, which is where the Chinese name comes from. It flowers from May to October, and one plant can carry several hundred blooms.",
+   "leaf": "Leaves whorled or opposite, obovate to oblong, leathery, lateral veins clear.",
+   "flower": "Cymes terminal; corolla funnel-shaped, bright yellow, five-lobed, throat orange-yellow.",
+   "note": "The whole plant is toxic, the latex especially, and pruning irritates the skin. Its epithet, cathartica, means purgative — when the botanist named it, what he wrote down was a warning.",
+   "tags": [
+    "Evergreen",
+    "Summer flowering",
+    "Climbing shrub",
+    "All parts toxic"
+   ]
+  },
+  "calliandra-haematocephala": {
+   "name": "Red Powder-puff",
+   "alias": "Pink powder-puff, stickpea",
+   "habit": "Evergreen shrub or small tree",
+   "origin": "Bolivia and Brazil",
+   "color": "Deep red",
+   "where": "Park borders, roadside beds, gardens",
+   "lead": "That is not a flower but several hundred stamens gathered into a ball — and it really is soft to touch.",
+   "body": "The 'petals' are stamens: each filament long and tipped with a touch of yellow, hundreds of them drawn into a sphere that hangs from the branch like a ball of wool. The true petals are minute and hidden at the base. The leaves are bipinnate and fold and droop at night, as though asleep.",
+   "leaf": "Bipinnate; one pair of pinnae, five to ten pairs of oblong-lanceolate leaflets, closing at night.",
+   "flower": "Capitate heads, spherical, made of many red stamens, with minute petals at the base.",
+   "note": "Its English name is powder-puff, and it looks it. In Zhuhai it flowers sparsely almost all year with a peak in summer and autumn; a single bloom lasts two or three days but new ones follow, so the bush always looks newly made up.",
+   "tags": [
+    "Evergreen",
+    "Summer-autumn flowering",
+    "Staminal balls",
+    "Leaves close at night"
+   ]
+  },
+  "hamelia-patens": {
+   "name": "Firebush",
+   "alias": "Scarlet bush, hummingbird bush",
+   "habit": "Evergreen shrub",
+   "origin": "Tropical America, Florida to Argentina",
+   "color": "Orange-red",
+   "where": "Borders, park junctions, housing estates",
+   "lead": "The flowers are long thin tubes of orange-red, reaching out in every direction like a bundle of straws nobody tied.",
+   "body": "The corolla is a narrow tube opening only at the very end into five lobes, so only long-tongued butterflies and hummingbirds can reach the nectar — and in its homeland the hummingbird is the chief pollinator. The leaves are in whorls of three and often tinged red-purple, especially new growth and autumn foliage. Small berries follow, red turning black.",
+   "leaf": "Leaves in whorls of three, elliptic-lanceolate, entire, often red-purple tinged.",
+   "flower": "Cymes terminal; corolla a slender orange-red tube, five-lobed at the mouth.",
+   "note": "There are no hummingbirds in Zhuhai — none anywhere in Asia — so here the firebush makes do with sunbirds and bees. A flower designed for a hummingbird can still get by in a foreign country.",
+   "tags": [
+    "Evergreen",
+    "Summer-autumn flowering",
+    "Tubular flowers",
+    "Bird-attracting"
+   ]
+  },
+  "duranta-erecta": {
+   "name": "Golden Dewdrop",
+   "alias": "Pigeon berry, skyflower",
+   "habit": "Evergreen shrub",
+   "origin": "Tropical America, Mexico to Brazil",
+   "color": "Blue-violet",
+   "where": "Roadside colour blocks, park hedges, estate walls",
+   "lead": "The flowers are a blue-violet the city rarely shows, the fruit an orange-yellow it rarely shows either — one plant holding two unrelated colours at once.",
+   "body": "The corolla has five lobes with a pale frilled margin, and close up it looks like a piece of lace. Clusters of small orange-yellow fruit follow, hanging on into winter. The forms most planted are the golden and the variegated, their leaves bright yellow or edged white, set out in sheets at road corners as though the planting were a mosaic.",
+   "leaf": "Leaves opposite, ovate-elliptic, entire or toothed in the upper half; the golden form is yellow throughout.",
+   "flower": "Racemes terminal or axillary; corolla blue-violet, five-lobed, margins wavy.",
+   "note": "The fruit is poisonous and will give a child a stomach ache. It is planted in great quantity in Zhuhai's road corners and clipped very neat — few notice that the cut branches would have carried those orange berries.",
+   "tags": [
+    "Evergreen",
+    "Summer-autumn flowering",
+    "Colour-block planting",
+    "Fruit toxic"
+   ]
+  },
+  "osmanthus-fragrans": {
+   "name": "Osmanthus",
+   "alias": "Sweet olive, tea olive",
+   "habit": "Evergreen small tree",
+   "origin": "South-west China",
+   "color": "Pale yellow",
+   "where": "Old courtyards, parks, school grounds",
+   "lead": "On an October night the scent arrives first, and only then do you know you have walked under the tree.",
+   "body": "The flowers are the size of grains of rice, clustered in the axils, orange-yellow or pale yellow, almost invisible — all their strength has gone into scent. That scent comes from linalool and ionone in the petals, detectable at very low concentration, which is why it is said to carry for miles. The leaves are opposite, leathery and finely toothed, and smell faintly when crushed.",
+   "leaf": "Leaves opposite, elliptic to lanceolate, leathery, finely serrate in the upper half.",
+   "flower": "Flowers clustered in the axils, minute, pale to orange-yellow, four-lobed, intensely fragrant.",
+   "note": "Zhuhai is too warm and the osmanthus often flowers reluctantly: it waits for a cold front to press down before it will release the scent. So in a local autumn this is a plant that must be waited for — and some years it does not come.",
+   "tags": [
+    "Evergreen",
+    "Autumn flowering",
+    "Intensely fragrant",
+    "Used for preserves"
+   ]
+  },
+  "gardenia-jasminoides": {
+   "name": "Cape Jasmine",
+   "alias": "Gardenia",
+   "habit": "Evergreen shrub",
+   "origin": "China",
+   "color": "Pure white",
+   "where": "Estate beds, courtyards, parks",
+   "lead": "White as something just washed, fragrant as someone saying a sentence too close to your ear.",
+   "body": "The flower opens pure white, turns pale yellow on the second day and a scorched buff on the third — the season is short but the colour changes daily. The petals are thick, and double forms layer like a magnolia pinched out of silk. The ripe fruit is orange-red, a traditional dye and the 'zhizi' of Chinese medicine.",
+   "leaf": "Leaves opposite or in whorls of three, elliptic to obovate, leathery, shining above.",
+   "flower": "Solitary at the branch tips, white turning pale yellow, double or single, richly scented.",
+   "note": "Gardenias want acid soil, and Zhuhai's red earth suits them; planted in the alkaline fill behind the reclamation they yellow at once. How well a gardenia grows will often tell you whether the ground here was once hill or once sea.",
+   "tags": [
+    "Evergreen",
+    "Summer flowering",
+    "Intensely fragrant",
+    "Fruit used as dye"
+   ]
+  },
+  "sphagneticola-trilobata": {
+   "name": "Singapore Daisy",
+   "alias": "Bay Biscayne creeping oxeye, tridax daisy",
+   "habit": "Perennial creeping herb",
+   "origin": "Central and South America",
+   "color": "Golden yellow",
+   "where": "Roadside embankments, park ground cover, green-belt edges",
+   "lead": "One small yellow flower, running along the kerb until it becomes a golden edge.",
+   "body": "The stems creep and root at every node, so a single plant can cover several square metres. The leaves are three-lobed and rough with hairs, giving off a faint sharp smell when trodden. The flower is a textbook daisy head, yellow, from spring to autumn and barely pausing.",
+   "leaf": "Leaves opposite, ovate, three-lobed at the margin, roughly hairy on both surfaces.",
+   "flower": "Heads solitary; ray florets yellow, the tip two- or three-toothed.",
+   "note": "It grows so fast that it is both an excellent ground cover and a listed invasive — it is simply too good at taking up room.",
+   "tags": [
+    "Ground cover",
+    "Long season",
+    "Fast-growing"
+   ]
+  },
+  "arachis-duranensis": {
+   "name": "Perennial Peanut",
+   "alias": "Pinto peanut",
+   "habit": "Perennial herb",
+   "origin": "South America: Argentina and Bolivia",
+   "color": "Golden yellow",
+   "where": "Lawn edges in parks, tree pits, roadside beds",
+   "lead": "It stitches the bare yellow earth together and scatters a layer of small yellow flowers while it is at it.",
+   "body": "It grows flat to the ground, its stems fine and tough; the leaves are a classic paripinnate, four leaflets set as a pair of butterflies. The flowers are yellow, solitary in the axils, and last a single day. Tolerant of trampling and drought, rooting nitrogen into the soil, it is one of the most used ground covers in the south.",
+   "leaf": "Paripinnate; four obovate leaflets in two opposite pairs.",
+   "flower": "Solitary axillary; papilionaceous corolla, golden yellow, opening at dawn and falling at dusk.",
+   "note": "A close relative of the peanut, it too pushes its ovary into the soil to ripen — only the result is tiny and not worth eating.",
+   "tags": [
+    "Ground cover",
+    "Nitrogen-fixing",
+    "Trample-tolerant"
+   ]
+  },
+  "lantana-montevidensis": {
+   "name": "Trailing Lantana",
+   "alias": "Weeping lantana, purple lantana",
+   "habit": "Evergreen prostrate shrub",
+   "origin": "South America: Brazil, Uruguay and Argentina",
+   "color": "Pale lilac",
+   "where": "Roadside embankments, slopes, park floors",
+   "lead": "It does not stand up like a shrub; it lies down and keeps going.",
+   "body": "The stems run along the ground and root at the nodes, and a single plant can spread two or three metres. The flowers are packed into heads, pale lilac with a yellow eye; because the florets open from the outside inward, one head often shows purple, pink and yellow at once. The leaves are opposite, rough, and strongly scented when crushed.",
+   "leaf": "Leaves opposite, ovate, toothed, rough above, with a distinctive smell when rubbed.",
+   "flower": "Heads axillary; corolla pale lilac with a yellow centre, the florets of one head in different colours.",
+   "note": "The lantanas are notorious invaders throughout the tropics; this one is planted on embankments without worry because it is sterile and sets no seed. It spreads fast but goes nowhere. Cities like that kind of wildness, the kind under control.",
+   "tags": [
+    "Evergreen",
+    "Year-round flowering",
+    "Prostrate cover",
+    "Slope protection"
+   ]
+  },
+  "zephyranthes-grandiflora": {
+   "name": "Pink Rain Lily",
+   "alias": "Rosepink zephyr lily, cuban lily",
+   "habit": "Perennial bulbous herb",
+   "origin": "Central and South America",
+   "color": "Pink",
+   "where": "Park borders, lawn edges, under trees",
+   "lead": "The day after heavy rain it is in flower — as though it had been waiting in the soil all along.",
+   "body": "The leaves are narrow and flat, like chives, and otherwise unremarkable. Then a summer storm passes, and the scapes rise in unison, six pink tepals opening at once with no warning at all. The display lasts three or four days, and then it goes back to waiting for the next rain.",
+   "leaf": "Leaves linear, flat, fleshy, chive-like, tufted.",
+   "flower": "Solitary on the scape; tepals six, pink, funnel-shaped.",
+   "note": "It is sensitive to changes in air pressure and tends to flower around thunderstorms, which is where the Chinese name, wind-and-rain flower, comes from.",
+   "tags": [
+    "Bulbous",
+    "Flowers after rain",
+    "Pink flowers"
+   ]
+  },
+  "zephyranthes-candida": {
+   "name": "White Rain Lily",
+   "alias": "Autumn zephyr lily, white windflower",
+   "habit": "Perennial herb",
+   "origin": "South America: Argentina and Uruguay",
+   "color": "Pure white",
+   "where": "Central reservations, park edges, school beds",
+   "lead": "The pink rain lily is pink and this one is white; after a storm the two colours come up out of the grass together.",
+   "body": "The leaves are linear and fleshy, standing in tufts, and really do look like spring onions. Each scape carries one flower, six tepals spread into a shallow bowl, pure white with a touch of green at the heart and stamens tipped with gold anthers. It opens in crowds after rain, appearing all at once, and the season is brief — three or four days and it is over, like a gathering the rain called on the spur of the moment.",
+   "leaf": "Leaves linear, fleshy, deep green, tufted, evergreen.",
+   "flower": "One per scape; white tepals six, stamens six, anthers golden.",
+   "note": "It is congeneric with the pink species and shares its habits almost exactly; the differences are colour and stamen count, six here and usually five there. The city mixes them, so at the end of every summer the verges come out pink and white together.",
+   "tags": [
+    "Evergreen",
+    "Flowers after rain",
+    "Bulbous"
+   ]
+  },
+  "hymenocallis-littoralis": {
+   "name": "Spider Lily",
+   "alias": "Beach spider lily, basket lily",
+   "habit": "Perennial herb",
+   "origin": "Tropical America",
+   "color": "White",
+   "where": "Seaside Park, the Lovers' Road green belt, hotel planting",
+   "lead": "The white perianth is torn into fine threads, holding a small cup at the centre.",
+   "body": "The flower is unusual: six long narrow tepals spread outward around a membranous corona joined into a cup, with the stamens reaching far beyond. The whole thing looks like a white spider resting on the stem. It tolerates salt and wet feet, and does well by the sea.",
+   "leaf": "Leaves basal, strap-shaped, sword-like, thick and fleshy, deep green.",
+   "flower": "Umbels; flowers white, tepals linear, with a cup-shaped corona, fragrant.",
+   "note": "The scent is strongest at night, an invitation addressed to moths.",
+   "tags": [
+    "Bulbous",
+    "White flowers",
+    "Salt-tolerant"
+   ]
+  },
+  "crinum-asiaticum": {
+   "name": "Poison Bulb",
+   "alias": "Giant crinum lily, spider lily",
+   "habit": "Perennial herb",
+   "origin": "South China to tropical Asia",
+   "color": "White with a purplish-red stripe",
+   "where": "Under trees, park edges, courtyards",
+   "lead": "Twenty white flowers open into an umbrella, the filaments tilted up — a crown put on slightly askew.",
+   "body": "The leaves rise in a tuft from the base, strap-shaped, thick and soft, arching outward. The scape lifts out of the clump and ends in an umbel where fifteen or twenty white flowers open together, each tepal narrow with a pale purplish-red stripe down the middle and the stamens reaching well beyond. Its scent is strongest at night and faint by day.",
+   "leaf": "Leaves basal, strap-lanceolate, fleshy, wavy at the margin, deep glossy green.",
+   "flower": "Umbels terminal; flowers white, tepals narrow with a purplish-red stripe, fragrant.",
+   "note": "The whole plant is toxic, the bulb most of all. It is often planted at temples and in old gardens in the south — the name comes from Buddhist scripture, and suits the quiet white it holds under the trees.",
+   "tags": [
+    "Evergreen",
+    "Summer flowering",
+    "Fragrant",
+    "All parts toxic"
+   ]
+  },
+  "catharanthus-roseus": {
+   "name": "Madagascar Periwinkle",
+   "alias": "Rose periwinkle, old maid",
+   "habit": "Subshrub",
+   "origin": "Madagascar",
+   "color": "Purple-red",
+   "where": "Bed edges, neighbourhood planting, the coastal walk",
+   "lead": "It flowers all year, which is exactly why you never stop for it.",
+   "body": "Five petals lie almost flat, with a small dark eye at the centre, as though someone had let a drop of ink fall into the flower. It runs from spring to winter, one bloom replacing the next, changing shifts all year without ever resting as a whole plant. Every part contains alkaloids and it is the source of vinblastine and vincristine — a herb standing quietly in a flower bed that is priced by the gram in a factory.",
+   "leaf": "Leaves opposite, obovate-oblong, midrib white, entire, smooth on both surfaces.",
+   "flower": "Solitary or paired in the axils; corolla salverform with five lobes, purple-red, pink or white, eye darker.",
+   "note": "It appears both on lists of poisonous plants and in the Chinese pharmacopoeia. Two identities in one herb, separated by nothing but the dose.",
+   "tags": [
+    "Evergreen",
+    "Year-round flowering",
+    "Medicinal and toxic"
+   ]
+  },
+  "canna-indica": {
+   "name": "Indian Shot",
+   "alias": "Canna lily, arrowroot",
+   "habit": "Perennial herb",
+   "origin": "Tropical America and India",
+   "color": "Red and yellow",
+   "where": "Park watersides, lakeshores, wetlands",
+   "lead": "Leaves like a banana's, flowers far less restrained — red mixed with yellow, yellow blotched with red.",
+   "body": "The leaves are broad, sheathing the stem, opening one above another like a pocket banana. The flower is large and irregular: three sepals, three petals, and the show is made by several petaloid stamens running from orange-red to golden, often spotted. The rhizome creeps, and a clump becomes a stand quickly. In Zhuhai it flowers almost all year.",
+   "leaf": "Leaves alternate, ovate-lanceolate, large, with pinnate-parallel venation, sheathing at the base.",
+   "flower": "Racemes terminal; flowers large, asymmetrical, petaloid stamens vivid in red, orange or yellow, often spotted.",
+   "note": "The rhizome is rich in starch and was once processed for noodles; in the wetland parks of the south it is also good at taking nitrogen and phosphorus out of the water. A bed of canna is a small sewage works.",
+   "tags": [
+    "Evergreen",
+    "Year-round flowering",
+    "Wetland plant",
+    "Water-purifying"
+   ]
+  },
+  "nelumbo-nucifera": {
+   "name": "Sacred Lotus",
+   "alias": "Lotus, Indian lotus",
+   "habit": "Aquatic herb",
+   "origin": "Tropical and temperate Asia",
+   "color": "Pink",
+   "where": "Seaside Park, Bailian Cave Park, the water features of the parks",
+   "lead": "It opens in the morning and closes after noon; the second day it opens once more, and then not again.",
+   "body": "The flower opens in the morning, closes in the afternoon, and repeats for two or three days before the petals fall one by one and leave the seed head standing. There are two kinds of leaf: floating and emergent, the latter on a hollow, prickly stalk, its surface covered in a waxy microstructure that makes water roll into beads — the lotus effect. The rhizome is the lotus root, buried in the mud.",
+   "leaf": "Leaves peltate, of two kinds: floating leaves flat on the water, emergent leaves held above it, waxy above.",
+   "flower": "Flowers solitary, large, pink or white, many-petalled, opening in the morning and closing at noon; the receptacle swells into the seed head.",
+   "note": "Zhuhai has plenty of ponds with lotus, but the ones that flower well are the old ponds where the water is not too deep and the mud is rich. Lotus is not afraid of dirt; it is afraid of water too clean — clean to the point of having no nutrients, and you are left with nothing but leaves.",
+   "tags": [
+    "Aquatic",
+    "Summer flowering",
+    "Opens in the morning",
+    "Root and seed head"
+   ]
+  },
+  "nymphaea-spp": {
+   "name": "Waterlily",
+   "alias": "Water lily",
+   "habit": "Aquatic herb",
+   "origin": "Tropics and temperate zones worldwide",
+   "color": "White, pink, yellow, blue",
+   "where": "Still pools in parks, courtyard water features",
+   "lead": "The leaf lies on the water with a notch cut into it — a door left open for the current.",
+   "body": "The leaves float, heart-shaped or round, with a distinct notch at the base where the stalk attaches, so each leaf looks as though it has been cut once. The flowers float too, or lift just above the surface, many-petalled, from pure white to deep blue; many open in the morning and close in the afternoon, lasting three or four days. The difference from the lotus is blunt: waterlily leaves and flowers float, lotus leaves and flowers mostly stand.",
+   "leaf": "Leaves floating, round-cordate to ovate, deeply notched at the base, smooth above, often purple beneath.",
+   "flower": "Flowers floating or slightly raised, many-petalled, white, pink, yellow or blue, mostly opening by day.",
+   "note": "The genus takes its name from the water nymphs of Greek myth. Tropical waterlilies flower almost all year in Zhuhai's ponds; temperate ones sink and wait out the winter. Two schedules in a single pool.",
+   "tags": [
+    "Aquatic",
+    "Summer flowering",
+    "Floating leaves",
+    "Many cultivars"
+   ]
+  },
+  "thalia-dealbata": {
+   "name": "Powdery Thalia",
+   "alias": "Water canna, hardy canna",
+   "habit": "Aquatic herb",
+   "origin": "Southern United States and Mexico",
+   "color": "Violet-purple",
+   "where": "Wetlands, lake margins, aquatic borders",
+   "lead": "It stands a head above the reeds, violet flowers hanging in strings like small birds stopped in mid-air.",
+   "body": "The leaves are large and long, sheathing at the base and dusted with a white bloom, so the whole clump reads as a grey-blue green. The scape rises high and ends in a panicle, the small violet flowers borne in pairs inside spathes. The flower has a mechanism: an insect touching the style triggers a snap that presses pollen onto its body — one of the few quick movements in the plant kingdom.",
+   "leaf": "Leaves basal, ovate-lanceolate, sheathing, powdery white above, entire.",
+   "flower": "Panicles rising above the leaves; flowers violet-purple, paired within spathes.",
+   "note": "It is a standard plant in wetland purification, very efficient at taking up nitrogen and phosphorus. Zhuhai's constructed wetlands and lakeside schemes plant it in whole sheets — a year later the water is clear and the thalia has filled the margin.",
+   "tags": [
+    "Aquatic",
+    "Summer-autumn flowering",
+    "Water-purifying",
+    "Spring-loaded flowers"
+   ]
+  },
+  "monstera-deliciosa": {
+   "name": "Swiss Cheese Plant",
+   "alias": "Mexican breadfruit, ceriman",
+   "habit": "Evergreen climbing vine",
+   "origin": "Southern Mexico to Central America",
+   "color": "Creamy white spathe",
+   "where": "Under trees, against walls, indoors",
+   "lead": "The leaf splits itself open as it grows, like a tortoise shell — in fact to let the wind through.",
+   "body": "Young leaves are entire and heart-shaped; only at a certain size do the holes and deep lobes appear, and the older the leaf the more savagely it is cut. This is not damage but strategy: in a rainforest with strong wind and little light, a divided blade reduces drag and lets the leaves beneath catch the flecks that get through. It climbs by aerial roots that hang down like loose wiring.",
+   "leaf": "Leaves large, cordate-ovate, thickly leathery, developing holes and pinnate lobes with age; stalk stout.",
+   "flower": "Spathe creamy white, spadix cylindrical; rarely flowers in cultivation.",
+   "note": "In Zhuhai it almost never flowers — it must be large enough and lit well enough first. So locals know it entirely by that one divided leaf; in the Central American rainforest it also bears a cob like an ear of maize, edible when ripe and tasting of pineapple.",
+   "tags": [
+    "Evergreen",
+    "Shade-tolerant",
+    "Fenestrated leaves",
+    "Climbing"
+   ]
+  },
+  "roystonea-regia": {
+   "name": "Royal Palm",
+   "alias": "Cuban royal palm",
+   "habit": "Evergreen tree",
+   "origin": "Cuba and the Caribbean",
+   "color": "Creamy white",
+   "where": "Lovers' Road, Seaside Park, resort hotels",
+   "lead": "The trunk runs up straight as a column, then swells without warning and lifts a crown of feathers.",
+   "body": "The most iconic tree of the Zhuhai waterfront. The trunk is smooth and grey-white, swelling into a spindle in its upper third where it stores its reserves. The fronds reach four metres, and when the wind moves them the whole tree makes a sound like surf.",
+   "leaf": "Pinnate, 3–5 m long; leaflets linear-lanceolate, in two ranks.",
+   "flower": "Spadices borne below the crownshaft; flowers small, creamy white, monoecious.",
+   "note": "The fruit ripens purple-black in hanging bunches, and is a canteen for bulbuls and squirrels.",
+   "tags": [
+    "Evergreen",
+    "Palm",
+    "Coastal"
+   ]
+  },
+  "archontophoenix-alexandrae": {
+   "name": "Alexandra Palm",
+   "alias": "King palm, bangalow palm",
+   "habit": "Evergreen tree",
+   "origin": "Queensland, Australia",
+   "color": "Creamy yellow",
+   "where": "Gardens in Jida and Xiangzhou, hotels, Lovers' Road",
+   "lead": "It grows itself into a straight grey-white column, then bursts into a fountain of fronds at the top.",
+   "body": "The trunk is single, with clear ring scars stacked from the ground up like the spine of a book that has been read. The fronds arch and droop, the crownshaft is bright green, and when a new leaf comes out the whole of it is red. The fruit ripens scarlet in strings below the crown like a row of small lanterns, and the birds arrive before anyone else. Fast-growing and easy to transplant, it is one of the most used landscape palms in the south.",
+   "leaf": "Pinnate; leaflets linear-lanceolate, drooping at the tip, grey-white beneath.",
+   "flower": "Inflorescences below the crownshaft, much branched; flowers creamy yellow, monoecious.",
+   "note": "It stands up to Zhuhai's wind but not to a direct hit from a strong typhoon — the palms that come down afterwards are usually the tall slender ones like this. Its strategy is all or nothing: either it does not fall at all, or the whole trunk goes, leaving nothing to salvage.",
+   "tags": [
+    "Evergreen",
+    "Pinnate",
+    "Landscape palm"
+   ]
+  },
+  "phoenix-roebelenii": {
+   "name": "Pygmy Date Palm",
+   "alias": "Miniature date palm, robellini",
+   "habit": "Evergreen shrub or small tree",
+   "origin": "Laos, Vietnam and Yunnan, China",
+   "color": "Creamy white",
+   "where": "Courtyards, lobbies, parks",
+   "lead": "A phoenix palm, but far gentler than the silver date — the fronds are soft and hang down.",
+   "body": "The trunk is single or clustered and densely clothed in the stubs of old leaf bases, like an old coat gone rough at the seams. The fronds are softer than the silver date's, the leaflets fine and drooping, the whole leaf arching over; the lower leaflets are reduced to spines, though not as sharp. It tolerates shade and can live indoors for years, one of the few palms that survives an office lobby.",
+   "leaf": "Pinnate; leaflets soft and drooping, lower ones reduced to short spines, deep green.",
+   "flower": "Spadices axillary; flowers small, creamy white, dioecious.",
+   "note": "It is congeneric with the silver and Canary Island dates, but a size smaller. The city uses it in pairs at entrances or as a point in a planter — a palm scaled down until it fits the building.",
+   "tags": [
+    "Evergreen",
+    "Shade-tolerant",
+    "Small palm",
+    "Soft fronds"
+   ]
+  },
+  "livistona-chinensis": {
+   "name": "Chinese Fan Palm",
+   "alias": "Fountain palm",
+   "habit": "Evergreen tree",
+   "origin": "South China: Guangdong and Guangxi",
+   "color": "Creamy white",
+   "where": "Old Xiangzhou, Tangjiawan, temple courtyards",
+   "lead": "The leaf is a round fan, its edge split into ribbons that rustle whenever the wind goes past.",
+   "body": "A true native of the south. The leaf stalk carries spines on both sides, the blade is palmately divided almost to the middle, and the segments droop at the tips like a fan that has been used for years. Cantonese once made palm-leaf fans from it, and in Xinhui it supported a whole trade.",
+   "leaf": "Leaves palmately divided, segments lanceolate and drooping at the tip, stalks spiny.",
+   "flower": "Spadices axillary; flowers small, yellow-green, bisexual.",
+   "note": "Hardier than the royal palm and more thoroughly Cantonese — a fan palm before an old house is an old rule of Lingnan gardens.",
+   "tags": [
+    "Evergreen",
+    "Palm",
+    "Native"
+   ]
+  },
+  "phoenix-sylvestris": {
+   "name": "Silver Date Palm",
+   "alias": "India date palm, wild date palm",
+   "habit": "Evergreen tree",
+   "origin": "India and Pakistan",
+   "color": "Creamy white",
+   "where": "Lovers' Road, Seaside Park, the main roads of Hengqin",
+   "lead": "The fronds are grey-blue and stiff as sheet metal, and they sound off when wind passes through.",
+   "body": "The trunk is single and densely clad in the stubs of old leaf bases, layered into scales that scratch the hand. The fronds are rigid, the lower leaflets reduced to needles, so pruning requires thick gloves. The whole tree leans grey-blue, notably restrained among the city's deep greens — like a man who came to the party in a washed-out blue shirt. The fruit is orange-yellow, sweet and edible; in India it is boiled down for sugar.",
+   "leaf": "Pinnate; leaflets rigid and spine-like; foliage grey-green with a blue cast.",
+   "flower": "Spadices axillary; flowers small, creamy white, dioecious.",
+   "note": "In the coastal belt it is the plant that looks least southern — all grey-blue, as though it had walked in from a desert. In fact it is drought-tolerant to the point of needing no irrigation at all: plant it and forget it.",
+   "tags": [
+    "Evergreen",
+    "Drought and salt tolerant",
+    "Spiny fronds"
+   ]
+  },
+  "ravenala-madagascariensis": {
+   "name": "Traveller's Palm",
+   "alias": "Traveller's tree",
+   "habit": "Evergreen tree-like herb",
+   "origin": "Madagascar",
+   "color": "White",
+   "where": "Hotel entrances, parks, botanical gardens",
+   "lead": "Every leaf grows in the same plane, like an enormous fan held open.",
+   "body": "The leaves are arranged in a strict fan, two ranks opposite each other, and the whole fan swings together in the wind. The leaf bases swell into sheaths that hold rainwater — travellers are said to have cut them open for a drink, which is where the name comes from, though the story is a little romanticised and the sheaths do hold water. The flowers are white inside spathes, shaped like a bird hung upside down.",
+   "leaf": "Leaves large, long-elliptic, arranged in a single plane as a fan; leaf bases swollen into water-holding sheaths.",
+   "flower": "Inflorescences axillary; small white flowers clustered within spathes, resembling a bird's head.",
+   "note": "It is not a tree and has no woody stem — that 'trunk' is leaf stalk stacked on leaf stalk. Few are planted in Zhuhai, and each stands like a sculpture at a hotel entrance, its posture louder than its function.",
+   "tags": [
+    "Evergreen",
+    "Fan-shaped",
+    "Water-holding sheaths",
+    "Tropical accent"
+   ]
+  },
+  "cycas-revoluta": {
+   "name": "Sago Palm",
+   "alias": "King sago, cycad",
+   "habit": "Evergreen palm-like plant",
+   "origin": "Southern China and southern Japan",
+   "color": "Yellow-brown cones",
+   "where": "Institution entrances, parks, old gardens",
+   "lead": "Its fronds unfurl slowly — first clenched like a fist, then loosening inch by inch.",
+   "body": "The sago has no true flower, only cones: the plants are dioecious, the male raising a cylindrical cone like a yellow-brown cob, the female bearing ovules directly on leaf-like megasporophylls. It puts out a new crown only every year or two; the young fronds come curled and covered in brown wool, and take weeks to open and harden.",
+   "leaf": "Fronds in a crown at the stem tip; leaflets stiff, needle-like, revolute at the margin, deep glossy green.",
+   "flower": "Cones unisexual; male cone cylindrical and yellow-brown; female cone of many megasporophylls.",
+   "note": "A flowering sago is treated as a rare sight, yet in a climate like Zhuhai an adult cones almost every year. What is truly rare is not the flower but the time: this genus has been on earth for more than two hundred million years and has seen the dinosaurs.",
+   "tags": [
+    "Evergreen",
+    "Summer coning",
+    "Dioecious",
+    "Ancient lineage"
+   ]
+  },
+  "pandanus-tectorius": {
+   "name": "Screw Pine",
+   "alias": "Thatch screwpine, hala",
+   "habit": "Evergreen shrub or small tree",
+   "origin": "Pacific islands and the coasts of South China",
+   "color": "Creamy white",
+   "where": "Seaside Park, the edge of the beach, Lovers' Road",
+   "lead": "It stands on the sand on stilts, like a tree walking on tiptoe.",
+   "body": "The leaves are arranged in a spiral, with sharp spines along the margin and midrib, so handle it with care. Prop roots slant from the lower trunk into the sand, forming a tripod that lets the whole tree stay upright on loose ground. The fruit looks like an enlarged pineapple and turns orange-red when ripe.",
+   "leaf": "Leaves strap-shaped, spirally arranged, 1–1.5 m long, spiny at the margin and midrib.",
+   "flower": "Dioecious; inflorescences with white spathes, fragrant.",
+   "note": "The fruit is a syncarp of many drupes, edible when ripe but extremely fibrous; children at the seaside use it as a ball.",
+   "tags": [
+    "Evergreen",
+    "Prop roots",
+    "Coastal"
+   ]
+  },
+  "casuarina-equisetifolia": {
+   "name": "Horsetail She-oak",
+   "alias": "Beefwood, Australian pine",
+   "habit": "Evergreen tree",
+   "origin": "Australia and the Pacific islands",
+   "color": "Reddish brown",
+   "where": "Coastal windbreaks, Qi'ao Island, the seaside boulevard",
+   "lead": "From a distance it looks like a pine; up close it has no leaves at all — only rings of tiny teeth.",
+   "body": "The mainstay of the coastal windbreak. Its branchlets are long, drooping and green, and do the work of photosynthesis; the true leaves are reduced to scales in whorls at the joints. Tolerant of salt and poor soil and resistant to wind, it can raise a wood on sand where nothing else will grow.",
+   "leaf": "Leaves reduced to scales, seven or eight at each joint, whorled; green branchlets carry out photosynthesis.",
+   "flower": "Monoecious; male spikes and female heads, reddish brown, inconspicuous.",
+   "note": "When a typhoon comes, a stand of she-oaks bends together and seldom breaks — the wood is supple, a study in yielding to overcome.",
+   "tags": [
+    "Evergreen",
+    "Windbreak",
+    "Coastal"
+   ]
+  }
+ },
+ "cats": {
+  "street": {
+   "name": "Street Trees",
+   "lead": "They hold up the shade of the whole city: neighbours you pass every day without quite looking at.",
+   "desc": "Zhuhai's streets are damp all year. A street tree must stand up to typhoons, salt spray and hard sun, and tolerate being cut. Broad-leaved evergreens — figs, camphors — set the tone; the deciduous flamboyant and kapok mark the seasons."
+  },
+  "blossom": {
+   "name": "Flowering Trees",
+   "lead": "For a few weeks each year, one road turns a different colour.",
+   "desc": "In a warm subtropical-tropical transition the flowering season does not begin and end with spring. The kapok burns in March, the flamboyant in June, and the silk floss tree and orchid tree keep their colour for winter. Zhuhai's flowering year is a circle."
+  },
+  "shrub": {
+   "name": "Hedges & Shrubs",
+   "lead": "Between road and pavement, the plants that are cut again and again and still flower in earnest.",
+   "desc": "Golden banyan, red fringe flower, Fukien tea: the city's lowest geometry. They are clipped into squares and spheres, and still manage a branch of flowers in some overlooked corner."
+  },
+  "ground": {
+   "name": "Groundcovers",
+   "lead": "The layer that lies flat, taking over every bare space as soon as rain arrives.",
+   "desc": "Singapore daisy runs along the kerb, perennial peanut stitches the bare yellow earth, rain lilies flower together after a night of rain. They do not compete in height, only in coverage."
+  },
+  "palm": {
+   "name": "Palms & Coastal",
+   "lead": "Only plants raised by the sea know how to stand in wind and make it a posture.",
+   "desc": "The straight column of the royal palm, the fan of the Chinese fan palm, the needle branches of the she-oak: together they draw Zhuhai's coastline. Salt-tolerant, drought-tolerant, wind-firm — the part of the city that looks most like itself."
+  }
+ },
+ "captions": {
+  "一丛明黄": "A clump of bright yellow",
+  "一朵盛开的白花": "A single open white flower",
+  "一片开裂的叶": "A deeply split leaf",
+  "三枚苞片托着细小的真花": "Three bracts holding the tiny true flowers",
+  "下垂的圆锥果序": "A pendulous cone of fruit",
+  "下垂的气生根": "Hanging aerial roots",
+  "丛生的龟背竹": "A clump of Swiss cheese plant",
+  "两株成年树，冠形开阔": "Two mature trees with open crowns",
+  "临海的树冠": "Crowns at the water's edge",
+  "丹桂的橙花": "The orange flowers of a red osmanthus",
+  "仰向天空的花": "A flower turned to the sky",
+  "仰视树干": "The trunk, seen from below",
+  "仰视树干与羽状叶": "Trunk and pinnate fronds from below",
+  "修剪成型的绿篱": "A clipped hedge",
+  "修剪成型的金叶绿篱": "A clipped hedge of golden leaves",
+  "修剪成球的绿篱": "A hedge clipped into balls",
+  "冠顶俯视，羽叶如伞骨": "Looking down into the crown: fronds like the ribs of an umbrella",
+  "匍匐垂落的绿篱": "A hedge spilling downwards",
+  "单朵，六片花被": "A single flower with six tepals",
+  "单花近观，一枚花瓣带深色脉纹": "One flower close up, a petal veined in a deeper colour",
+  "单花，花心一点深色": "A single flower with a dark eye",
+  "叶心的新羽叶": "A new frond unrolling at the heart",
+  "叶片与腋生的榕果": "Leaves and axillary figs",
+  "叶腋里的花": "Flowers in the leaf axils",
+  "叶腋间的白色小花": "Small white flowers in the axils",
+  "叶腋间的花，一日之内由白转黄": "Axillary flowers turning from white to yellow in a day",
+  "叶腋间的隐头果": "Syconia in the leaf axils",
+  "叶间的红果": "Red fruit among the leaves",
+  "叶间细碎的花": "Tiny flowers among the leaves",
+  "叶面上的斑纹": "Variegation across the leaf",
+  "喇叭形的花冠": "A trumpet-shaped corolla",
+  "垂枝上的花与果": "Flowers and fruit on a weeping branch",
+  "夏季的花树": "A flowering tree in summer",
+  "头状花序近景": "A capitulum close up",
+  "孤植于草坪上的大树": "A specimen tree on open lawn",
+  "密生的倒卵形小叶": "Densely set obovate leaflets",
+  "对生的小叶": "Opposite leaflets",
+  "对生的革质叶": "Opposite leathery leaves",
+  "层状分枝的树冠": "A crown of tiered branches",
+  "山坡上的花树": "Flowering trees on a hillside",
+  "常绿的灌木丛": "An evergreen shrubbery",
+  "庭前的丛植": "A group planting before the courtyard",
+  "庭院里的垂叶榕，枝叶下垂如幕": "Weeping fig in a courtyard, branches hanging like a curtain",
+  "总状花序如鸡冠": "A raceme like a cockscomb",
+  "成片开放的黄花": "A sheet of yellow flowers",
+  "成片开放的黄花地被": "Yellow flowers carpeting the ground",
+  "成片的树冠": "Crowns en masse",
+  "成片的白花": "A drift of white flowers",
+  "扇形叶与下垂的裂片": "Fan-shaped fronds with drooping segments",
+  "掌状复叶": "A palmately compound leaf",
+  "撑开的扇形叶": "Fronds held open like fans",
+  "攀在栏杆上的黄蝉": "Allamanda climbing a railing",
+  "攀援成片的花墙": "A flowering wall of climbers",
+  "支柱根撑起的树身": "A trunk braced by prop roots",
+  "新叶与纵裂的树皮": "New leaves and vertically fissured bark",
+  "新叶与青果": "Fresh leaves and green fruit",
+  "早春满树淡粉，叶尚未长齐": "Early spring: the tree a mass of pale pink, its leaves not yet out",
+  "旷地上舒展的树冠": "A crown spread wide in the open",
+  "春季的黄绿新叶": "Yellow-green new leaves in spring",
+  "暗处的栀子": "Gardenia in the shade",
+  "暗处的花，如绢如皱": "Flowers in shadow, silk-like, creped",
+  "果实，熟时黄绿": "Fruit, yellow-green when ripe",
+  "果序与二回羽状复叶": "An infructescence and bipinnate leaves",
+  "枝端的紫红嫩叶": "Purple-red young leaves at the shoot tip",
+  "树冠与层叠的枝叶": "Crown and layered foliage",
+  "树冠浑圆的成年植株": "A mature plant with a rounded crown",
+  "棕榈成列的道路": "A road lined with palms",
+  "植株与花，贴地而生": "Plant and flowers, growing flat to the ground",
+  "橙红的叶": "Orange-red leaves",
+  "橙红色花球近景": "An orange-red flower head close up",
+  "气根垂成的林荫道": "An avenue curtained with aerial roots",
+  "水边的丛植": "A group planting at the water's edge",
+  "浓密的羽状复叶": "Dense pinnate leaves",
+  "海岸上的防风林": "Shelterbelt on the coast",
+  "海滨绿带中的丛生植株": "Clumps in the coastal green belt",
+  "海边步道旁的蒲葵林": "A stand of fan palms beside the seaside walk",
+  "淡紫的花，边缘带细齿": "A pale violet flower with a finely toothed edge",
+  "满枝的紫红花簇": "Branches crowded with crimson clusters",
+  "满树紫红，冬末的街景": "The whole tree crimson: a street in late winter",
+  "满树金黄": "The whole tree gold",
+  "漏斗状的花": "A funnel-shaped flower",
+  "瓣化的雄蕊，黄如蜜": "Petalloid stamens, yellow as honey",
+  "白睡莲浮在水面": "A white waterlily floating",
+  "白色小花与深绿叶": "Small white flowers against dark leaves",
+  "白色的蜘蛛状花冠": "A white, spider-like corolla",
+  "白花与革质叶": "White flowers and leathery leaves",
+  "白花初绽，香自暮色里浮起": "The first white flowers: scent rising out of the dusk",
+  "盛开的粉荷": "A pink lotus in full flower",
+  "盛花期的树冠": "A crown at the height of bloom",
+  "盛花的灌木丛，多植于路侧": "Shrubs in full flower, mostly planted along the road",
+  "盛花的行道树，三月的老街": "Street trees in bloom on an old street in March",
+  "直立的叶序": "An upright leaf arrangement",
+  "直立的花序": "An upright inflorescence",
+  "管状的花，橙红如烛": "Tubular flowers, orange-red as candles",
+  "粉紫色的花瓣": "Pink-violet petals",
+  "粉色花冠与带状叶": "A pink corolla and strap-like leaves",
+  "紫红叶与玫红色花": "Purple-red leaves and rose-pink flowers",
+  "紫红色的叶丛": "A mass of purple-red foliage",
+  "紫红色花冠与伸出的雄蕊": "A crimson corolla with exserted stamens",
+  "紫色的花簇": "Clusters of purple",
+  "紫花与露水": "Purple flowers and dew",
+  "红花如焰": "Red flowers like flame",
+  "绒球状的雄蕊": "A pom-pom of stamens",
+  "结果枝，果皮透出黄晕": "A fruiting branch, the skin showing yellow",
+  "羽状叶与果序": "Pinnate leaves and an infructescence",
+  "羽状叶向四周铺开": "Fronds spreading on every side",
+  "羽状叶，羽片先端下垂": "Pinnate fronds with drooping tips",
+  "老城区里的行道扁桃": "Street-planted tropical almond in the old town",
+  "老树与新生红叶": "An old tree and its new red leaves",
+  "老树的板根": "Buttress roots of an old tree",
+  "老树的树冠与枝干": "Crown and limbs of an old tree",
+  "老树的虬枝与花": "Gnarled branches and flowers on an old tree",
+  "聚伞花序围成的花球": "A ball of flowers formed by cymes",
+  "节状枝与雌花序": "Joint-like branches and a female inflorescence",
+  "花与叶，绿篱一角": "Flowers and leaves: a corner of the hedge",
+  "花与羽状复叶": "Flowers and pinnate leaves",
+  "花丝如红缨": "Filaments like red tassels",
+  "花后的红色果实": "Red fruit after flowering",
+  "花心一点深红": "A spot of deep red at the centre",
+  "花期中的枝梢": "Shoot tips in flower",
+  "花枝与二裂的羊蹄状叶": "A flowering branch and two-lobed, hoof-shaped leaves",
+  "花枝与羽状复叶": "A flowering branch and pinnate leaves",
+  "花枝横出，映着天光": "A flowering branch held out against the light",
+  "花枝近观，花瓣厚而外翻": "Close on a flowering branch: petals thick and reflexed",
+  "花簇压弯枝头": "Clusters weighing the branch down",
+  "花簇近观": "A cluster close up",
+  "花簇近观，喉部带黄": "A cluster close up, the throat marked yellow",
+  "花簇，外白内黄": "Clusters white outside, yellow within",
+  "花苞将开未开": "Buds on the point of opening",
+  "花蕾与初开的白花": "Buds and the first white flowers",
+  "花被片反卷如丝": "Tepals rolled back into threads",
+  "蓝睡莲": "Blue waterlily",
+  "蓝紫色的花簇": "Violet-blue clusters",
+  "蓝花楹行道树": "Jacaranda as a street tree",
+  "蝶形花冠与四出复叶": "A papilionate flower and four leaflets",
+  "螺旋排列的带状叶": "Strap leaves in a spiral",
+  "行道上的塔形树冠": "A spire-shaped crown over the pavement",
+  "路旁的老树，树冠横过整条街": "An old roadside tree whose crown crosses the whole street",
+  "轮生叶，侧脉平行而密": "Whorled leaves, lateral veins parallel and close",
+  "重瓣的花，一日三变": "A double flower that changes colour three times a day",
+  "金黄色新叶与深绿老叶": "Golden new leaves against dark old ones",
+  "铺地的花毯": "A carpet of flowers",
+  "镰刀状的假叶与绒球花": "Sickle-shaped cladodes and pom-pom flowers",
+  "隐头果，熟时淡黄绿带红晕": "Syconia, pale yellow-green flushed red when ripe",
+  "雄蕊柱，顶端密生花药": "The staminal column, anthers crowded at its tip",
+  "雨后成片开放": "Flowering in sheets after rain",
+  "高干与树冠，老街的行道树": "Tall bole and crown: street trees on an old street",
+  "黄昏里的细高身影，干直如柱": "A slender silhouette at dusk, the trunk straight as a column",
+  "黄绿的叶丛": "A mass of yellow-green foliage",
+  "黄色的花冠覆在树顶": "Yellow corollas covering the top of the tree",
+  "黄花落在翅状的荚旁": "Yellow flowers fallen beside a winged pod"
+ }
+}

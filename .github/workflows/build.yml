@@ -21,6 +21,10 @@ jobs:
           test -f dist/index.html
           test -f dist/atlas.html
           test -f dist/sitemap.xml
+          test -f dist/en/index.html
+          test -f dist/en/atlas.html
           n=$(ls dist/species/*.html | wc -l)
-          echo "species pages: $n"
+          m=$(ls dist/en/species/*.html | wc -l)
+          echo "species pages: zh=$n en=$m"
           test "$n" -ge 28
+          test "$m" -eq "$n"
