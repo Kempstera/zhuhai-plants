@@ -243,9 +243,12 @@ def flower_text(months):
 
 def localize(html):
     """英文站：站内链接改到 /en，并收紧拉丁字母的字距"""
+    # 语言切换指向中文站根目录，不能被改写成 /en
+    html = html.replace('<a class="nav__lang" href="', '<a class="nav__lang" href="\x01')
     html = html.replace('href="/"', 'href="__ROOT__"')
     html = re.sub(r'href="/(?!/|en/|assets/)', 'href="/en/', html)
-    html = html.replace('href="__ROOT__"', 'href="/en"')
+    html = html.replace('href="__ROOT__"', 'href="/en/"')
+    html = html.replace('href="\x01', 'href="')
     html = html.replace('src="../assets/', 'src="/assets/')
     # 拉丁字母不需要汉字的字距
     html = html.replace("letter-spacing:.1em", "letter-spacing:.02em")
@@ -284,7 +287,7 @@ def nav(prefix, active, alt_href="/en", alt_label="EN"):
 
 def head(title, prefix, desc, active, path="/", extra_css=""):
     zh_path = path
-    en_path = "/en" if zh_path == "/" else "/en" + zh_path
+    en_path = "/en/" if zh_path == "/" else "/en" + zh_path
     if LANG == "zh":
         self_path, alt_href, alt_label = zh_path, en_path, "EN"
     else:
@@ -1330,7 +1333,7 @@ def build_meta_files():
     entries = []
     for u in base:
         for pre in ("", "en/"):
-            loc = f"{SITE}/{pre}{u}"
+            loc = f"{SITE}/{pre}{u}" if u else f"{SITE}/{pre}"
             pri = "1.0" if u == "" else ("0.8" if u in ("atlas", "calendar", "map", "roster") else "0.7")
             entries.append(
                 f"  <url><loc>{loc}</loc><changefreq>monthly</changefreq><priority>{pri}</priority></url>"
