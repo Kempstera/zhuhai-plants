@@ -46,8 +46,8 @@ TXT = {
     "nav_about": ("关于", "About"),
 
     # —— 页脚
-    "foot_p": ("一份关于暖亚热带与热带过渡型海洋性气候城市的植物观察笔记。收录珠海街头、公园与海岸线上最寻常、也最容易被忽略的七十六种植物。",
-               "Field notes on a city in the warm subtropical–tropical maritime transition: the seventy-six plants of Zhuhai's streets, parks and shoreline — the commonest ones, and the easiest to walk past."),
+    "foot_p": ("一份关于暖亚热带与热带过渡型海洋性气候城市的植物观察笔记。收录珠海街头、公园、水乡与海岛上最寻常、也最容易被忽略的八十四种植物。",
+               "Field notes on a city in the warm subtropical–tropical maritime transition: the eighty-four plants of Zhuhai's streets, parks, waterways and islands — the commonest ones, and the easiest to walk past."),
     "foot_atlas": ("图鉴总览", "The Atlas"),
     "foot_calendar": ("十二月花历", "Bloom Calendar"),
     "foot_map": ("分布", "Distribution"),
@@ -67,20 +67,20 @@ TXT = {
     # —— 首页
     "home_title": ("珠海草木志 · 暖亚热带与热带过渡型海洋性气候城市的植物观察",
                    "Flora of Zhuhai · Plants of a warm subtropical–tropical maritime city"),
-    "home_desc": ("珠海常见行道树、绿化带植物与园林花卉图鉴。细叶榕的荫凉、凤凰木的火、簕杜鹃的市中花色，七十六种草木的形态、花期与故事。",
-                  "A guide to the street trees, planting-strip shrubs and garden flowers of Zhuhai: the shade of the Chinese banyan, the fire of the flamboyant, the bougainvillea that colours the middle of the city. Seventy-six plants, their forms, their seasons and their stories."),
+    "home_desc": ("珠海常见行道树、绿化带植物与园林花卉图鉴。细叶榕的荫凉、凤凰木的火、簕杜鹃的市中花色，八十四种草木的形态、花期与故事。",
+                  "A guide to the street trees, planting-strip shrubs and garden flowers of Zhuhai: the shade of the Chinese banyan, the fire of the flamboyant, the bougainvillea that colours the middle of the city. Eighty-four plants, their forms, their seasons and their stories."),
     "hero_h1": ("城市日新，<br>草木<em>常在</em>。", "Cities change;<br>the <em>plants</em> remain."),
     "hero_note": ("收录珠海常见园林花木、行道树图鉴与四季赏花路线",
                   "Garden trees, street trees and a year-round calendar of bloom"),
-    "hero_sub": ("珠海是一座长在植物里的城市。北回归线以南、伶仃洋以西，长夏无冬，雨热同期——于是榕树的气根垂成帘，凤凰木在五月点着整条街，簕杜鹃从天桥一路开到海堤。这里收录它们当中的七十六种：行道树、绿篱灌木、地被草花，与海岸线上的棕榈。",
-                 "Zhuhai is a city that lives inside its plants. South of the Tropic of Cancer and west of the Lingding Channel, it has a long summer and no winter, rain and heat arriving together — so banyan aerial roots hang down in curtains, the flamboyant sets a whole street alight in May, and bougainvillea runs from the footbridges all the way to the seawall. Here are seventy-six of them: street trees, hedge shrubs, groundcover flowers, and the palms along the coast."),
+    "hero_sub": ("珠海是一座长在植物里的城市。北回归线以南、伶仃洋以西，长夏无冬，雨热同期——于是榕树的气根垂成帘，凤凰木在五月点着整条街，簕杜鹃从天桥一路开到海堤。这里收录它们当中的八十四种：行道树、绿篱灌木、地被草花，海岸线上的棕榈，以及斗门水乡与万山海岛的那些。",
+                 "Zhuhai is a city that lives inside its plants. South of the Tropic of Cancer and west of the Lingding Channel, it has a long summer and no winter, rain and heat arriving together — so banyan aerial roots hang down in curtains, the flamboyant sets a whole street alight in May, and bougainvillea runs from the footbridges all the way to the seawall. Here are eighty-four of them: street trees, hedge shrubs, groundcover flowers, the palms along the coast, and the water-country and island plants of Doumen and Wanshan."),
     "stat_species": ("收录物种", "species"),
     "stat_vols": ("分卷", "volumes"),
     "stat_temp": ("年均气温", "mean temp."),
     "stat_sun": ("日照小时", "hours of sun"),
-    "vol_h": ("五卷", "Five Volumes"),
-    "vol_p": ("依植物在城中承担的角色而分，而非严格的分类学。同一种树，可能既是行道树，也是夏天的花。",
-              "Divided by the part each plant plays in the city rather than by strict taxonomy. The same tree can be both a street tree and a summer flower."),
+    "vol_h": ("六卷", "Six Volumes"),
+    "vol_p": ("前五卷依植物在城中承担的角色而分，而非严格的分类学。同一种树，可能既是行道树，也是夏天的花。末一卷例外，按生境划分——水乡与海岛，不在城里。",
+              "The first five volumes are divided by the part each plant plays in the city rather than by strict taxonomy. The same tree can be both a street tree and a summer flower. The last volume is the exception, and is divided by habitat — waterside and islands, outside the city altogether."),
     "cal_h": ("十二月花历", "Bloom Calendar"),
     "cal_p": ("点选月份，查看当月开花的物种。南方的花期不以春天为限——真正的空档，其实只有八月的台风天。",
               "Pick a month to see what is flowering then. In the south the season does not stop at spring — the only real gap is the typhoon weeks of August."),
@@ -97,7 +97,7 @@ TXT = {
               "So the list has been sifted again and again. Ficus wins with aerial roots and supple timber; the laurels with deep roots and aromatic oils; the palms with fronds that bend instead of breaking. The flamboyant, the kapok and the golden trumpet tree stand for another strategy altogether: flower and set seed before the windy season, staking the best few weeks of the year on one short window."),
     "why_3": ("这座城市的绿，因此不是一种颜色，而是一套被气候反复修改过的答案。",
               "The green of this city is therefore not a single colour but a set of answers that the climate has revised over and over."),
-    "idx_h": ("七十六种，按 {} 科索引", "Seventy-six species, indexed by {} families"),
+    "idx_h": ("八十四种，按 {} 科索引", "Eighty-four species, indexed by {} families"),
     "idx_p": ("豆科 9 种、桑科与锦葵科各 5 种……看看同一科的植物，是怎么共享一套形态的。",
               "Nine legumes, five figs, five mallows… look at how plants of one family share a single grammar of form."),
     "idx_more": ("翻 阅 名 录 &nbsp;→", "Browse the index →"),
@@ -107,8 +107,8 @@ TXT = {
     "atlas_desc": ("珠海常见园林植物图鉴，共 {} 种详解，可按类别、花期与名称检索。",
                    "A guide to the common garden plants of Zhuhai: {} entries, searchable by category, flowering month or name."),
     "atlas_h": ("图鉴总览", "The Atlas"),
-    "atlas_p": ("{} 种详解，每一种都附有形态图谱、花期区间、实景摄影与在珠海的具体观察位置。按类别筛选，或直接输入名字。",
-                "{} entries, each with a botanical plate, its flowering months, photographs taken in the city, and the places in Zhuhai where it is actually found. Filter by category, or simply type a name."),
+    "atlas_p": ("{} 种详解，每一种都附有形态图谱、花期区间、实景摄影，以及它在珠海的具体观察位置。按类别筛选，或直接输入名字。",
+                "{} entries, each with a botanical plate, its flowering months, photographs, and the places in Zhuhai where it is actually found. Filter by category, or simply type a name."),
     "atlas_all": ("全部", "All"),
     "atlas_search": ("搜索名称 / 学名 / 科属", "Search name, Latin or family"),
     "atlas_search_aria": ("搜索植物", "Search plants"),
@@ -125,6 +125,8 @@ TXT = {
     "crumb_home": ("封面", "Home"),
     "field_title": ("城 中", "In the City"),
     "field_sub": ("In the City", "Photographs"),
+    "field_title_wild": ("实 景", "In the Field"),
+    "field_sub_wild": ("In the Field", "Photographs"),
     "alias": ("别名 {}", "also known as {}"),
     "evergreen": ("常绿", "Evergreen"),
     "deciduous": ("落叶 / 半落叶", "Deciduous / semi-deciduous"),
@@ -147,8 +149,8 @@ TXT = {
     "roster_desc": ("珠海 {} 种常见园林植物按科索引，含学名、花期与详情入口。",
                     "The {} common garden plants of Zhuhai, indexed by family, with scientific names, flowering months and links."),
     "roster_h": ("科属索引", "Index by Family"),
-    "roster_p": ("七十六种全部单独成篇，此处按科归并，共 {} 科。同一科的植物往往共享一套形态语言——看到豆科的荚果、锦葵科的雄蕊柱，就知道它们在亲缘上是一家人。点选任一名字即可进入详解。",
-                 "All seventy-six stand alone as full entries; here they are gathered by family — {} in all. Plants of one family tend to share a grammar of form: see a legume's pod, a mallow's staminal column, and you know they are kin. Click any name for the full entry."),
+    "roster_p": ("八十四种全部单独成篇，此处按科归并，共 {} 科。同一科的植物往往共享一套形态语言——看到豆科的荚果、锦葵科的雄蕊柱，就知道它们在亲缘上是一家人。点选任一名字即可进入详解。",
+                 "All eighty-four stand alone as full entries; here they are gathered by family — {} in all. Plants of one family tend to share a grammar of form: see a legume's pod, a mallow's staminal column, and you know they are kin. Click any name for the full entry."),
 
     # —— 花历
     "cal_title": ("十二月花历 · 珠海草木志", "Bloom Calendar · Flora of Zhuhai"),
@@ -166,13 +168,13 @@ TXT = {
 
     # —— 分布
     "map_title": ("分布 · 珠海草木志", "Distribution · Flora of Zhuhai"),
-    "map_desc": ("珠海的植物长在哪些路段：唐家湾、老香洲、吉大、情侣路、拱北、横琴、金湾七个片区，逐区列出常见物种与观察位置。",
-                 "Where the plants of Zhuhai actually grow: seven districts — Tangjiawan, Old Xiangzhou, Jida, Lovers' Road, Gongbei, Hengqin, Jinwan — with the species recorded in each."),
+    "map_desc": ("珠海的植物长在哪些路段：从唐家湾到拱北的城区七片，加上斗门的水乡与万山的海岛，逐区列出常见物种与观察位置。",
+                 "Where the plants of Zhuhai actually grow: seven city districts from Tangjiawan to Gongbei, plus the waterways of Doumen and the islands of Wanshan, with the species recorded in each."),
     "map_h": ("分 布", "Distribution"),
-    "map_p": ("同一座城市里，草木也分地段。海边的树种抗盐，老街的树种耐修剪，新区的树种要长得快。下面按片区把这七十六种植物逐个安放——不是一张图，是一份可以顺着读下去的清单。",
-              "Within a single city, plants keep to their own districts. Seaside trees must tolerate salt; old-town trees must tolerate pruning; new-town trees must grow fast. What follows places all seventy-six species by district — not a map, but a list you can read straight through."),
-    "map_cap2": ("七个片区共记录 {} 种，另 {} 种不挑地段，全城可见。",
-                 "Seven districts, {} species recorded; another {} are found everywhere."),
+    "map_p": ("同一座城市里，草木也分地段。海边的树种抗盐，老街的树种耐修剪，新区的树种要长得快；往西四十公里，换成水松与芦苇；坐船出海，换成草海桐与厚藤。下面按片区把这些植物逐个安放——不是一张图，是一份可以顺着读下去的清单。",
+              "Within a single city, plants keep to their own districts. Seaside trees must tolerate salt; old-town trees must tolerate pruning; new-town trees must grow fast. Forty kilometres west the cast changes to swamp cypress and reed; take a boat and it changes again, to beach cabbage and beach morning glory. What follows places every species by district — not a map, but a list you can read straight through."),
+    "map_cap2": ("九个片区共记录 {} 种，另 {} 种不挑地段，全城可见。",
+                 "Nine districts, {} species recorded; another {} are found everywhere."),
     "map_note": ("片区划分依日常称呼，与行政区划不完全对应。「可见于」表示该物种在片区内的道路、公园或庭院中被记录到，并不意味它只生长于此；同一物种出现在多个片区时，会重复出现。",
                  "The districts follow everyday usage and do not match administrative boundaries exactly. 'Recorded in' means the species has been noted on roads, in parks or in gardens there; it does not mean it grows nowhere else. A species found in several districts appears more than once."),
     "map_citywide": ("全城", "Citywide"),
@@ -598,6 +600,9 @@ def build_species():
         next_p = PLANTS[(n + 1) % len(PLANTS)]
         tags = "".join(f'<span class="tag">{esc(x)}</span>' for x in p["tags"])
         shots = PHOTOS.get(p["slug"], [])
+        wild = p["cat"] == "water"
+        ftitle = t("field_title_wild") if wild else t("field_title")
+        fsub = t("field_sub_wild") if wild else t("field_sub")
         field = ""
         if shots:
             figs = []
@@ -616,8 +621,8 @@ def build_species():
             field = f'''
     <section class="field">
       <div class="field__head">
-        <h2 class="field__title">{t('field_title')}</h2>
-        <span class="field__sub">{t('field_sub')}</span>
+        <h2 class="field__title">{ftitle}</h2>
+        <span class="field__sub">{fsub}</span>
       </div>
       <div class="field__grid">{''.join(figs)}
       </div>
@@ -709,6 +714,18 @@ def build_species():
 
 # ---------------------------------------------------------------- 科属索引
 
+# 英文站的高度字段：只有少数几条需要改写，其余沿用数字与原写法
+HEIGHT_EN = {
+    "vitex-rotundifolia": "0.3–1 m (prostrate)",
+    "ipomoea-imperati": "stems 3–10 m",
+}
+
+# 英文站的高度字段：只有少数几条需要改写，其余沿用数字与原写法
+HEIGHT_EN = {
+    "vitex-rotundifolia": "0.3–1 m (prostrate)",
+    "ipomoea-imperati": "stems 3–10 m",
+}
+
 FAMILY_LATIN = {
     "豆科": "Fabaceae", "桑科": "Moraceae", "夹竹桃科": "Apocynaceae",
     "锦葵科": "Malvaceae", "棕榈科": "Arecaceae", "紫葳科": "Bignoniaceae",
@@ -722,6 +739,8 @@ FAMILY_LATIN = {
     "美人蕉科": "Cannaceae", "莲科": "Nelumbonaceae", "睡莲科": "Nymphaeaceae",
     "竹芋科": "Marantaceae", "天南星科": "Araceae", "鹤望兰科": "Strelitziaceae",
     "苏铁科": "Cycadaceae", "露兜树科": "Pandanaceae", "木麻黄科": "Casuarinaceae",
+    "柏科": "Cupressaceae", "红树科": "Rhizophoraceae", "禾本科": "Poaceae",
+    "草海桐科": "Goodeniaceae", "唇形科": "Lamiaceae", "旋花科": "Convolvulaceae",
 }
 
 
@@ -777,11 +796,11 @@ def build_roster():
 
 ABOUT = [
     (None, None,
-     ["本志收录珠海市城区（香洲、吉大、拱北、横琴、唐家湾、金湾）道路、公园、居住区与海岸带最常见的园林植物七十六种，全部单独成篇。"],
-     ["This guide covers the seventy-six commonest ornamental plants of urban Zhuhai — Xiangzhou, Jida, Gongbei, Hengqin, Tangjiawan and Jinwan — along its roads, parks, housing estates and coast. Every one of them has an entry of its own."]),
+     ["本志收录珠海最常见的植物八十四种：城区（香洲、吉大、拱北、横琴、唐家湾、金湾）的道路、公园与居住区，斗门的西江水乡，以及万山的海岛。全部单独成篇。"],
+     ["This guide covers the eighty-four commonest plants of Zhuhai — Xiangzhou, Jida, Gongbei, Hengqin, Tangjiawan and Jinwan, and out to the waterways of Doumen and the islands of Wanshan — along its roads, parks, housing estates, coast and mudflats. Every one of them has an entry of its own."]),
     ("一 · 分类", "I. Classification",
-     ["卷次的划分依据植物在城市中的角色，而非分类学亲缘：<strong>行道树</strong>指承担遮荫与街道骨架的乔木；<strong>观花乔木</strong>指以花期观赏为主要功能的乔木；<strong>绿篱灌木</strong>指用于分隔、围合、修剪成形的灌木；<strong>地被与草花</strong>指贴地覆盖的草本；<strong>棕榈与滨海</strong>指棕榈科及典型海岸带植物。因此凤凰木属观花乔木而不属行道树，尽管它同样种在路边。"],
-     ["The volumes are divided by the part a plant plays in the city, not by taxonomic kinship. <strong>Street Trees</strong> are the trees that carry the shade and the armature of the street; <strong>Flowering Trees</strong> are grown chiefly for their bloom; <strong>Hedges &amp; Shrubs</strong> are used to divide, enclose and be clipped into shape; <strong>Groundcover &amp; Flowers</strong> are the herbs that cover the ground; <strong>Palms &amp; the Coast</strong> covers the Arecaceae and the characteristic plants of the shoreline. That is why the flamboyant is filed as a flowering tree rather than a street tree, although it is planted along the road just the same."]),
+     ["卷次的划分依据植物在城市中的角色，而非分类学亲缘：<strong>行道树</strong>指承担遮荫与街道骨架的乔木；<strong>观花乔木</strong>指以花期观赏为主要功能的乔木；<strong>绿篱灌木</strong>指用于分隔、围合、修剪成形的灌木；<strong>地被与草花</strong>指贴地覆盖的草本；<strong>棕榈与滨海</strong>指棕榈科及典型海岸带植物。因此凤凰木属观花乔木而不属行道树，尽管它同样种在路边。<strong>水乡与海岛</strong>一卷是例外，它按生境划分：咸淡水滩涂、海崖与沙滩上的植物，多数并不参与城市绿化。"],
+     ["The volumes are divided by the part a plant plays in the city, not by taxonomic kinship. <strong>Street Trees</strong> are the trees that carry the shade and the armature of the street; <strong>Flowering Trees</strong> are grown chiefly for their bloom; <strong>Hedges &amp; Shrubs</strong> are used to divide, enclose and be clipped into shape; <strong>Groundcover &amp; Flowers</strong> are the herbs that cover the ground; <strong>Palms &amp; the Coast</strong> covers the Arecaceae and the characteristic plants of the shoreline. That is why the flamboyant is filed as a flowering tree rather than a street tree, although it is planted along the road just the same. <strong>Waterside &amp; Islands</strong> is the exception: it is divided by habitat, because the plants of brackish mudflat, sea cliff and sand mostly take no part in the planting of the city."]),
     ("二 · 学名与科属", "II. Names and Families",
      ["学名采用现行接受名。科级分类依 APG IV 系统，部分传统科名（如木棉科、八角金盘科）已并入锦葵科、五加科，文中统一使用新科名，并在必要处注明旧名沿革。属名与种加词以斜体排印，命名人缩写从略。"],
      ["Scientific names follow currently accepted usage. Families follow APG IV; several traditional ones — the Bombacaceae, the Araliaceae's former segregates — have been sunk into the Malvaceae and the Araliaceae, and the modern names are used throughout, with the older usage noted where it matters. Genus and specific epithet are italicised; author abbreviations are omitted."]),
@@ -867,7 +886,7 @@ def month_runs(months):
 
 
 CATCOLOR = {"street": "#3D5C4D", "blossom": "#B25C45", "shrub": "#B18F46",
-            "ground": "#7E8F5B", "palm": "#4C7B87"}
+            "ground": "#7E8F5B", "palm": "#4C7B87", "water": "#35586B"}
 
 
 def build_calendar():
@@ -982,9 +1001,19 @@ PLACES = [
      "desc_en": "A new town on reclaimed land. Almost every tree went in within the last ten years: Indian almond, white silk floss, pink trumpet tree. They grow fast and are still growing — the planting of a new town takes decades to settle."},
     {"no": "VII", "name": "金湾", "en": "Jinwan",
      "where": "西岸 · 湿地", "where_en": "West shore · wetlands",
-     "kw": ["金湾", "斗门"],
+     "kw": ["金湾"],
      "desc": "西侧的海岸与湿地。防风林、滩涂与咸淡水交界处的植物在这里占主导，城市化的痕迹要稀薄得多。",
      "desc_en": "The western shore, its wetlands and mudflats. Shelterbelts, tidal flats and the brackish margins dominate out here; the marks of the city are much fainter."},
+    {"no": "VIII", "name": "斗门", "en": "Doumen",
+     "where": "西江口 · 水乡", "where_en": "West River mouth · water country",
+     "kw": ["斗门", "六乡", "白藤", "灯笼沙", "平沙", "黄杨山"],
+     "desc": "珠海面积最大的区，西江出海口的水网地带。河涌、鱼塘、禾田与低丘交替，黄杨山是全区最高点，海拔五百八十一米。六乡竹洲的水松林、白藤与灯笼沙的滩涂，是这座城市最像水乡的部分。",
+     "desc_en": "The largest district in Zhuhai, where the West River reaches the sea in a net of channels. Creeks, fish ponds, rice fields and low hills alternate; Huangyang Mountain, at 581 metres, is the highest point. The swamp cypress stand at Zhuzhou and the mudflats at Baiteng and Denglongsha are the part of the city that most resembles water country."},
+    {"no": "IX", "name": "万山", "en": "Wanshan",
+     "where": "南海诸岛", "where_en": "The southern islands",
+     "kw": ["万山", "桂山", "担杆", "东澳", "伶仃", "外伶仃", "海岛"],
+     "desc": "珠江口外的一串岛屿：担杆、万山、桂山、东澳、外伶仃。土层薄、风大、淡水少，植物长成贴地的样子。担杆岛的保护区里记录到的维管植物超过五百种，岛上的罗汉松曾被人盗挖，如今就地挂牌养护。",
+     "desc_en": "A string of islands beyond the Pearl River estuary: Dangan, Wanshan, Guishan, Dong'ao, Wailingding. Thin soil, hard wind and little fresh water keep the plants low and prostrate. More than five hundred vascular plants have been recorded in the reserve on Dangan, where the podocarps were once dug up by collectors and are now tagged and guarded where they stand."},
 ]
 
 CITYWIDE_ZH = ("还有一些不挑地段的：种在每一条分车带、每一座天桥、每一个小区的围墙里。它们不专属于某个片区，而是这座城市绿化的底板。",
@@ -1304,9 +1333,10 @@ def apply_en():
                 q[k] = e[k]
         q["family"] = FAMILY_LATIN.get(p["family"], p["family"])
         q["genus"] = p["latin"].split()[0]
-        q["height"] = (q.get("height") or "").replace("（攀援）", " (climbing)") \
-                                                 .replace("（挺水）", " (emergent)") \
-                                                 .replace("浮水", "Floating leaves")
+        if p["slug"] in HEIGHT_EN:
+            q["height"] = HEIGHT_EN[p["slug"]]
+        if p["slug"] in HEIGHT_EN:
+            q["height"] = HEIGHT_EN[p["slug"]]
         q["height"] = (q.get("height") or "").replace("（攀援）", " (climbing)") \
                                                  .replace("（挺水）", " (emergent)") \
                                                  .replace("浮水", "Floating leaves")

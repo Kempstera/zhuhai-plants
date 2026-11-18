@@ -910,5 +910,101 @@
    "caption": "节状枝与雌花序",
    "credit": "摄影 Dinesh Valke · CC BY-SA 2.0"
   }
+ ],
+ "glyptostrobus-pensilis": [
+  {
+   "file": "glyptostrobus-pensilis-1.webp",
+   "caption": "球果与羽状枝叶",
+   "credit": "摄影 KENPEI · CC BY-SA 3.0"
+  },
+  {
+   "file": "glyptostrobus-pensilis-2.webp",
+   "caption": "湿地边缘的幼树",
+   "credit": "摄影 Wendy Cutler · CC BY-SA 2.0"
+  }
+ ],
+ "taxodium-distichum": [
+  {
+   "file": "taxodium-distichum-1.webp",
+   "caption": "秋季转色的树冠",
+   "credit": "摄影 Lmbuga · CC BY-SA 4.0"
+  },
+  {
+   "file": "taxodium-distichum-2.webp",
+   "caption": "水面露出的膝状呼吸根",
+   "credit": "摄影 Dominicus Johannes Bergsma · CC BY-SA 4.0"
+  }
+ ],
+ "kandelia-obovata": [
+  {
+   "file": "kandelia-obovata-1.webp",
+   "caption": "涨潮时的秋茄灌丛",
+   "credit": "摄影 Minghong · CC BY-SA 4.0"
+  },
+  {
+   "file": "kandelia-obovata-2.webp",
+   "caption": "枝头下垂的笔状胚轴",
+   "credit": "摄影 Taiwankengo · CC BY-SA 3.0"
+  }
+ ],
+ "phragmites-australis": [
+  {
+   "file": "phragmites-australis-1.webp",
+   "caption": "河口的芦苇滩",
+   "credit": "摄影 Diego Delso · CC BY-SA 4.0"
+  },
+  {
+   "file": "phragmites-australis-2.webp",
+   "caption": "秋季的芦苇花穗",
+   "credit": "摄影 Anil Öztas · CC BY-SA 4.0"
+  }
+ ],
+ "scaevola-taccada": [
+  {
+   "file": "scaevola-taccada-1.webp",
+   "caption": "海岸上的草海桐灌丛",
+   "credit": "摄影 Nativeplants garden · CC BY-SA 4.0"
+  },
+  {
+   "file": "scaevola-taccada-2.webp",
+   "caption": "白色海绵质的核果",
+   "credit": "摄影 Nativeplants garden · CC BY-SA 4.0"
+  }
+ ],
+ "vitex-rotundifolia": [
+  {
+   "file": "vitex-rotundifolia-1.webp",
+   "caption": "沙地上的匍匐枝与蓝紫花",
+   "credit": "摄影 Nesnad · CC BY 4.0"
+  },
+  {
+   "file": "vitex-rotundifolia-2.webp",
+   "caption": "花序特写",
+   "credit": "摄影 Hibiki Katayama · CC BY 4.0"
+  }
+ ],
+ "ipomoea-imperati": [
+  {
+   "file": "ipomoea-imperati-1.webp",
+   "caption": "沙滩上的白花",
+   "credit": "摄影 Zeynel Cebeci · CC BY-SA 4.0"
+  },
+  {
+   "file": "ipomoea-imperati-2.webp",
+   "caption": "马蹄形的厚叶",
+   "credit": "摄影 Zeynel Cebeci · CC BY-SA 4.0"
+  }
+ ],
+ "cerbera-manghas": [
+  {
+   "file": "cerbera-manghas-1.webp",
+   "caption": "白花与红心",
+   "credit": "摄影 Steve Fitzgerald · CC BY-SA 4.0"
+  },
+  {
+   "file": "cerbera-manghas-2.webp",
+   "caption": "成熟时暗紫红色的果实",
+   "credit": "摄影 Steve Fitzgerald · CC BY-SA 4.0"
+  }
  ]
 }

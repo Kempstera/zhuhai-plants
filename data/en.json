@@ -1393,6 +1393,150 @@
     "Windbreak",
     "Coastal"
    ]
+  },
+  "glyptostrobus-pensilis": {
+   "name": "Chinese Swamp Cypress",
+   "alias": "Water pine",
+   "habit": "deciduous tree",
+   "origin": "endemic to China; formerly the Pearl River delta to Fujian",
+   "color": "cones",
+   "where": "the swamp cypress stand on Zhuzhou Island, Liuxiang, Doumen",
+   "lead": "The largest stand of swamp cypress in the world, and it stands in the water at Doumen.",
+   "body": "Zhuzhou is an island in the channel network at Liuxiang, water on every side. In the 1980s about 360 mu of it were planted with Glyptostrobus; today it reads as a green island you can pick out from a drone. The roots sit in silt, the base of the trunk swells into a buttress, and at high tide only the upper half shows. When the water drops, the mud is studded with its knees.",
+   "leaf": "Two leaf forms: awl-shaped leaves in two ranks on young shoots, flat and thin; scale leaves pressed to the twig on older wood. Both fall with the shoot in autumn.",
+   "flower": "Monoecious. Male cones globose at the shoot tips, female cones ovoid; the cone is obovoid, its woody scales opening at maturity.",
+   "note": "A first-class nationally protected wild plant, with only a few hundred wild individuals left. The Doumen stand is planted, but it is the largest anywhere. It fears reclamation, and it fears salt.",
+   "tags": [
+    "first-class protected",
+    "relict",
+    "waterside"
+   ]
+  },
+  "taxodium-distichum": {
+   "name": "Bald Cypress",
+   "alias": "Deciduous cypress",
+   "habit": "deciduous tree",
+   "origin": "southeastern North America; widely planted in South China",
+   "color": "cones",
+   "where": "creek banks in Doumen, fish ponds at Jinwan",
+   "lead": "The bank tree of the water country. It drops every needle in winter and greens again from the tips in spring.",
+   "body": "Along the creeks, fish ponds and farm tracks of Doumen, bald cypress is what gets planted. It tolerates standing water — the roots will grow submerged — and five years of it makes a windbreak. In late autumn the foliage turns rust red, the only colour change in this flat water landscape. Stand it in water long enough and the roots surface as a row of wooden knuckles: pneumatophores.",
+   "leaf": "Linear, flat, in two feathery ranks, about a centimetre long; shed in autumn together with the twig.",
+   "flower": "Monoecious. Male cones in drooping catkins, female cones solitary at the tips; the cone is subglobose, pale brown when ripe.",
+   "note": "Identify it by the fall: the whole spray drops in one piece, and the leaves are flat in two ranks, not awl-shaped and pressed to the twig as in pond cypress and dawn redwood.",
+   "tags": [
+    "deciduous",
+    "bank planting",
+    "pneumatophores"
+   ]
+  },
+  "kandelia-obovata": {
+   "name": "Kandelia",
+   "alias": "Kandelia mangrove",
+   "habit": "evergreen shrub or small tree",
+   "origin": "South China to southern Japan and Southeast Asia",
+   "color": "small white flowers",
+   "where": "mudflats at Baiteng and Denglongsha, Doumen",
+   "lead": "The commonest true mangrove in what is left of Zhuhai's mangrove.",
+   "body": "Kandelia grows at the upper edge of the tidal flat, its roots under salt water for half of every day. The seed germinates while still on the tree and grows into a pencil-length propagule, which drops in autumn and plants itself upright in the mud. Zhuhai's flats were almost entirely levelled in the last round of reclamation; the stands at Baiteng and Denglongsha are what grew back once they were left alone.",
+   "leaf": "Elliptic to obovate, thick and leathery, opposite, with a clear midrib.",
+   "flower": "White, the calyx five-cleft with reflexed lobes, the petals finely divided; the fruit is conical and the propagule long and pencil-like.",
+   "note": "Nationally protected, second class. The propagule is called the kandelia pencil: stuck in mud it grows straight into a sapling. It is the cleverest trick the mangroves have.",
+   "tags": [
+    "mangrove",
+    "viviparous",
+    "second-class protected"
+   ]
+  },
+  "phragmites-australis": {
+   "name": "Common Reed",
+   "alias": "Reed",
+   "habit": "perennial emergent herb",
+   "origin": "cosmopolitan",
+   "color": "grey-brown plumes",
+   "where": "tidal flats and creek mouths beyond the embankment at Pingsha and Denglongsha",
+   "lead": "A stand of reed is a piece of wetland that makes a sound.",
+   "body": "The rhizome runs horizontally through the mud, a few metres a year, stitching soft sediment into land. Zhuhai's western shore once carried continuous reed beds; reclamation pushed them out beyond the embankment, and bands of them still stand at Pingsha and Denglongsha. When the wind crosses, the whole field leans one way, and the sound carries further than the sea does.",
+   "leaf": "Lanceolate-linear, flat, 30–50 cm long, rough at the edges.",
+   "flower": "A dense terminal panicle with drooping branches, the spikelets of three to seven florets; grey-brown feathery plumes from autumn.",
+   "note": "Reed beds hide herons, rails and reed warblers. They are also the first colonisers of new land: where the reed stands, the mud is rising.",
+   "tags": [
+    "wetland",
+    "emergent",
+    "mudflat"
+   ]
+  },
+  "scaevola-taccada": {
+   "name": "Beach Cabbage",
+   "alias": "Half-flower",
+   "habit": "evergreen shrub",
+   "origin": "tropical Asia, Australasia and the Pacific islands",
+   "color": "white half-flowers",
+   "where": "sea cliffs and the back of beaches throughout the Wanshan islands",
+   "lead": "The outermost ring of green on an island. The harder the wind, the lower it lies.",
+   "body": "Step off the boat at a Wanshan jetty and the first shrub you meet is usually beach cabbage. It grows against the rock with every branch reaching seaward and the leaves gathered at the tips like opened umbrellas. The flower opens on one side only — all five lobes swept to the same edge, a folded fan — which is why the genus is called half-flower.",
+   "leaf": "Obovate to spathulate, fleshy, clustered at the shoot tips, the axils often with white woolly hairs.",
+   "flower": "Corolla white, slit to the base on one side so the five lobes fan outward, the throat marked yellow; fruit a white spongy drupe.",
+   "note": "The fruit floats, so the same species lines the shore from East Africa to Hawaii. Salt, wind and drought are all the same to it; it is the first choice for island planting.",
+   "tags": [
+    "island",
+    "wind-fast",
+    "sea-dispersed"
+   ]
+  },
+  "vitex-rotundifolia": {
+   "name": "Beach Vitex",
+   "alias": "Round-leaf vitex",
+   "habit": "deciduous prostrate shrub",
+   "origin": "East Asia to Southeast Asia and the coasts of Australia",
+   "color": "violet-blue",
+   "where": "beaches and sand ridges on Wanshan, Dong'ao and Wailingding",
+   "lead": "A green rope across the sand. Bury it and it grows out of the burial.",
+   "body": "Behind the beaches of Wanshan there is usually a skin of low green. Beach vitex trails its stems over the sand and roots at every node, so each burial adds a layer of roots. The leaves are simple — unusual in Vitex — rounded and white-felted beneath, like handling flannel.",
+   "leaf": "Simple, orbicular to obovate, entire, grey-green above and densely white-tomentose beneath.",
+   "flower": "Terminal panicles of violet-blue two-lipped flowers; fruit a globose drupe, blackish when ripe.",
+   "note": "A pioneer sand-binder, and one source of the Chinese drug manjingzi. Where a beach is walked to death, it is the first thing to go.",
+   "tags": [
+    "sand-binder",
+    "prostrate",
+    "coastal"
+   ]
+  },
+  "ipomoea-imperati": {
+   "name": "Beach Morning Glory",
+   "alias": "White beach bindweed",
+   "habit": "perennial trailing herb",
+   "origin": "tropical and subtropical coasts, worldwide",
+   "color": "white",
+   "where": "beaches on the Wanshan islands and at Hengqin",
+   "lead": "The white-flowered vine of the beach, with leaves shaped like a horse's hoof.",
+   "body": "It crawls over the sand and roots at every joint, holding the drift in place. The flowers open at dawn and close by afternoon, thin enough to pass the light. On the beaches of Wanshan it grows with beach vitex — one spread flat, one standing up in blue.",
+   "leaf": "Thick and leathery, horseshoe- to broad-ovate, the apex retuse or two-lobed, like a saddle.",
+   "flower": "Funnel-shaped, white with a pale yellow throat; capsule ovoid, the seeds blackish.",
+   "note": "The other beach bindweed here, goat's-foot convolvulus, has purple-red flowers. This one is white. The colour settles it.",
+   "tags": [
+    "beach",
+    "vine",
+    "sand-binder"
+   ]
+  },
+  "cerbera-manghas": {
+   "name": "Sea Mango",
+   "alias": "Grey milkwood",
+   "habit": "evergreen tree",
+   "origin": "coasts from tropical Asia to the Pacific islands",
+   "color": "white with a crimson eye",
+   "where": "coastal woodland on the Wanshan islands and at Qi'ao",
+   "lead": "Flowers like a pinwheel, fruit like a green mango, and the whole tree is poisonous.",
+   "body": "Sea mango grows in the innermost belt of the coastal wood, the crown rounded, the leaves gathered at the tips so that a gust turns up their pale undersides. The flower is white with a crimson patch at the base of each of the five lobes, which from a distance reads as a pinwheel. The fruit ripens dark purple-red and does look like a mango — which is exactly the danger.",
+   "leaf": "Obovate-oblong, thickly papery, clustered at the shoot tips, the lateral veins fine and parallel.",
+   "flower": "Corolla white, crimson at the base of the lobes and in the throat; drupe ovoid, dark purple-red when ripe.",
+   "note": "The fruit contains cerberin and can kill. Fishermen call it ox-heart aubergine. After a typhoon the fallen fruit litter the ground — do not pick them up. It is nonetheless a fine coastal shelter tree: salt-tolerant, wind-fast, neatly shaped.",
+   "tags": [
+    "poisonous",
+    "coastal forest",
+    "evergreen"
+   ]
   }
  },
  "cats": {
@@ -1420,6 +1564,11 @@
    "name": "Palms & Coastal",
    "lead": "Only plants raised by the sea know how to stand in wind and make it a posture.",
    "desc": "The straight column of the royal palm, the fan of the Chinese fan palm, the needle branches of the she-oak: together they draw Zhuhai's coastline. Salt-tolerant, drought-tolerant, wind-firm — the part of the city that looks most like itself."
+  },
+  "water": {
+   "name": "Waterside & Islands",
+   "lead": "The West River channels and the islands to the south are another Zhuhai: brackish water, mudflat, sea cliff and sand.",
+   "desc": "In Doumen the swamp cypress, the bald cypress and the last mangroves stand among creeks and fish ponds; on the Wanshan islands beach cabbage, beach vitex and beach morning glory hold the cliffs and the sand. Most of this volume is not in the city at all — you drive forty kilometres west, or you take a boat."
   }
  },
  "captions": {
@@ -1573,6 +1722,22 @@
   "黄昏里的细高身影，干直如柱": "A slender silhouette at dusk, the trunk straight as a column",
   "黄绿的叶丛": "A mass of yellow-green foliage",
   "黄色的花冠覆在树顶": "Yellow corollas covering the top of the tree",
-  "黄花落在翅状的荚旁": "Yellow flowers fallen beside a winged pod"
+  "黄花落在翅状的荚旁": "Yellow flowers fallen beside a winged pod",
+  "球果与羽状枝叶": "Cone and feathery foliage",
+  "湿地边缘的幼树": "Young trees at the wetland edge",
+  "秋季转色的树冠": "Autumn colour on the crown",
+  "水面露出的膝状呼吸根": "Knees breaking the surface beside the water",
+  "涨潮时的秋茄灌丛": "A kandelia stand at high water",
+  "枝头下垂的笔状胚轴": "Pencil-shaped propagules hanging from the branch",
+  "河口的芦苇滩": "Reed beds at a creek mouth",
+  "秋季的芦苇花穗": "Plumes in autumn",
+  "海岸上的草海桐灌丛": "Beach cabbage on the shore",
+  "白色海绵质的核果": "White spongy fruits",
+  "沙地上的匍匐枝与蓝紫花": "Trailing stems and violet flowers on sand",
+  "花序特写": "A flowering spike in close-up",
+  "沙滩上的白花": "A white flower on the sand",
+  "马蹄形的厚叶": "The horseshoe-shaped leaves",
+  "白花与红心": "White petals, crimson eye",
+  "成熟时暗紫红色的果实": "The fruit, dark purple-red when ripe"
  }
 }
