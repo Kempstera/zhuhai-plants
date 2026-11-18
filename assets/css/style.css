@@ -1212,7 +1212,83 @@ a { color: inherit; text-decoration: none; }
    ============================================================ */
 
 .mapfig { margin: 6px 0 0; }
-.mapfig svg { width: 100%; height: auto; display: block; }
+.mapfig svg {
+  width: 100%; height: auto; display: block;
+  box-shadow: 0 0 0 1px var(--rule-soft);
+}
+.mapfig__scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* 地图本体：海岸线靠纸色描边从海面浮起，区界用细线 */
+.map__halo polygon { fill: none; stroke: #F8F4EB; stroke-width: 5; stroke-linejoin: round; }
+.map__land polygon {
+  fill: #F3ECDD; stroke: #3D5C4D; stroke-width: 1;
+  stroke-opacity: .45; stroke-linejoin: round;
+}
+.map__district {
+  font-family: var(--font-sans); font-size: 11.5px; letter-spacing: .3em;
+  fill: #3D5C4D; opacity: .42;
+}
+.map__sea {
+  font-family: var(--font-latin); font-style: italic; font-size: 12.5px;
+  letter-spacing: .42em; fill: #4C7B87; opacity: .3;
+}
+.map__n { font-family: var(--font-sans); font-size: 9.5px; letter-spacing: .1em; fill: #3D5C4D; }
+.map__no {
+  font-family: var(--font-latin); font-style: italic; font-size: 10.5px;
+  letter-spacing: .06em; fill: #B25C45; opacity: .85;
+}
+.map__name {
+  font-family: var(--font-serif); font-size: 16.5px; letter-spacing: .07em; fill: #1E2A25;
+}
+.map__ct {
+  font-family: var(--font-latin); font-style: italic; font-size: 11px;
+  fill: #B25C45; opacity: .8;
+}
+.map__leader { fill: none; stroke: #B25C45; stroke-width: .8; stroke-opacity: .4; }
+
+@media (max-width: 900px) {
+  /* 窄屏不压缩，改为横向滚动，保住标注可读性 */
+  .mapfig svg { min-width: 720px; }
+}
+
+html[lang="en"] .map__district { font-size: 10px; letter-spacing: .18em; opacity: .48; }
+html[lang="en"] .map__sea { font-size: 11px; letter-spacing: .3em; }
+html[lang="en"] .map__name { font-size: 13px; letter-spacing: .04em; }
+html[lang="en"] .map__no { font-size: 9px; letter-spacing: .05em; }
+.mapfig__scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* 地图本体：海岸线靠纸色描边从海面浮起，区界用细线 */
+.map__halo polygon { fill: none; stroke: #F8F4EB; stroke-width: 5; stroke-linejoin: round; }
+.map__land polygon {
+  fill: #F3ECDD; stroke: #3D5C4D; stroke-width: 1;
+  stroke-opacity: .45; stroke-linejoin: round;
+}
+.map__district {
+  font-family: var(--font-sans); font-size: 11.5px; letter-spacing: .3em;
+  fill: #3D5C4D; opacity: .42;
+}
+.map__sea {
+  font-family: var(--font-latin); font-style: italic; font-size: 12.5px;
+  letter-spacing: .42em; fill: #4C7B87; opacity: .3;
+}
+.map__n { font-family: var(--font-sans); font-size: 9.5px; letter-spacing: .1em; fill: #3D5C4D; }
+.map__no {
+  font-family: var(--font-latin); font-style: italic; font-size: 10.5px;
+  letter-spacing: .06em; fill: #B25C45; opacity: .85;
+}
+.map__name {
+  font-family: var(--font-serif); font-size: 16.5px; letter-spacing: .07em; fill: #1E2A25;
+}
+.map__ct {
+  font-family: var(--font-latin); font-style: italic; font-size: 11px;
+  fill: #B25C45; opacity: .8;
+}
+.map__leader { fill: none; stroke: #B25C45; stroke-width: .8; stroke-opacity: .4; }
+
+html[lang="en"] .map__district { font-size: 10px; letter-spacing: .18em; opacity: .48; }
+html[lang="en"] .map__sea { font-size: 11px; letter-spacing: .3em; }
+html[lang="en"] .map__name { font-size: 13px; letter-spacing: .04em; }
+html[lang="en"] .map__no { font-size: 9px; letter-spacing: .05em; }
 .mapfig__note {
   display: flex; flex-wrap: wrap; gap: 6px 22px;
   justify-content: space-between;
@@ -1385,71 +1461,190 @@ a { color: inherit; text-decoration: none; }
   color: var(--moss-deep) !important;
 }
 
-/* ---------------------------------------------------------------- 英文站微调
-   拉丁字母不宜沿用汉字的字距与行宽，按语种收紧 */
+/* ---------------------------------------------------------------- 长文排版 */
 
-html[lang="en"] .brand__name { letter-spacing: .035em; font-size: 19px; }
-html[lang="en"] .brand__latin { letter-spacing: .1em; font-size: 10px; }
-html[lang="en"] .nav { letter-spacing: .07em; gap: 22px; }
-html[lang="en"] .hero h1 { letter-spacing: .005em; line-height: 1.14; }
-html[lang="en"] .hero__note { letter-spacing: .1em; }
-html[lang="en"] .hero__sub { letter-spacing: .005em; }
-html[lang="en"] .eyebrow { letter-spacing: .24em; }
-html[lang="en"] .section__head h2 { letter-spacing: .01em; }
-html[lang="en"] .detail__name { letter-spacing: .005em; }
-html[lang="en"] .parts__k { letter-spacing: .14em; }
+.prose { font-size: 16.5px; line-height: 2.1; color: var(--ink-soft); }
+.prose p { margin: 0 0 1.15em; }
+.prose p:last-child { margin-bottom: 0; }
+.prose--why {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  max-width: 760px;
+  font-size: 16px;
+  line-height: 2.05;
+}
+.prose-wrap { max-width: 820px; }
+
+/* ---------------------------------------------------------------- 页面主标题 */
+
+.page-title {
+  margin: 12px 0 16px;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 400;
+  letter-spacing: .1em;
+  line-height: 1.2;
+}
+.page-title--loose { margin-bottom: 30px; }
+.page-title--center { font-size: clamp(30px, 5vw, 46px); }
+
+.heading-sm {
+  margin: 10px 0 6px;
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: .08em;
+  line-height: 1.35;
+}
+
+.about__h {
+  margin: 2.2em 0 .7em;
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: .08em;
+  color: var(--ink);
+}
+
+/* ---------------------------------------------------------------- 页面主标题 */
+
+.page-title {
+  margin: 12px 0 16px;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 400;
+  letter-spacing: .1em;
+  line-height: 1.2;
+}
+.page-title--loose { margin-bottom: 30px; }
+.page-title--center { font-size: clamp(30px, 5vw, 46px); }
+
+.heading-sm {
+  margin: 10px 0 6px;
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: .08em;
+  line-height: 1.35;
+}
+
+.about__h {
+  margin: 2.2em 0 .7em;
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: .08em;
+  color: var(--ink);
+}
+
+/* ================================================================
+   英文站字体与字阶
+   ----------------------------------------------------------------
+   汉字为方块字，字距、行高、两端对齐都是为了「密而匀」；
+   拉丁字母的字宽不一，套用同一套参数会显得平、散、没有主次。
+   这里给英文单设一套衬线（Iowan Old Style → Palatino → Georgia）
+   与一套无衬线（系统 UI 字体），并按「显示 / 标题 / 副题 / 正文 /
+   标注」五级重排字阶。
+   ================================================================ */
+
+html[lang="en"] {
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua",
+                Georgia, "Noto Serif", "Droid Serif", serif;
+  --font-sans:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-latin: "Iowan Old Style", Palatino, Georgia, "Noto Serif", serif;
+}
+
+/* —— 正文：行高从 1.85–2.05 收到 1.66–1.74，取消两端对齐 */
+html[lang="en"] body { font-size: 16.5px; line-height: 1.66; }
+html[lang="en"] .detail__body {
+  font-size: 16.5px; line-height: 1.74;
+  text-align: left; hyphens: auto; -webkit-hyphens: auto;
+}
+html[lang="en"] .hero__sub { font-size: 17px; line-height: 1.68; max-width: 560px; }
+html[lang="en"] .parts__v { font-size: 15px; line-height: 1.72; }
+html[lang="en"] .note { font-size: 14.5px; line-height: 1.72; }
+html[lang="en"] .volume__lead { font-size: 13.5px; line-height: 1.7; max-width: 520px; }
+html[lang="en"] .section__head p { font-size: 13px; line-height: 1.65; max-width: 330px; }
+html[lang="en"] .place__desc { font-size: 13.5px; line-height: 1.72; }
+html[lang="en"] .foot__p { font-size: 12.5px; line-height: 1.7; }
+html[lang="en"] .card__lead { font-size: 12.5px; line-height: 1.62; }
+html[lang="en"] .facts dd { font-size: 17px; letter-spacing: 0; line-height: 1.45; }
+
+/* —— 显示级：字号拉大、字距收紧。拉丁大字号最忌宽字距 */
+html[lang="en"] .hero h1 {
+  font-size: clamp(40px, 7.2vw, 88px);
+  line-height: 1.02;
+  letter-spacing: -.022em;
+}
+html[lang="en"] .page-title {
+  font-size: clamp(34px, 4.8vw, 50px);
+  line-height: 1.06;
+  letter-spacing: -.016em;
+}
+html[lang="en"] .detail__name {
+  font-size: clamp(32px, 4.6vw, 48px);
+  line-height: 1.08;
+  letter-spacing: -.016em;
+}
+
+/* —— 标题：与正文明度拉开，字号收半级 */
+html[lang="en"] .section__head h2 {
+  font-size: clamp(25px, 3vw, 34px);
+  line-height: 1.18;
+  letter-spacing: -.014em;
+}
+html[lang="en"] .heading-sm { font-size: 24px; letter-spacing: -.008em; }
+html[lang="en"] .about__h { font-size: 20px; letter-spacing: .008em; }
+html[lang="en"] .volume__name { font-size: 22px; letter-spacing: -.006em; line-height: 1.25; }
+html[lang="en"] .card__name { font-size: 18.5px; letter-spacing: -.006em; line-height: 1.25; }
+html[lang="en"] .adjacent__n { font-size: 18px; letter-spacing: -.006em; }
+html[lang="en"] .fam__cn { font-size: 17.5px; letter-spacing: -.004em; }
+html[lang="en"] .field__title { font-size: 19px; letter-spacing: .06em; }
+html[lang="en"] .place__name { font-size: 19px; letter-spacing: -.004em; }
+
+/* —— 副题：导语略大于正文、拉丁名用衬线斜体 */
+/* —— 长文：栏宽收窄到约 70 字符，行高回到 1.74 */
+html[lang="en"] .prose { font-size: 17px; line-height: 1.74; letter-spacing: 0; }
+html[lang="en"] .prose p { margin-bottom: 1.45em; }
+html[lang="en"] .prose-wrap { max-width: 690px; }
+html[lang="en"] .prose--why { max-width: 700px; gap: 24px; }
+html[lang="en"] .about__h { font-size: 23px; letter-spacing: -.008em; margin: 2.3em 0 .75em; }
+html[lang="en"] .detail__lead { font-size: 20.5px; line-height: 1.5; letter-spacing: -.006em; }
+html[lang="en"] .detail__latin { font-size: 19px; letter-spacing: .008em; }
+html[lang="en"] .card__latin { font-size: 13px; letter-spacing: .008em; }
+html[lang="en"] .fam__lat { font-size: 12.5px; }
+html[lang="en"] .detail__alias { letter-spacing: .1em; }
+
+/* —— 标注：无衬线小字，靠字距与字重和衬线正文分开 */
+html[lang="en"] .eyebrow { font-weight: 500; letter-spacing: .22em; }
+html[lang="en"] .hero__note {
+  font-size: 11.5px; letter-spacing: .2em; text-transform: uppercase;
+}
+html[lang="en"] .brand__name { font-size: 19px; letter-spacing: -.004em; }
+html[lang="en"] .brand__latin { font-size: 9.5px; letter-spacing: .16em; }
+html[lang="en"] .nav { letter-spacing: .02em; gap: 22px; font-size: 12.5px; }
+html[lang="en"] .parts__k { letter-spacing: .16em; }
+html[lang="en"] .facts dt { letter-spacing: .18em; }
+html[lang="en"] .crumbs { letter-spacing: .14em; }
+html[lang="en"] .foot__k { letter-spacing: .24em; }
+html[lang="en"] .adjacent__k { letter-spacing: .22em; }
+html[lang="en"] .tag { font-size: 10.5px; letter-spacing: .07em; }
+html[lang="en"] .chip { letter-spacing: .06em; }
+html[lang="en"] .bloom__cn { font-size: 13.5px; letter-spacing: 0; }
+html[lang="en"] .fam__sp { font-size: 14px; letter-spacing: -.002em; }
+html[lang="en"] .fam__f { font-size: 9.5px; letter-spacing: .04em; }
+html[lang="en"] .bloom__f { font-size: 9px; letter-spacing: .04em; }
+html[lang="en"] .bloom__legend { letter-spacing: .07em; }
+html[lang="en"] .bloom__head .bloom__cap { letter-spacing: .14em; }
+html[lang="en"] .place__en { letter-spacing: .2em; }
+html[lang="en"] .plate__cap { letter-spacing: .14em; }
+html[lang="en"] #nowline { letter-spacing: .13em; }
+
+/* —— 版式：拉丁文字每行容纳的字符更少，栏宽相应收窄 */
 html[lang="en"] .parts__row { grid-template-columns: 74px 1fr; }
-html[lang="en"] .facts dt { letter-spacing: .16em; }
-html[lang="en"] .facts dd { letter-spacing: .005em; font-size: 17px; }
-html[lang="en"] .field__title { letter-spacing: .14em; }
-html[lang="en"] .bloom__cn { letter-spacing: .005em; }
-html[lang="en"] .fam__f { letter-spacing: .02em; }
 html[lang="en"] .fam__list a { grid-template-columns: 178px 1fr auto; }
-html[lang="en"] .fam__sp { font-size: 14px; letter-spacing: .005em; }
-html[lang="en"] .card__name { letter-spacing: .01em; }
-html[lang="en"] .volume__name { letter-spacing: .01em; }
-html[lang="en"] .tag { letter-spacing: .06em; }
-html[lang="en"] .chip { letter-spacing: .07em; }
-html[lang="en"] .adjacent__n { letter-spacing: .01em; }
-html[lang="en"] .foot__p { letter-spacing: .005em; }
 html[lang="en"] .search { width: 244px; min-width: 0; }
 html[lang="en"] .bloom__head,
 html[lang="en"] .bloom__row,
 html[lang="en"] .bloom__tail { grid-template-columns: 272px 1fr 98px; }
 html[lang="en"] .bloom__inner { min-width: 780px; }
-html[lang="en"] .bloom__cn { font-size: 13.5px; letter-spacing: .005em; }
 html[lang="en"] .bloom__name { gap: 7px; }
-html[lang="en"] .bloom__f { font-size: 9px; letter-spacing: .03em; }
-html[lang="en"] .bloom__legend { letter-spacing: .06em; }
-html[lang="en"] .bloom__head .bloom__cap { letter-spacing: .12em; }
-html[lang="en"] .bloom__head,
-html[lang="en"] .bloom__row,
-html[lang="en"] .bloom__tail { grid-template-columns: 272px 1fr 98px; }
-html[lang="en"] .bloom__inner { min-width: 780px; }
-html[lang="en"] .bloom__cn { font-size: 13.5px; letter-spacing: .005em; }
-html[lang="en"] .bloom__name { gap: 7px; }
-html[lang="en"] .bloom__f { font-size: 9px; letter-spacing: .03em; }
-html[lang="en"] .bloom__legend { letter-spacing: .06em; }
-html[lang="en"] .bloom__head .bloom__cap { letter-spacing: .12em; }
-html[lang="en"] .search { width: 244px; min-width: 0; }
-html[lang="en"] .bloom__head,
-html[lang="en"] .bloom__row,
-html[lang="en"] .bloom__tail { grid-template-columns: 272px 1fr 98px; }
-html[lang="en"] .bloom__inner { min-width: 780px; }
-html[lang="en"] .bloom__cn { font-size: 13.5px; letter-spacing: .005em; }
-html[lang="en"] .bloom__name { gap: 7px; }
-html[lang="en"] .bloom__f { font-size: 9px; letter-spacing: .03em; }
-html[lang="en"] .bloom__legend { letter-spacing: .06em; }
-html[lang="en"] .bloom__head .bloom__cap { letter-spacing: .12em; }
-html[lang="en"] .bloom__head,
-html[lang="en"] .bloom__row,
-html[lang="en"] .bloom__tail { grid-template-columns: 272px 1fr 98px; }
-html[lang="en"] .bloom__inner { min-width: 780px; }
-html[lang="en"] .bloom__cn { font-size: 13.5px; letter-spacing: .005em; }
-html[lang="en"] .bloom__name { gap: 7px; }
-html[lang="en"] .bloom__f { font-size: 9px; letter-spacing: .03em; }
-html[lang="en"] .bloom__legend { letter-spacing: .06em; }
-html[lang="en"] .bloom__head .bloom__cap { letter-spacing: .12em; }
 
 @media (max-width: 640px) {
   /* 英文导航较长，窄屏改为品牌一行、导航一行，避免横向溢出 */
@@ -1460,7 +1655,7 @@ html[lang="en"] .bloom__head .bloom__cap { letter-spacing: .12em; }
     padding: 11px 20px 8px;
   }
   html[lang="en"] .brand { width: 100%; gap: 9px; }
-  html[lang="en"] .brand__name { font-size: 17px; letter-spacing: .035em; }
+  html[lang="en"] .brand__name { font-size: 17px; }
   html[lang="en"] .nav {
     width: 100%;
     justify-content: space-between;
@@ -1476,4 +1671,6 @@ html[lang="en"] .bloom__head .bloom__cap { letter-spacing: .12em; }
   html[lang="en"] .bloom__tail { grid-template-columns: 232px 1fr 88px; }
   html[lang="en"] .search { width: 100%; }
   html[lang="en"] .plate__cap { flex-wrap: wrap; gap: 2px 12px; letter-spacing: .1em; }
+  html[lang="en"] .hero h1 { letter-spacing: -.018em; }
+  html[lang="en"] .detail__body { hyphens: none; -webkit-hyphens: none; }
 }

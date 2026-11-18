@@ -169,13 +169,13 @@ TXT = {
     "map_desc": ("珠海七个片区的植物分布示意图：唐家湾、老香洲、情侣路、吉大、拱北、横琴、金湾，各区常见物种一览。",
                  "What grows where in Zhuhai: seven districts — Tangjiawan, Old Xiangzhou, Lovers' Road, Jida, Gongbei, Hengqin, Jinwan — and the plants recorded in each."),
     "map_h": ("分布示意", "Distribution"),
-    "map_p": ("同一座城市里，草木也分地段。海边的树种抗盐，老街的树种耐修剪，新区的树种要长得快。这张图画的是七个片区的位置关系与各自的常见物种——它不是地图，只是一份关系示意图。",
-              "Within a single city, plants keep to their own districts. Seaside trees must tolerate salt; old-town trees must tolerate pruning; new-town trees must grow fast. What follows is where seven districts sit in relation to one another and what grows in each — not a map, only a diagram of relationships."),
-    "map_cap1": ("位置关系示意 · 非比例尺 · 不作导航使用", "Schematic · not to scale · not for navigation"),
+    "map_p": ("同一座城市里，草木也分地段。海边的树种抗盐，老街的树种耐修剪，新区的树种要长得快。这幅图按珠海实际的海岸线与香洲、斗门、金湾三区界线绘制，含万山群岛，七个片区的点位依真实经纬度标注。",
+              "Within a single city, plants keep to their own districts. Seaside trees must tolerate salt; old-town trees must tolerate pruning; new-town trees must grow fast. This map follows the actual coastline and the boundaries of Xiangzhou, Doumen and Jinwan, with the Wanshan islands included; the seven districts are placed at their true coordinates."),
+    "map_cap1": ("底图：珠海市行政区划界线 · 非比例尺 · 不作导航使用", "Base: administrative boundaries of Zhuhai · not to scale · not for navigation"),
     "map_cap2": ("七个片区共记录 {} 种，另 {} 种全城可见", "Seven districts, {} species recorded; {} more occur citywide"),
     "map_sh": ("← 左右滑动查看全图 →", "← Scroll sideways for the whole diagram →"),
-    "map_note": ("片区划分依日常称呼，与行政区划不完全对应。「可见于」表示该物种在片区内的道路、公园或庭院中被记录到，并不意味它只生长于此。",
-                 "The districts follow everyday usage and do not match administrative boundaries exactly. 'Recorded in' means the species has been noted on roads, in parks or in gardens there; it does not mean it grows nowhere else."),
+    "map_note": ("片区划分依日常称呼，与行政区划不完全对应；行政区界线取自国家行政区划底图（GCJ-02），经抽稀简化，位置与形状不用于量算。「可见于」表示该物种在片区内的道路、公园或庭院中被记录到，并不意味它只生长于此。",
+                 "The districts follow everyday usage and do not match administrative boundaries exactly. The boundaries follow the national administrative base map (GCJ-02) and have been simplified; do not use them for measurement. 'Recorded in' means the species has been noted on roads, in parks or in gardens there; it does not mean it grows nowhere else."),
     "map_more": ("等 {} 种", "…{} species"),
     "map_node": ("{} · {} 种", "{} · {} spp."),
     "map_citywide": ("全城", "Citywide"),
@@ -251,9 +251,6 @@ def localize(html):
     html = html.replace('href="\x01', 'href="')
     html = html.replace('src="../assets/', 'src="/assets/')
     # 拉丁字母不需要汉字的字距
-    html = html.replace("letter-spacing:.1em", "letter-spacing:.02em")
-    html = html.replace("letter-spacing:.08em", "letter-spacing:.01em")
-    html = html.replace("letter-spacing:.14em", "letter-spacing:.08em")
     html = html.replace('<html lang="zh-CN">', '<html lang="en">')
     html = html.replace('content="zh_CN"', 'content="en_GB"')
     return html
@@ -523,7 +520,7 @@ def build_index():
         </div>
         <p>{t('why_p')}</p>
       </div>
-      <div style="display:grid;grid-template-columns:1fr;gap:28px;max-width:760px;font-size:16px;line-height:2.05;color:var(--ink-soft)">
+      <div class="prose prose--why">
         <p style="margin:0">{t('why_1')}</p>
         <p style="margin:0">{t('why_2')}</p>
         <p style="margin:0">{t('why_3')}</p>
@@ -535,7 +532,7 @@ def build_index():
     <div class="wrap" style="border-top:1px solid var(--rule);padding-top:44px;display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:center">
       <div>
         <div class="eyebrow">Appendix</div>
-        <h2 style="margin:10px 0 6px;font-size:26px;font-weight:400;letter-spacing:.08em">{t('idx_h', nfam)}</h2>
+        <h2 class="heading-sm">{t('idx_h', nfam)}</h2>
         <p style="margin:0;font-size:14px;color:var(--ink-faint)">{t('idx_p')}</p>
       </div>
       <a href="/roster" class="chip" style="padding:12px 26px;font-size:13px">{t('idx_more')}</a>
@@ -561,7 +558,7 @@ def build_atlas():
   <section class="section section--tight" style="padding-bottom:28px">
     <div class="wrap">
       <div class="eyebrow">Atlas</div>
-      <h1 style="margin:12px 0 14px;font-size:clamp(32px,5vw,52px);font-weight:400;letter-spacing:.1em">{t('atlas_h')}</h1>
+      <h1 class="page-title">{t('atlas_h')}</h1>
       <p style="margin:0;max-width:600px;font-size:15.5px;line-height:2;color:var(--ink-soft)">{t('atlas_p', len(PLANTS))}</p>
     </div>
   </section>
@@ -761,7 +758,7 @@ def build_roster():
   <section class="section section--tight">
     <div class="wrap">
       <div class="eyebrow">Index · By Family</div>
-      <h1 style="margin:12px 0 14px;font-size:clamp(32px,5vw,52px);font-weight:400;letter-spacing:.1em">{t('roster_h')}</h1>
+      <h1 class="page-title">{t('roster_h')}</h1>
       <p style="margin:0;max-width:660px;font-size:15.5px;line-height:2.05;color:var(--ink-soft)">{t('roster_p', len(groups))}</p>
     </div>
   </section>
@@ -821,8 +818,7 @@ def build_about():
         ps = en_ps if LANG == "en" else zh_ps
         if h:
             body.append(
-                f'<h2 style="font-size:22px;font-weight:400;letter-spacing:.08em;'
-                f'color:var(--ink);margin:2.2em 0 .7em">{h}</h2>')
+                f'<h2 class="about__h">{h}</h2>')
         for k, p in enumerate(ps):
             mt = ' style="margin-top:0"' if (not h and k == 0) else ' style="margin:0"'
             body.append(f'<p{mt}>{p}</p>')
@@ -834,11 +830,11 @@ def build_about():
     html += f"""
 <main>
   <section class="section">
-    <div class="wrap" style="max-width:820px">
+    <div class="wrap prose-wrap">
       <div class="eyebrow">About this guide</div>
-      <h1 style="margin:12px 0 30px;font-size:clamp(32px,5vw,52px);font-weight:400;letter-spacing:.1em">{t('about_h')}</h1>
+      <h1 class="page-title page-title--loose">{t('about_h')}</h1>
 
-      <div style="font-size:16.5px;line-height:2.1;color:var(--ink-soft)">
+      <div class="prose">
         {chr(10).join('        ' + b for b in body)}
 
         <div class="note" style="margin-top:44px">
@@ -918,7 +914,7 @@ def build_calendar():
   <section class="section section--tight" style="padding-bottom:30px">
     <div class="wrap">
       <div class="eyebrow">Almanac · Bloom Calendar</div>
-      <h1 style="margin:12px 0 16px;font-size:clamp(32px,5vw,52px);font-weight:400;letter-spacing:.1em">{t('cal_h1')}</h1>
+      <h1 class="page-title">{t('cal_h1')}</h1>
       <p style="margin:0;max-width:640px;font-size:15.5px;line-height:2.05;color:var(--ink-soft)">{t('cal_lead', len(PLANTS))}</p>
       <p id="nowline" style="margin:22px 0 0;font-family:var(--font-sans);font-size:12.5px;letter-spacing:.14em;color:var(--clay)"></p>
     </div>
@@ -954,60 +950,74 @@ def build_calendar():
     write_page("calendar.html", html)
 
 
-# ---------------------------------------------------------------- 分布示意
+# ---------------------------------------------------------------- 分布
+
+GEO = json.loads((ROOT / "data" / "geo.json").read_text(encoding="utf-8"))
+GEO_T = GEO["transform"]
+
+
+def px(lon, lat):
+    """经纬度 → viewBox 坐标（等距圆柱投影，按中纬度校正经度）"""
+    return ((lon - GEO_T["lon0"]) * GEO_T["kx"] * GEO_T["scale"],
+            (GEO_T["lat1"] - lat) * GEO_T["scale"])
+
+
+def geo_paths():
+    out = []
+    for d in GEO["districts"]:
+        for poly in d["polys"]:
+            pts = " ".join(f"{x},{y}" for x, y in poly)
+            out.append(f'<polygon points="{pts}"/>')
+    return "".join(out)
+
 
 PLACES = [
-    {"no": "I", "name": "唐家湾", "en": "Tangjiawan", "x": 824, "y": 118,
-     "lx": 804, "ly": 122, "anchor": "end",
+    {"no": "I", "name": "唐家湾", "en": "Tangjiawan", "lon": 113.589, "lat": 22.366,
+     "lx": 392, "ly": 72, "anchor": "end", "label": "side",
      "kw": ["唐家", "淇澳"],
      "desc": "珠海北端的老镇。青砖巷、祠堂前的百年榕树，往东是淇澳岛的红树林与海岸防风林。中山大学珠海校区也在这里，校园里的树种几乎是半部图鉴。",
      "desc_en": "The old town at the northern tip of the city. Grey-brick lanes, century-old banyans before the ancestral halls, and to the east the mangroves and coastal shelterbelt of Qi'ao Island. Sun Yat-sen University's Zhuhai campus is here too, and its planting is very nearly half of this atlas."},
-    {"no": "II", "name": "老香洲", "en": "Old Xiangzhou", "x": 758, "y": 238,
-     "lx": 738, "ly": 242, "anchor": "end",
+    {"no": "II", "name": "老香洲", "en": "Old Xiangzhou", "lon": 113.566, "lat": 22.276,
+     "lx": 472, "ly": 132, "anchor": "start", "leader": True,
      "kw": ["香洲", "凤凰路", "南坑", "柠溪", "前山", "人民东", "人民西"],
      "desc": "城市最早的一批街道。凤凰路的骑楼、南坑的市场、柠溪与南屏的老小区，行道树种得最密，树冠把整条街盖成隧道。",
      "desc_en": "Among the city's first streets. The arcades of Fenghuang Road, the market at Nankeng, the old estates of Ningxi and Nanping — the street trees here are planted more densely than anywhere else, their crowns closing the road into a tunnel."},
-    {"no": "III", "name": "情侣路", "en": "Lovers' Road", "x": 700, "y": 330,
-     "lx": 680, "ly": 334, "anchor": "end",
-     "kw": ["情侣路", "海滨"],
-     "desc": "全长约五十公里的滨海大道。海风、盐雾、台风与烈日同时作用，留下的都是些硬骨头：榕、棕榈、木麻黄与露兜。",
-     "desc_en": "Some fifty kilometres of coastal boulevard. Sea wind, salt spray, typhoon and hard sun all at once, and what survives is tough: figs, palms, casuarinas and screw pines."},
-    {"no": "IV", "name": "吉大", "en": "Jida", "x": 618, "y": 404,
-     "lx": 598, "ly": 408, "anchor": "end",
+    {"no": "III", "name": "吉大", "en": "Jida", "lon": 113.574, "lat": 22.258,
+     "lx": 472, "ly": 174, "anchor": "start", "leader": True,
      "kw": ["吉大", "九洲"],
      "desc": "商业与旧宅混杂的一段。庭院树与行道树在这里几乎分不出界线——糖胶树的塔形、假槟榔的灰白柱子，都长在离人行道两米的地方。",
      "desc_en": "Commerce and old houses mixed together. Garden trees and street trees are barely separable here: the tiered crown of the blackboard tree and the grey column of the Alexandra palm both stand two metres from the pavement."},
-    {"no": "V", "name": "拱北", "en": "Gongbei", "x": 512, "y": 452,
-     "lx": 512, "ly": 430, "anchor": "middle", "above": True,
+    {"no": "IV", "name": "情侣路", "en": "Lovers' Road", "lon": 113.586, "lat": 22.242,
+     "lx": 472, "ly": 216, "anchor": "start", "leader": True,
+     "kw": ["情侣路", "海滨"],
+     "desc": "全长约五十公里的滨海大道。海风、盐雾、台风与烈日同时作用，留下的都是些硬骨头：榕、棕榈、木麻黄与露兜。",
+     "desc_en": "Some fifty kilometres of coastal boulevard. Sea wind, salt spray, typhoon and hard sun all at once, and what survives is tough: figs, palms, casuarinas and screw pines."},
+    {"no": "V", "name": "拱北", "en": "Gongbei", "lon": 113.548, "lat": 22.221,
+     "lx": 472, "ly": 258, "anchor": "start", "leader": True,
      "kw": ["拱北", "湾仔", "南屏"],
      "desc": "口岸一带，人流与车流最急。这里种的都是最耐活的花木：高山榕、糖胶树、黄金榕——被反复修剪，依然认真地长。",
      "desc_en": "The border crossing, where people and traffic move fastest. What is planted is the hardiest flowering stock — banyans, blackboard trees, golden figs — cut back over and over, and still growing in earnest."},
-    {"no": "VI", "name": "横琴", "en": "Hengqin", "x": 388, "y": 466,
-     "lx": 388, "ly": 430, "anchor": "middle", "above": True,
+    {"no": "VI", "name": "横琴", "en": "Hengqin", "lon": 113.531, "lat": 22.132,
+     "lx": 359, "ly": 299, "anchor": "middle", "label": "below",
      "kw": ["横琴"],
      "desc": "新填海的新城。树几乎都是近十年种下的：小叶榄仁、美丽异木棉、紫花风铃木。它们长得快，也还在长——一座新城的植被，要几十年才定型。",
      "desc_en": "A new town on reclaimed land. Almost every tree went in within the last ten years: Indian almond, white silk floss, pink trumpet tree. They grow fast and are still growing — the planting of a new town takes decades to settle."},
-    {"no": "VII", "name": "金湾", "en": "Jinwan", "x": 214, "y": 424,
-     "lx": 214, "ly": 386, "anchor": "middle", "above": True,
+    {"no": "VII", "name": "金湾", "en": "Jinwan", "lon": 113.363, "lat": 22.146,
+     "lx": 222, "ly": 293, "anchor": "middle", "label": "below",
      "kw": ["金湾", "斗门"],
      "desc": "西侧的海岸与湿地。防风林、滩涂与咸淡水交界处的植物在这里占主导，城市化的痕迹要稀薄得多。",
      "desc_en": "The western shore, its wetlands and mudflats. Shelterbelts, tidal flats and the brackish margins dominate out here; the marks of the city are much fainter."},
 ]
 
-COAST_PTS = [(884, 16), (824, 118), (758, 238), (700, 330), (618, 404),
-             (512, 452), (388, 466), (214, 424), (128, 402), (24, 392)]
+DISTRICT_LABEL = [
+    ("香洲区", 113.5676, 22.3218, "Xiangzhou"),
+    ("斗门区", 113.268, 22.302, "Doumen"),
+    ("金湾区", 113.235, 22.048, "Jinwan"),
+    ("万山群岛", 114.140, 21.888, "Wanshan Is."),
+]
 
-
-def smooth_path(pts, tension=1.0):
-    d = f"M {pts[0][0]} {pts[0][1]}"
-    for i in range(len(pts) - 1):
-        p0 = pts[i - 1] if i > 0 else pts[i]
-        p1, p2 = pts[i], pts[i + 1]
-        p3 = pts[i + 2] if i + 2 < len(pts) else p2
-        c1 = (p1[0] + (p2[0] - p0[0]) / 6 * tension, p1[1] + (p2[1] - p0[1]) / 6 * tension)
-        c2 = (p2[0] - (p3[0] - p1[0]) / 6 * tension, p2[1] - (p3[1] - p1[1]) / 6 * tension)
-        d += f" C {c1[0]:.1f} {c1[1]:.1f} {c2[0]:.1f} {c2[1]:.1f} {p2[0]:.1f} {p2[1]:.1f}"
-    return d
+SEA_LABEL = [("伶仃洋", "Lingding Yang", 113.762, 22.392),
+             ("南海", "South China Sea", 113.905, 21.848)]
 
 
 def build_map():
@@ -1016,96 +1026,89 @@ def build_map():
     for pl in PLACES:
         pl["plants"] = [p for p in PLANTS
                         if any(k in zh_where.get(p["slug"], "") for k in pl["kw"])]
+        pl["pt"] = px(pl["lon"], pl["lat"])
 
     matched = {p["slug"] for pl in PLACES for p in pl["plants"]}
     citywide = [p for p in PLANTS if p["slug"] not in matched]
     total_seen = len(matched)
 
-    coast = smooth_path(COAST_PTS)
-    sea = coast + " L 24 392 L 24 540 L 900 540 L 900 16 Z"
-    land = coast + " L 24 392 L 24 16 L 884 16 Z"
+    W, H = GEO["w"], GEO["h"]
+    land = geo_paths()
 
-    waves = "".join(
-        f'<path d="{coast}" fill="none" stroke="#4C7B87" stroke-width="1" '
-        f'stroke-dasharray="1 9" stroke-linecap="round" opacity="{0.30 - i*0.07:.2f}" '
-        f'transform="translate({22 + i*26},{14 + i*11})" />'
-        for i in range(4)
+    # 区界与海岸：先描一圈纸色描边做出海陆分界，再叠填色与细线
+    district = "".join(
+        f'<polygon points="{" ".join(f"{x},{y}" for x, y in poly)}"/>'
+        for d in GEO["districts"] for poly in d["polys"]
     )
 
-    contours = "".join(
-        f'<path d="{d}" fill="none" stroke="#3D5C4D" stroke-width=".9" opacity="{o}"/>'
-        for d, o in [
-            ("M 60 118 C 170 96 286 122 372 92", ".12"),
-            ("M 54 178 C 168 150 300 180 410 148", ".11"),
-            ("M 70 238 C 190 210 318 240 440 208", ".10"),
-            ("M 96 296 C 214 268 344 296 470 268", ".09"),
-            ("M 150 348 C 262 320 384 344 500 318", ".08"),
-            ("M 214 394 C 300 372 400 388 496 368", ".07"),
-            ("M 250 158 C 330 132 420 150 486 122", ".08"),
-            ("M 430 74 C 530 52 620 70 700 46", ".07"),
-            ("M 560 120 C 640 100 706 112 760 92", ".06"),
-        ]
+    km = 1.0 / (GEO_T["scale"] / 111.2)          # 1 公里对应的 viewBox 长度
+    bar = 10 * km
+
+    marks = []
+    for pl in PLACES:
+        x, y = pl["pt"]
+        lx, ly = pl["lx"], pl["ly"]
+        anchor = pl["anchor"]
+        if pl.get("leader"):
+            marks.append(
+                f'<path class="map__leader" d="M {x:.1f} {y:.1f} L {x + 16:.1f} {y:.1f} '
+                f'L {lx - 10:.1f} {ly - 4.5:.1f}"/>'
+            )
+        marks.append(
+            f'<circle cx="{x:.1f}" cy="{y:.1f}" r="10" fill="#B25C45" opacity=".10"/>'
+            f'<circle cx="{x:.1f}" cy="{y:.1f}" r="3.4" fill="#F8F4EB" stroke="#B25C45" stroke-width="1.5"/>'
+            f'<circle cx="{x:.1f}" cy="{y:.1f}" r="1.2" fill="#B25C45"/>'
+            f'<text x="{lx}" y="{ly}" text-anchor="{anchor}" class="map__name">'
+            f'<tspan class="map__no">{pl["no"]}</tspan>'
+            f'<tspan dx="7">{pl["en"] if LANG == "en" else pl["name"]}</tspan>'
+            f'<tspan dx="7" class="map__ct">{len(pl["plants"])}</tspan></text>'
+        )
+
+    dlabels = "".join(
+        f'<text class="map__district" x="{px(lon, lat)[0]:.0f}" y="{px(lon, lat)[1]:.0f}" '
+        f'text-anchor="middle">{en if LANG == "en" else zh}</text>'
+        for zh, lon, lat, en in DISTRICT_LABEL
     )
 
-    # 陆地点状纹理（固定随机种子，示意性点缀，不对应真实地物）
-    import random as _rnd
-    _rnd.seed(20261118)
-
-    def _coast_y(x):
-        for i in range(len(COAST_PTS) - 1):
-            x1, y1 = COAST_PTS[i]
-            x2, y2 = COAST_PTS[i + 1]
-            if x1 <= x <= x2 or x2 <= x <= x1:
-                t = (x - x1) / (x2 - x1)
-                return y1 + (y2 - y1) * t
-        return 400
-
-    stipple = []
-    tries = 0
-    while len(stipple) < 130 and tries < 4000:
-        tries += 1
-        x = _rnd.uniform(46, 852)
-        y = _rnd.uniform(36, 500)
-        if y < _coast_y(x) - 34:
-            r = _rnd.choice([0.7, 0.9, 1.0, 1.2])
-            stipple.append(f'<circle cx="{x:.0f}" cy="{y:.0f}" r="{r}" fill="#3D5C4D" opacity=".13"/>')
-    stipple = "".join(stipple)
-
-    label_font = "Georgia, serif" if LANG == "en" else "Songti SC, serif"
-    nodes = "".join(
-        f'<g><circle cx="{pl["x"]}" cy="{pl["y"]}" r="14" fill="#3D5C4D" opacity=".07"/>'
-        f'<circle cx="{pl["x"]}" cy="{pl["y"]}" r="5.4" fill="#F8F4EB" stroke="#3D5C4D" stroke-width="1.6"/>'
-        f'<circle cx="{pl["x"]}" cy="{pl["y"]}" r="1.9" fill="#B25C45"/>'
-        f'<text x="{pl["lx"]}" y="{pl["ly"]}" text-anchor="{pl["anchor"]}" '
-        f'font-family="{label_font}" font-size="18.5" fill="#1E2A25" letter-spacing="2.6">{pl["en"] if LANG == "en" else pl["name"]}</text>'
-        f'<text x="{pl["lx"]}" y="{pl["ly"] + -17}" text-anchor="{pl["anchor"]}" '
-        f'font-family="PingFang SC, sans-serif" font-size="9.6" fill="#8B968E" letter-spacing="1.4">'
-        f'{t("map_node", pl["no"], len(pl["plants"]))}</text></g>'
-        for pl in PLACES
+    seacaps = "".join(
+        f'<text class="map__sea" x="{px(lon, lat)[0]:.0f}" y="{px(lon, lat)[1]:.0f}" '
+        f'text-anchor="middle">{en if LANG == "en" else zh}</text>'
+        for zh, en, lon, lat in SEA_LABEL
     )
 
     compass = (
-        '<g transform="translate(70,74)" opacity=".55">'
-        '<path d="M 0 20 L 0 -20" stroke="#3D5C4D" stroke-width="1"/>'
-        '<path d="M 0 -20 L -5.5 -6 L 0 -10.5 L 5.5 -6 Z" fill="#3D5C4D"/>'
-        '<text x="0" y="-28" text-anchor="middle" font-family="Georgia, serif" '
-        'font-size="12" fill="#3D5C4D" letter-spacing="1">N</text></g>'
+        f'<g transform="translate(62,74)" opacity=".62">'
+        '<path d="M 0 22 L 0 -22" stroke="#3D5C4D" stroke-width="1.1"/>'
+        '<path d="M 0 -22 L -6 -6 L 0 -11.5 L 6 -6 Z" fill="#3D5C4D"/>'
+        '<text x="0" y="-30" text-anchor="middle" class="map__n">N</text></g>'
     )
 
-    svg = f"""<svg viewBox="0 0 900 540" role="img" aria-label="{t('map_aria')}" xmlns="http://www.w3.org/2000/svg">
-  <rect width="900" height="540" fill="#DCE9E9"/>
-  <path d="{land}" fill="#F3ECDD"/>
-  <path d="{sea}" fill="#CFE1E1" opacity=".45"/>
-  {waves}
-  {contours}
-  {stipple}
-  <path d="{coast}" fill="none" stroke="#3D5C4D" stroke-width="2" stroke-linecap="round"/>
-  <text transform="translate(866,250) rotate(-90)" text-anchor="middle"
-        font-family="{label_font}" font-size="{14 if LANG == 'en' else 19}" fill="#4C7B87" opacity=".34" letter-spacing="{6 if LANG == 'en' else 10}">{t('map_sea')}</text>
-  <text x="600" y="512" text-anchor="middle" font-family="{label_font}" font-size="{13 if LANG == 'en' else 16}"
-        fill="#4C7B87" opacity=".32" letter-spacing="{7 if LANG == 'en' else 12}">{t('map_sea2')}</text>
+    scalebar = (
+        f'<g transform="translate(62,{H - 36:.0f})" opacity=".62">'
+        f'<path d="M 0 0 L {bar:.1f} 0" stroke="#3D5C4D" stroke-width="1.2"/>'
+        f'<path d="M 0 -5 L 0 5 M {bar/2:.1f} -4 L {bar/2:.1f} 4 M {bar:.1f} -5 L {bar:.1f} 5" '
+        'stroke="#3D5C4D" stroke-width="1.2"/>'
+        f'<text x="0" y="19" text-anchor="middle" class="map__n">0</text>'
+        f'<text x="{bar/2:.1f}" y="19" text-anchor="middle" class="map__n">5</text>'
+        f'<text x="{bar:.1f}" y="19" text-anchor="middle" class="map__n">10 km</text></g>'
+    )
+
+    svg = f"""<svg class="map" viewBox="0 0 {W:.0f} {H:.0f}" style="min-width:720px" role="img" aria-label="{t('map_aria')}" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="stipple" width="14" height="14" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="3" r=".8" fill="#4C7B87" opacity=".16"/>
+      <circle cx="9" cy="10" r=".7" fill="#4C7B87" opacity=".12"/>
+    </pattern>
+  </defs>
+  <rect width="{W:.0f}" height="{H:.0f}" fill="#DCE9E9"/>
+  <rect width="{W:.0f}" height="{H:.0f}" fill="url(#stipple)"/>
+  <g class="map__halo">{district}</g>
+  <g class="map__land">{district}</g>
+  {seacaps}
+  {dlabels}
+  {''.join(marks)}
   {compass}
-  {nodes}
+  {scalebar}
 </svg>"""
 
     cards = []
@@ -1116,7 +1119,7 @@ def build_map():
             cards.append(place_card(pl, pl["name"], pl["en"], pl["desc"], pl["plants"]))
     if citywide:
         cards.append(place_card(
-            {"no": "VIII"}, t("map_citywide"), "Citywide",
+            {"no": "—"}, t("map_citywide"), "Citywide",
             ("还有一些不挑地段的：种在每一条分车带、每一座天桥、每一个小区的围墙里。它们不专属于某个片区，而是这座城市绿化的底板。"
              if LANG == "zh" else
              "Then there are the ones that do not mind where they are put: in every central reservation, on every footbridge, inside every compound wall. They belong to no district in particular — they are the base coat of the city's planting."),
@@ -1128,7 +1131,7 @@ def build_map():
   <section class="section section--tight" style="padding-bottom:16px">
     <div class="wrap">
       <div class="eyebrow">Distribution · A Schematic View</div>
-      <h1 style="margin:12px 0 16px;font-size:clamp(32px,5vw,52px);font-weight:400;letter-spacing:.1em">{t('map_h')}</h1>
+      <h1 class="page-title">{t('map_h')}</h1>
       <p style="margin:0;max-width:640px;font-size:15.5px;line-height:2.05;color:var(--ink-soft)">{t('map_p')}</p>
     </div>
   </section>
@@ -1314,7 +1317,7 @@ def build_404():
 <main class="section" style="min-height:60vh;display:flex;align-items:center">
   <div class="wrap" style="text-align:center">
     <div class="eyebrow">Error 404</div>
-    <h1 style="margin:20px 0 16px;font-size:clamp(30px,5vw,46px);font-weight:400;letter-spacing:.1em">{t('nf_h')}</h1>
+    <h1 class="page-title page-title--center">{t('nf_h')}</h1>
     <p style="margin:0 auto;max-width:440px;font-size:15.5px;line-height:2;color:var(--ink-soft)">{t('nf_p')}</p>
     <div style="margin-top:34px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
       <a href="/" class="chip" style="padding:11px 26px">{t('nf_home')}</a>
