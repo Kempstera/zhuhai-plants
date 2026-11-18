@@ -54,6 +54,18 @@
   .stu__kpi:nth-child(even) { padding-left: 14px; border-left: 1px solid var(--rule-soft); }
 }
 
+@media (max-width: 560px) {
+  .stu__wrap { padding: 36px 20px 64px; }
+  .stu__bar { align-items: flex-start; gap: 12px; }
+  .stu__tools { width: 100%; flex-wrap: wrap; gap: 8px; }
+  .stu__seg { flex: 1 1 100%; }
+  .stu__seg button { flex: 1; padding: 7px 8px; letter-spacing: .06em; }
+  .stu__btn { flex: 0 0 auto; padding: 7px 12px; }
+  .stu__kpi dd { font-size: 24px; }
+  .hours { height: 70px; gap: 2px; }
+  .hours__axis { gap: 2px; font-size: 8px; }
+}
+
 .chart svg { display: block; width: 100%; height: auto; overflow: visible; }
 
 .rank { display: flex; flex-direction: column; gap: 9px; }

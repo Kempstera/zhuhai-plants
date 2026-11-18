@@ -8,7 +8,7 @@ routes = [
 ]
 
 [vars]
-ALLOWED_HOSTS = "plants.signupeverywhere.cc,zhuhai-plants.pages.dev"
+ALLOWED_HOSTS = "plants.signupeverywhere.cc,zhuhai-plants.pages.dev,127.0.0.1,localhost"
 
 [observability]
 enabled = true
