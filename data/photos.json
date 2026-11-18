@@ -23,6 +23,18 @@
    "credit": "摄影 discoverymike · CC BY-NC"
   }
  ],
+ "ficus-benjamina": [
+  {
+   "file": "ficus-benjamina-1.webp",
+   "caption": "庭院里的垂叶榕，枝叶下垂如幕",
+   "credit": "摄影 Vijayanrajapuram · CC BY-SA 4.0"
+  },
+  {
+   "file": "ficus-benjamina-2.webp",
+   "caption": "叶腋间的隐头果",
+   "credit": "摄影 Vijayanrajapuram · CC BY-SA 4.0"
+  }
+ ],
  "ficus-virens": [
   {
    "file": "ficus-virens-1.webp",
@@ -83,6 +95,18 @@
    "credit": "摄影 B.navez · CC BY-SA 3.0"
   }
  ],
+ "mangifera-persiciforma": [
+  {
+   "file": "mangifera-persiciforma-1.webp",
+   "caption": "新叶与青果",
+   "credit": "摄影 skystargazer · CC BY-NC"
+  },
+  {
+   "file": "mangifera-persiciforma-2.webp",
+   "caption": "老城区里的行道扁桃",
+   "credit": "摄影 kotatsuleo · CC BY-NC"
+  }
+ ],
  "dracontomelon-duperreanum": [
   {
    "file": "dracontomelon-duperreanum-1.webp",
@@ -119,6 +143,78 @@
    "credit": "摄影 VIBHA M DONGRE · CC BY-SA 4.0"
   }
  ],
+ "michelia-alba": [
+  {
+   "file": "michelia-alba-1.webp",
+   "caption": "白花初绽，香自暮色里浮起",
+   "credit": "摄影 Yercaud-elango · CC BY-SA 4.0"
+  },
+  {
+   "file": "michelia-alba-2.webp",
+   "caption": "叶腋间的花，一日之内由白转黄",
+   "credit": "摄影 Yercaud-elango · CC BY-SA 4.0"
+  }
+ ],
+ "syzygium-cumini": [
+  {
+   "file": "syzygium-cumini-1.webp",
+   "caption": "成片的树冠",
+   "credit": "摄影 Steve Fitzgerald · CC BY-SA 4.0"
+  },
+  {
+   "file": "syzygium-cumini-2.webp",
+   "caption": "对生的革质叶",
+   "credit": "摄影 VASANTH S.N · CC BY-SA 3.0"
+  }
+ ],
+ "syzygium-nervosum": [
+  {
+   "file": "syzygium-nervosum-1.webp",
+   "caption": "老树与新生红叶",
+   "credit": "摄影 A · CC BY-SA 3.0"
+  },
+  {
+   "file": "syzygium-nervosum-2.webp",
+   "caption": "枝端的紫红嫩叶",
+   "credit": "摄影 Kedar Sharma · CC BY-SA 3.0"
+  }
+ ],
+ "acacia-confusa": [
+  {
+   "file": "acacia-confusa-1.webp",
+   "caption": "镰刀状的假叶与绒球花",
+   "credit": "摄影 Forest &amp; Kim Starr · CC BY 3.0"
+  },
+  {
+   "file": "acacia-confusa-2.webp",
+   "caption": "满树金黄",
+   "credit": "摄影 Forest and Kim Starr · CC BY 3.0 us"
+  }
+ ],
+ "khaya-senegalensis": [
+  {
+   "file": "khaya-senegalensis-1.webp",
+   "caption": "旷地上舒展的树冠",
+   "credit": "摄影 Marco Schmidt [1] · CC BY-SA 2.5"
+  },
+  {
+   "file": "khaya-senegalensis-2.webp",
+   "caption": "浓密的羽状复叶",
+   "credit": "摄影 Wiki Farazi · CC0"
+  }
+ ],
+ "senna-siamea": [
+  {
+   "file": "senna-siamea-1.webp",
+   "caption": "黄色的花冠覆在树顶",
+   "credit": "摄影 Ajtjohnsingh · CC BY-SA 4.0"
+  },
+  {
+   "file": "senna-siamea-2.webp",
+   "caption": "花与羽状复叶",
+   "credit": "摄影 Vijayanrajapuram · CC BY-SA 4.0"
+  }
+ ],
  "bombax-ceiba": [
   {
    "file": "bombax-ceiba-1.webp",
@@ -153,6 +249,18 @@
    "file": "ceiba-speciosa-2.webp",
    "caption": "满枝的紫红花簇",
    "credit": "摄影 danplant · CC BY-NC"
+  }
+ ],
+ "erythrina-crista-galli": [
+  {
+   "file": "erythrina-crista-galli-1.webp",
+   "caption": "花枝横出，映着天光",
+   "credit": "摄影 Anna Anichkova · CC BY-SA 3.0"
+  },
+  {
+   "file": "erythrina-crista-galli-2.webp",
+   "caption": "总状花序如鸡冠",
+   "credit": "摄影 Prenn · CC BY-SA 3.0"
   }
  ],
  "handroanthus-chrysanthus": [
@@ -203,6 +311,18 @@
    "credit": "摄影 Nativeplants garden · CC BY-SA 4.0"
   }
  ],
+ "lagerstroemia-indica": [
+  {
+   "file": "lagerstroemia-indica-1.webp",
+   "caption": "花簇压弯枝头",
+   "credit": "摄影 Jim Evans · CC BY-SA 4.0"
+  },
+  {
+   "file": "lagerstroemia-indica-2.webp",
+   "caption": "暗处的花，如绢如皱",
+   "credit": "摄影 Didier Descouens · CC BY-SA 4.0"
+  }
+ ],
  "bauhinia-blakeana": [
   {
    "file": "bauhinia-blakeana-1.webp",
@@ -237,6 +357,54 @@
    "file": "plumeria-rubra-2.webp",
    "caption": "花簇，外白内黄",
    "credit": "摄影 Saadtitan12 · CC BY-SA 4.0"
+  }
+ ],
+ "hibiscus-mutabilis": [
+  {
+   "file": "hibiscus-mutabilis-1.webp",
+   "caption": "花蕾与初开的白花",
+   "credit": "摄影 Chiring chandan · CC BY-SA 4.0"
+  },
+  {
+   "file": "hibiscus-mutabilis-2.webp",
+   "caption": "重瓣的花，一日三变",
+   "credit": "摄影 Jane Wong S.K · CC BY-SA 3.0"
+  }
+ ],
+ "talipariti-tiliaceum": [
+  {
+   "file": "talipariti-tiliaceum-1.webp",
+   "caption": "花心一点深红",
+   "credit": "摄影 Seun Daniel Omatsola · CC BY-SA 4.0"
+  },
+  {
+   "file": "talipariti-tiliaceum-2.webp",
+   "caption": "临海的树冠",
+   "credit": "摄影 John Robert McPherson · CC BY-SA 4.0"
+  }
+ ],
+ "tecoma-stans": [
+  {
+   "file": "tecoma-stans-1.webp",
+   "caption": "一丛明黄",
+   "credit": "摄影 Md · CC BY-SA 4.0"
+  },
+  {
+   "file": "tecoma-stans-2.webp",
+   "caption": "漏斗状的花",
+   "credit": "摄影 John Robert McPherson · CC BY-SA 4.0"
+  }
+ ],
+ "senna-alata": [
+  {
+   "file": "senna-alata-1.webp",
+   "caption": "黄花落在翅状的荚旁",
+   "credit": "摄影 Adityamadhav83 · CC BY-SA 3.0"
+  },
+  {
+   "file": "senna-alata-2.webp",
+   "caption": "直立的花序",
+   "credit": "摄影 A S M Jobaer · CC BY-SA 4.0"
   }
  ],
  "ficus-microcarpa-golden": [
@@ -287,6 +455,78 @@
    "credit": "摄影 Prenn · CC BY-SA 3.0"
   }
  ],
+ "aglaia-odorata": [
+  {
+   "file": "aglaia-odorata-1.webp",
+   "caption": "叶间细碎的花",
+   "credit": "摄影 Dinkun Chen · CC BY-SA 4.0"
+  },
+  {
+   "file": "aglaia-odorata-2.webp",
+   "caption": "密生的倒卵形小叶",
+   "credit": "摄影 Dinkun Chen · CC BY-SA 4.0"
+  }
+ ],
+ "zanthoxylum-beecheyanum": [
+  {
+   "file": "zanthoxylum-beecheyanum-1.webp",
+   "caption": "叶间的红果",
+   "credit": "摄影 Balajijagadesh · CC BY-SA 4.0"
+  },
+  {
+   "file": "zanthoxylum-beecheyanum-2.webp",
+   "caption": "黄绿的叶丛",
+   "credit": "摄影 M108t · CC BY 4.0"
+  }
+ ],
+ "buxus-sinica": [
+  {
+   "file": "buxus-sinica-1.webp",
+   "caption": "修剪成球的绿篱",
+   "credit": "摄影 Salicyna · CC BY-SA 4.0"
+  },
+  {
+   "file": "buxus-sinica-2.webp",
+   "caption": "对生的小叶",
+   "credit": "摄影 Agnieszka Kwiecień, Nova · CC BY-SA 4.0"
+  }
+ ],
+ "fagraea-ceilanica": [
+  {
+   "file": "fagraea-ceilanica-1.webp",
+   "caption": "老树的板根",
+   "credit": "摄影 Dinesh Valke from Thane, India · CC BY-SA 2.0"
+  },
+  {
+   "file": "fagraea-ceilanica-2.webp",
+   "caption": "白花与革质叶",
+   "credit": "摄影 Ajtjohnsingh · CC BY-SA 4.0"
+  }
+ ],
+ "schefflera-arboricola": [
+  {
+   "file": "schefflera-arboricola-1.webp",
+   "caption": "匍匐垂落的绿篱",
+   "credit": "摄影 Mokkie · CC BY-SA 3.0"
+  },
+  {
+   "file": "schefflera-arboricola-2.webp",
+   "caption": "掌状复叶",
+   "credit": "摄影 Mokkie · CC BY-SA 3.0"
+  }
+ ],
+ "codiaeum-variegatum": [
+  {
+   "file": "codiaeum-variegatum-1.webp",
+   "caption": "叶面上的斑纹",
+   "credit": "摄影 SAplants · CC BY-SA 4.0"
+  },
+  {
+   "file": "codiaeum-variegatum-2.webp",
+   "caption": "橙红的叶",
+   "credit": "摄影 SAplants · CC BY-SA 4.0"
+  }
+ ],
  "ixora-chinensis": [
   {
    "file": "ixora-chinensis-1.webp",
@@ -335,6 +575,78 @@
    "credit": "摄影 لا روسا · CC BY-SA 4.0"
   }
  ],
+ "allamanda-cathartica": [
+  {
+   "file": "allamanda-cathartica-1.webp",
+   "caption": "攀在栏杆上的黄蝉",
+   "credit": "摄影 Tournasol7 · CC BY 4.0"
+  },
+  {
+   "file": "allamanda-cathartica-2.webp",
+   "caption": "喇叭形的花冠",
+   "credit": "摄影 Dinkun Chen · CC BY-SA 4.0"
+  }
+ ],
+ "calliandra-haematocephala": [
+  {
+   "file": "calliandra-haematocephala-1.webp",
+   "caption": "绒球状的雄蕊",
+   "credit": "摄影 Krzysztof Ziarnek, Kenraiz · CC BY-SA 4.0"
+  },
+  {
+   "file": "calliandra-haematocephala-2.webp",
+   "caption": "花丝如红缨",
+   "credit": "摄影 Pseudopanax at English · Public domain"
+  }
+ ],
+ "hamelia-patens": [
+  {
+   "file": "hamelia-patens-1.webp",
+   "caption": "常绿的灌木丛",
+   "credit": "摄影 Vengolis · CC BY-SA 4.0"
+  },
+  {
+   "file": "hamelia-patens-2.webp",
+   "caption": "管状的花，橙红如烛",
+   "credit": "摄影 Vijayanrajapuram · CC BY-SA 4.0"
+  }
+ ],
+ "duranta-erecta": [
+  {
+   "file": "duranta-erecta-1.webp",
+   "caption": "垂枝上的花与果",
+   "credit": "摄影 M108t · CC BY 4.0"
+  },
+  {
+   "file": "duranta-erecta-2.webp",
+   "caption": "淡紫的花，边缘带细齿",
+   "credit": "摄影 Jules Verne Times Two · CC BY-SA 4.0"
+  }
+ ],
+ "osmanthus-fragrans": [
+  {
+   "file": "osmanthus-fragrans-1.webp",
+   "caption": "叶腋里的花",
+   "credit": "摄影 Krzysztof Ziarnek, Kenraiz · CC BY-SA 4.0"
+  },
+  {
+   "file": "osmanthus-fragrans-2.webp",
+   "caption": "丹桂的橙花",
+   "credit": "摄影 Laitr Keiows · CC BY-SA 3.0"
+  }
+ ],
+ "gardenia-jasminoides": [
+  {
+   "file": "gardenia-jasminoides-1.webp",
+   "caption": "一朵盛开的白花",
+   "credit": "摄影 Adriel anv00 · CC BY-SA 4.0"
+  },
+  {
+   "file": "gardenia-jasminoides-2.webp",
+   "caption": "暗处的栀子",
+   "credit": "摄影 Alpsdake · CC BY-SA 3.0"
+  }
+ ],
  "sphagneticola-trilobata": [
   {
    "file": "sphagneticola-trilobata-1.webp",
@@ -357,6 +669,18 @@
    "file": "arachis-duranensis-2.webp",
    "caption": "蝶形花冠与四出复叶",
    "credit": "摄影 阿橋 HQ · CC BY-SA 2.0"
+  }
+ ],
+ "lantana-montevidensis": [
+  {
+   "file": "lantana-montevidensis-1.webp",
+   "caption": "铺地的花毯",
+   "credit": "摄影 Forest and Kim Starr · CC BY 3.0 us"
+  },
+  {
+   "file": "lantana-montevidensis-2.webp",
+   "caption": "紫色的花簇",
+   "credit": "摄影 Elucidate (talk) · CC BY 3.0"
   }
  ],
  "zephyranthes-grandiflora": [
@@ -395,6 +719,18 @@
    "credit": "摄影 Sreekar Anne · CC BY-SA 4.0"
   }
  ],
+ "crinum-asiaticum": [
+  {
+   "file": "crinum-asiaticum-1.webp",
+   "caption": "成片的白花",
+   "credit": "摄影 Pjorquerae · CC BY 4.0"
+  },
+  {
+   "file": "crinum-asiaticum-2.webp",
+   "caption": "花被片反卷如丝",
+   "credit": "摄影 Dinesh Valke from Thane, India · CC BY-SA 2.0"
+  }
+ ],
  "catharanthus-roseus": [
   {
    "file": "catharanthus-roseus-1.webp",
@@ -405,6 +741,66 @@
    "file": "catharanthus-roseus-2.webp",
    "caption": "单花，花心一点深色",
    "credit": "摄影 Joydeep · CC BY-SA 3.0"
+  }
+ ],
+ "canna-indica": [
+  {
+   "file": "canna-indica-1.webp",
+   "caption": "瓣化的雄蕊，黄如蜜",
+   "credit": "摄影 Petro Stelte · CC BY-SA 4.0"
+  },
+  {
+   "file": "canna-indica-2.webp",
+   "caption": "红花如焰",
+   "credit": "摄影 Sharon Mollerus · CC BY 2.0"
+  }
+ ],
+ "nelumbo-nucifera": [
+  {
+   "file": "nelumbo-nucifera-1.webp",
+   "caption": "盛开的粉荷",
+   "credit": "摄影 C T Johansson · CC BY-SA 3.0"
+  },
+  {
+   "file": "nelumbo-nucifera-2.webp",
+   "caption": "花苞将开未开",
+   "credit": "摄影 Subhrajyoti07 · CC BY-SA 4.0"
+  }
+ ],
+ "nymphaea-spp": [
+  {
+   "file": "nymphaea-spp-1.webp",
+   "caption": "白睡莲浮在水面",
+   "credit": "摄影 Gzen92 · CC BY-SA 4.0"
+  },
+  {
+   "file": "nymphaea-spp-2.webp",
+   "caption": "蓝睡莲",
+   "credit": "摄影 Ermell · CC BY-SA 4.0"
+  }
+ ],
+ "thalia-dealbata": [
+  {
+   "file": "thalia-dealbata-1.webp",
+   "caption": "水边的丛植",
+   "credit": "摄影 Naurahfa · CC BY-SA 4.0"
+  },
+  {
+   "file": "thalia-dealbata-2.webp",
+   "caption": "紫花与露水",
+   "credit": "摄影 Krzysztof Ziarnek, Kenraiz · CC BY-SA 4.0"
+  }
+ ],
+ "monstera-deliciosa": [
+  {
+   "file": "monstera-deliciosa-1.webp",
+   "caption": "丛生的龟背竹",
+   "credit": "摄影 Krzysztof Ziarnek, Kenraiz · CC BY-SA 4.0"
+  },
+  {
+   "file": "monstera-deliciosa-2.webp",
+   "caption": "一片开裂的叶",
+   "credit": "摄影 Smatu · CC BY-SA 4.0"
   }
  ],
  "roystonea-regia": [
@@ -419,18 +815,6 @@
    "credit": "摄影 Wee Hong · CC BY-SA 4.0"
   }
  ],
- "livistona-chinensis": [
-  {
-   "file": "livistona-chinensis-1.webp",
-   "caption": "海边步道旁的蒲葵林",
-   "credit": "摄影 そらみみ · CC BY-SA 4.0"
-  },
-  {
-   "file": "livistona-chinensis-2.webp",
-   "caption": "扇形叶与下垂的裂片",
-   "credit": "摄影 Daderot · Public domain"
-  }
- ],
  "archontophoenix-alexandrae": [
   {
    "file": "archontophoenix-alexandrae-1.webp",
@@ -443,6 +827,30 @@
    "credit": "摄影 Tournasol7 · CC BY 4.0"
   }
  ],
+ "phoenix-roebelenii": [
+  {
+   "file": "phoenix-roebelenii-1.webp",
+   "caption": "庭前的丛植",
+   "credit": "摄影 Krzysztof Ziarnek, Kenraiz · CC BY-SA 4.0"
+  },
+  {
+   "file": "phoenix-roebelenii-2.webp",
+   "caption": "羽状叶与果序",
+   "credit": "摄影 Ryan · CC0"
+  }
+ ],
+ "livistona-chinensis": [
+  {
+   "file": "livistona-chinensis-1.webp",
+   "caption": "海边步道旁的蒲葵林",
+   "credit": "摄影 そらみみ · CC BY-SA 4.0"
+  },
+  {
+   "file": "livistona-chinensis-2.webp",
+   "caption": "扇形叶与下垂的裂片",
+   "credit": "摄影 Daderot · Public domain"
+  }
+ ],
  "phoenix-sylvestris": [
   {
    "file": "phoenix-sylvestris-1.webp",
@@ -453,6 +861,30 @@
    "file": "phoenix-sylvestris-2.webp",
    "caption": "冠顶俯视，羽叶如伞骨",
    "credit": "摄影 Raja bandi · CC BY"
+  }
+ ],
+ "ravenala-madagascariensis": [
+  {
+   "file": "ravenala-madagascariensis-1.webp",
+   "caption": "撑开的扇形叶",
+   "credit": "摄影 tuenf · CC BY-SA 4.0"
+  },
+  {
+   "file": "ravenala-madagascariensis-2.webp",
+   "caption": "直立的叶序",
+   "credit": "摄影 Irene · CC0"
+  }
+ ],
+ "cycas-revoluta": [
+  {
+   "file": "cycas-revoluta-1.webp",
+   "caption": "羽状叶向四周铺开",
+   "credit": "摄影 Fawaz.tairou · CC BY 4.0"
+  },
+  {
+   "file": "cycas-revoluta-2.webp",
+   "caption": "叶心的新羽叶",
+   "credit": "摄影 Krzysztof Ziarnek, Kenraiz · CC BY-SA 4.0"
   }
  ],
  "pandanus-tectorius": [

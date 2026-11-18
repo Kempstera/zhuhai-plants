@@ -1053,7 +1053,7 @@ a { color: inherit; text-decoration: none; }
   .hero__line .eyebrow { font-size: 9.5px; letter-spacing: .22em; }
 }
 
-/* ---------- 野外摄影 ---------- */
+/* ---------- 城市实景 ---------- */
 
 .field {
   margin-top: 86px;
@@ -1352,4 +1352,56 @@ a { color: inherit; text-decoration: none; }
   .mapfig__scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .mapfig__scroll svg { min-width: 680px; }
   .bloom__scroll { position: relative; }
+}
+
+/* ---------- 科属索引 ---------- */
+
+.famgrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 56px;
+}
+
+.fam { padding: 26px 0 22px; border-top: 1px solid var(--rule); break-inside: avoid; }
+
+.fam__head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 12px; }
+.fam__cn { margin: 0; font-size: 19px; font-weight: 400; letter-spacing: .12em; }
+.fam__lat {
+  flex: 1;
+  font-family: var(--font-latin); font-style: italic;
+  font-size: 13px; color: var(--ink-faint);
+}
+.fam__n {
+  font-family: var(--font-latin); font-size: 15px;
+  color: var(--gold); letter-spacing: .04em;
+}
+
+.fam__list { list-style: none; margin: 0; padding: 0; }
+.fam__list li { border-bottom: 1px solid var(--rule-soft); }
+.fam__list li:last-child { border-bottom: 0; }
+.fam__list a {
+  display: grid;
+  grid-template-columns: 108px 1fr auto;
+  align-items: baseline;
+  gap: 10px;
+  padding: 7px 2px;
+  transition: background .3s var(--ease), padding .3s var(--ease);
+}
+.fam__list a:hover { background: rgba(255, 255, 255, .6); padding-left: 8px; }
+.fam__sp { font-size: 14.5px; letter-spacing: .04em; color: var(--ink); }
+.fam__sci {
+  font-family: var(--font-latin); font-style: italic;
+  font-size: 12.5px; color: var(--ink-faint);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.fam__f {
+  font-family: var(--font-sans); font-size: 10px;
+  letter-spacing: .06em; color: var(--ink-faint); white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+  .famgrid { grid-template-columns: 1fr; gap: 0; }
+  .fam { padding: 22px 0 18px; }
+  .fam__list a { grid-template-columns: 92px 1fr auto; }
+  .fam__cn { font-size: 17.5px; }
 }

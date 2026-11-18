@@ -56,7 +56,7 @@ def nav(prefix, active):
         ("atlas", "图鉴", "atlas"),
         ("calendar", "花历", "calendar"),
         ("map", "分布", "map"),
-        ("roster", "名录", "roster"),
+        ("roster", "索引", "roster"),
         ("about", "关于", "about"),
     ]
     lis = []
@@ -142,7 +142,7 @@ def foot(prefix):
     <div class="foot__grid">
       <div>
         <h3 class="foot__title">珠海草木志</h3>
-        <p class="foot__p">一份关于南亚热带滨海城市的植物观察笔记。收录珠海街头、公园与海岸线上最寻常、也最容易被忽略的七十余种植物。</p>
+        <p class="foot__p">一份关于暖亚热带与热带过渡型海洋性气候城市的植物观察笔记。收录珠海街头、公园与海岸线上最寻常、也最容易被忽略的七十六种植物。</p>
       </div>
       <div>
         <div class="foot__k">BROWSE</div>
@@ -150,7 +150,7 @@ def foot(prefix):
           <a href="{prefix}atlas">图鉴总览</a>
           <a href="{prefix}calendar">十二月花历</a>
           <a href="{prefix}map">分布示意</a>
-          <a href="{prefix}roster">补充名录</a>
+          <a href="{prefix}roster">科属索引</a>
           <a href="{prefix}about">编例与说明</a>
         </div>
       </div>
@@ -163,7 +163,7 @@ def foot(prefix):
     </div>
     <div class="foot__end">
       <span>珠海 · 北纬 22°14′ — 22°37′</span>
-      <span>共 {len(PLANTS)} 种详解 · {len(ARCHIVE)} 种著录</span>
+      <span>共 {len(PLANTS)} 种 · {len({p['family'] for p in PLANTS})} 科</span>
     </div>
   </div>
 </footer>
@@ -246,7 +246,7 @@ def build_index():
         <div><b>2,300</b>日照小时</div>"""
 
     html = head(
-        "珠海草木志 · 一座南亚热带城市的植物观察",
+        "珠海草木志 · 暖亚热带与热带过渡型海洋性气候城市的植物观察",
         "/", "珠海常见行道树、绿化带植物与园林花卉图鉴。细叶榕的荫凉、凤凰木的火、簕杜鹃的市中花色，六十余种草木的形态、花期与故事。",
         "home", "/")
     html += palm_svg()
@@ -259,8 +259,8 @@ def build_index():
         <span class="eyebrow">Zhuhai · Guangdong<span class="hide-sm"> · 22°16′N 113°34′E</span></span>
       </div>
       <h1>海风经过的地方，<br>草木替城市<em>记着节令</em>。</h1>
-      <p class="hero__sub">珠海是一座长在植物里的城市。北回归线以南、伶仃洋以西，长夏无冬，雨热同期——于是榕树的气根垂成帘，凤凰木在五月点着整条街，簕杜鹃从天桥一路开到海堤。这里收录它们当中的七十余种：行道树、绿篱灌木、地被草花，与海岸线上的棕榈。</p>
-      <div class="hero__latin">Sub-tropical monsoon, evergreen all year round.</div>
+      <p class="hero__sub">珠海是一座长在植物里的城市。北回归线以南、伶仃洋以西，长夏无冬，雨热同期——于是榕树的气根垂成帘，凤凰木在五月点着整条街，簕杜鹃从天桥一路开到海堤。这里收录它们当中的七十六种：行道树、绿篱灌木、地被草花，与海岸线上的棕榈。</p>
+      <div class="hero__latin">A warm subtropical–tropical maritime transition, evergreen all year round.</div>
       <div class="hero__meta">
 {stats}
       </div>
@@ -325,7 +325,7 @@ def build_index():
         <p>风、盐、雨、热——四种力量共同筛选出珠海的行道树名单。</p>
       </div>
       <div style="display:grid;grid-template-columns:1fr;gap:28px;max-width:760px;font-size:16px;line-height:2.05;color:var(--ink-soft)">
-        <p style="margin:0">珠海地处南亚热带季风气候区，年均气温约 22.5℃，年降水量 1,700–2,300 毫米，全年无霜。夏季漫长而湿热，冬季短暂温和，加之濒临南海，每年平均受 3–4 个热带气旋影响。这样的气候给植物出了一道苛刻的考题：既要耐得住长时间的高温高湿，又要在台风过境时不被连根拔起；既要扛住海风的盐雾，也要适应填海地带偏碱、偏浅的土层。</p>
+        <p style="margin:0">珠海地处暖亚热带与热带过渡型的海洋性气候区——北回归线以南、南海之滨，年均气温约 22.5℃，年降水量 1,700–2,300 毫米，全年无霜。夏季漫长而湿热，冬季短暂温和，海风终年不断，每年平均还要承受 3–4 个热带气旋过境。这样的气候给植物出了一道苛刻的考题：既要耐得住长时间的高温高湿，又要在台风过境时不被连根拔起；既要扛住海风的盐雾，也要适应填海地带偏碱、偏浅的土层。</p>
         <p style="margin:0">于是名单被反复筛过。榕属以气生根与柔韧的枝干胜出，樟科以深根与芳香油脂胜出，棕榈科以能屈能伸的羽叶胜出。凤凰木、木棉、黄花风铃木则代表了另一种策略：在风季到来之前完成开花结实，把一年中最好的几周押在一个短促的季节里。</p>
         <p style="margin:0">这座城市的绿，因此不是一种颜色，而是一套被气候反复修改过的答案。</p>
       </div>
@@ -336,8 +336,8 @@ def build_index():
     <div class="wrap" style="border-top:1px solid var(--rule);padding-top:44px;display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:center">
       <div>
         <div class="eyebrow">Appendix</div>
-        <h2 style="margin:10px 0 6px;font-size:26px;font-weight:400;letter-spacing:.08em">还有 {len(ARCHIVE)} 种，著录于名录</h2>
-        <p style="margin:0;font-size:14px;color:var(--ink-faint)">白兰、黄槿、海南蒲桃、苏铁、睡莲……按音序排列。</p>
+        <h2 style="margin:10px 0 6px;font-size:26px;font-weight:400;letter-spacing:.08em">七十六种，按 {len({p['family'] for p in PLANTS})} 科索引</h2>
+        <p style="margin:0;font-size:14px;color:var(--ink-faint)">豆科 9 种、桑科与锦葵科各 5 种……看看同一科的植物，是怎么共享一套形态的。</p>
       </div>
       <a href="/roster" class="chip" style="padding:12px 26px;font-size:13px">翻 阅 名 录 &nbsp;→</a>
     </div>
@@ -423,8 +423,8 @@ def build_species():
             field = f'''
     <section class="field">
       <div class="field__head">
-        <h2 class="field__title">野 外</h2>
-        <span class="field__sub">In the field</span>
+        <h2 class="field__title">城 中</h2>
+        <span class="field__sub">In the City</span>
       </div>
       <div class="field__grid">{''.join(figs)}
       </div>
@@ -509,55 +509,64 @@ def build_species():
         (OUT / "species" / f"{p['slug']}.html").write_text(html, encoding="utf-8")
 
 
-# ---------------------------------------------------------------- 名录
+# ---------------------------------------------------------------- 科属索引
 
-PINYIN = {
-    "白兰": "bailan", "扁桃": "biantao", "长春花": "changchunhua", "垂叶榕": "chuiyerong",
-    "葱兰": "conglan", "非洲楝": "feizhoulian", "宫粉羊蹄甲": "gongfenyangtijia", "桂花": "guihua",
-    "海南蒲桃": "hainanputao", "荷花": "hehua", "红绒球": "hongrongqiu", "胡椒木": "hujiaomu",
-    "黄葛树": "huanggeshu", "黄槿": "huangjin", "黄杨": "huangyang", "鸡蛋花": "jidanhua",
-    "假槟榔": "jiabinglang", "假连翘": "jialianqiao", "夹竹桃": "jiazhutao", "芒果": "mangguo",
-    "美人蕉": "meirenjiao", "米兰": "milan", "软枝黄蝉": "ruanzhihuangchan", "睡莲": "shuilian",
-    "水翁": "shuiweng", "苏铁": "sutie", "台湾相思": "taiwanxiangsi", "糖胶树": "tangjiaoshu",
-    "文殊兰": "wenshulan", "希茉莉": "ximoli", "银海枣": "yinhaizao", "再力花": "zailihua",
-    "栀子": "zhizi", "朱槿": "zhujin", "紫花风铃木": "zihuafenglingmu", "紫花马缨丹": "zihuamayingdan",
+FAMILY_LATIN = {
+    "豆科": "Fabaceae", "桑科": "Moraceae", "夹竹桃科": "Apocynaceae",
+    "锦葵科": "Malvaceae", "棕榈科": "Arecaceae", "紫葳科": "Bignoniaceae",
+    "石蒜科": "Amaryllidaceae", "漆树科": "Anacardiaceae", "楝科": "Meliaceae",
+    "茜草科": "Rubiaceae", "桃金娘科": "Myrtaceae", "千屈菜科": "Lythraceae",
+    "芸香科": "Rutaceae", "马鞭草科": "Verbenaceae", "樟科": "Lauraceae",
+    "叶下珠科": "Phyllanthaceae", "使君子科": "Combretaceae", "木兰科": "Magnoliaceae",
+    "金缕梅科": "Hamamelidaceae", "紫草科": "Boraginaceae", "黄杨科": "Buxaceae",
+    "马钱科": "Loganiaceae", "五加科": "Araliaceae", "大戟科": "Euphorbiaceae",
+    "紫茉莉科": "Nyctaginaceae", "木樨科": "Oleaceae", "菊科": "Asteraceae",
+    "美人蕉科": "Cannaceae", "莲科": "Nelumbonaceae", "睡莲科": "Nymphaeaceae",
+    "竹芋科": "Marantaceae", "天南星科": "Araceae", "鹤望兰科": "Strelitziaceae",
+    "苏铁科": "Cycadaceae", "露兜树科": "Pandanaceae", "木麻黄科": "Casuarinaceae",
 }
 
 
 def build_roster():
-    rows = []
-    for a in sorted(ARCHIVE, key=lambda x: PINYIN.get(x["name"], x["name"])):
-        rows.append(
-            f"""        <tr>
-          <td>{esc(a['name'])}</td>
-          <td class="lat">{esc(a['latin'])}</td>
-          <td>{esc(a['family'])}</td>
-          <td style="white-space:nowrap">{esc(a['flower'])}</td>
-          <td>{esc(a['note'])}</td>
-        </tr>"""
-        )
+    groups = {}
+    for p in PLANTS:
+        groups.setdefault(p["family"], []).append(p)
 
-    html = head("补充名录 · 珠海草木志", "/", "珠海常见园林植物补充名录，三十六种植物的科属、花期与形态要点。", "roster", "/roster")
+    blocks = []
+    for fam, ps in sorted(groups.items(), key=lambda kv: (-len(kv[1]), -max(int(x["no"]) for x in kv[1]))):
+        items = "".join(
+            f'<li><a href="/species/{p["slug"]}"><span class="fam__sp">{esc(p["name"])}</span>'
+            f'<span class="fam__sci">{esc(p["latin"])}</span>'
+            f'<span class="fam__f">{flower_text(p["months"])}</span></a></li>'
+            for p in sorted(ps, key=lambda x: x["no"])
+        )
+        blocks.append(f"""      <section class="fam">
+        <div class="fam__head">
+          <h2 class="fam__cn">{esc(fam)}</h2>
+          <span class="fam__lat">{esc(FAMILY_LATIN.get(fam, ""))}</span>
+          <span class="fam__n">{len(ps):02d}</span>
+        </div>
+        <ul class="fam__list">{items}</ul>
+      </section>""")
+
+    html = head("科属索引 · 珠海草木志", "/",
+                f"珠海 {len(PLANTS)} 种常见园林植物按科索引，含学名、花期与详情入口。",
+                "roster", "/roster")
     html += f"""
 <main>
   <section class="section section--tight">
     <div class="wrap">
-      <div class="eyebrow">Appendix · Roster</div>
-      <h1 style="margin:12px 0 14px;font-size:clamp(32px,5vw,52px);font-weight:400;letter-spacing:.1em">补充名录</h1>
-      <p style="margin:0;max-width:640px;font-size:15.5px;line-height:2;color:var(--ink-soft)">以下 {len(ARCHIVE)} 种在珠海同样常见，但尚未单独成篇。按中文名音序排列，附学名、科属、花期与一句话辨识要点。文中标注「有毒」者，请勿采食或让儿童接触汁液。</p>
+      <div class="eyebrow">Index · By Family</div>
+      <h1 style="margin:12px 0 14px;font-size:clamp(32px,5vw,52px);font-weight:400;letter-spacing:.1em">科属索引</h1>
+      <p style="margin:0;max-width:660px;font-size:15.5px;line-height:2.05;color:var(--ink-soft)">七十六种全部单独成篇，此处按科归并，共 {len(groups)} 科。同一科的植物往往共享一套形态语言——看到豆科的荚果、锦葵科的雄蕊柱，就知道它们在亲缘上是一家人。点选任一名字即可进入详解。</p>
     </div>
   </section>
 
-  <section class="section" style="padding-top:10px">
+  <section class="section" style="padding-top:16px">
     <div class="wrap">
-      <table class="roster">
-        <thead>
-          <tr><th style="width:15%">中文名</th><th style="width:20%">学名</th><th style="width:10%">科</th><th style="width:11%">花期</th><th>要点</th></tr>
-        </thead>
-        <tbody>
-{chr(10).join(rows)}
-        </tbody>
-      </table>
+      <div class="famgrid">
+{chr(10).join(blocks)}
+      </div>
     </div>
   </section>
 </main>
@@ -578,7 +587,7 @@ def build_about():
       <h1 style="margin:12px 0 30px;font-size:clamp(32px,5vw,52px);font-weight:400;letter-spacing:.1em">编例</h1>
 
       <div style="font-size:16.5px;line-height:2.1;color:var(--ink-soft)">
-        <p style="margin-top:0">本志收录珠海市城区（香洲、吉大、拱北、横琴、唐家湾、金湾）道路、公园、居住区与海岸带最常见的园林植物七十余种。其中四十种单独成篇，其余著录于名录。</p>
+        <p style="margin-top:0">本志收录珠海市城区（香洲、吉大、拱北、横琴、唐家湾、金湾）道路、公园、居住区与海岸带最常见的园林植物七十六种，全部单独成篇。</p>
 
         <h2 style="font-size:22px;font-weight:400;letter-spacing:.08em;color:var(--ink);margin:2.2em 0 .7em">一 · 分类</h2>
         <p style="margin:0">卷次的划分依据植物在城市中的角色，而非分类学亲缘：<strong>行道树</strong>指承担遮荫与街道骨架的乔木；<strong>观花乔木</strong>指以花期观赏为主要功能的乔木；<strong>绿篱灌木</strong>指用于分隔、围合、修剪成形的灌木；<strong>地被与草花</strong>指贴地覆盖的草本；<strong>棕榈与滨海</strong>指棕榈科及典型海岸带植物。因此凤凰木属观花乔木而不属行道树，尽管它同样种在路边。</p>
@@ -590,7 +599,8 @@ def build_about():
         <p style="margin:0">所标月份为珠海城区的常见花期区间，来自本地观察记录的归纳，而非植物志的全国性数据。同一物种在珠海的花期往往比其在长江流域的记载提前一个月以上；遇暖冬或冷春，前后浮动两至三周属正常。花历中的柱状条数代表当月开花的物种数量；另设独立的<strong>十二月花历</strong>页，以逐月色带呈现全部物种的花期分布。</p>
 
         <h2 style="font-size:22px;font-weight:400;letter-spacing:.08em;color:var(--ink);margin:2.2em 0 .7em">四 · 插图</h2>
-        <p style="margin:0">页内图谱为风格化植物插画，模仿十八至十九世纪植物学图谱的水彩与墨线风格，用于呈现叶序、叶形、花序与花冠结构等辨识要点。它们<strong>不是实景照片</strong>，细节（如绒毛、腺点、脉序）经过简化，不能替代野外观察。若要确认物种，请以实物形态、气味与生境为准。</p>
+        <p style="margin:0">页内图谱为风格化植物插画，模仿十八至十九世纪植物学图谱的水彩与墨线风格，用于呈现叶序、叶形、花序与花冠结构等辨识要点。它们<strong>不是实景照片</strong>，细节（如绒毛、腺点、脉序）经过简化，不能替代实地观察。若要确认物种，请以实物形态、气味与生境为准。</p>
+        <p style="margin:0">每页另附两张实景摄影，取自 Wikimedia Commons 与 iNaturalist 的开放授权作品，拍摄地点不限于珠海，多为城市绿地中的栽培个体。摄影师与授权方式随图标注，可据此回溯原图。</p>
 
         <h2 style="font-size:22px;font-weight:400;letter-spacing:.08em;color:var(--ink);margin:2.2em 0 .7em">五 · 安全</h2>
         <p style="margin:0">名录中标注「有毒」的物种（夹竹桃、软枝黄蝉、长春花、文殊兰等）含强心苷或生物碱，误食可致中毒；修剪或折断时流出的白色乳汁亦可能引起皮肤过敏。观赏即可，勿采、勿食、勿让儿童含咬。</p>
