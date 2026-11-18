@@ -169,7 +169,7 @@ a { color: inherit; text-decoration: none; }
 .nav a.is-active::after { right: 0; }
 
 @media (max-width: 640px) {
-  .site-head__inner { height: 62px; padding: 0 20px; }
+  .site-head__inner { padding: 0 20px; }
   .brand__name { font-size: 18px; letter-spacing: .1em; }
   .nav { gap: 12px; font-size: 11.5px; letter-spacing: .04em; flex-wrap: nowrap; }
   .nav a { white-space: nowrap; }
@@ -1208,157 +1208,142 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ============================================================
-   分布示意 · Schematic Map
+   分布 · 纯文字索引
    ============================================================ */
 
-.mapfig { margin: 6px 0 0; }
-.mapfig svg {
-  width: 100%; height: auto; display: block;
-  box-shadow: 0 0 0 1px var(--rule-soft);
+.places__lead {
+  margin: 0; max-width: 660px;
+  font-size: 15.5px; line-height: 2.05; color: var(--ink-soft);
 }
-.mapfig__scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-
-/* 地图本体：海岸线靠纸色描边从海面浮起，区界用细线 */
-.map__halo polygon { fill: none; stroke: #F8F4EB; stroke-width: 5; stroke-linejoin: round; }
-.map__land polygon {
-  fill: #F3ECDD; stroke: #3D5C4D; stroke-width: 1;
-  stroke-opacity: .45; stroke-linejoin: round;
-}
-.map__district {
-  font-family: var(--font-sans); font-size: 11.5px; letter-spacing: .3em;
-  fill: #3D5C4D; opacity: .42;
-}
-.map__sea {
-  font-family: var(--font-latin); font-style: italic; font-size: 12.5px;
-  letter-spacing: .42em; fill: #4C7B87; opacity: .3;
-}
-.map__n { font-family: var(--font-sans); font-size: 9.5px; letter-spacing: .1em; fill: #3D5C4D; }
-.map__no {
-  font-family: var(--font-latin); font-style: italic; font-size: 10.5px;
-  letter-spacing: .06em; fill: #B25C45; opacity: .85;
-}
-.map__name {
-  font-family: var(--font-serif); font-size: 16.5px; letter-spacing: .07em; fill: #1E2A25;
-}
-.map__ct {
-  font-family: var(--font-latin); font-style: italic; font-size: 11px;
-  fill: #B25C45; opacity: .8;
-}
-.map__leader { fill: none; stroke: #B25C45; stroke-width: .8; stroke-opacity: .4; }
-
-@media (max-width: 900px) {
-  /* 窄屏不压缩，改为横向滚动，保住标注可读性 */
-  .mapfig svg { min-width: 720px; }
+.places__foot {
+  margin: 18px 0 0; font-family: var(--font-sans);
+  font-size: 11.5px; letter-spacing: .12em; color: var(--ink-faint);
 }
 
-html[lang="en"] .map__district { font-size: 10px; letter-spacing: .18em; opacity: .48; }
-html[lang="en"] .map__sea { font-size: 11px; letter-spacing: .3em; }
-html[lang="en"] .map__name { font-size: 13px; letter-spacing: .04em; }
-html[lang="en"] .map__no { font-size: 9px; letter-spacing: .05em; }
-.mapfig__scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-
-/* 地图本体：海岸线靠纸色描边从海面浮起，区界用细线 */
-.map__halo polygon { fill: none; stroke: #F8F4EB; stroke-width: 5; stroke-linejoin: round; }
-.map__land polygon {
-  fill: #F3ECDD; stroke: #3D5C4D; stroke-width: 1;
-  stroke-opacity: .45; stroke-linejoin: round;
+.ixhead, .ixrow {
+  display: grid;
+  grid-template-columns: 44px 1fr 210px 62px;
+  align-items: baseline;
+  gap: 18px;
 }
-.map__district {
-  font-family: var(--font-sans); font-size: 11.5px; letter-spacing: .3em;
-  fill: #3D5C4D; opacity: .42;
-}
-.map__sea {
-  font-family: var(--font-latin); font-style: italic; font-size: 12.5px;
-  letter-spacing: .42em; fill: #4C7B87; opacity: .3;
-}
-.map__n { font-family: var(--font-sans); font-size: 9.5px; letter-spacing: .1em; fill: #3D5C4D; }
-.map__no {
-  font-family: var(--font-latin); font-style: italic; font-size: 10.5px;
-  letter-spacing: .06em; fill: #B25C45; opacity: .85;
-}
-.map__name {
-  font-family: var(--font-serif); font-size: 16.5px; letter-spacing: .07em; fill: #1E2A25;
-}
-.map__ct {
-  font-family: var(--font-latin); font-style: italic; font-size: 11px;
-  fill: #B25C45; opacity: .8;
-}
-.map__leader { fill: none; stroke: #B25C45; stroke-width: .8; stroke-opacity: .4; }
-
-html[lang="en"] .map__district { font-size: 10px; letter-spacing: .18em; opacity: .48; }
-html[lang="en"] .map__sea { font-size: 11px; letter-spacing: .3em; }
-html[lang="en"] .map__name { font-size: 13px; letter-spacing: .04em; }
-html[lang="en"] .map__no { font-size: 9px; letter-spacing: .05em; }
-.mapfig__note {
-  display: flex; flex-wrap: wrap; gap: 6px 22px;
-  justify-content: space-between;
-  margin-top: 12px; padding-top: 12px;
-  border-top: 1px solid var(--rule-soft);
-  font-family: var(--font-sans); font-size: 11px;
-  letter-spacing: .1em; color: var(--ink-faint);
-}
-
-.placegrid {
-  display: grid; grid-template-columns: repeat(2, 1fr);
-  gap: 1px; background: var(--rule);
-  border: 1px solid var(--rule);
-}
-.place { background: var(--paper); padding: 30px 30px 26px; }
-.place__no {
-  font-family: var(--font-latin); font-size: 12px;
-  letter-spacing: .24em; color: var(--gold);
-}
-.place__name { font-size: 21px; font-weight: 400; letter-spacing: .14em; margin: 9px 0 3px; }
-.place__en {
-  font-family: var(--font-sans); font-size: 9.5px;
-  letter-spacing: .22em; text-transform: uppercase; color: var(--ink-faint);
-}
-.place__desc { font-size: 14px; line-height: 1.95; color: var(--ink-soft); margin: 14px 0 16px; }
-.place__plants { display: flex; flex-wrap: wrap; gap: 6px; }
-.place__plants a {
-  font-size: 12.5px; letter-spacing: .04em;
-  padding: 3px 11px; border: 1px solid var(--rule-soft);
-  border-radius: 22px; color: var(--ink-soft);
-  transition: all .35s var(--ease);
-}
-.place__plants a:hover {
-  border-color: var(--moss); color: var(--moss-deep); background: var(--moss-wash);
-}
-
-.factlink {
-  font-family: var(--font-sans); font-size: 10px;
-  letter-spacing: .1em; color: var(--ink-faint);
+.ixhead {
+  padding: 0 0 10px;
   border-bottom: 1px solid var(--rule);
-  margin-left: 8px; padding-bottom: 1px;
+  font-family: var(--font-sans);
+  font-size: 10.5px; letter-spacing: .22em; color: var(--ink-faint);
+}
+.ixrow {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule-soft);
+  transition: background .3s var(--ease), padding-left .3s var(--ease);
+}
+.ixrow:hover { background: rgba(255, 255, 255, .55); padding-left: 6px; }
+.ixrow__no {
+  font-family: var(--font-latin); font-style: italic;
+  font-size: 12px; color: var(--clay); opacity: .85;
+}
+.ixrow__name { font-size: 17px; letter-spacing: .05em; color: var(--ink); }
+.ixrow--wide .ixrow__name { color: var(--moss-deep); }
+.ixrow__where {
+  font-family: var(--font-sans); font-size: 12px;
+  letter-spacing: .08em; color: var(--ink-faint);
+}
+.ixrow__n {
+  text-align: right; font-family: var(--font-latin); font-style: italic;
+  font-size: 15px; color: var(--ink-soft);
+}
+
+.placeblock { padding: 30px 0 26px; border-top: 1px solid var(--rule-soft); }
+.placeblock:first-of-type { border-top: 1px solid var(--rule); }
+.placeblock__head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.placeblock__no {
+  font-family: var(--font-latin); font-style: italic;
+  font-size: 13px; color: var(--clay); min-width: 24px;
+}
+.placeblock__name {
+  margin: 0; font-size: 24px; font-weight: 400; letter-spacing: .08em;
+}
+.placeblock__alt {
+  font-family: var(--font-latin); font-style: italic;
+  font-size: 14px; letter-spacing: .02em; color: var(--ink-faint);
+  margin-left: 12px;
+}
+.placeblock__n {
+  margin-left: auto; font-family: var(--font-sans);
+  font-size: 11px; letter-spacing: .16em; color: var(--ink-faint);
+}
+.placeblock__desc {
+  margin: 12px 0 0; max-width: 680px;
+  font-size: 15px; line-height: 1.95; color: var(--ink-soft);
+}
+.placeblock__list {
+  margin: 16px 0 0; font-size: 14.5px; line-height: 2.15; color: var(--ink-soft);
+}
+.placeblock__list a {
+  border-bottom: 1px solid transparent;
   transition: color .3s var(--ease), border-color .3s var(--ease);
 }
-.factlink:hover { color: var(--moss); border-color: var(--moss); }
+.placeblock__list a:hover { color: var(--moss-deep); border-bottom-color: var(--rule); }
 
-@media (max-width: 760px) {
-  .placegrid { grid-template-columns: 1fr; }
-  .place { padding: 24px 22px 22px; }
-  .place__name { font-size: 19px; }
+html[lang="en"] .places__lead { font-size: 15.5px; line-height: 1.72; max-width: 620px; }
+html[lang="en"] .ixhead, html[lang="en"] .ixrow { grid-template-columns: 40px 1fr 220px 54px; }
+html[lang="en"] .ixrow__name { font-size: 16px; letter-spacing: .005em; }
+html[lang="en"] .ixrow__where { letter-spacing: .04em; }
+html[lang="en"] .placeblock__name { font-size: 21px; letter-spacing: -.006em; }
+html[lang="en"] .placeblock__desc { font-size: 15px; line-height: 1.72; max-width: 640px; }
+html[lang="en"] .placeblock__list { font-size: 14px; line-height: 1.9; }
+
+@media (max-width: 640px) {
+  .ixhead, .ixrow { grid-template-columns: 30px 1fr 52px; gap: 10px; }
+  .ixrow__where, .ixhead .ixrow__where { display: none; }
+  .placeblock { padding: 24px 0 20px; }
+  .placeblock__name { font-size: 20px; }
+  .placeblock__alt { display: block; margin: 4px 0 0 38px; }
+  .placeblock__n { margin-left: 38px; }
+  html[lang="en"] .ixhead, html[lang="en"] .ixrow { grid-template-columns: 26px 1fr 44px; }
 }
 
-.bloom__group {
-  display: flex; justify-content: space-between; align-items: baseline;
-  padding: 26px 0 9px;
-  font-family: var(--font-sans); font-size: 10.5px;
-  letter-spacing: .26em; color: var(--ink-faint);
-  border-bottom: 1px solid var(--rule);
-}
-.bloom__group:first-child { padding-top: 14px; }
+@media (max-width: 640px) {
+  /* 中文站同理：加了语言按钮后一行放不下，改为品牌一行、导航一行 */
+  .site-head__inner {
+    height: auto; flex-wrap: wrap; gap: 5px;
+    padding: 10px 20px 9px;
+  }
+  .brand { width: 100%; }
+  .brand__name { font-size: 16.5px; letter-spacing: .08em; }
+  .brand__latin { font-size: 9.5px; letter-spacing: .1em; }
+  .nav {
+    width: 100%; justify-content: space-between;
+    gap: 0; font-size: 11.5px; letter-spacing: .06em;
+  }
+  .nav__lang { margin-left: 0; }
 
-.bloom__group {
-  display: flex; justify-content: space-between; align-items: baseline;
-  padding: 26px 0 9px;
-  font-family: var(--font-sans); font-size: 10.5px;
-  letter-spacing: .26em; color: var(--ink-faint);
-  border-bottom: 1px solid var(--rule);
+  /* 片区标题：拉丁名保持同行，种数靠右；实在放不下才换行 */
+  .placeblock__alt { display: inline; margin: 0 0 0 9px; }
+  .placeblock__n { margin-left: auto; }
 }
-.bloom__group:first-child { padding-top: 14px; }
 
-/* 移动端横向滚动提示 */
+@media (max-width: 640px) {
+  /* 中文站同理：加了语言按钮后一行放不下，改为品牌一行、导航一行 */
+  .site-head__inner {
+    height: auto; flex-wrap: wrap; gap: 5px;
+    padding: 10px 20px 9px;
+  }
+  .brand { width: 100%; }
+  .brand__name { font-size: 16.5px; letter-spacing: .08em; }
+  .brand__latin { font-size: 9.5px; letter-spacing: .1em; }
+  .nav {
+    width: 100%; justify-content: space-between;
+    gap: 0; font-size: 11.5px; letter-spacing: .06em;
+  }
+  .nav__lang { margin-left: 0; }
+
+  /* 片区标题：拉丁名保持同行，种数靠右；实在放不下才换行 */
+  .placeblock__alt { display: inline; margin: 0 0 0 9px; }
+  .placeblock__n { margin-left: auto; }
+}
+
+/* 移动端横向滚动提示（花历仍在用） */
 .scrollhint { display: none; }
 
 @media (max-width: 760px) {
@@ -1368,23 +1353,6 @@ html[lang="en"] .map__no { font-size: 9px; letter-spacing: .05em; }
     letter-spacing: .18em; color: var(--ink-faint);
     margin: 0 0 14px;
   }
-  .mapfig__scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  .mapfig__scroll svg { min-width: 680px; }
-  .bloom__scroll { position: relative; }
-}
-
-/* 移动端横向滚动提示 */
-.scrollhint { display: none; }
-
-@media (max-width: 760px) {
-  .scrollhint {
-    display: block;
-    font-family: var(--font-sans); font-size: 11px;
-    letter-spacing: .18em; color: var(--ink-faint);
-    margin: 0 0 14px;
-  }
-  .mapfig__scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  .mapfig__scroll svg { min-width: 680px; }
   .bloom__scroll { position: relative; }
 }
 

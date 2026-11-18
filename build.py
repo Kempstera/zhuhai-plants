@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """珠海草木志 / Flora of Zhuhai —— static site builder (bilingual)"""
-import json, shutil, re
+import hashlib, json, shutil, re
 from pathlib import Path
 
 ROOT = Path(__file__).parent
@@ -50,7 +50,7 @@ TXT = {
                "Field notes on a city in the warm subtropical–tropical maritime transition: the seventy-six plants of Zhuhai's streets, parks and shoreline — the commonest ones, and the easiest to walk past."),
     "foot_atlas": ("图鉴总览", "The Atlas"),
     "foot_calendar": ("十二月花历", "Bloom Calendar"),
-    "foot_map": ("分布示意", "Distribution"),
+    "foot_map": ("分布", "Distribution"),
     "foot_roster": ("科属索引", "Index by Family"),
     "foot_about": ("编例与说明", "About this Guide"),
     "foot_note": ("花期因年份、纬度和局部小气候而异，文中月份为珠海城区的常见区间。插图均为风格化植物图谱，用于辨识形态要点，非实景照片。",
@@ -165,23 +165,20 @@ TXT = {
     "cal_group_n": ("{} 种", "{}"),
 
     # —— 分布
-    "map_title": ("分布示意 · 珠海草木志", "Distribution · Flora of Zhuhai"),
-    "map_desc": ("珠海七个片区的植物分布示意图：唐家湾、老香洲、情侣路、吉大、拱北、横琴、金湾，各区常见物种一览。",
-                 "What grows where in Zhuhai: seven districts — Tangjiawan, Old Xiangzhou, Lovers' Road, Jida, Gongbei, Hengqin, Jinwan — and the plants recorded in each."),
-    "map_h": ("分布示意", "Distribution"),
-    "map_p": ("同一座城市里，草木也分地段。海边的树种抗盐，老街的树种耐修剪，新区的树种要长得快。这幅图按珠海实际的海岸线与香洲、斗门、金湾三区界线绘制，含万山群岛，七个片区的点位依真实经纬度标注。",
-              "Within a single city, plants keep to their own districts. Seaside trees must tolerate salt; old-town trees must tolerate pruning; new-town trees must grow fast. This map follows the actual coastline and the boundaries of Xiangzhou, Doumen and Jinwan, with the Wanshan islands included; the seven districts are placed at their true coordinates."),
-    "map_cap1": ("底图：珠海市行政区划界线 · 非比例尺 · 不作导航使用", "Base: administrative boundaries of Zhuhai · not to scale · not for navigation"),
-    "map_cap2": ("七个片区共记录 {} 种，另 {} 种全城可见", "Seven districts, {} species recorded; {} more occur citywide"),
-    "map_sh": ("← 左右滑动查看全图 →", "← Scroll sideways for the whole diagram →"),
-    "map_note": ("片区划分依日常称呼，与行政区划不完全对应；行政区界线取自国家行政区划底图（GCJ-02），经抽稀简化，位置与形状不用于量算。「可见于」表示该物种在片区内的道路、公园或庭院中被记录到，并不意味它只生长于此。",
-                 "The districts follow everyday usage and do not match administrative boundaries exactly. The boundaries follow the national administrative base map (GCJ-02) and have been simplified; do not use them for measurement. 'Recorded in' means the species has been noted on roads, in parks or in gardens there; it does not mean it grows nowhere else."),
-    "map_more": ("等 {} 种", "…{} species"),
-    "map_node": ("{} · {} 种", "{} · {} spp."),
+    "map_title": ("分布 · 珠海草木志", "Distribution · Flora of Zhuhai"),
+    "map_desc": ("珠海的植物长在哪些路段：唐家湾、老香洲、吉大、情侣路、拱北、横琴、金湾七个片区，逐区列出常见物种与观察位置。",
+                 "Where the plants of Zhuhai actually grow: seven districts — Tangjiawan, Old Xiangzhou, Jida, Lovers' Road, Gongbei, Hengqin, Jinwan — with the species recorded in each."),
+    "map_h": ("分 布", "Distribution"),
+    "map_p": ("同一座城市里，草木也分地段。海边的树种抗盐，老街的树种耐修剪，新区的树种要长得快。下面按片区把这七十六种植物逐个安放——不是一张图，是一份可以顺着读下去的清单。",
+              "Within a single city, plants keep to their own districts. Seaside trees must tolerate salt; old-town trees must tolerate pruning; new-town trees must grow fast. What follows places all seventy-six species by district — not a map, but a list you can read straight through."),
+    "map_cap2": ("七个片区共记录 {} 种，另 {} 种不挑地段，全城可见。",
+                 "Seven districts, {} species recorded; another {} are found everywhere."),
+    "map_note": ("片区划分依日常称呼，与行政区划不完全对应。「可见于」表示该物种在片区内的道路、公园或庭院中被记录到，并不意味它只生长于此；同一物种出现在多个片区时，会重复出现。",
+                 "The districts follow everyday usage and do not match administrative boundaries exactly. 'Recorded in' means the species has been noted on roads, in parks or in gardens there; it does not mean it grows nowhere else. A species found in several districts appears more than once."),
     "map_citywide": ("全城", "Citywide"),
-    "map_sea": ("伶 仃 洋", "Lingding"),
-    "map_sea2": ("南 海", "South China Sea"),
-    "map_aria": ("珠海各片区植物分布示意图，非比例尺", "Schematic diagram of plant distribution across the districts of Zhuhai; not to scale"),
+    "ix_col_name": ("片区", "District"),
+    "ix_col_where": ("位置", "Where"),
+    "ix_col_n": ("种", "Spp."),
 
     # —— 关于
     "about_title": ("编例与说明 · 珠海草木志", "About this Guide · Flora of Zhuhai"),
@@ -312,7 +309,7 @@ def head(title, prefix, desc, active, path="/", extra_css=""):
 <link rel="alternate" hreflang="en" href="{SITE}{en_path}">
 <link rel="alternate" hreflang="x-default" href="{SITE}{zh_path}">
 <link rel="icon" href="{prefix}assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="{prefix}assets/css/style.css">
+<link rel="stylesheet" href="{prefix}assets/css/style.css?v={ASSET_V}">
 {extra_css}
 </head>
 <body>
@@ -362,7 +359,7 @@ def foot(prefix):
     </div>
   </div>
 </footer>
-<script src="{prefix}assets/js/site.js"></script>
+<script src="{prefix}assets/js/site.js?v={ASSET_V}"></script>
 </body>
 </html>
 """
@@ -950,236 +947,147 @@ def build_calendar():
     write_page("calendar.html", html)
 
 
-# ---------------------------------------------------------------- 分布
-
-GEO = json.loads((ROOT / "data" / "geo.json").read_text(encoding="utf-8"))
-GEO_T = GEO["transform"]
-
-
-def px(lon, lat):
-    """经纬度 → viewBox 坐标（等距圆柱投影，按中纬度校正经度）"""
-    return ((lon - GEO_T["lon0"]) * GEO_T["kx"] * GEO_T["scale"],
-            (GEO_T["lat1"] - lat) * GEO_T["scale"])
-
-
-def geo_paths():
-    out = []
-    for d in GEO["districts"]:
-        for poly in d["polys"]:
-            pts = " ".join(f"{x},{y}" for x, y in poly)
-            out.append(f'<polygon points="{pts}"/>')
-    return "".join(out)
-
+# ---------------------------------------------------------------- 分布（纯文字）
 
 PLACES = [
-    {"no": "I", "name": "唐家湾", "en": "Tangjiawan", "lon": 113.589, "lat": 22.366,
-     "lx": 392, "ly": 72, "anchor": "end", "label": "side",
+    {"no": "I", "name": "唐家湾", "en": "Tangjiawan",
+     "where": "北端 · 淇澳岛", "where_en": "North coast · Qi'ao",
      "kw": ["唐家", "淇澳"],
      "desc": "珠海北端的老镇。青砖巷、祠堂前的百年榕树，往东是淇澳岛的红树林与海岸防风林。中山大学珠海校区也在这里，校园里的树种几乎是半部图鉴。",
      "desc_en": "The old town at the northern tip of the city. Grey-brick lanes, century-old banyans before the ancestral halls, and to the east the mangroves and coastal shelterbelt of Qi'ao Island. Sun Yat-sen University's Zhuhai campus is here too, and its planting is very nearly half of this atlas."},
-    {"no": "II", "name": "老香洲", "en": "Old Xiangzhou", "lon": 113.566, "lat": 22.276,
-     "lx": 472, "ly": 132, "anchor": "start", "leader": True,
+    {"no": "II", "name": "老香洲", "en": "Old Xiangzhou",
+     "where": "凤凰路 · 南坑", "where_en": "Fenghuang Rd · Nankeng",
      "kw": ["香洲", "凤凰路", "南坑", "柠溪", "前山", "人民东", "人民西"],
      "desc": "城市最早的一批街道。凤凰路的骑楼、南坑的市场、柠溪与南屏的老小区，行道树种得最密，树冠把整条街盖成隧道。",
      "desc_en": "Among the city's first streets. The arcades of Fenghuang Road, the market at Nankeng, the old estates of Ningxi and Nanping — the street trees here are planted more densely than anywhere else, their crowns closing the road into a tunnel."},
-    {"no": "III", "name": "吉大", "en": "Jida", "lon": 113.574, "lat": 22.258,
-     "lx": 472, "ly": 174, "anchor": "start", "leader": True,
+    {"no": "III", "name": "吉大", "en": "Jida",
+     "where": "九洲港 · 商业区", "where_en": "Jiuzhou harbour",
      "kw": ["吉大", "九洲"],
      "desc": "商业与旧宅混杂的一段。庭院树与行道树在这里几乎分不出界线——糖胶树的塔形、假槟榔的灰白柱子，都长在离人行道两米的地方。",
      "desc_en": "Commerce and old houses mixed together. Garden trees and street trees are barely separable here: the tiered crown of the blackboard tree and the grey column of the Alexandra palm both stand two metres from the pavement."},
-    {"no": "IV", "name": "情侣路", "en": "Lovers' Road", "lon": 113.586, "lat": 22.242,
-     "lx": 472, "ly": 216, "anchor": "start", "leader": True,
+    {"no": "IV", "name": "情侣路", "en": "Lovers' Road",
+     "where": "滨海大道", "where_en": "The seafront boulevard",
      "kw": ["情侣路", "海滨"],
      "desc": "全长约五十公里的滨海大道。海风、盐雾、台风与烈日同时作用，留下的都是些硬骨头：榕、棕榈、木麻黄与露兜。",
      "desc_en": "Some fifty kilometres of coastal boulevard. Sea wind, salt spray, typhoon and hard sun all at once, and what survives is tough: figs, palms, casuarinas and screw pines."},
-    {"no": "V", "name": "拱北", "en": "Gongbei", "lon": 113.548, "lat": 22.221,
-     "lx": 472, "ly": 258, "anchor": "start", "leader": True,
+    {"no": "V", "name": "拱北", "en": "Gongbei",
+     "where": "口岸 · 湾仔", "where_en": "Border crossing · Wanzai",
      "kw": ["拱北", "湾仔", "南屏"],
      "desc": "口岸一带，人流与车流最急。这里种的都是最耐活的花木：高山榕、糖胶树、黄金榕——被反复修剪，依然认真地长。",
      "desc_en": "The border crossing, where people and traffic move fastest. What is planted is the hardiest flowering stock — banyans, blackboard trees, golden figs — cut back over and over, and still growing in earnest."},
-    {"no": "VI", "name": "横琴", "en": "Hengqin", "lon": 113.531, "lat": 22.132,
-     "lx": 359, "ly": 299, "anchor": "middle", "label": "below",
+    {"no": "VI", "name": "横琴", "en": "Hengqin",
+     "where": "填海新城", "where_en": "Reclaimed new town",
      "kw": ["横琴"],
      "desc": "新填海的新城。树几乎都是近十年种下的：小叶榄仁、美丽异木棉、紫花风铃木。它们长得快，也还在长——一座新城的植被，要几十年才定型。",
      "desc_en": "A new town on reclaimed land. Almost every tree went in within the last ten years: Indian almond, white silk floss, pink trumpet tree. They grow fast and are still growing — the planting of a new town takes decades to settle."},
-    {"no": "VII", "name": "金湾", "en": "Jinwan", "lon": 113.363, "lat": 22.146,
-     "lx": 222, "ly": 293, "anchor": "middle", "label": "below",
+    {"no": "VII", "name": "金湾", "en": "Jinwan",
+     "where": "西岸 · 湿地", "where_en": "West shore · wetlands",
      "kw": ["金湾", "斗门"],
      "desc": "西侧的海岸与湿地。防风林、滩涂与咸淡水交界处的植物在这里占主导，城市化的痕迹要稀薄得多。",
      "desc_en": "The western shore, its wetlands and mudflats. Shelterbelts, tidal flats and the brackish margins dominate out here; the marks of the city are much fainter."},
 ]
 
-DISTRICT_LABEL = [
-    ("香洲区", 113.5676, 22.3218, "Xiangzhou"),
-    ("斗门区", 113.268, 22.302, "Doumen"),
-    ("金湾区", 113.235, 22.048, "Jinwan"),
-    ("万山群岛", 114.140, 21.888, "Wanshan Is."),
-]
-
-SEA_LABEL = [("伶仃洋", "Lingding Yang", 113.762, 22.392),
-             ("南海", "South China Sea", 113.905, 21.848)]
+CITYWIDE_ZH = ("还有一些不挑地段的：种在每一条分车带、每一座天桥、每一个小区的围墙里。它们不专属于某个片区，而是这座城市绿化的底板。",
+               "城区各处 · 不分局")
+CITYWIDE_EN = ("Then there are the ones that do not mind where they are put: in every central reservation, on every footbridge, inside every compound wall. They belong to no district in particular — they are the base coat of the city's planting.",
+               "Anywhere in the city")
 
 
-def build_map():
+def build_places():
     # 关键词是中文地名，统一拿中文原文匹配，两种语言结果才一致
     zh_where = {p["slug"]: p["where"] for p in ZH_PLANTS}
     for pl in PLACES:
-        pl["plants"] = [p for p in PLANTS
-                        if any(k in zh_where.get(p["slug"], "") for k in pl["kw"])]
-        pl["pt"] = px(pl["lon"], pl["lat"])
-
+        pl["plants"] = sorted(
+            (p for p in PLANTS if any(k in zh_where.get(p["slug"], "") for k in pl["kw"])),
+            key=lambda p: int(p["no"]))
     matched = {p["slug"] for pl in PLACES for p in pl["plants"]}
-    citywide = [p for p in PLANTS if p["slug"] not in matched]
+    citywide = sorted((p for p in PLANTS if p["slug"] not in matched), key=lambda p: int(p["no"]))
     total_seen = len(matched)
 
-    W, H = GEO["w"], GEO["h"]
-    land = geo_paths()
+    def rows():
+        out = []
+        for pl in PLACES:
+            nm = pl["en"] if LANG == "en" else pl["name"]
+            wh = pl["where_en"] if LANG == "en" else pl["where"]
+            out.append(f"""      <div class="ixrow">
+        <span class="ixrow__no">{pl['no']}</span>
+        <a class="ixrow__name" href="#{pl['no']}">{nm}</a>
+        <span class="ixrow__where">{wh}</span>
+        <span class="ixrow__n">{len(pl['plants'])}</span>
+      </div>""")
+        out.append(f"""      <div class="ixrow ixrow--wide">
+        <span class="ixrow__no">—</span>
+        <a class="ixrow__name" href="#ALL">{t('map_citywide')}</a>
+        <span class="ixrow__where">{CITYWIDE_EN[1] if LANG == "en" else CITYWIDE_ZH[1]}</span>
+        <span class="ixrow__n">{len(citywide)}</span>
+      </div>""")
+        return "".join(out)
 
-    # 区界与海岸：先描一圈纸色描边做出海陆分界，再叠填色与细线
-    district = "".join(
-        f'<polygon points="{" ".join(f"{x},{y}" for x, y in poly)}"/>'
-        for d in GEO["districts"] for poly in d["polys"]
-    )
+    def links(ps):
+        sep = " · " if LANG == "en" else "、"
+        return sep.join(f'<a href="/species/{p["slug"]}">{esc(p["name"])}</a>' for p in ps)
 
-    km = 1.0 / (GEO_T["scale"] / 111.2)          # 1 公里对应的 viewBox 长度
-    bar = 10 * km
-
-    marks = []
+    blocks = []
     for pl in PLACES:
-        x, y = pl["pt"]
-        lx, ly = pl["lx"], pl["ly"]
-        anchor = pl["anchor"]
-        if pl.get("leader"):
-            marks.append(
-                f'<path class="map__leader" d="M {x:.1f} {y:.1f} L {x + 16:.1f} {y:.1f} '
-                f'L {lx - 10:.1f} {ly - 4.5:.1f}"/>'
-            )
-        marks.append(
-            f'<circle cx="{x:.1f}" cy="{y:.1f}" r="10" fill="#B25C45" opacity=".10"/>'
-            f'<circle cx="{x:.1f}" cy="{y:.1f}" r="3.4" fill="#F8F4EB" stroke="#B25C45" stroke-width="1.5"/>'
-            f'<circle cx="{x:.1f}" cy="{y:.1f}" r="1.2" fill="#B25C45"/>'
-            f'<text x="{lx}" y="{ly}" text-anchor="{anchor}" class="map__name">'
-            f'<tspan class="map__no">{pl["no"]}</tspan>'
-            f'<tspan dx="7">{pl["en"] if LANG == "en" else pl["name"]}</tspan>'
-            f'<tspan dx="7" class="map__ct">{len(pl["plants"])}</tspan></text>'
-        )
+        nm = pl["en"] if LANG == "en" else pl["name"]
+        alt = "" if LANG == "en" else f'<span class="placeblock__alt">{esc(pl["en"])}</span>'
+        desc = pl["desc_en"] if LANG == "en" else pl["desc"]
+        blocks.append(f"""      <section class="placeblock" id="{pl['no']}">
+        <div class="placeblock__head">
+          <span class="placeblock__no">{pl['no']}</span>
+          <h2 class="placeblock__name">{nm}{alt}</h2>
+          <span class="placeblock__n">{t('cal_group_n', len(pl['plants']))}</span>
+        </div>
+        <p class="placeblock__desc">{esc(desc)}</p>
+        <p class="placeblock__list">{links(pl['plants'])}</p>
+      </section>""")
 
-    dlabels = "".join(
-        f'<text class="map__district" x="{px(lon, lat)[0]:.0f}" y="{px(lon, lat)[1]:.0f}" '
-        f'text-anchor="middle">{en if LANG == "en" else zh}</text>'
-        for zh, lon, lat, en in DISTRICT_LABEL
-    )
-
-    seacaps = "".join(
-        f'<text class="map__sea" x="{px(lon, lat)[0]:.0f}" y="{px(lon, lat)[1]:.0f}" '
-        f'text-anchor="middle">{en if LANG == "en" else zh}</text>'
-        for zh, en, lon, lat in SEA_LABEL
-    )
-
-    compass = (
-        f'<g transform="translate(62,74)" opacity=".62">'
-        '<path d="M 0 22 L 0 -22" stroke="#3D5C4D" stroke-width="1.1"/>'
-        '<path d="M 0 -22 L -6 -6 L 0 -11.5 L 6 -6 Z" fill="#3D5C4D"/>'
-        '<text x="0" y="-30" text-anchor="middle" class="map__n">N</text></g>'
-    )
-
-    scalebar = (
-        f'<g transform="translate(62,{H - 36:.0f})" opacity=".62">'
-        f'<path d="M 0 0 L {bar:.1f} 0" stroke="#3D5C4D" stroke-width="1.2"/>'
-        f'<path d="M 0 -5 L 0 5 M {bar/2:.1f} -4 L {bar/2:.1f} 4 M {bar:.1f} -5 L {bar:.1f} 5" '
-        'stroke="#3D5C4D" stroke-width="1.2"/>'
-        f'<text x="0" y="19" text-anchor="middle" class="map__n">0</text>'
-        f'<text x="{bar/2:.1f}" y="19" text-anchor="middle" class="map__n">5</text>'
-        f'<text x="{bar:.1f}" y="19" text-anchor="middle" class="map__n">10 km</text></g>'
-    )
-
-    svg = f"""<svg class="map" viewBox="0 0 {W:.0f} {H:.0f}" style="min-width:720px" role="img" aria-label="{t('map_aria')}" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <pattern id="stipple" width="14" height="14" patternUnits="userSpaceOnUse">
-      <circle cx="2" cy="3" r=".8" fill="#4C7B87" opacity=".16"/>
-      <circle cx="9" cy="10" r=".7" fill="#4C7B87" opacity=".12"/>
-    </pattern>
-  </defs>
-  <rect width="{W:.0f}" height="{H:.0f}" fill="#DCE9E9"/>
-  <rect width="{W:.0f}" height="{H:.0f}" fill="url(#stipple)"/>
-  <g class="map__halo">{district}</g>
-  <g class="map__land">{district}</g>
-  {seacaps}
-  {dlabels}
-  {''.join(marks)}
-  {compass}
-  {scalebar}
-</svg>"""
-
-    cards = []
-    for pl in PLACES:
-        if LANG == "en":
-            cards.append(place_card(pl, pl["en"], "", pl["desc_en"], pl["plants"]))
-        else:
-            cards.append(place_card(pl, pl["name"], pl["en"], pl["desc"], pl["plants"]))
     if citywide:
-        cards.append(place_card(
-            {"no": "—"}, t("map_citywide"), "Citywide",
-            ("还有一些不挑地段的：种在每一条分车带、每一座天桥、每一个小区的围墙里。它们不专属于某个片区，而是这座城市绿化的底板。"
-             if LANG == "zh" else
-             "Then there are the ones that do not mind where they are put: in every central reservation, on every footbridge, inside every compound wall. They belong to no district in particular — they are the base coat of the city's planting."),
-            citywide))
+        cw_desc = CITYWIDE_EN[0] if LANG == "en" else CITYWIDE_ZH[0]
+        blocks.append(f"""      <section class="placeblock" id="ALL">
+        <div class="placeblock__head">
+          <span class="placeblock__no">—</span>
+          <h2 class="placeblock__name">{t('map_citywide')}</h2>
+          <span class="placeblock__n">{t('cal_group_n', len(citywide))}</span>
+        </div>
+        <p class="placeblock__desc">{esc(cw_desc)}</p>
+        <p class="placeblock__list">{links(citywide)}</p>
+      </section>""")
 
     html = head(t("map_title"), "/", t("map_desc"), "map", "/map")
     html += f"""
 <main>
-  <section class="section section--tight" style="padding-bottom:16px">
+  <section class="section section--tight" style="padding-bottom:8px">
     <div class="wrap">
-      <div class="eyebrow">Distribution · A Schematic View</div>
+      <div class="eyebrow">Distribution · By District</div>
       <h1 class="page-title">{t('map_h')}</h1>
-      <p style="margin:0;max-width:640px;font-size:15.5px;line-height:2.05;color:var(--ink-soft)">{t('map_p')}</p>
+      <p class="places__lead">{t('map_p')}</p>
     </div>
   </section>
 
-  <section class="section" style="padding-top:8px;padding-bottom:34px">
+  <section class="section section--tight" style="padding-top:14px">
     <div class="wrap">
-      <figure class="mapfig">
-        <div class="mapfig__scroll">{svg}</div>
-        <figcaption class="mapfig__note">
-          <span>{t('map_cap1')}</span>
-          <span>{t('map_cap2', total_seen, len(citywide))}</span>
-        </figcaption>
-        <p class="scrollhint">{t('map_sh')}</p>
-      </figure>
-    </div>
-  </section>
-
-  <section class="section" style="padding-top:0">
-    <div class="wrap">
-      <div class="placegrid">
-{chr(10).join(cards)}
+      <div class="ixhead">
+        <span class="ixrow__no"></span>
+        <span class="ixrow__name">{t('ix_col_name')}</span>
+        <span class="ixrow__where">{t('ix_col_where')}</span>
+        <span class="ixrow__n">{t('ix_col_n')}</span>
       </div>
-      <p style="margin:26px 0 0;font-size:13.5px;line-height:1.95;color:var(--ink-faint);max-width:680px">{t('map_note')}</p>
+      {rows()}
+      <p class="places__foot">{t('map_cap2', total_seen, len(citywide))}</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:26px">
+    <div class="wrap">
+{chr(10).join(blocks)}
+      <p style="margin:34px 0 0;font-size:13.5px;line-height:1.95;color:var(--ink-faint);max-width:680px">{t('map_note')}</p>
     </div>
   </section>
 </main>
 """
     html += foot("/")
     write_page("map.html", html)
-
-
-def place_card(pl, name, en, desc, plants):
-    chips = "".join(
-        f'<a href="/species/{p["slug"]}">{esc(p["name"])}</a>' for p in plants[:10]
-    )
-    more = ""
-    if len(plants) > 10:
-        more = (f'<span style="font-family:var(--font-sans);font-size:11px;color:var(--ink-faint);'
-                f'padding:4px 2px">{t("map_more", len(plants))}</span>')
-    sub = esc(en) if LANG == "zh" else ""
-    sub_html = f'<div class="place__en">{sub}</div>' if sub else ""
-    return f"""      <div class="place">
-        <div class="place__no">{pl['no']}</div>
-        <h3 class="place__name">{name}</h3>
-        {sub_html}
-        <p class="place__desc">{esc(desc)}</p>
-        <div class="place__plants">{chips}{more}</div>
-      </div>"""
 
 
 # ---------------------------------------------------------------- 静态资源
@@ -1235,13 +1143,6 @@ JS = r"""/* 珠海草木志 / Flora of Zhuhai */
         : now + ' 月 · 全城 ' + counts[now - 1] + ' 种正在开花';
     }
   }
-
-  // 小屏：地图横向滚动到海岸线一带
-  document.querySelectorAll('.mapfig__scroll').forEach(function (box) {
-    if (box.scrollWidth > box.clientWidth + 4) {
-      box.scrollLeft = Math.round((box.scrollWidth - box.clientWidth) * 0.42);
-    }
-  });
 
   // 图鉴筛选
   var grid = document.getElementById('grid');
@@ -1309,6 +1210,12 @@ JS = r"""/* 珠海草木志 / Flora of Zhuhai */
   apply();
 })();
 """
+
+
+# 样式与脚本加版本号：文件名固定，不加版本会命中旧缓存
+ASSET_V = hashlib.md5(
+    (ROOT / "assets" / "css" / "style.css").read_bytes() + JS.encode("utf-8")
+).hexdigest()[:8]
 
 
 def build_404():
@@ -1440,7 +1347,7 @@ def build_lang(lang):
     build_index()
     build_atlas()
     build_calendar()
-    build_map()
+    build_places()
     build_species()
     build_roster()
     build_about()
