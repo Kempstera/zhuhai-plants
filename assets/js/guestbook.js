@@ -1,6 +1,7 @@
 /* 珠海草木志 · 留言板
  * 依赖：assets/vendor/supabase.js（自托管，避免第三方 CDN 在境内不稳）
- * 数据：public.guestbook，RLS 见 supabase/schema.sql
+ * 数据：public.plants_guestbook，RLS 见 supabase/schema.sql
+ * （不要用 guestbook 这个名字：本项目里已有一张电台站的同名表）
  */
 (function () {
   "use strict";
@@ -151,7 +152,7 @@
     var res;
     try {
       res = await client
-        .from("guestbook")
+        .from("plants_guestbook")
         .select("id,user_id,nickname,body,created_at")
         .order("created_at", { ascending: false })
         .range(offset, offset + PAGE - 1);
@@ -174,7 +175,7 @@
 
   async function remove(id, node) {
     if (!window.confirm(T("gb_confirm"))) return;
-    var res = await client.from("guestbook").delete().eq("id", id);
+    var res = await client.from("plants_guestbook").delete().eq("id", id);
     if (res.error) { statusEl.textContent = mapError(res.error); return; }
     node.parentNode.removeChild(node);
     emptyEl.hidden = listEl.children.length > 0;
@@ -254,7 +255,7 @@
     if (body.length < 1 || body.length > 600) { postErr.textContent = T("gb_err_len"); return; }
 
     postBtn.disabled = true;
-    var res = await client.from("guestbook").insert({
+    var res = await client.from("plants_guestbook").insert({
       user_id: session.user.id,
       nickname: nick,
       body: body
