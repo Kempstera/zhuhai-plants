@@ -25,6 +25,21 @@ ZH_CATS, ZH_PLANTS, ZH_PHOTOS = CATS, PLANTS, PHOTOS
 CATMAP = {c["id"]: c for c in CATS}
 
 SITE = "https://plants.signupeverywhere.cc"
+
+
+def _guestbook_on():
+    """留言页只有在填了 Supabase 地址与 anon key 之后才出现在导航里"""
+    f = ROOT / "assets" / "js" / "supabase-config.js"
+    try:
+        txt = f.read_text("utf-8")
+    except FileNotFoundError:
+        return False
+    u = re.search(r'url:\s*"([^"]*)"', txt)
+    k = re.search(r'anonKey:\s*"([^"]*)"', txt)
+    return bool(u and k and u.group(1).strip() and k.group(1).strip())
+
+
+GB_ON = _guestbook_on()
 STATS_API = "https://stats.signupeverywhere.cc"
 
 MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
@@ -188,6 +203,54 @@ TXT = {
     "ix_col_where": ("位置", "Where"),
     "ix_col_n": ("种", "Spp."),
 
+    # —— 留言
+    "nav_guestbook": ("留言", "Guestbook"),
+    "gb_title": ("留言 · 珠海草木志", "Guestbook · Flora of Zhuhai"),
+    "gb_desc": ("在珠海见到的一棵树、一个还没找到答案的问题，都可以写在这里。注册后即可留言，留言公开可见。",
+                "A plant you met in Zhuhai, a name you could not find — write it here. Messages are public; you need an account to post."),
+    "gb_h": ("留 言", "Guestbook"),
+    "gb_lead": ("在这儿写下你在珠海遇见的草木，或者一个还没找到答案的问题。留言公开可见，注册之后才能发。",
+                "Write down a plant you met in Zhuhai, or a question still without an answer. Messages are public; an account is needed to post."),
+    "gb_tab_in": ("登录", "Sign in"),
+    "gb_tab_up": ("注册", "Create account"),
+    "gb_email": ("邮箱", "Email"),
+    "gb_password": ("密码", "Password"),
+    "gb_nickname": ("署名", "Display name"),
+    "gb_nickname_ph": ("显示在留言上，随时可改", "Shown with your message"),
+    "gb_signin_btn": ("登录", "Sign in"),
+    "gb_signup_btn": ("注册", "Create account"),
+    "gb_signout": ("退出", "Sign out"),
+    "gb_signed": ("已登录 · {0}", "Signed in · {0}"),
+    "gb_compose": ("写点什么", "Your message"),
+    "gb_compose_ph": ("最多 600 字", "Up to 600 characters"),
+    "gb_post": ("发布", "Post"),
+    "gb_empty": ("还没有人留言。第一句留给你。", "No messages yet — the first one is yours."),
+    "gb_loading": ("载入中…", "Loading…"),
+    "gb_more": ("更早的留言", "Older messages"),
+    "gb_delete": ("删除", "Delete"),
+    "gb_confirm": ("删除这条留言？", "Delete this message?"),
+    "gb_rules": ("留言公开可见，请勿填写电话、住址等个人信息。", "Messages are public. Please do not post phone numbers or addresses."),
+    "gb_offline_h": ("留言板还没接通", "The guestbook is not connected yet"),
+    "gb_offline_p": ("还差一步：把 Supabase 项目的地址与 anon key 填进 assets/js/supabase-config.js，注册与留言即生效。",
+                     "One step remains: put your Supabase project URL and anon key into assets/js/supabase-config.js, and sign-up plus messages will work."),
+    "gb_offline_script": ("留言组件没能加载，请刷新重试。", "The message component failed to load. Please refresh."),
+    # —— 以下由留言页脚本读取
+    "gb_just_now": ("刚刚", "just now"),
+    "gb_mins": ("{0} 分钟前", "{0} min ago"),
+    "gb_hours": ("{0} 小时前", "{0} h ago"),
+    "gb_days": ("{0} 天前", "{0} d ago"),
+    "gb_err_generic": ("出了点问题，稍后再试。", "Something went wrong. Try again."),
+    "gb_err_creds": ("邮箱或密码不对。", "Wrong email or password."),
+    "gb_err_rate": ("发得太快了，等半分钟。", "Too fast — wait half a minute."),
+    "gb_err_len": ("署名 1–20 字，留言 1–600 字。", "Name 1–20 characters, message 1–600."),
+    "gb_err_pwd": ("密码至少 6 位。", "Password must be at least 6 characters."),
+    "gb_err_exists": ("这个邮箱已经注册过了，直接登录吧。", "That email is already registered — sign in instead."),
+    "gb_err_unconfirmed": ("邮箱还没确认，先去收信点一下确认链接。", "Email not confirmed yet — open the link in your inbox."),
+    "gb_err_network": ("网络连不上，检查后再试。", "Network error — check your connection."),
+    "gb_err_auth": ("请先登录。", "Please sign in first."),
+    "gb_err_load": ("留言没能载入，刷新试试。", "Messages failed to load — try refreshing."),
+    "gb_check_mail": ("注册成功。请到邮箱点确认链接，然后回来登录。", "Account created. Confirm via the email link, then sign in."),
+
     # —— 关于
     "about_title": ("编例与说明 · 珠海草木志", "About this Guide · Flora of Zhuhai"),
     "about_desc": ("珠海草木志的编写说明：分类方式、花期判定、插画来源与参考依据。",
@@ -278,6 +341,8 @@ def nav(prefix, active, alt_href="/en", alt_label="EN"):
         ("roster", "nav_roster", "roster"),
         ("about", "nav_about", "about"),
     ]
+    if GB_ON:
+        items.append(("guestbook", "nav_guestbook", "guestbook"))
     lis = []
     for href, key, k in items:
         cls = ' class="is-active"' if k == active else ""
@@ -352,6 +417,7 @@ def foot(prefix):
           <a href="{prefix}map">{t('foot_map')}</a>
           <a href="{prefix}roster">{t('foot_roster')}</a>
           <a href="{prefix}about">{t('foot_about')}</a>
+          {"<a href='" + prefix + "guestbook'>" + t('nav_guestbook') + "</a>" if GB_ON else ""}
         </div>
       </div>
       <div>
@@ -1281,6 +1347,15 @@ ASSET_V = hashlib.md5(
     (ROOT / "assets" / "css" / "style.css").read_bytes() + JS.encode("utf-8")
 ).hexdigest()[:8]
 
+# 留言页单独算：改了留言的样式或逻辑，不该把全站缓存一起作废
+GB_V = hashlib.md5(
+    (ROOT / "assets" / "css" / "guestbook.css").read_bytes()
+    + (ROOT / "assets" / "js" / "guestbook.js").read_bytes()
+    + (ROOT / "assets" / "js" / "supabase-config.js").read_bytes()
+).hexdigest()[:8]
+
+VENDOR_V = hashlib.md5((ROOT / "assets" / "vendor" / "supabase.js").read_bytes()).hexdigest()[:8]
+
 
 def build_404():
     html = head(t("nf_title"), "/", t("nf_desc"), "", "/404")
@@ -1299,6 +1374,122 @@ def build_404():
 """
     html += foot("/")
     write_page("404.html", html)
+
+
+# ---------------------------------------------------------------- 留言
+
+GB_KEYS = ("gb_just_now", "gb_mins", "gb_hours", "gb_days",
+           "gb_err_generic", "gb_err_creds", "gb_err_rate", "gb_err_len",
+           "gb_err_pwd", "gb_err_exists", "gb_err_unconfirmed", "gb_err_network",
+           "gb_err_auth", "gb_err_load", "gb_check_mail", "gb_delete",
+           "gb_confirm", "gb_signout", "gb_signed", "gb_compose_ph", "gb_post",
+           "gb_more", "gb_loading", "gb_empty", "gb_offline_script")
+
+
+def build_guestbook():
+    i18n = {k: TXT[k][0 if LANG == "zh" else 1] for k in GB_KEYS}
+    i18n["locale"] = "zh-CN" if LANG == "zh" else "en-GB"
+    blob = json.dumps(i18n, ensure_ascii=False).replace("</", "<\\/")
+
+    html = head(t("gb_title"), "/", t("gb_desc"), "guestbook", "/guestbook",
+                '<link rel="stylesheet" href="/assets/css/guestbook.css?v=%s">' % GB_V)
+    html += f"""
+<main>
+  <section class="section section--tight" style="padding-bottom:10px">
+    <div class="wrap">
+      <div class="eyebrow">Guestbook</div>
+      <h1 class="page-title">{t('gb_h')}</h1>
+      <p class="gb__lead">{t('gb_lead')}</p>
+    </div>
+  </section>
+
+  <section class="section section--tight" style="padding-top:34px">
+    <div class="wrap">
+      <div class="gb">
+
+        <div class="gb__side">
+          <div id="gb-notice" class="gb__notice" hidden>
+            <h2>{t('gb_offline_h')}</h2>
+            <p>{t('gb_offline_p')}</p>
+          </div>
+
+          <div id="gb-auth" class="gb__card">
+            <div class="gb__tabs" role="tablist">
+              <button type="button" class="gb__tab is-on" id="gb-tab-in" role="tab">{t('gb_tab_in')}</button>
+              <button type="button" class="gb__tab" id="gb-tab-up" role="tab">{t('gb_tab_up')}</button>
+            </div>
+
+            <form id="gb-form-in" autocomplete="on">
+              <div class="gb__field">
+                <label class="gb__label" for="gb-in-email">{t('gb_email')}</label>
+                <input type="email" id="gb-in-email" name="email" autocomplete="email" required>
+              </div>
+              <div class="gb__field">
+                <label class="gb__label" for="gb-in-pwd">{t('gb_password')}</label>
+                <input type="password" id="gb-in-pwd" name="password" autocomplete="current-password" required>
+              </div>
+              <button type="submit" class="gb__btn" id="gb-in-btn">{t('gb_signin_btn')}</button>
+              <p class="gb__err" id="gb-err-in" role="alert"></p>
+            </form>
+
+            <form id="gb-form-up" autocomplete="on" hidden>
+              <div class="gb__field">
+                <label class="gb__label" for="gb-up-email">{t('gb_email')}</label>
+                <input type="email" id="gb-up-email" name="email" autocomplete="email" required>
+              </div>
+              <div class="gb__field">
+                <label class="gb__label" for="gb-up-pwd">{t('gb_password')}</label>
+                <input type="password" id="gb-up-pwd" name="password" autocomplete="new-password" required minlength="6">
+              </div>
+              <div class="gb__field">
+                <label class="gb__label" for="gb-up-nick">{t('gb_nickname')}</label>
+                <input type="text" id="gb-up-nick" name="nickname" maxlength="20" placeholder="{t('gb_nickname_ph')}" required>
+              </div>
+              <button type="submit" class="gb__btn" id="gb-up-btn">{t('gb_signup_btn')}</button>
+              <p class="gb__err" id="gb-err-up" role="alert"></p>
+            </form>
+          </div>
+
+          <div id="gb-me" class="gb__card" hidden>
+            <div class="gb__who-line">
+              <span id="gb-who"></span>
+              <button type="button" class="gb__btn gb__btn--ghost" id="gb-signout">{t('gb_signout')}</button>
+            </div>
+            <form id="gb-form-post">
+              <div class="gb__field">
+                <label class="gb__label" for="gb-nick">{t('gb_nickname')}</label>
+                <input type="text" id="gb-nick" maxlength="20" autocomplete="nickname">
+              </div>
+              <div class="gb__field">
+                <label class="gb__label" for="gb-body">{t('gb_compose')}<span class="gb__chars" id="gb-chars">0 / 600</span></label>
+                <textarea id="gb-body" maxlength="600" placeholder="{t('gb_compose_ph')}"></textarea>
+              </div>
+              <button type="submit" class="gb__btn" id="gb-post">{t('gb_post')}</button>
+              <p class="gb__err" id="gb-post-err" role="alert"></p>
+            </form>
+          </div>
+
+          <p class="gb__hint">{t('gb_rules')}</p>
+        </div>
+
+        <div class="gb__main">
+          <p class="gb__count" id="gb-status"></p>
+          <ol class="gb__list" id="gb-list"></ol>
+          <p class="gb__empty" id="gb-empty" hidden>{t('gb_empty')}</p>
+          <button type="button" class="gb__more" id="gb-more" hidden>{t('gb_more')}</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+<script id="gb-i18n" type="application/json">{blob}</script>
+<script src="/assets/vendor/supabase.js?v={VENDOR_V}"></script>
+<script src="/assets/js/supabase-config.js?v={GB_V}"></script>
+<script src="/assets/js/guestbook.js?v={GB_V}"></script>
+"""
+    html += foot("/guestbook")
+    write_page("guestbook.html", html)
 
 
 # ---------------------------------------------------------------- 站长页
@@ -1403,6 +1594,8 @@ def build_studio():
 
 def build_meta_files():
     base = ["", "atlas", "calendar", "map", "roster", "about"]
+    if GB_ON:
+        base.append("guestbook")
     base += [f"species/{p['slug']}" for p in ZH_PLANTS]
     entries = []
     for u in base:
@@ -1427,6 +1620,12 @@ def setup_assets():
     (OUT_ZH / "assets" / "js").mkdir(parents=True)
     shutil.copy(ROOT / "assets/css/style.css", OUT_ZH / "assets/css/style.css")
     shutil.copy(ROOT / "assets/css/studio.css", OUT_ZH / "assets/css/studio.css")
+    shutil.copy(ROOT / "assets/css/guestbook.css", OUT_ZH / "assets/css/guestbook.css")
+    # supabase-js 自托管：比走 CDN 少一次跨域，也不会被墙挡住
+    (OUT_ZH / "assets" / "vendor").mkdir(parents=True, exist_ok=True)
+    shutil.copy(ROOT / "assets/vendor/supabase.js", OUT_ZH / "assets/vendor/supabase.js")
+    shutil.copy(ROOT / "assets/js/supabase-config.js", OUT_ZH / "assets/js/supabase-config.js")
+    shutil.copy(ROOT / "assets/js/guestbook.js", OUT_ZH / "assets/js/guestbook.js")
     (OUT_ZH / "assets" / "js" / "site.js").write_text(JS, encoding="utf-8")
     (OUT_ZH / "assets" / "favicon.svg").write_text(FAVICON, encoding="utf-8")
     if (ROOT / "assets" / "og.png").exists():
@@ -1517,6 +1716,8 @@ def build_lang(lang):
     build_species()
     build_roster()
     build_about()
+    if GB_ON:
+        build_guestbook()
     build_404()
     if lang == "zh":
         build_meta_files()

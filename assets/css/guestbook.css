@@ -1,0 +1,130 @@
+/* 珠海草木志 · 留言板 —— 只在这一页加载 */
+
+.gb {
+  display: grid;
+  grid-template-columns: 336px 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .gb { grid-template-columns: 1fr; gap: 40px; }
+}
+
+.gb__lead { font-size: 15px; line-height: 2; color: var(--ink-soft); max-width: 620px; margin: 20px 0 0; }
+
+.gb__card { border-top: 1px solid var(--rule); padding-top: 20px; }
+
+.gb__tabs { display: flex; gap: 26px; margin-bottom: 22px; }
+
+.gb__tab {
+  font-family: var(--font-sans); font-size: 11.5px; letter-spacing: .16em;
+  padding: 0 0 9px; background: none; border: 0; border-bottom: 1px solid transparent;
+  color: var(--ink-faint); cursor: pointer; transition: color .2s, border-color .2s;
+}
+.gb__tab.is-on { color: var(--ink); border-bottom-color: var(--moss); }
+
+.gb__field { margin-bottom: 15px; }
+
+.gb__label {
+  display: block; margin-bottom: 6px;
+  font-family: var(--font-sans); font-size: 10px; letter-spacing: .2em; color: var(--ink-faint);
+}
+
+.gb input[type="email"],
+.gb input[type="password"],
+.gb input[type="text"],
+.gb textarea {
+  width: 100%;
+  font-family: var(--font-serif);
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 10px 12px;
+  transition: border-color .2s;
+}
+.gb input:focus, .gb textarea:focus { outline: none; border-color: var(--moss); }
+.gb textarea { min-height: 132px; resize: vertical; }
+
+.gb__btn {
+  font-family: var(--font-sans); font-size: 11.5px; letter-spacing: .18em;
+  padding: 10px 22px; border: 1px solid var(--moss); border-radius: 999px;
+  background: var(--moss); color: var(--paper); cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+}
+.gb__btn:hover { background: var(--moss-deep); border-color: var(--moss-deep); }
+.gb__btn[disabled] { opacity: .55; cursor: default; }
+
+.gb__btn--ghost {
+  background: transparent; color: var(--ink-soft); border-color: var(--rule);
+}
+.gb__btn--ghost:hover { background: transparent; color: var(--moss); border-color: var(--moss); }
+
+.gb__err { min-height: 1.3em; margin: 10px 0 0; font-size: 12.5px; line-height: 1.7; color: var(--clay); }
+.gb__err.is-ok { color: var(--moss); }
+
+.gb__hint { margin: 16px 0 0; font-size: 12px; line-height: 1.9; color: var(--ink-faint); }
+
+.gb__who-line {
+  display: flex; flex-wrap: wrap; gap: 12px; align-items: baseline; justify-content: space-between;
+  margin-bottom: 18px;
+}
+.gb__who-line span { font-family: var(--font-sans); font-size: 11px; letter-spacing: .12em; color: var(--ink-faint); }
+
+.gb__count {
+  font-family: var(--font-sans); font-size: 10.5px; letter-spacing: .16em; color: var(--ink-faint);
+  margin: 0 0 4px;
+}
+
+.gb__list { list-style: none; margin: 0; padding: 0; }
+
+.gb__item { padding: 20px 0 22px; border-bottom: 1px solid var(--rule-soft); }
+.gb__item:first-child { border-top: 1px solid var(--rule-soft); }
+
+.gb__meta {
+  display: flex; justify-content: space-between; gap: 16px; align-items: baseline;
+  margin-bottom: 9px;
+  font-family: var(--font-sans); font-size: 10.5px; letter-spacing: .12em; color: var(--ink-faint);
+}
+.gb__who { color: var(--moss); letter-spacing: .1em; }
+.gb__meta-right { display: inline-flex; gap: 14px; align-items: baseline; white-space: nowrap; }
+
+.gb__del {
+  background: none; border: 0; padding: 0; cursor: pointer;
+  font-family: var(--font-sans); font-size: 10.5px; letter-spacing: .12em;
+  color: var(--ink-faint); transition: color .2s;
+}
+.gb__del:hover { color: var(--clay); }
+
+.gb__body { font-size: 15px; line-height: 1.9; color: var(--ink); white-space: pre-wrap; word-break: break-word; }
+
+.gb__empty { margin: 26px 0 0; font-size: 14px; color: var(--ink-faint); }
+
+.gb__more {
+  display: block; margin: 26px auto 0;
+  font-family: var(--font-sans); font-size: 11px; letter-spacing: .14em;
+  padding: 9px 20px; background: transparent; border: 1px solid var(--rule);
+  border-radius: 999px; color: var(--ink-soft); cursor: pointer;
+}
+.gb__more:hover { color: var(--moss); border-color: var(--moss); }
+
+.gb__notice {
+  border: 1px solid var(--rule); border-left: 2px solid var(--gold);
+  background: var(--gold-wash); padding: 18px 20px; border-radius: 2px;
+  max-width: 640px;
+}
+.gb__notice h2 { margin: 0 0 8px; font-size: 15px; font-weight: 400; letter-spacing: .1em; }
+.gb__notice p { margin: 0; font-size: 13.5px; line-height: 1.9; color: var(--ink-soft); }
+
+.gb__chars {
+  float: right; font-family: var(--font-sans); font-size: 10px;
+  letter-spacing: .1em; color: var(--ink-faint); font-weight: 400;
+}
+
+@media (max-width: 520px) {
+  .gb__lead { font-size: 14px; line-height: 1.95; }
+  .gb__item { padding: 17px 0 19px; }
+}

@@ -128,7 +128,8 @@ function hours(rows) {
 function chart(d, map) {
   const W = 720, H = 200, P = 26;
   const days = [];
-  const start = new Date(d.range.from + "T00:00:00+08:00");
+  // 用北京时间正午做基准，避免 toISOString 的 UTC 偏移把日期挪前一天
+  const start = new Date(d.range.from + "T12:00:00+08:00");
   for (let i = 0; i < d.range.days; i++) {
     const t = new Date(start.getTime() + i * 86400000);
     const key = t.toISOString().slice(0, 10);
