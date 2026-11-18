@@ -66,36 +66,6 @@ def nav(prefix, active):
     return "\n        ".join(lis)
 
 
-def palm_svg():
-    """程序化羽状叶线描（右上角装饰）"""
-    paths = []
-    # 中轴
-    paths.append('<path d="M 0 0 C 40 60 70 150 78 260" />')
-    # 羽片
-    for i in range(22):
-        t = i / 21.0
-        x = 4 + 78 * t ** 1.6
-        y = 8 + 250 * t
-        ln = 74 * (1 - 0.55 * t) * (0.5 + 0.5 * math.sin(math.pi * min(1, t * 1.15)))
-        for sgn in (-1, 1):
-            dx = sgn * ln * 0.92
-            dy = ln * 0.55 + 10 * t
-            paths.append(
-                f'<path d="M {x:.1f} {y:.1f} Q {x+dx*0.45:.1f} {y+dy*0.25:.1f} {x+dx:.1f} {y+dy:.1f}" />'
-            )
-            paths.append(
-                f'<path d="M {x:.1f} {y:.1f} Q {x+dx*0.45:.1f} {y+dy*0.75:.1f} {x+dx*0.86:.1f} {y+dy*1.28:.1f}" />'
-            )
-    return (
-        '<svg class="hero__canvas" viewBox="0 0 420 420" fill="none" '
-        'stroke="#3D5C4D" stroke-width="0.9" stroke-linecap="round" '
-        'xmlns="http://www.w3.org/2000/svg" aria-hidden="true" '
-        'style="left:auto;right:-100px;top:-170px;width:660px;height:660px;transform:rotate(12deg)">'
-        + "".join(paths)
-        + "</svg>"
-    )
-
-
 def head(title, prefix, desc, active, path="/", extra_css=""):
     return f"""<!DOCTYPE html>
 <html lang="zh-CN">
@@ -247,18 +217,21 @@ def build_index():
 
     html = head(
         "珠海草木志 · 暖亚热带与热带过渡型海洋性气候城市的植物观察",
-        "/", "珠海常见行道树、绿化带植物与园林花卉图鉴。细叶榕的荫凉、凤凰木的火、簕杜鹃的市中花色，六十余种草木的形态、花期与故事。",
+        "/", "珠海常见行道树、绿化带植物与园林花卉图鉴。细叶榕的荫凉、凤凰木的火、簕杜鹃的市中花色，七十六种草木的形态、花期与故事。",
         "home", "/")
-    html += palm_svg()
     html += f"""
 <main>
   <section class="hero">
+    <div class="hero__artwrap" aria-hidden="true">
+      <img class="hero__art" src="/assets/img/hero-bougainvillea.webp" alt="" width="1440" height="901">
+    </div>
     <div class="wrap hero__inner">
       <div class="hero__line">
         <span class="tick"></span>
         <span class="eyebrow">Zhuhai · Guangdong<span class="hide-sm"> · 22°16′N 113°34′E</span></span>
       </div>
-      <h1>海风经过的地方，<br>草木替城市<em>记着节令</em>。</h1>
+      <h1>城市日新，<br>草木<em>常在</em>。</h1>
+      <p class="hero__note">收录珠海常见园林花木、行道树图鉴与四季赏花路线</p>
       <p class="hero__sub">珠海是一座长在植物里的城市。北回归线以南、伶仃洋以西，长夏无冬，雨热同期——于是榕树的气根垂成帘，凤凰木在五月点着整条街，簕杜鹃从天桥一路开到海堤。这里收录它们当中的七十六种：行道树、绿篱灌木、地被草花，与海岸线上的棕榈。</p>
       <div class="hero__latin">A warm subtropical–tropical maritime transition, evergreen all year round.</div>
       <div class="hero__meta">
@@ -1166,6 +1139,10 @@ def main():
         fdst.mkdir(parents=True, exist_ok=True)
         for f in fsrc.glob("*.webp"):
             shutil.copy(f, fdst / f.name)
+
+    # 散图（首屏插画等，直接放在 img/ 下）
+    for f in src_img.glob("*.webp"):
+        shutil.copy(f, dst_img / f.name)
 
     build_index()
     build_atlas()

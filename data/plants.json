@@ -2,7 +2,7 @@
   "meta": {
     "site": "珠海草木志",
     "sub": "A Field Guide to the Plants of Zhuhai",
-    "tagline": "海风经过的地方，草木替城市记着节令。"
+    "tagline": "城市日新，草木常在。"
   },
   "categories": [
     {"id": "street", "no": "壹", "name": "行道树", "en": "Street Trees", "lead": "它们撑起整座城市的荫凉，是行人每天经过却不曾细看的邻居。", "desc": "珠海的街道常年湿润，行道树要扛得住台风、盐雾与烈日，还要耐得住修剪。常绿阔叶的榕属、樟科占据主流，落羽的凤凰木与木棉则是季节的坐标。"},
