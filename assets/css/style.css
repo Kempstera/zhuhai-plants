@@ -186,31 +186,6 @@ a { color: inherit; text-decoration: none; }
   overflow: hidden;
 }
 
-/* 右上角簕杜鹃水彩图：自左上淡入纸色，与页面底色接续 */
-.hero__artwrap {
-  position: absolute;
-  top: -3%;
-  right: -5%;
-  width: 56%;
-  max-width: 900px;
-  pointer-events: none;
-  opacity: .96;
-  -webkit-mask-image:
-    linear-gradient(to right, transparent 0, rgba(0, 0, 0, .48) 19%, #000 43%),
-    linear-gradient(to bottom, transparent 0, #000 10%, #000 74%, transparent 100%);
-  -webkit-mask-composite: source-in;
-  mask-image:
-    linear-gradient(to right, transparent 0, rgba(0, 0, 0, .48) 19%, #000 43%),
-    linear-gradient(to bottom, transparent 0, #000 10%, #000 74%, transparent 100%);
-  mask-composite: intersect;
-}
-
-.hero__art {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
 .hero__inner { position: relative; }
 
 .hero__line {
@@ -286,30 +261,6 @@ a { color: inherit; text-decoration: none; }
   font-weight: 400;
   color: var(--ink);
   margin-bottom: 2px;
-}
-
-/* 平板及以下：插画改为顶部通栏图，向下淡出 */
-@media (max-width: 900px) {
-  .hero { padding-top: 0; }
-  .hero__artwrap {
-    position: relative;
-    top: auto;
-    right: auto;
-    width: 100%;
-    max-width: none;
-    height: 232px;
-    margin: 0 0 26px;
-    opacity: 1;
-    background: url("/assets/img/hero-bougainvillea.webp") no-repeat;
-    background-size: 186% auto;
-    background-position: 88% 22%;
-    -webkit-mask-image: linear-gradient(to bottom, #000 58%, transparent 100%);
-    -webkit-mask-composite: source-in;
-    mask-image: linear-gradient(to bottom, #000 58%, transparent 100%);
-    mask-composite: intersect;
-  }
-  .hero__art { display: none; }
-  .hero__line { margin-bottom: 30px; }
 }
 
 /* ---------- 章节标题 ---------- */
@@ -1021,7 +972,7 @@ a { color: inherit; text-decoration: none; }
     gap: 10px;
   }
   .section__head p { max-width: 100%; }
-  .hero { padding: 0 0 52px; }
+  .hero { padding: 60px 0 52px; }
   .hero__line { margin-bottom: 26px; }
   .hero__note { font-size: 11.5px; letter-spacing: .1em; margin-top: 20px; }
   .hero__sub { font-size: 15.5px; line-height: 1.95; }

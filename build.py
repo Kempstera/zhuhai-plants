@@ -222,9 +222,6 @@ def build_index():
     html += f"""
 <main>
   <section class="hero">
-    <div class="hero__artwrap" aria-hidden="true">
-      <img class="hero__art" src="/assets/img/hero-bougainvillea.webp" alt="" width="1440" height="901">
-    </div>
     <div class="wrap hero__inner">
       <div class="hero__line">
         <span class="tick"></span>
