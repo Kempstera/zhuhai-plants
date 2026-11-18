@@ -1,0 +1,20 @@
+name = "zhplants-stats"
+main = "src/index.js"
+compatibility_date = "2026-01-01"
+
+# workers.dev 在境内常被阻断，挂到自己的域名下
+routes = [
+  { pattern = "stats.signupeverywhere.cc", custom_domain = true }
+]
+
+[vars]
+ALLOWED_HOSTS = "plants.signupeverywhere.cc,zhuhai-plants.pages.dev"
+
+[observability]
+enabled = true
+
+# 站点访问统计：单表记录、无 Cookie、不留原始 IP
+[[d1_databases]]
+binding = "DB"
+database_name = "zhplants-stats"
+database_id = "389c6bc6-58bf-4216-8efa-4c5844565419"

@@ -25,6 +25,7 @@ ZH_CATS, ZH_PLANTS, ZH_PHOTOS = CATS, PLANTS, PHOTOS
 CATMAP = {c["id"]: c for c in CATS}
 
 SITE = "https://plants.signupeverywhere.cc"
+STATS_API = "https://stats.signupeverywhere.cc"
 
 MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
@@ -56,6 +57,11 @@ TXT = {
     "foot_note": ("花期因年份、纬度和局部小气候而异，文中月份为珠海城区的常见区间。插图均为风格化植物图谱，用于辨识形态要点，非实景照片。",
                   "Flowering months shift with the year, the latitude and the local microclimate; the months given here are the usual window in urban Zhuhai. The plates are stylised botanical drawings made to show the points that matter for recognition — they are not photographs."),
     "foot_where": ("珠海 · 北纬 22°14′ — 22°37′", "Zhuhai · 22°14′–22°37′ N"),
+    "foot_studio": ("站长", "Admin"),
+    "more_k": ("更多", "Elsewhere"),
+    "more_t": ("珠海观鸟图鉴", "Birds of Zhuhai"),
+    "more_s": ("同一座城市，另一种看法 —— 六十五种常见鸟类的样子、习性与鸣声。",
+               "The same city, watched another way — sixty-five common birds, their looks, habits and voices."),
     "foot_count": ("共 {} 种 · {} 科", "{} species · {} families"),
 
     # —— 卡片
@@ -245,7 +251,7 @@ def localize(html):
     # 语言切换指向中文站根目录，不能被改写成 /en
     html = html.replace('<a class="nav__lang" href="', '<a class="nav__lang" href="\x01')
     html = html.replace('href="/"', 'href="__ROOT__"')
-    html = re.sub(r'href="/(?!/|en/|assets/)', 'href="/en/', html)
+    html = re.sub(r'href="/(?!/|en/|assets/|studio)', 'href="/en/', html)
     html = html.replace('href="__ROOT__"', 'href="/en/"')
     html = html.replace('href="\x01', 'href="')
     html = html.replace('src="../assets/', 'src="/assets/')
@@ -357,11 +363,29 @@ def foot(prefix):
     </div>
     <div class="foot__end">
       <span>{t('foot_where')}</span>
-      <span>{t('foot_count', len(PLANTS), len({p['family'] for p in PLANTS}))}</span>
+      <span class="foot__end-right">
+        <span>{t('foot_count', len(PLANTS), len({p['family'] for p in PLANTS}))}</span>
+        <a class="foot__studio" href="/studio" rel="nofollow">{t('foot_studio')}</a>
+      </span>
     </div>
   </div>
 </footer>
 <script src="{prefix}assets/js/site.js?v={ASSET_V}"></script>
+<script>
+/* 访问统计：只在正式站点触发，不写 Cookie，不阻塞渲染 */
+(function(){{try{{
+  var h=location.hostname;
+  if(h!=="plants.signupeverywhere.cc"&&h!=="zhuhai-plants.pages.dev")return;
+  if(location.pathname.indexOf("/studio")===0)return;
+  if(navigator.doNotTrack==="1"||window.doNotTrack==="1")return;
+  if(localStorage.getItem("nostats"))return;
+  if(/[?&]nostats=1/.test(location.search)){{localStorage.setItem("nostats","1");return;}}
+  var d=JSON.stringify({{p:location.pathname,r:document.referrer}});
+  var u="{STATS_API}/hit";
+  if(navigator.sendBeacon){{navigator.sendBeacon(u,new Blob([d],{{type:"text/plain"}}));}}
+  else{{fetch(u,{{method:"POST",body:d,keepalive:true,mode:"no-cors"}});}}
+}}catch(e){{}}}})();
+</script>
 </body>
 </html>
 """
@@ -535,6 +559,17 @@ def build_index():
         <p style="margin:0;font-size:14px;color:var(--ink-faint)">{t('idx_p')}</p>
       </div>
       <a href="/roster" class="chip" style="padding:12px 26px;font-size:13px">{t('idx_more')}</a>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <a class="moreline" href="https://birds.signupeverywhere.cc/" target="_blank" rel="noopener">
+        <span class="moreline__k">{t('more_k')}</span>
+        <span class="moreline__t">{t('more_t')}</span>
+        <span class="moreline__s">{t('more_s')}</span>
+        <span class="moreline__a" aria-hidden="true">↗</span>
+      </a>
     </div>
   </section>
 </main>
@@ -1266,6 +1301,106 @@ def build_404():
     write_page("404.html", html)
 
 
+# ---------------------------------------------------------------- 站长页
+
+STUDIO_BODY = """
+<main class="stu">
+  <div class="stu__wrap">
+
+    <section id="gate">
+      <div class="eyebrow">Administration</div>
+      <h1 class="page-title">站 长</h1>
+      <p class="stu__lede">这一页不在导航与站点地图里，也不被搜索引擎收录。输入口令可以查看访问统计：只记录路径、来源域名、国家与设备类别，不写 Cookie，不留 IP 与完整 UA。</p>
+      <form id="gate-form" autocomplete="off">
+        <input id="tok" type="password" placeholder="口令" aria-label="口令" spellcheck="false">
+        <button type="submit">进入</button>
+      </form>
+      <p id="gate-err" class="stu__err" role="alert"></p>
+    </section>
+
+    <section id="dash" hidden>
+      <div class="stu__bar">
+        <div class="eyebrow">Traffic</div>
+        <div class="stu__tools">
+          <div class="stu__seg" role="group" aria-label="区间">
+            <button data-d="7">7 天</button><button data-d="30" class="is-on">30 天</button><button data-d="90">90 天</button>
+          </div>
+          <button id="reload" class="stu__btn">刷新</button>
+          <button id="signout" class="stu__btn stu__btn--ghost">退出</button>
+        </div>
+      </div>
+
+      <div class="stu__kpis" id="kpis"></div>
+
+      <section class="panel">
+        <h2>每日浏览</h2>
+        <div id="chart" class="chart"></div>
+      </section>
+
+      <div class="stu__cols">
+        <section class="panel"><h2>页面</h2><div id="pages" class="rank"></div></section>
+        <section class="panel"><h2>来源</h2><div id="refs" class="rank"></div></section>
+      </div>
+
+      <div class="stu__cols">
+        <section class="panel"><h2>国家与地区</h2><div id="countries" class="rank"></div></section>
+        <section class="panel"><h2>设备与语言</h2><div id="devices" class="rank"></div></section>
+      </div>
+
+      <section class="panel">
+        <h2>时段 · 北京时间</h2>
+        <div id="hours"></div>
+      </section>
+
+      <p class="stu__foot" id="lifetime"></p>
+    </section>
+
+  </div>
+</main>
+"""
+
+
+def build_studio():
+    """站长页：只出中文一份，不进导航、不进 sitemap、不被收录"""
+    css = (ROOT / "assets" / "css" / "studio.css").read_bytes()
+    js_src = (ROOT / "assets" / "js" / "studio.js").read_text("utf-8")
+    js = js_src.replace("__API__", STATS_API)
+    (OUT_ZH / "assets" / "js" / "studio.js").write_text(js, encoding="utf-8")
+    sv = hashlib.md5(css).hexdigest()[:8]
+    sj = hashlib.md5(js.encode("utf-8")).hexdigest()[:8]
+    html = f"""<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>站长 · 珠海草木志</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="theme-color" content="#F8F4EB">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css?v={ASSET_V}">
+<link rel="stylesheet" href="/assets/css/studio.css?v={sv}">
+</head>
+<body>
+<header class="site-head">
+  <div class="site-head__inner">
+    <a class="brand" href="/">
+      <span class="brand__name">珠海草木志</span>
+      <span class="brand__latin">Flora of Zhuhai</span>
+    </a>
+    <nav class="nav">
+      <a href="/studio" class="is-active">站长</a>
+      <a href="/">返回封面</a>
+    </nav>
+  </div>
+</header>
+{STUDIO_BODY}
+<script src="/assets/js/studio.js?v={sj}"></script>
+</body>
+</html>
+"""
+    (OUT_ZH / "studio.html").write_text(html, encoding="utf-8")
+
+
 def build_meta_files():
     base = ["", "atlas", "calendar", "map", "roster", "about"]
     base += [f"species/{p['slug']}" for p in ZH_PLANTS]
@@ -1282,7 +1417,7 @@ def build_meta_files():
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
         + "\n".join(entries) + "\n</urlset>\n", encoding="utf-8")
     (OUT / "robots.txt").write_text(
-        f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
+        f"User-agent: *\nAllow: /\nDisallow: /studio\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
 
 
 def setup_assets():
@@ -1291,6 +1426,7 @@ def setup_assets():
     (OUT_ZH / "assets" / "css").mkdir(parents=True)
     (OUT_ZH / "assets" / "js").mkdir(parents=True)
     shutil.copy(ROOT / "assets/css/style.css", OUT_ZH / "assets/css/style.css")
+    shutil.copy(ROOT / "assets/css/studio.css", OUT_ZH / "assets/css/studio.css")
     (OUT_ZH / "assets" / "js" / "site.js").write_text(JS, encoding="utf-8")
     (OUT_ZH / "assets" / "favicon.svg").write_text(FAVICON, encoding="utf-8")
     if (ROOT / "assets" / "og.png").exists():
@@ -1390,7 +1526,8 @@ def main():
     missing = setup_assets()
     build_lang("zh")
     build_lang("en")
-    print(f"built: {len(ZH_PLANTS)} species pages x 2 languages")
+    build_studio()
+    print(f"built: {len(ZH_PLANTS)} species pages x 2 languages + studio")
     if missing:
         print("MISSING IMAGES:", ", ".join(missing))
 
