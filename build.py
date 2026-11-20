@@ -74,10 +74,6 @@ TXT = {
                   "Flowering months shift with the year, the latitude and the local microclimate; the months given here are the usual window in urban Zhuhai. The plates are stylised botanical drawings made to show the points that matter for recognition — they are not photographs."),
     "foot_where": ("珠海 · 北纬 22°14′ — 22°37′", "Zhuhai · 22°14′–22°37′ N"),
     "foot_studio": ("站长", "Admin"),
-    "more_k": ("更多", "Elsewhere"),
-    "more_t": ("珠海观鸟图鉴", "Birds of Zhuhai"),
-    "more_s": ("同一座城市，另一种看法 —— 六十五种常见鸟类的样子、习性与鸣声。",
-               "The same city, watched another way — sixty-five common birds, their looks, habits and voices."),
     "foot_count": ("共 {} 种 · {} 科", "{} species · {} families"),
 
     # —— 卡片
@@ -697,17 +693,6 @@ def build_index():
         <p style="margin:0;font-size:14px;color:var(--ink-faint)">{t('idx_p')}</p>
       </div>
       <a href="/roster" class="chip" style="padding:12px 26px;font-size:13px">{t('idx_more')}</a>
-    </div>
-  </section>
-
-  <section class="section section--tight">
-    <div class="wrap">
-      <a class="moreline" href="https://birds.signupeverywhere.cc/" target="_blank" rel="noopener">
-        <span class="moreline__k">{t('more_k')}</span>
-        <span class="moreline__t">{t('more_t')}</span>
-        <span class="moreline__s">{t('more_s')}</span>
-        <span class="moreline__a" aria-hidden="true">↗</span>
-      </a>
     </div>
   </section>
 </main>
