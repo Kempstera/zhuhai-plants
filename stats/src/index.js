@@ -56,8 +56,8 @@ async function hit(req, env, cors) {
 
   await env.DB.prepare(
     `INSERT INTO hits
-      (ts, day, uv, sid, path, ref, country, region, city, asn, asorg, device, browser, os, lang)
-     VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`
+      (ts, day, uv, sid, path, ref, country, region, city, asn, asorg, device, browser, os, lang, ip, ua)
+     VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`
   ).bind(
     ts, day, uv,
     cleanId(body.s),
@@ -66,7 +66,8 @@ async function hit(req, env, cors) {
     str(cf.country, 2), str(cf.region, 40), str(cf.city, 40),
     Number.isFinite(cf.asn) ? cf.asn : 0, str(cf.asOrganization, 60),
     deviceOf(ua), browserOf(ua), osOf(ua),
-    langOf(body.l, path)
+    langOf(body.l, path),
+    ip.slice(0, 45), ua.slice(0, 300)
   ).run();
 
   return new Response(null, { status: 204, headers: cors });
@@ -188,7 +189,16 @@ async function stats(url, env, cors) {
   if (!okToken(token, env)) return json({ error: "forbidden" }, 403, cors);
 
   const w = windowOf(url);
-  const W = w.where;
+
+  // 明细里的搜索框：IP / 城市 / 省州 / 页面 / 来源 / 运营商 都能搜
+  const q = (url.searchParams.get("q") || "").trim().slice(0, 60);
+  let W = w.where;
+  let ARGS = w.args;
+  if (q) {
+    const like = "%" + q.replace(/[%_]/g, "") + "%";
+    W += " AND (ip LIKE ? OR city LIKE ? OR region LIKE ? OR path LIKE ? OR ref LIKE ? OR asorg LIKE ?)";
+    ARGS = ARGS.concat([like, like, like, like, like, like]);
+  }
 
   let limit = parseInt(url.searchParams.get("limit") || "25", 10);
   if (!Number.isFinite(limit) || limit < 1 || limit > 500) limit = 25;
@@ -198,43 +208,43 @@ async function stats(url, env, cors) {
   const [tot, daily, pages, refs, countries, cities, asns,
          devices, browsers, oses, langs, hours, durs, scrolls, detail, dcount] = await env.DB.batch([
     env.DB.prepare(
-      `SELECT COUNT(*) pv, COUNT(DISTINCT uv) uv, COUNT(DISTINCT sid) sess,
+      `SELECT COUNT(*) pv, COUNT(DISTINCT uv) uv, COUNT(DISTINCT CASE WHEN sid <> '' THEN sid END) sess,
               SUM(CASE WHEN dur >= 0 THEN 1 ELSE 0 END) withdur,
               AVG(CASE WHEN dur >= 0 THEN dur END) avgdur,
               MIN(ts) first, MAX(ts) last
          FROM hits WHERE ${W}`
-    ).bind(...w.args),
+    ).bind(...ARGS),
     env.DB.prepare(
       `SELECT day, COUNT(*) pv, COUNT(DISTINCT uv) uv FROM hits WHERE ${W} GROUP BY day ORDER BY day`
-    ).bind(...w.args),
+    ).bind(...ARGS),
     env.DB.prepare(
       `SELECT path, COUNT(*) n, COUNT(DISTINCT uv) u FROM hits WHERE ${W}
         GROUP BY path ORDER BY n DESC LIMIT 25`
-    ).bind(...w.args),
+    ).bind(...ARGS),
     env.DB.prepare(
       `SELECT ref, COUNT(*) n FROM hits WHERE ${W} AND ref <> ''
         GROUP BY ref ORDER BY n DESC LIMIT 15`
-    ).bind(...w.args),
+    ).bind(...ARGS),
     env.DB.prepare(
       `SELECT country, COUNT(*) n FROM hits WHERE ${W} AND country <> ''
         GROUP BY country ORDER BY n DESC LIMIT 20`
-    ).bind(...w.args),
+    ).bind(...ARGS),
     env.DB.prepare(
-      `SELECT city, country, COUNT(*) n FROM hits WHERE ${W} AND city <> ''
-        GROUP BY city, country ORDER BY n DESC LIMIT 20`
-    ).bind(...w.args),
+      `SELECT city, region, country, COUNT(*) n FROM hits WHERE ${W} AND (city <> '' OR region <> '')
+        GROUP BY city, region, country ORDER BY n DESC LIMIT 20`
+    ).bind(...ARGS),
     env.DB.prepare(
       `SELECT asorg, asn, COUNT(*) n FROM hits WHERE ${W} AND asorg <> ''
         GROUP BY asorg, asn ORDER BY n DESC LIMIT 15`
-    ).bind(...w.args),
-    env.DB.prepare(`SELECT device b, COUNT(*) n FROM hits WHERE ${W} GROUP BY device ORDER BY n DESC`).bind(...w.args),
-    env.DB.prepare(`SELECT browser b, COUNT(*) n FROM hits WHERE ${W} GROUP BY browser ORDER BY n DESC`).bind(...w.args),
-    env.DB.prepare(`SELECT os b, COUNT(*) n FROM hits WHERE ${W} GROUP BY os ORDER BY n DESC`).bind(...w.args),
-    env.DB.prepare(`SELECT lang b, COUNT(*) n FROM hits WHERE ${W} GROUP BY lang ORDER BY n DESC`).bind(...w.args),
+    ).bind(...ARGS),
+    env.DB.prepare(`SELECT device b, COUNT(*) n FROM hits WHERE ${W} GROUP BY device ORDER BY n DESC`).bind(...ARGS),
+    env.DB.prepare(`SELECT browser b, COUNT(*) n FROM hits WHERE ${W} GROUP BY browser ORDER BY n DESC`).bind(...ARGS),
+    env.DB.prepare(`SELECT os b, COUNT(*) n FROM hits WHERE ${W} GROUP BY os ORDER BY n DESC`).bind(...ARGS),
+    env.DB.prepare(`SELECT lang b, COUNT(*) n FROM hits WHERE ${W} GROUP BY lang ORDER BY n DESC`).bind(...ARGS),
     env.DB.prepare(
       `SELECT CAST(strftime('%H', ts / 1000, 'unixepoch', '+8 hours') AS INTEGER) h, COUNT(*) n
          FROM hits WHERE ${W} GROUP BY h ORDER BY h`
-    ).bind(...w.args),
+    ).bind(...ARGS),
     env.DB.prepare(
       `SELECT CASE
                 WHEN dur < 0 THEN 'na'
@@ -246,7 +256,7 @@ async function stats(url, env, cors) {
                 ELSE '10+'
               END b, COUNT(*) n
          FROM hits WHERE ${W} GROUP BY b`
-    ).bind(...w.args),
+    ).bind(...ARGS),
     env.DB.prepare(
       `SELECT CASE
                 WHEN scroll < 0 THEN 'na'
@@ -256,12 +266,12 @@ async function stats(url, env, cors) {
                 ELSE '75-100'
               END b, COUNT(*) n
          FROM hits WHERE ${W} GROUP BY b`
-    ).bind(...w.args),
+    ).bind(...ARGS),
     env.DB.prepare(
-      `SELECT ts, path, ref, country, region, city, asorg, device, browser, os, lang, dur, scroll
+      `SELECT ts, ip, path, ref, country, region, city, asn, asorg, device, browser, os, lang, dur, scroll, ua
          FROM hits WHERE ${W} ORDER BY ts DESC LIMIT ? OFFSET ?`
-    ).bind(...w.args, limit, offset),
-    env.DB.prepare(`SELECT COUNT(*) n FROM hits WHERE ${W}`).bind(...w.args),
+    ).bind(...ARGS, limit, offset),
+    env.DB.prepare(`SELECT COUNT(*) n FROM hits WHERE ${W}`).bind(...ARGS),
   ]);
 
   const all = await env.DB.prepare(
@@ -298,17 +308,17 @@ async function exportCsv(url, env, cors) {
 
   const w = windowOf(url);
   const rows = await env.DB.prepare(
-    `SELECT ts, path, ref, country, region, city, asorg, device, browser, os, lang, dur, scroll
+    `SELECT ts, ip, path, ref, country, region, city, asn, asorg, device, browser, os, lang, dur, scroll
        FROM hits WHERE ${w.where} ORDER BY ts DESC LIMIT 20000`
   ).bind(...w.args).all();
 
-  const head = ["time", "path", "referrer", "country", "region", "city", "asn_org",
+  const head = ["time", "ip", "path", "referrer", "country", "region", "city", "asn", "asn_org",
                 "device", "browser", "os", "lang", "seconds", "scroll_pct"];
   const lines = [head.join(",")];
   for (const r of rows.results) {
     const cells = [
       new Date(r.ts + 8 * 3600 * 1000).toISOString().slice(0, 19).replace("T", " "),
-      r.path, r.ref, r.country, r.region, r.city, r.asorg, r.device, r.browser, r.os, r.lang,
+      r.ip, r.path, r.ref, r.country, r.region, r.city, r.asn || "", r.asorg, r.device, r.browser, r.os, r.lang,
       r.dur < 0 ? "" : r.dur, r.scroll < 0 ? "" : r.scroll,
     ];
     lines.push(cells.map(csvCell).join(","));

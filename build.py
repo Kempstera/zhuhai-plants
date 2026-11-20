@@ -465,7 +465,7 @@ def foot(prefix):
 
 
 TRACK_JS = r"""<script>
-/* 访问统计：不写 Cookie、不留 IP、不阻塞渲染，只统计正式站点
+/* 访问统计：不写 Cookie、不阻塞渲染，只统计正式站点
    一次访问生成一个 sid，离开时用同一个 sid 补报停留时长与滚动深度 */
 (function () {
   try {
@@ -1583,7 +1583,7 @@ VISITS_BODY = """
     <section id="gate">
       <div class="eyebrow">Administration</div>
       <h1 class="page-title">访 客</h1>
-      <p class="vs__lede">这一页不在导航与站点地图里，也不被搜索引擎收录。输入口令后加载访客数据：只记录路径、来源域名、国家与城市、接入商、设备、停留时长与滚动深度；不写 Cookie，不留 IP 与完整 UA。</p>
+      <p class="vs__lede">这一页不在导航与站点地图里，也不被搜索引擎收录。输入口令后加载访客数据：记录路径、来源域名、IP、国家/省/城市、接入商、设备与系统、停留时长与滚动深度。不写 Cookie，也没有任何第三方统计脚本；库里的 IP 只有在这一页输对口令才能读到。</p>
       <form id="gate-form" class="gate__form" autocomplete="off">
         <input id="gate-input" type="password" placeholder="口令" aria-label="口令" spellcheck="false">
         <button type="submit">进入</button>
@@ -1649,11 +1649,15 @@ VISITS_BODY = """
       </div>
 
       <section class="panel">
-        <h2>访问明细 <span class="panel__count" id="dcount"></span></h2>
+        <div class="panel__head">
+          <h2>访问明细 <span class="panel__count" id="dcount"></span></h2>
+          <input id="dq" class="vs__search" type="search" placeholder="搜索 IP / 城市 / 页面 / 来源" spellcheck="false">
+        </div>
+        <p class="panel__sub">IP、城市与省州从 2026-11-20 起才开始记录，更早的访问这几列是空的。</p>
         <div class="vs__tablewrap">
           <table class="vs__table" id="detail">
             <thead><tr>
-              <th>时间</th><th>页面</th><th>来源</th><th>位置</th><th>设备</th><th>停留</th>
+              <th>时间</th><th>地区</th><th>IP</th><th>设备 / 系统</th><th>来源</th><th>落地页</th><th>停留</th><th>滚动</th>
             </tr></thead>
             <tbody></tbody>
           </table>
@@ -1661,7 +1665,7 @@ VISITS_BODY = """
         <div class="vs__pager" id="pager"></div>
       </section>
 
-      <p class="vs__foot">数据来自 Cloudflare Worker + D1；无 Cookie、无第三方脚本、不留原始 IP。</p>
+      <p class="vs__foot">数据来自 Cloudflare Worker + D1；无 Cookie、无第三方脚本。明细里的 IP 与 UA 只存在自己的库里，必须输入口令才能读到，不对外转发。</p>
     </section>
 
   </div>

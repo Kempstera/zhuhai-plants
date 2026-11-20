@@ -6,7 +6,7 @@
 
   var API = "__API__";
   var KEY = "zhplants.stats.key";
-  var state = { days: 7, limit: 25, offset: 0, total: 0, data: null, busy: false };
+  var state = { days: 7, limit: 25, offset: 0, total: 0, q: "", data: null, busy: false };
 
   var $ = function (id) { return document.getElementById(id); };
   var gate = $("gate"), dash = $("dash"), gateErr = $("gate-err"), gateInput = $("gate-input");
@@ -67,6 +67,7 @@
     state.busy = true;
     var url = API + "/stats?days=" + state.days +
       "&limit=" + state.limit + "&offset=" + state.offset +
+      (state.q ? "&q=" + encodeURIComponent(state.q) : "") +
       "&token=" + encodeURIComponent(k);
     fetch(url, { cache: "no-store" })
       .then(function (r) {
@@ -103,7 +104,8 @@
     bars("refs", (d.refs || []).map(function (x) { return [x.ref, x.n]; }));
     bars("countries", (d.countries || []).map(function (x) { return [countryName(x.country), x.n]; }));
     bars("cities", (d.cities || []).map(function (x) {
-      return [x.city + (x.country ? " · " + countryName(x.country) : ""), x.n];
+      var parts = [x.city || x.region, x.region && x.city ? x.region : "", x.country ? countryName(x.country) : ""];
+      return [parts.filter(Boolean).join(" · "), x.n];
     }));
     bars("asns", (d.asns || []).map(function (x) { return [x.asorg + (x.asn ? " · AS" + x.asn : ""), x.n]; }));
     bars("durs", durBuckets(d.durations || []));
@@ -284,24 +286,50 @@
   function detail(rows) {
     var tb = $("detail").querySelector("tbody");
     if (!rows.length) {
-      tb.innerHTML = '<tr><td colspan="6" class="vs__empty">没有记录</td></tr>';
+      tb.innerHTML = '<tr><td colspan="8" class="vs__empty">没有记录</td></tr>';
       return;
     }
     tb.innerHTML = rows.map(function (r) {
       var t = new Date(r.ts + 8 * 3600 * 1000).toISOString().slice(5, 16).replace("T", " ");
-      var where = [countryName(r.country)];
-      if (r.city) where.unshift(r.city);
-      if (r.asorg) where.push(r.asorg);
+      var place = [flag(r.country), r.city || r.region || countryName(r.country) || "未知"].filter(Boolean).join(" ");
+      var full = [r.country && countryName(r.country), r.region, r.city, r.asorg].filter(Boolean).join(" · ");
+      var dev = [devName(r.device), r.os, r.browser].filter(function (x) { return x && x !== "未知"; }).join(" · ");
+      var ip = r.ip || "";
       return "<tr>" +
         "<td class='mono' data-l='时间'>" + t + "</td>" +
-        "<td class='mono vs__path' data-l='页面'>" + esc(r.path) + "</td>" +
+        "<td data-l='地区' title='" + esc(full) + "'>" + esc(place) + "</td>" +
+        "<td data-l='IP'>" + (ip
+          ? "<button class='vs__ip' data-ip='" + esc(ip) + "' title='点击复制 · " + esc(r.ua || "") + "'>" + esc(ip) + "</button>"
+          : '<span class="dim">—</span>') + "</td>" +
+        "<td data-l='设备' title='" + esc(r.ua || "") + "'>" + esc(dev || "—") + "</td>" +
         "<td data-l='来源'>" + (r.ref ? esc(r.ref) : '<span class="dim">直接访问</span>') + "</td>" +
-        "<td data-l='位置'>" + esc(where.filter(Boolean).join(" · ")) + "</td>" +
-        "<td data-l='设备'>" + esc([devName(r.device), r.browser, r.os].filter(function (x) { return x && x !== "未知"; }).join(" · ")) + "</td>" +
-        "<td class='mono' data-l='停留'>" + (r.dur < 0 ? '<span class="dim">—</span>' : durText(r.dur)) +
-        (r.scroll >= 0 ? " <span class='dim'>/" + r.scroll + "%</span>" : "") + "</td>" +
+        "<td class='mono vs__path' data-l='落地页'>" + esc(r.path) + "</td>" +
+        "<td class='mono' data-l='停留'>" + (r.dur < 0 ? '<span class="dim">—</span>' : durText(r.dur)) + "</td>" +
+        "<td class='mono' data-l='滚动'>" + (r.scroll < 0 ? '<span class="dim">—</span>' : r.scroll + "%") + "</td>" +
         "</tr>";
     }).join("");
+
+    Array.prototype.forEach.call(tb.querySelectorAll(".vs__ip"), function (btn) {
+      btn.addEventListener("click", function () {
+        var v = btn.getAttribute("data-ip");
+        if (!v) return;
+        try {
+          navigator.clipboard.writeText(v);
+          var old = btn.textContent;
+          btn.textContent = "已复制";
+          btn.classList.add("is-done");
+          setTimeout(function () { btn.textContent = old; btn.classList.remove("is-done"); }, 900);
+        } catch (e) {}
+      });
+    });
+  }
+
+  /* ISO 国家码 → 国旗 */
+  function flag(cc) {
+    if (!cc || cc.length !== 2) return "";
+    return String.fromCodePoint.apply(null, cc.toUpperCase().split("").map(function (c) {
+      return 0x1F1E6 + c.charCodeAt(0) - 65;
+    }));
   }
 
   function pager() {
@@ -348,6 +376,18 @@
   });
 
   $("refresh").addEventListener("click", load);
+
+  /* 明细搜索：和 musicradio 一样，搜索时整套面板都按命中的记录重算 */
+  var qTimer = null;
+  $("dq").addEventListener("input", function (e) {
+    var v = e.target.value.trim();
+    clearTimeout(qTimer);
+    qTimer = setTimeout(function () {
+      state.q = v;
+      state.offset = 0;
+      load();
+    }, 320);
+  });
 
   $("export").addEventListener("click", function () {
     var k = token();

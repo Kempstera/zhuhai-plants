@@ -97,6 +97,26 @@ table.vs__table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
 .mono { font-family: var(--font-sans); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .dim { color: var(--ink-faint); }
 
+/* 明细里的 IP：点一下复制 */
+.vs__ip {
+  font-family: var(--font-sans); font-size: 11.5px; font-variant-numeric: tabular-nums;
+  background: none; border: 0; padding: 0; cursor: pointer; white-space: nowrap;
+  color: var(--ink-soft); border-bottom: 1px dotted var(--rule); text-align: left;
+}
+.vs__ip:hover { color: var(--moss); border-bottom-color: var(--moss); }
+.vs__ip.is-done { color: var(--moss); border-bottom-color: transparent; }
+
+/* 明细表头：标题与搜索框同一行 */
+.panel__head { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+.panel__head h2 { margin: 0; }
+.vs__search {
+  font-family: var(--font-sans); font-size: 11.5px; letter-spacing: .02em;
+  padding: 6px 12px; min-width: 220px; background: var(--card); color: var(--ink);
+  border: 1px solid var(--rule); border-radius: 999px;
+}
+.vs__search:focus { outline: none; border-color: var(--moss); }
+.vs__search::placeholder { color: var(--ink-faint); }
+
 .vs__pager { display: flex; align-items: center; gap: 12px; margin-top: 16px; flex-wrap: wrap;
   font-family: var(--font-sans); font-size: 11.5px; color: var(--ink-faint); }
 .vs__pager button {
@@ -149,9 +169,12 @@ table.vs__table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
   .vs__table tr:hover td { background: none; }
   .vs__table td { border: 0; padding: 0 0 3px; font-size: 11.5px; line-height: 1.6; color: var(--ink-soft); }
   .vs__table td:nth-child(1) { font-size: 10.5px; letter-spacing: .06em; color: var(--ink-faint); }
-  .vs__table td:nth-child(2) { font-size: 13px; color: var(--ink); white-space: normal; word-break: break-all; }
+  .vs__table td:nth-child(2) { font-size: 13px; color: var(--ink); white-space: normal; word-break: break-all; padding-bottom: 5px; }
   .vs__table td:nth-child(n+3)::before {
     content: attr(data-l) "　"; color: var(--ink-faint); font-size: 10.5px; letter-spacing: .08em;
   }
+  .vs__table td.vs__path { white-space: normal; word-break: break-all; }
+  .vs__ip { font-size: 11.5px; }
+  .vs__search { width: 100%; min-width: 0; }
   .vs__pager { justify-content: space-between; }
 }
