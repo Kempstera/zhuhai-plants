@@ -452,7 +452,6 @@ def foot(prefix):
       <span>{t('foot_where')}</span>
       <span class="foot__end-right">
         <span>{t('foot_count', len(PLANTS), len({p['family'] for p in PLANTS}))}</span>
-        <a class="foot__studio" href="/visits" rel="nofollow">{t('foot_studio')}</a>
       </span>
     </div>
   </div>
