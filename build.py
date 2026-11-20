@@ -6,9 +6,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent
 DATA = json.loads((ROOT / "data" / "plants.json").read_text(encoding="utf-8"))
-OUT_ZH = ROOT / "dist"
-OUT_EN = OUT_ZH / "en"
-OUT = OUT_ZH
+# 英文占根路径（站点默认语言），中文在 /zh/ 下
+OUT_EN = ROOT / "dist"
+OUT_ZH = OUT_EN / "zh"
+OUT = OUT_EN
 
 LANG = "zh"
 
@@ -310,29 +311,27 @@ def flower_text(months):
 
 
 def localize(html):
-    """英文站：站内链接改到 /en，并收紧拉丁字母的字距"""
-    # 语言切换指向中文站根目录，不能被改写成 /en
+    """中文站放在 /zh/ 下，站内链接要加前缀；英文站就是根路径，不用动"""
+    if LANG != "zh":
+        return html
+    # 语言切换指向英文根目录，不能被改写
     html = html.replace('<a class="nav__lang" href="', '<a class="nav__lang" href="\x01')
     html = html.replace('href="/"', 'href="__ROOT__"')
-    html = re.sub(r'href="/(?!/|en/|assets/|studio)', 'href="/en/', html)
-    html = html.replace('href="__ROOT__"', 'href="/en/"')
+    # 后台（/visits）只有一份，不进 /zh/
+    html = re.sub(r'href="/(?!/|zh/|assets/|visits)', 'href="/zh/', html)
+    html = html.replace('href="__ROOT__"', 'href="/zh/"')
     html = html.replace('href="\x01', 'href="')
-    html = html.replace('src="../assets/', 'src="/assets/')
-    # 拉丁字母不需要汉字的字距
-    html = html.replace('<html lang="zh-CN">', '<html lang="en">')
-    html = html.replace('content="zh_CN"', 'content="en_GB"')
     return html
 
 
 def write_page(rel, html):
-    if LANG == "en":
-        html = localize(html)
+    html = localize(html)
     p = OUT / rel
     p.parent.mkdir(parents=True, exist_ok=True)
     p.write_text(html, encoding="utf-8")
 
 
-def nav(prefix, active, alt_href="/en", alt_label="EN"):
+def nav(prefix, active, alt_href="/zh/", alt_label="中文"):
     items = [
         ("", "nav_home", "home"),
         ("atlas", "nav_atlas", "atlas"),
@@ -352,16 +351,38 @@ def nav(prefix, active, alt_href="/en", alt_label="EN"):
     return "\n        ".join(lis)
 
 
+LANG_REDIRECT = r"""<script>
+/* 英文页：中文浏览器第一次来就转到 /zh/；手动切过语言之后不再干扰 */
+(function () { try {
+  var pref = localStorage.getItem('lang_pref');
+  function toZh() {
+    var t = location.pathname.replace(/\.html$/, '').replace(/\/index$/, '/');
+    location.replace('/zh' + (t === '/' || t === '' ? '/' : t));
+  }
+  if (pref === 'zh') { toZh(); return; }
+  if (pref) return;
+  var ls = navigator.languages || [navigator.language || ''];
+  for (var i = 0; i < ls.length; i++) {
+    if (String(ls[i]).toLowerCase().indexOf('zh') === 0) { toZh(); return; }
+  }
+} catch (e) {} })();
+</script>
+"""
+
+
 def head(title, prefix, desc, active, path="/", extra_css=""):
-    zh_path = path
-    en_path = "/en/" if zh_path == "/" else "/en" + zh_path
+    en_path = path
+    zh_path = "/zh/" if path == "/" else "/zh" + path
     if LANG == "zh":
         self_path, alt_href, alt_label = zh_path, en_path, "EN"
+        html_lang, og_locale = "zh-CN", "zh_CN"
     else:
         self_path, alt_href, alt_label = en_path, zh_path, "中文"
+        html_lang, og_locale = "en", "en_GB"
+    pref = LANG_REDIRECT if LANG == "en" else ""
     return f"""<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
+<html lang="{html_lang}">
+<head>{pref}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(title)}</title>
@@ -371,16 +392,16 @@ def head(title, prefix, desc, active, path="/", extra_css=""):
 <meta property="og:description" content="{esc(desc)}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{t('brand')}">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:locale" content="{og_locale}">
 <meta property="og:url" content="{SITE}{self_path}">
 <meta property="og:image" content="{SITE}/assets/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="{SITE}{self_path}">
-<link rel="alternate" hreflang="zh-CN" href="{SITE}{zh_path}">
 <link rel="alternate" hreflang="en" href="{SITE}{en_path}">
-<link rel="alternate" hreflang="x-default" href="{SITE}{zh_path}">
+<link rel="alternate" hreflang="zh-CN" href="{SITE}{zh_path}">
+<link rel="alternate" hreflang="x-default" href="{SITE}{en_path}">
 <link rel="icon" href="{prefix}assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="{prefix}assets/css/style.css?v={ASSET_V}">
 {extra_css}
@@ -431,30 +452,82 @@ def foot(prefix):
       <span>{t('foot_where')}</span>
       <span class="foot__end-right">
         <span>{t('foot_count', len(PLANTS), len({p['family'] for p in PLANTS}))}</span>
-        <a class="foot__studio" href="/studio" rel="nofollow">{t('foot_studio')}</a>
+        <a class="foot__studio" href="/visits" rel="nofollow">{t('foot_studio')}</a>
       </span>
     </div>
   </div>
 </footer>
 <script src="{prefix}assets/js/site.js?v={ASSET_V}"></script>
-<script>
-/* 访问统计：只在正式站点触发，不写 Cookie，不阻塞渲染 */
-(function(){{try{{
-  var h=location.hostname;
-  if(h!=="plants.signupeverywhere.cc"&&h!=="zhuhai-plants.pages.dev")return;
-  if(location.pathname.indexOf("/studio")===0)return;
-  if(navigator.doNotTrack==="1"||window.doNotTrack==="1")return;
-  if(localStorage.getItem("nostats"))return;
-  if(/[?&]nostats=1/.test(location.search)){{localStorage.setItem("nostats","1");return;}}
-  var d=JSON.stringify({{p:location.pathname,r:document.referrer}});
-  var u="{STATS_API}/hit";
-  if(navigator.sendBeacon){{navigator.sendBeacon(u,new Blob([d],{{type:"text/plain"}}));}}
-  else{{fetch(u,{{method:"POST",body:d,keepalive:true,mode:"no-cors"}});}}
-}}catch(e){{}}}})();
-</script>
+{TRACK_JS.replace("__API__", STATS_API)}
 </body>
 </html>
 """
+
+
+TRACK_JS = r"""<script>
+/* 访问统计：不写 Cookie、不留 IP、不阻塞渲染，只统计正式站点
+   一次访问生成一个 sid，离开时用同一个 sid 补报停留时长与滚动深度 */
+(function () {
+  try {
+    var h = location.hostname;
+    if (h !== "plants.signupeverywhere.cc" && h !== "zhuhai-plants.pages.dev") return;
+    if (location.pathname.indexOf("/visits") === 0) return;
+    if (navigator.doNotTrack === "1" || window.doNotTrack === "1") return;
+    if (localStorage.getItem("nostats")) return;
+    if (/[?&]nostats=1/.test(location.search)) { localStorage.setItem("nostats", "1"); return; }
+
+    var API = "__API__";
+    var sid = "";
+    try {
+      var a = new Uint8Array(8);
+      (window.crypto || window.msCrypto).getRandomValues(a);
+      for (var i = 0; i < a.length; i++) sid += ("0" + a[i].toString(16)).slice(-2);
+    } catch (e) {}
+    if (!sid) sid = String(Math.random()).slice(2, 12) + String(Date.now()).slice(-4);
+
+    function send(url, obj) {
+      var d = JSON.stringify(obj);
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon(url, new Blob([d], { type: "text/plain" }));
+      } else {
+        fetch(url, { method: "POST", body: d, keepalive: true, mode: "no-cors" });
+      }
+    }
+
+    send(API + "/hit", {
+      p: location.pathname,
+      r: document.referrer,
+      s: sid,
+      l: document.documentElement.lang || ""
+    });
+
+    var t0 = Date.now(), deep = 0, done = false;
+    function scan() {
+      var de = document.documentElement;
+      var top = window.pageYOffset || de.scrollTop || 0;
+      var total = Math.max(1, de.scrollHeight - window.innerHeight);
+      var pct = Math.round((top / total) * 100);
+      if (pct > deep) deep = pct > 100 ? 100 : pct;
+    }
+    window.addEventListener("scroll", scan, { passive: true });
+    scan();
+
+    function flush() {
+      if (done) return;
+      done = true;
+      scan();
+      var d = Math.round((Date.now() - t0) / 1000);
+      if (d < 0) return;
+      if (d > 1800) d = 1800;
+      send(API + "/stay", { s: sid, d: d, y: deep });
+    }
+    document.addEventListener("visibilitychange", function () {
+      if (document.visibilityState === "hidden") flush();
+    });
+    window.addEventListener("pagehide", flush);
+  } catch (e) {}
+})();
+</script>"""
 
 
 # ---------------------------------------------------------------- 卡片
@@ -1234,9 +1307,18 @@ FAVICON = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
 JS = r"""/* 珠海草木志 / Flora of Zhuhai */
 (function () {
   var EN = document.documentElement.lang === 'en';
-  var BASE = EN ? '/en' : '';
+  var BASE = EN ? '' : '/zh';
   var MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
              'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+  // 语言切换时记住选择，根页跳转就不会再把中文浏览器弹回去
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a.nav__lang');
+    if (!a) return;
+    try {
+      localStorage.setItem('lang_pref', /^\/zh(\/|$)/.test(a.getAttribute('href')) ? 'zh' : 'en');
+    } catch (_) {}
+  });
 
   // 入场
   var io = new IntersectionObserver(function (es) {
@@ -1492,58 +1574,94 @@ def build_guestbook():
     write_page("guestbook.html", html)
 
 
-# ---------------------------------------------------------------- 站长页
+# ---------------------------------------------------------------- 访客数据
 
-STUDIO_BODY = """
-<main class="stu">
-  <div class="stu__wrap">
+VISITS_BODY = """
+<main class="vs">
+  <div class="vs__wrap">
 
     <section id="gate">
       <div class="eyebrow">Administration</div>
-      <h1 class="page-title">站 长</h1>
-      <p class="stu__lede">这一页不在导航与站点地图里，也不被搜索引擎收录。输入口令可以查看访问统计：只记录路径、来源域名、国家与设备类别，不写 Cookie，不留 IP 与完整 UA。</p>
-      <form id="gate-form" autocomplete="off">
-        <input id="tok" type="password" placeholder="口令" aria-label="口令" spellcheck="false">
+      <h1 class="page-title">访 客</h1>
+      <p class="vs__lede">这一页不在导航与站点地图里，也不被搜索引擎收录。输入口令后加载访客数据：只记录路径、来源域名、国家与城市、接入商、设备、停留时长与滚动深度；不写 Cookie，不留 IP 与完整 UA。</p>
+      <form id="gate-form" class="gate__form" autocomplete="off">
+        <input id="gate-input" type="password" placeholder="口令" aria-label="口令" spellcheck="false">
         <button type="submit">进入</button>
       </form>
-      <p id="gate-err" class="stu__err" role="alert"></p>
+      <p id="gate-err" class="gate__err" role="alert"></p>
     </section>
 
     <section id="dash" hidden>
-      <div class="stu__bar">
-        <div class="eyebrow">Traffic</div>
-        <div class="stu__tools">
-          <div class="stu__seg" role="group" aria-label="区间">
-            <button data-d="7">7 天</button><button data-d="30" class="is-on">30 天</button><button data-d="90">90 天</button>
+      <div class="vs__bar">
+        <div>
+          <div class="eyebrow">Traffic</div>
+          <div class="vs__title" id="lifetime" style="margin-top:8px"></div>
+        </div>
+        <div class="vs__tools">
+          <div class="vs__seg" role="group" aria-label="区间">
+            <button data-days="1">今天</button>
+            <button data-days="7" class="is-on">7 天</button>
+            <button data-days="30">30 天</button>
+            <button data-days="90">90 天</button>
+            <button data-days="0">全部</button>
           </div>
-          <button id="reload" class="stu__btn">刷新</button>
-          <button id="signout" class="stu__btn stu__btn--ghost">退出</button>
+          <button id="refresh" class="vs__btn" type="button">刷新</button>
+          <button id="export" class="vs__btn" type="button">导出 CSV</button>
+          <button id="signout" class="vs__btn vs__btn--ghost" type="button">退出</button>
         </div>
       </div>
 
-      <div class="stu__kpis" id="kpis"></div>
+      <div class="kpis" id="kpis"></div>
 
       <section class="panel">
-        <h2>每日浏览</h2>
-        <div id="chart" class="chart"></div>
+        <h2>访问趋势</h2>
+        <p class="panel__sub">柱＝浏览量　线＝访客</p>
+        <div id="trend" class="chart"></div>
       </section>
 
-      <div class="stu__cols">
-        <section class="panel"><h2>页面</h2><div id="pages" class="rank"></div></section>
-        <section class="panel"><h2>来源</h2><div id="refs" class="rank"></div></section>
-      </div>
-
-      <div class="stu__cols">
-        <section class="panel"><h2>国家与地区</h2><div id="countries" class="rank"></div></section>
-        <section class="panel"><h2>设备与语言</h2><div id="devices" class="rank"></div></section>
-      </div>
-
       <section class="panel">
-        <h2>时段 · 北京时间</h2>
+        <h2>时段分布</h2>
+        <p class="panel__sub">按北京时间</p>
         <div id="hours"></div>
       </section>
 
-      <p class="stu__foot" id="lifetime"></p>
+      <div class="cols cols--4">
+        <section class="panel"><h2>设备</h2><div id="devices"></div></section>
+        <section class="panel"><h2>浏览器</h2><div id="browsers"></div></section>
+        <section class="panel"><h2>系统</h2><div id="oses"></div></section>
+        <section class="panel"><h2>界面语言</h2><div id="langs"></div></section>
+      </div>
+
+      <div class="cols">
+        <section class="panel"><h2>页面</h2><p class="panel__sub">斜杠后为访客数</p><div id="pages"></div></section>
+        <section class="panel"><h2>来源</h2><div id="refs"></div></section>
+      </div>
+
+      <div class="cols cols--3">
+        <section class="panel"><h2>国家 / 地区</h2><div id="countries"></div></section>
+        <section class="panel"><h2>城市</h2><div id="cities"></div></section>
+        <section class="panel"><h2>接入商</h2><div id="asns"></div></section>
+      </div>
+
+      <div class="cols">
+        <section class="panel"><h2>停留时长</h2><div id="durs"></div></section>
+        <section class="panel"><h2>滚动深度</h2><div id="scrolls"></div></section>
+      </div>
+
+      <section class="panel">
+        <h2>访问明细 <span class="panel__count" id="dcount"></span></h2>
+        <div class="vs__tablewrap">
+          <table class="vs__table" id="detail">
+            <thead><tr>
+              <th>时间</th><th>页面</th><th>来源</th><th>位置</th><th>设备</th><th>停留</th>
+            </tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="vs__pager" id="pager"></div>
+      </section>
+
+      <p class="vs__foot">数据来自 Cloudflare Worker + D1；无 Cookie、无第三方脚本、不留原始 IP。</p>
     </section>
 
   </div>
@@ -1551,12 +1669,11 @@ STUDIO_BODY = """
 """
 
 
-def build_studio():
-    """站长页：只出中文一份，不进导航、不进 sitemap、不被收录"""
-    css = (ROOT / "assets" / "css" / "studio.css").read_bytes()
-    js_src = (ROOT / "assets" / "js" / "studio.js").read_text("utf-8")
-    js = js_src.replace("__API__", STATS_API)
-    (OUT_ZH / "assets" / "js" / "studio.js").write_text(js, encoding="utf-8")
+def build_visits():
+    """访客数据：只出中文一份，不进导航、不进 sitemap、不被收录"""
+    css = (ROOT / "assets" / "css" / "visits.css").read_bytes()
+    js = (ROOT / "assets" / "js" / "visits.js").read_text("utf-8").replace("__API__", STATS_API)
+    (OUT_EN / "assets" / "js" / "visits.js").write_text(js, encoding="utf-8")
     sv = hashlib.md5(css).hexdigest()[:8]
     sj = hashlib.md5(js.encode("utf-8")).hexdigest()[:8]
     html = f"""<!DOCTYPE html>
@@ -1564,12 +1681,12 @@ def build_studio():
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>站长 · 珠海草木志</title>
+<title>访客数据 · 珠海草木志</title>
 <meta name="robots" content="noindex, nofollow, noarchive">
 <meta name="theme-color" content="#F8F4EB">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/css/style.css?v={ASSET_V}">
-<link rel="stylesheet" href="/assets/css/studio.css?v={sv}">
+<link rel="stylesheet" href="/assets/css/visits.css?v={sv}">
 </head>
 <body>
 <header class="site-head">
@@ -1579,17 +1696,17 @@ def build_studio():
       <span class="brand__latin">Flora of Zhuhai</span>
     </a>
     <nav class="nav">
-      <a href="/studio" class="is-active">站长</a>
+      <a href="/visits" class="is-active">访客</a>
       <a href="/">返回封面</a>
     </nav>
   </div>
 </header>
-{STUDIO_BODY}
-<script src="/assets/js/studio.js?v={sj}"></script>
+{VISITS_BODY}
+<script src="/assets/js/visits.js?v={sj}"></script>
 </body>
 </html>
 """
-    (OUT_ZH / "studio.html").write_text(html, encoding="utf-8")
+    (OUT_EN / "visits.html").write_text(html, encoding="utf-8")
 
 
 def build_meta_files():
@@ -1599,40 +1716,48 @@ def build_meta_files():
     base += [f"species/{p['slug']}" for p in ZH_PLANTS]
     entries = []
     for u in base:
-        for pre in ("", "en/"):
+        for pre in ("", "zh/"):
             loc = f"{SITE}/{pre}{u}" if u else f"{SITE}/{pre}"
             pri = "1.0" if u == "" else ("0.8" if u in ("atlas", "calendar", "map", "roster") else "0.7")
             entries.append(
                 f"  <url><loc>{loc}</loc><changefreq>monthly</changefreq><priority>{pri}</priority></url>"
             )
-    (OUT / "sitemap.xml").write_text(
+    (OUT_EN / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
         + "\n".join(entries) + "\n</urlset>\n", encoding="utf-8")
-    (OUT / "robots.txt").write_text(
-        f"User-agent: *\nAllow: /\nDisallow: /studio\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
+    (OUT_EN / "robots.txt").write_text(
+        f"User-agent: *\nAllow: /\nDisallow: /visits\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
+    # 英文搬到根路径后，旧的 /en/* 全部 301 过去；站长页也改了名
+    (OUT_EN / "_redirects").write_text(
+        "# 英文站从 /en/ 迁到根路径\n"
+        "/en/*  /:splat  301\n"
+        "/en    /        301\n"
+        "\n# 站长统计页改名\n"
+        "/studio      /visits  301\n"
+        "/studio.html /visits  301\n", encoding="utf-8")
 
 
 def setup_assets():
-    if OUT_ZH.exists():
-        shutil.rmtree(OUT_ZH)
-    (OUT_ZH / "assets" / "css").mkdir(parents=True)
-    (OUT_ZH / "assets" / "js").mkdir(parents=True)
-    shutil.copy(ROOT / "assets/css/style.css", OUT_ZH / "assets/css/style.css")
-    shutil.copy(ROOT / "assets/css/studio.css", OUT_ZH / "assets/css/studio.css")
-    shutil.copy(ROOT / "assets/css/guestbook.css", OUT_ZH / "assets/css/guestbook.css")
+    if OUT_EN.exists():
+        shutil.rmtree(OUT_EN)
+    (OUT_EN / "assets" / "css").mkdir(parents=True)
+    (OUT_EN / "assets" / "js").mkdir(parents=True)
+    shutil.copy(ROOT / "assets/css/style.css", OUT_EN / "assets/css/style.css")
+    shutil.copy(ROOT / "assets/css/visits.css", OUT_EN / "assets/css/visits.css")
+    shutil.copy(ROOT / "assets/css/guestbook.css", OUT_EN / "assets/css/guestbook.css")
     # supabase-js 自托管：比走 CDN 少一次跨域，也不会被墙挡住
-    (OUT_ZH / "assets" / "vendor").mkdir(parents=True, exist_ok=True)
-    shutil.copy(ROOT / "assets/vendor/supabase.js", OUT_ZH / "assets/vendor/supabase.js")
-    shutil.copy(ROOT / "assets/js/supabase-config.js", OUT_ZH / "assets/js/supabase-config.js")
-    shutil.copy(ROOT / "assets/js/guestbook.js", OUT_ZH / "assets/js/guestbook.js")
-    (OUT_ZH / "assets" / "js" / "site.js").write_text(JS, encoding="utf-8")
-    (OUT_ZH / "assets" / "favicon.svg").write_text(FAVICON, encoding="utf-8")
+    (OUT_EN / "assets" / "vendor").mkdir(parents=True, exist_ok=True)
+    shutil.copy(ROOT / "assets/vendor/supabase.js", OUT_EN / "assets/vendor/supabase.js")
+    shutil.copy(ROOT / "assets/js/supabase-config.js", OUT_EN / "assets/js/supabase-config.js")
+    shutil.copy(ROOT / "assets/js/guestbook.js", OUT_EN / "assets/js/guestbook.js")
+    (OUT_EN / "assets" / "js" / "site.js").write_text(JS, encoding="utf-8")
+    (OUT_EN / "assets" / "favicon.svg").write_text(FAVICON, encoding="utf-8")
     if (ROOT / "assets" / "og.png").exists():
-        shutil.copy(ROOT / "assets" / "og.png", OUT_ZH / "assets" / "og.png")
+        shutil.copy(ROOT / "assets" / "og.png", OUT_EN / "assets" / "og.png")
 
     src_img = ROOT / "assets" / "img"
-    dst_img = OUT_ZH / "assets" / "img"
+    dst_img = OUT_EN / "assets" / "img"
     dst_img.mkdir(parents=True)
     missing = []
     for p in ZH_PLANTS:
@@ -1719,16 +1844,15 @@ def build_lang(lang):
     if GB_ON:
         build_guestbook()
     build_404()
-    if lang == "zh":
-        build_meta_files()
 
 
 def main():
     missing = setup_assets()
     build_lang("zh")
     build_lang("en")
-    build_studio()
-    print(f"built: {len(ZH_PLANTS)} species pages x 2 languages + studio")
+    build_visits()
+    build_meta_files()
+    print(f"built: {len(ZH_PLANTS)} species pages x 2 languages (en at /, zh at /zh/)")
     if missing:
         print("MISSING IMAGES:", ", ".join(missing))
 
