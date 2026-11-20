@@ -824,7 +824,7 @@ def build_species():
       <div>
         <div class="plate reveal">
           <div class="plate__frame">
-            <img src="../assets/img/{p['slug']}.webp" alt="{t('sp_alt', esc(p['name']), esc(p['latin']))}" width="900" height="1125">
+            <img src="/assets/img/{p['slug']}.webp" alt="{t('sp_alt', esc(p['name']), esc(p['latin']))}" width="900" height="1125">
           </div>
           <div class="plate__cap">
             <span>PLATE {p['no']}</span>
@@ -1569,7 +1569,7 @@ def build_guestbook():
 <script src="/assets/js/supabase-config.js?v={GB_V}"></script>
 <script src="/assets/js/guestbook.js?v={GB_V}"></script>
 """
-    html += foot("/guestbook")
+    html += foot("/")
     write_page("guestbook.html", html)
 
 
