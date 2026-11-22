@@ -755,7 +755,23 @@ def build_atlas():
     for c in CATS:
         chips.append(f'<button class="chip" data-cat="{c["id"]}">{c["name"]}</button>')
 
-    html = head(t("atlas_title"), "/", t("atlas_desc", len(PLANTS)), "atlas", "/atlas")
+    atlas_ld = _ld({
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "url": SITE + "/atlas",
+        "name": t("atlas_title"),
+        "inLanguage": "zh-CN" if LANG == "zh" else "en",
+        "isPartOf": {"@id": SITE + "/#website"},
+        "mainEntity": {
+            "@type": "ItemList", "numberOfItems": len(PLANTS),
+            "itemListElement": [
+                {"@type": "ListItem", "position": i + 1, "name": p["name"],
+                 "url": f"{SITE}/species/{p['slug']}"}
+                for i, p in enumerate(PLANTS)],
+        },
+    })
+    html = head(t("atlas_title"), "/", t("atlas_desc", len(PLANTS)), "atlas", "/atlas",
+                jsonld=atlas_ld)
     html += f"""
 <main>
   <section class="section section--tight" style="padding-bottom:28px">
