@@ -706,6 +706,15 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: .12em;
 }
 
+/* 英文页上的中文名：字号介于拉丁名和元信息之间，
+   既不像标题那样抢，又足够让人一眼对上街头那块牌子。 */
+.detail__zh {
+  margin-top: 10px;
+  font-size: 17px;
+  color: var(--ink);
+  letter-spacing: .04em;
+}
+
 .detail__lead {
   margin: 26px 0 0;
   font-size: 20px;

@@ -60,6 +60,8 @@ TXT = {
     "brand": ("珠海草木志", "Flora of Zhuhai"),
     "brand_sub": ("Flora of Zhuhai", "A guide to the city's plants"),
     "nav_home": ("封面", "Home"),
+    # RSS 源标题（自动发现用）与 feed 内部的频道名
+    "feed_title": ("每月花讯 · RSS", "Monthly bloom · RSS"),
     "nav_atlas": ("图鉴", "Atlas"),
     "nav_calendar": ("花历", "Almanac"),
     "nav_map": ("分布", "Places"),
@@ -404,6 +406,7 @@ def head(title, prefix, desc, active, path="/", extra_css="",
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="{og}">{jsonld}
 <link rel="canonical" href="{SITE}{self_path}">
+<link rel="alternate" type="application/rss+xml" title="{esc(t('feed_title'))}" href="{SITE}{'/zh/feed.xml' if LANG == 'zh' else '/feed.xml'}">
 <link rel="alternate" hreflang="en" href="{SITE}{en_path}">
 <link rel="alternate" hreflang="zh-CN" href="{SITE}{zh_path}">
 <link rel="alternate" hreflang="x-default" href="{SITE}{en_path}">
@@ -878,6 +881,14 @@ def build_species():
     </section>'''
         habit_note = t("evergreen") if p["evergreen"] else t("deciduous")
 
+        # 英文页补一行中文名（含常用别名）：本地人搜的是中文名，
+        # 而且看到「Chinese Banyan」未必能对上街边那块牌子写的「细叶榕」。
+        zh_line = ""
+        if LANG == "en" and p.get("name_zh"):
+            alias_zh = f'（{esc(p["alias_zh"])}）' if p.get("alias_zh") else ""
+            zh_line = (f'<div class="detail__zh">中文名 · '
+                       f'{esc(p["name_zh"])}{alias_zh}</div>')
+
         if LANG == "en":
             desc = t("sp_desc", p["name"], p["latin"], p["family"], p["genus"],
                      p["habit"], flower_text(p["months"]), p["lead"])
@@ -919,6 +930,7 @@ def build_species():
           <div class="detail__no">No. {p['no']} — {cat['name']}</div>
           <h1 class="detail__name">{esc(p['name'])}</h1>
           <div class="detail__latin">{esc(p['latin'])}</div>
+          {zh_line}
           <div class="detail__alias">{esc(p['family'])} · {esc(p['genus'])} · {t('alias', esc(p['alias']))}</div>
           <p class="detail__lead">{esc(p['lead'])}</p>
           <p class="detail__body">{esc(p['body'])}</p>
@@ -1812,6 +1824,22 @@ def build_meta_files():
     (OUT_EN / "robots.txt").write_text(
         f"User-agent: *\nAllow: /\nDisallow: /visits\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
     (OUT_EN / f"{INDEXNOW_KEY}.txt").write_text(INDEXNOW_KEY + "\n", encoding="utf-8")
+    # 缓存策略：CSS/JS 的引用都带 ?v=<内容哈希>（ASSET_V = md5 前 8 位），
+    # 内容一变 URL 就变，所以可以放心设一年 immutable —— 原来是 4 小时，
+    # 回访用户每次都要重新取一遍样式表。图片文件名固定，只给 7 天。
+    (OUT_EN / "_headers").write_text(
+        "/*\n"
+        "  X-Content-Type-Options: nosniff\n"
+        "  Referrer-Policy: strict-origin-when-cross-origin\n"
+        "\n"
+        "/assets/css/*\n"
+        "  Cache-Control: public, max-age=31536000, immutable\n"
+        "\n"
+        "/assets/js/*\n"
+        "  Cache-Control: public, max-age=31536000, immutable\n"
+        "\n"
+        "/assets/img/*\n"
+        "  Cache-Control: public, max-age=604800\n", encoding="utf-8")
     # 英文搬到根路径后，旧的 /en/* 全部 301 过去；站长页也改了名
     (OUT_EN / "_redirects").write_text(
         "# 英文站从 /en/ 迁到根路径\n"
@@ -1885,8 +1913,11 @@ def apply_en():
         q["genus"] = p["latin"].split()[0]
         if p["slug"] in HEIGHT_EN:
             q["height"] = HEIGHT_EN[p["slug"]]
-        if p["slug"] in HEIGHT_EN:
-            q["height"] = HEIGHT_EN[p["slug"]]
+        # 留一份中文名的原件：英文页只写 Chinese Banyan，等于把
+        # 「细叶榕」「榕树」这些本地人真正会搜的词整页丢掉了。
+        # 模板在英文页把它们显示出来（搜索词 + 让人能跟本地人对上话）。
+        q["name_zh"] = p["name"]
+        q["alias_zh"] = p.get("alias") or ""
         q["height"] = (q.get("height") or "").replace("（攀援）", " (climbing)") \
                                                  .replace("（挺水）", " (emergent)") \
                                                  .replace("浮水", "Floating leaves")
@@ -1918,6 +1949,62 @@ def apply_en():
         PHOTOS[k] = lst
 
 
+_MON3 = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+         "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+_DAY3 = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+
+
+def _rfc822(d):
+    """RSS 的 pubDate 必须是 RFC 822 格式，而且星期/月份要用英文缩写。
+    不能用 strftime("%a %b")：那会跟系统 locale 走，中文环境下会输出「周六」，
+    解析器直接判成无效条目。"""
+    return "%s, %02d %s %04d 00:00:00 +0800" % (
+        _DAY3[d.weekday()], d.day, _MON3[d.month], d.year)
+
+
+def build_feed():
+    """每月花讯的 RSS。
+
+    这条站没有「文章」，真正每月发生的事就是「这个月有哪几种在开花」。
+    所以一期 = 当月开花的那几种，pubDate 用当月 1 日，guid 里带上月份：
+    订阅者每月收到一期，点进去直接是具体物种页。
+    """
+    m0 = date.today().month
+    pub_day = date(date.today().year, m0, 1)
+    bloom = [p for p in PLANTS if m0 in p["months"]]
+    zh = LANG != "en"
+    base = "/zh" if zh else ""
+
+    items = []
+    for p in bloom:
+        url = f"{SITE}{base}/species/{p['slug']}"
+        items.append(
+            "  <item>\n"
+            f"    <title>{esc(p['name'])}</title>\n"
+            f"    <link>{url}</link>\n"
+            f"    <guid isPermaLink=\"false\">{url}#{pub_day.strftime('%Y-%m')}</guid>\n"
+            f"    <pubDate>{_rfc822(pub_day)}</pubDate>\n"
+            f"    <description>{esc(p['latin'])} · {esc(p['lead'])}</description>\n"
+            "  </item>")
+
+    title = "珠海草木志 · 每月花讯" if zh else "Flora of Zhuhai · Monthly Bloom"
+    desc = (f"每月更新：这个月在珠海正在开花的 {len(bloom)} 种。" if zh
+            else f"Updated monthly: the {len(bloom)} plants flowering in Zhuhai right now.")
+    feed = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
+        "<channel>\n"
+        f"  <title>{esc(title)}</title>\n"
+        f"  <link>{SITE}{base}/</link>\n"
+        f"  <description>{esc(desc)}</description>\n"
+        f"  <language>{'zh-CN' if zh else 'en'}</language>\n"
+        f"  <atom:link href=\"{SITE}{base}/feed.xml\" rel=\"self\" type=\"application/rss+xml\"/>\n"
+        + "\n".join(items) + "\n"
+        "</channel>\n"
+        "</rss>\n")
+    (OUT / "feed.xml").write_text(feed, encoding="utf-8")
+
+
 def build_lang(lang):
     global LANG, OUT
     LANG = lang
@@ -1934,6 +2021,7 @@ def build_lang(lang):
     if GB_ON:
         build_guestbook()
     build_404()
+    build_feed()
 
 
 def main():
