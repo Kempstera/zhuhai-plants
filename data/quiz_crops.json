@@ -1,0 +1,842 @@
+{
+ "acacia-confusa": {
+  "edge": 71.3,
+  "h": 853,
+  "img": "assets/img/field/acacia-confusa-1.webp",
+  "ratio": 0.997,
+  "score": 116.9,
+  "w": 1280,
+  "x": 0,
+  "y": 25
+ },
+ "aglaia-odorata": {
+  "edge": 56.3,
+  "h": 853,
+  "img": "assets/img/field/aglaia-odorata-1.webp",
+  "ratio": 0.918,
+  "score": 100.2,
+  "w": 1280,
+  "x": 100,
+  "y": 50
+ },
+ "allamanda-cathartica": {
+  "edge": 82.9,
+  "h": 853,
+  "img": "assets/img/field/allamanda-cathartica-1.webp",
+  "ratio": 0.955,
+  "score": 123.6,
+  "w": 1280,
+  "x": 75,
+  "y": 50
+ },
+ "alstonia-scholaris": {
+  "edge": 78.2,
+  "h": 853,
+  "img": "assets/img/field/alstonia-scholaris-1.webp",
+  "ratio": 0.64,
+  "score": 101.0,
+  "w": 1280,
+  "x": 50,
+  "y": 0
+ },
+ "arachis-duranensis": {
+  "edge": 63.4,
+  "h": 640,
+  "img": "assets/img/field/arachis-duranensis-1.webp",
+  "ratio": 0.99,
+  "score": 110.1,
+  "w": 960,
+  "x": 75,
+  "y": 50
+ },
+ "archontophoenix-alexandrae": {
+  "edge": 62.1,
+  "h": 853,
+  "img": "assets/img/field/archontophoenix-alexandrae-1.webp",
+  "ratio": 0.233,
+  "score": 63.7,
+  "w": 1280,
+  "x": 0,
+  "y": 75
+ },
+ "bauhinia-blakeana": {
+  "edge": 54.5,
+  "h": 853,
+  "img": "assets/img/field/bauhinia-blakeana-1.webp",
+  "ratio": 0.991,
+  "score": 103.1,
+  "w": 1280,
+  "x": 75,
+  "y": 100
+ },
+ "bauhinia-variegata": {
+  "edge": 90.3,
+  "h": 853,
+  "img": "assets/img/field/bauhinia-variegata-1.webp",
+  "ratio": 0.552,
+  "score": 105.1,
+  "w": 1280,
+  "x": 0,
+  "y": 100
+ },
+ "bischofia-javanica": {
+  "edge": 69.2,
+  "h": 853,
+  "img": "assets/img/field/bischofia-javanica-1.webp",
+  "ratio": 0.825,
+  "score": 104.8,
+  "w": 1280,
+  "x": 25,
+  "y": 25
+ },
+ "bombax-ceiba": {
+  "edge": 70.9,
+  "h": 853,
+  "img": "assets/img/field/bombax-ceiba-1.webp",
+  "ratio": 0.518,
+  "score": 87.8,
+  "w": 1280,
+  "x": 75,
+  "y": 25
+ },
+ "bougainvillea-spectabilis": {
+  "edge": 90.5,
+  "h": 817,
+  "img": "assets/img/field/bougainvillea-spectabilis-1.webp",
+  "ratio": 0.908,
+  "score": 126.5,
+  "w": 1226,
+  "x": 75,
+  "y": 50
+ },
+ "buxus-sinica": {
+  "edge": 49.0,
+  "h": 853,
+  "img": "assets/img/field/buxus-sinica-1.webp",
+  "ratio": 0.933,
+  "score": 95.2,
+  "w": 1280,
+  "x": 0,
+  "y": 50
+ },
+ "calliandra-haematocephala": {
+  "edge": 58.5,
+  "h": 853,
+  "img": "assets/img/field/calliandra-haematocephala-1.webp",
+  "ratio": 0.896,
+  "score": 100.6,
+  "w": 1280,
+  "x": 50,
+  "y": 100
+ },
+ "canna-indica": {
+  "edge": 51.7,
+  "h": 853,
+  "img": "assets/img/field/canna-indica-1.webp",
+  "ratio": 0.997,
+  "score": 101.2,
+  "w": 1280,
+  "x": 25,
+  "y": 50
+ },
+ "carmona-retusa": {
+  "edge": 78.9,
+  "h": 853,
+  "img": "assets/img/field/carmona-retusa-1.webp",
+  "ratio": 0.961,
+  "score": 120.8,
+  "w": 1280,
+  "x": 50,
+  "y": 0
+ },
+ "casuarina-equisetifolia": {
+  "edge": 68.2,
+  "h": 853,
+  "img": "assets/img/field/casuarina-equisetifolia-1.webp",
+  "ratio": 0.152,
+  "score": 63.7,
+  "w": 1280,
+  "x": 75,
+  "y": 100
+ },
+ "catharanthus-roseus": {
+  "edge": 37.3,
+  "h": 853,
+  "img": "assets/img/field/catharanthus-roseus-1.webp",
+  "ratio": 0.967,
+  "score": 87.8,
+  "w": 1280,
+  "x": 50,
+  "y": 0
+ },
+ "ceiba-speciosa": {
+  "edge": 79.7,
+  "h": 853,
+  "img": "assets/img/field/ceiba-speciosa-1.webp",
+  "ratio": 0.615,
+  "score": 100.6,
+  "w": 1280,
+  "x": 75,
+  "y": 75
+ },
+ "cerbera-manghas": {
+  "edge": 50.5,
+  "h": 960,
+  "img": "assets/img/field/cerbera-manghas-1.webp",
+  "ratio": 0.683,
+  "score": 81.4,
+  "w": 1280,
+  "x": 50,
+  "y": 75
+ },
+ "chukrasia-tabularis": {
+  "edge": 75.3,
+  "h": 853,
+  "img": "assets/img/field/chukrasia-tabularis-1.webp",
+  "ratio": 0.126,
+  "score": 67.8,
+  "w": 1280,
+  "x": 50,
+  "y": 0
+ },
+ "cinnamomum-camphora": {
+  "edge": 82.5,
+  "h": 853,
+  "img": "assets/img/field/cinnamomum-camphora-1.webp",
+  "ratio": 0.769,
+  "score": 112.2,
+  "w": 1280,
+  "x": 100,
+  "y": 75
+ },
+ "codiaeum-variegatum": {
+  "edge": 87.9,
+  "h": 853,
+  "img": "assets/img/field/codiaeum-variegatum-1.webp",
+  "ratio": 0.785,
+  "score": 117.4,
+  "w": 1280,
+  "x": 25,
+  "y": 25
+ },
+ "crinum-asiaticum": {
+  "edge": 75.2,
+  "h": 853,
+  "img": "assets/img/field/crinum-asiaticum-1.webp",
+  "ratio": 0.623,
+  "score": 97.5,
+  "w": 1280,
+  "x": 50,
+  "y": 100
+ },
+ "cycas-revoluta": {
+  "edge": 64.7,
+  "h": 853,
+  "img": "assets/img/field/cycas-revoluta-1.webp",
+  "ratio": 0.974,
+  "score": 110.2,
+  "w": 1280,
+  "x": 50,
+  "y": 75
+ },
+ "delonix-regia": {
+  "edge": 70.2,
+  "h": 853,
+  "img": "assets/img/field/delonix-regia-1.webp",
+  "ratio": 0.964,
+  "score": 114.0,
+  "w": 1280,
+  "x": 75,
+  "y": 100
+ },
+ "dracontomelon-duperreanum": {
+  "edge": 76.6,
+  "h": 853,
+  "img": "assets/img/field/dracontomelon-duperreanum-1.webp",
+  "ratio": 0.655,
+  "score": 100.6,
+  "w": 1280,
+  "x": 100,
+  "y": 0
+ },
+ "duranta-erecta": {
+  "edge": 59.6,
+  "h": 853,
+  "img": "assets/img/field/duranta-erecta-1.webp",
+  "ratio": 0.87,
+  "score": 99.9,
+  "w": 1280,
+  "x": 0,
+  "y": 0
+ },
+ "erythrina-crista-galli": {
+  "edge": 77.2,
+  "h": 853,
+  "img": "assets/img/field/erythrina-crista-galli-1.webp",
+  "ratio": 0.745,
+  "score": 106.4,
+  "w": 1280,
+  "x": 25,
+  "y": 75
+ },
+ "fagraea-ceilanica": {
+  "edge": 70.6,
+  "h": 853,
+  "img": "assets/img/field/fagraea-ceilanica-1.webp",
+  "ratio": 0.498,
+  "score": 86.4,
+  "w": 1280,
+  "x": 75,
+  "y": 100
+ },
+ "ficus-altissima": {
+  "edge": 52.0,
+  "h": 853,
+  "img": "assets/img/field/ficus-altissima-1.webp",
+  "ratio": 0.71,
+  "score": 84.2,
+  "w": 1280,
+  "x": 50,
+  "y": 100
+ },
+ "ficus-benjamina": {
+  "edge": 65.8,
+  "h": 853,
+  "img": "assets/img/field/ficus-benjamina-1.webp",
+  "ratio": 0.69,
+  "score": 94.0,
+  "w": 1280,
+  "x": 50,
+  "y": 75
+ },
+ "ficus-microcarpa": {
+  "edge": 59.5,
+  "h": 853,
+  "img": "assets/img/field/ficus-microcarpa-1.webp",
+  "ratio": 0.175,
+  "score": 58.1,
+  "w": 1280,
+  "x": 25,
+  "y": 100
+ },
+ "ficus-microcarpa-golden": {
+  "edge": 88.4,
+  "h": 683,
+  "img": "assets/img/field/ficus-microcarpa-golden-1.webp",
+  "ratio": 0.964,
+  "score": 128.5,
+  "w": 1024,
+  "x": 50,
+  "y": 0
+ },
+ "ficus-virens": {
+  "edge": 80.9,
+  "h": 853,
+  "img": "assets/img/field/ficus-virens-1.webp",
+  "ratio": 0.475,
+  "score": 93.2,
+  "w": 1280,
+  "x": 50,
+  "y": 75
+ },
+ "gardenia-jasminoides": {
+  "edge": 38.8,
+  "h": 853,
+  "img": "assets/img/field/gardenia-jasminoides-1.webp",
+  "ratio": 0.666,
+  "score": 71.0,
+  "w": 1280,
+  "x": 100,
+  "y": 0
+ },
+ "glyptostrobus-pensilis": {
+  "edge": 48.9,
+  "h": 951,
+  "img": "assets/img/field/glyptostrobus-pensilis-1.webp",
+  "ratio": 0.773,
+  "score": 85.5,
+  "w": 1280,
+  "x": 100,
+  "y": 100
+ },
+ "hamelia-patens": {
+  "edge": 65.6,
+  "h": 853,
+  "img": "assets/img/field/hamelia-patens-1.webp",
+  "ratio": 0.911,
+  "score": 107.1,
+  "w": 1280,
+  "x": 100,
+  "y": 0
+ },
+ "handroanthus-chrysanthus": {
+  "edge": 88.2,
+  "h": 853,
+  "img": "assets/img/field/handroanthus-chrysanthus-1.webp",
+  "ratio": 0.842,
+  "score": 121.0,
+  "w": 1280,
+  "x": 50,
+  "y": 25
+ },
+ "handroanthus-impetiginosus": {
+  "edge": 87.5,
+  "h": 853,
+  "img": "assets/img/field/handroanthus-impetiginosus-1.webp",
+  "ratio": 0.696,
+  "score": 111.7,
+  "w": 1280,
+  "x": 0,
+  "y": 100
+ },
+ "hibiscus-mutabilis": {
+  "edge": 49.9,
+  "h": 853,
+  "img": "assets/img/field/hibiscus-mutabilis-1.webp",
+  "ratio": 0.862,
+  "score": 91.6,
+  "w": 1280,
+  "x": 75,
+  "y": 100
+ },
+ "hibiscus-rosa-sinensis": {
+  "edge": 45.4,
+  "h": 853,
+  "img": "assets/img/field/hibiscus-rosa-sinensis-1.webp",
+  "ratio": 0.721,
+  "score": 79.6,
+  "w": 1280,
+  "x": 75,
+  "y": 100
+ },
+ "hymenocallis-littoralis": {
+  "edge": 70.9,
+  "h": 853,
+  "img": "assets/img/field/hymenocallis-littoralis-1.webp",
+  "ratio": 0.876,
+  "score": 109.3,
+  "w": 1280,
+  "x": 50,
+  "y": 100
+ },
+ "ipomoea-imperati": {
+  "edge": 77.3,
+  "h": 839,
+  "img": "assets/img/field/ipomoea-imperati-1.webp",
+  "ratio": 0.688,
+  "score": 103.1,
+  "w": 1280,
+  "x": 0,
+  "y": 0
+ },
+ "ixora-chinensis": {
+  "edge": 55.7,
+  "h": 853,
+  "img": "assets/img/field/ixora-chinensis-1.webp",
+  "ratio": 0.998,
+  "score": 104.4,
+  "w": 1280,
+  "x": 50,
+  "y": 50
+ },
+ "jacaranda-mimosifolia": {
+  "edge": 71.0,
+  "h": 751,
+  "img": "assets/img/field/jacaranda-mimosifolia-1.webp",
+  "ratio": 0.347,
+  "score": 77.6,
+  "w": 1126,
+  "x": 0,
+  "y": 25
+ },
+ "kandelia-obovata": {
+  "edge": 52.0,
+  "h": 960,
+  "img": "assets/img/field/kandelia-obovata-1.webp",
+  "ratio": 0.746,
+  "score": 86.4,
+  "w": 1280,
+  "x": 50,
+  "y": 100
+ },
+ "khaya-senegalensis": {
+  "edge": 53.2,
+  "h": 853,
+  "img": "assets/img/field/khaya-senegalensis-1.webp",
+  "ratio": 0.716,
+  "score": 85.5,
+  "w": 1280,
+  "x": 75,
+  "y": 100
+ },
+ "lagerstroemia-indica": {
+  "edge": 70.4,
+  "h": 853,
+  "img": "assets/img/field/lagerstroemia-indica-1.webp",
+  "ratio": 0.92,
+  "score": 111.5,
+  "w": 1280,
+  "x": 50,
+  "y": 50
+ },
+ "lagerstroemia-speciosa": {
+  "edge": 75.1,
+  "h": 853,
+  "img": "assets/img/field/lagerstroemia-speciosa-1.webp",
+  "ratio": 0.669,
+  "score": 100.2,
+  "w": 1280,
+  "x": 25,
+  "y": 100
+ },
+ "lantana-montevidensis": {
+  "edge": 60.8,
+  "h": 853,
+  "img": "assets/img/field/lantana-montevidensis-1.webp",
+  "ratio": 0.805,
+  "score": 96.9,
+  "w": 1280,
+  "x": 0,
+  "y": 100
+ },
+ "livistona-chinensis": {
+  "edge": 49.7,
+  "h": 853,
+  "img": "assets/img/field/livistona-chinensis-1.webp",
+  "ratio": 0.729,
+  "score": 83.5,
+  "w": 1280,
+  "x": 100,
+  "y": 100
+ },
+ "loropetalum-chinense-rubrum": {
+  "edge": 53.8,
+  "h": 853,
+  "img": "assets/img/field/loropetalum-chinense-rubrum-1.webp",
+  "ratio": 0.891,
+  "score": 96.5,
+  "w": 1280,
+  "x": 50,
+  "y": 0
+ },
+ "mangifera-indica": {
+  "edge": 71.7,
+  "h": 853,
+  "img": "assets/img/field/mangifera-indica-1.webp",
+  "ratio": 0.937,
+  "score": 113.6,
+  "w": 1280,
+  "x": 0,
+  "y": 100
+ },
+ "mangifera-persiciforma": {
+  "edge": 64.7,
+  "h": 853,
+  "img": "assets/img/field/mangifera-persiciforma-1.webp",
+  "ratio": 0.749,
+  "score": 96.7,
+  "w": 1280,
+  "x": 100,
+  "y": 0
+ },
+ "michelia-alba": {
+  "edge": 68.6,
+  "h": 853,
+  "img": "assets/img/field/michelia-alba-1.webp",
+  "ratio": 0.711,
+  "score": 97.5,
+  "w": 1280,
+  "x": 50,
+  "y": 0
+ },
+ "monstera-deliciosa": {
+  "edge": 83.1,
+  "h": 853,
+  "img": "assets/img/field/monstera-deliciosa-1.webp",
+  "ratio": 0.793,
+  "score": 114.1,
+  "w": 1280,
+  "x": 0,
+  "y": 50
+ },
+ "murraya-paniculata": {
+  "edge": 45.0,
+  "h": 853,
+  "img": "assets/img/field/murraya-paniculata-1.webp",
+  "ratio": 0.796,
+  "score": 83.7,
+  "w": 1280,
+  "x": 50,
+  "y": 100
+ },
+ "nelumbo-nucifera": {
+  "edge": 37.2,
+  "h": 853,
+  "img": "assets/img/field/nelumbo-nucifera-1.webp",
+  "ratio": 0.941,
+  "score": 86.2,
+  "w": 1280,
+  "x": 75,
+  "y": 0
+ },
+ "nerium-oleander": {
+  "edge": 92.0,
+  "h": 853,
+  "img": "assets/img/field/nerium-oleander-1.webp",
+  "ratio": 0.679,
+  "score": 112.7,
+  "w": 1280,
+  "x": 50,
+  "y": 50
+ },
+ "nymphaea-spp": {
+  "edge": 45.4,
+  "h": 853,
+  "img": "assets/img/field/nymphaea-spp-1.webp",
+  "ratio": 0.152,
+  "score": 45.5,
+  "w": 1280,
+  "x": 25,
+  "y": 75
+ },
+ "osmanthus-fragrans": {
+  "edge": 35.8,
+  "h": 853,
+  "img": "assets/img/field/osmanthus-fragrans-1.webp",
+  "ratio": 0.97,
+  "score": 86.8,
+  "w": 1280,
+  "x": 50,
+  "y": 100
+ },
+ "pandanus-tectorius": {
+  "edge": 72.1,
+  "h": 853,
+  "img": "assets/img/field/pandanus-tectorius-1.webp",
+  "ratio": 0.271,
+  "score": 73.9,
+  "w": 1280,
+  "x": 25,
+  "y": 100
+ },
+ "phoenix-roebelenii": {
+  "edge": 79.5,
+  "h": 853,
+  "img": "assets/img/field/phoenix-roebelenii-1.webp",
+  "ratio": 0.873,
+  "score": 116.0,
+  "w": 1280,
+  "x": 0,
+  "y": 100
+ },
+ "phoenix-sylvestris": {
+  "edge": 73.8,
+  "h": 853,
+  "img": "assets/img/field/phoenix-sylvestris-1.webp",
+  "ratio": 0.614,
+  "score": 95.9,
+  "w": 1280,
+  "x": 25,
+  "y": 100
+ },
+ "phragmites-australis": {
+  "edge": 57.3,
+  "h": 764,
+  "img": "assets/img/field/phragmites-australis-1.webp",
+  "ratio": 0.607,
+  "score": 82.2,
+  "w": 1280,
+  "x": 0,
+  "y": 75
+ },
+ "plumeria-rubra": {
+  "edge": 85.4,
+  "h": 853,
+  "img": "assets/img/field/plumeria-rubra-1.webp",
+  "ratio": 0.893,
+  "score": 121.9,
+  "w": 1280,
+  "x": 100,
+  "y": 0
+ },
+ "ravenala-madagascariensis": {
+  "edge": 86.9,
+  "h": 853,
+  "img": "assets/img/field/ravenala-madagascariensis-1.webp",
+  "ratio": 0.493,
+  "score": 99.2,
+  "w": 1280,
+  "x": 100,
+  "y": 100
+ },
+ "roystonea-regia": {
+  "edge": 80.0,
+  "h": 853,
+  "img": "assets/img/field/roystonea-regia-1.webp",
+  "ratio": 0.62,
+  "score": 101.2,
+  "w": 1280,
+  "x": 25,
+  "y": 0
+ },
+ "scaevola-taccada": {
+  "edge": 77.4,
+  "h": 960,
+  "img": "assets/img/field/scaevola-taccada-1.webp",
+  "ratio": 0.939,
+  "score": 118.3,
+  "w": 1280,
+  "x": 75,
+  "y": 100
+ },
+ "schefflera-arboricola": {
+  "edge": 75.3,
+  "h": 853,
+  "img": "assets/img/field/schefflera-arboricola-1.webp",
+  "ratio": 0.966,
+  "score": 118.2,
+  "w": 1280,
+  "x": 100,
+  "y": 25
+ },
+ "senna-alata": {
+  "edge": 43.2,
+  "h": 853,
+  "img": "assets/img/field/senna-alata-1.webp",
+  "ratio": 0.974,
+  "score": 93.0,
+  "w": 1280,
+  "x": 75,
+  "y": 0
+ },
+ "senna-siamea": {
+  "edge": 84.3,
+  "h": 853,
+  "img": "assets/img/field/senna-siamea-1.webp",
+  "ratio": 0.995,
+  "score": 127.2,
+  "w": 1280,
+  "x": 75,
+  "y": 50
+ },
+ "sphagneticola-trilobata": {
+  "edge": 42.2,
+  "h": 853,
+  "img": "assets/img/field/sphagneticola-trilobata-1.webp",
+  "ratio": 0.996,
+  "score": 93.5,
+  "w": 1280,
+  "x": 25,
+  "y": 100
+ },
+ "syzygium-cumini": {
+  "edge": 71.6,
+  "h": 853,
+  "img": "assets/img/field/syzygium-cumini-1.webp",
+  "ratio": 0.929,
+  "score": 113.1,
+  "w": 1280,
+  "x": 100,
+  "y": 100
+ },
+ "syzygium-nervosum": {
+  "edge": 89.9,
+  "h": 853,
+  "img": "assets/img/field/syzygium-nervosum-1.webp",
+  "ratio": 0.916,
+  "score": 126.9,
+  "w": 1280,
+  "x": 25,
+  "y": 25
+ },
+ "talipariti-tiliaceum": {
+  "edge": 35.4,
+  "h": 853,
+  "img": "assets/img/field/talipariti-tiliaceum-1.webp",
+  "ratio": 0.832,
+  "score": 78.2,
+  "w": 1280,
+  "x": 25,
+  "y": 50
+ },
+ "taxodium-distichum": {
+  "edge": 70.3,
+  "h": 1200,
+  "img": "assets/img/field/taxodium-distichum-1.webp",
+  "ratio": 0.988,
+  "score": 115.5,
+  "w": 800,
+  "x": 50,
+  "y": 75
+ },
+ "tecoma-stans": {
+  "edge": 86.5,
+  "h": 853,
+  "img": "assets/img/field/tecoma-stans-1.webp",
+  "ratio": 0.95,
+  "score": 126.1,
+  "w": 1280,
+  "x": 0,
+  "y": 0
+ },
+ "terminalia-mantaly": {
+  "edge": 74.7,
+  "h": 853,
+  "img": "assets/img/field/terminalia-mantaly-1.webp",
+  "ratio": 0.704,
+  "score": 102.0,
+  "w": 1280,
+  "x": 50,
+  "y": 75
+ },
+ "thalia-dealbata": {
+  "edge": 81.5,
+  "h": 853,
+  "img": "assets/img/field/thalia-dealbata-1.webp",
+  "ratio": 0.826,
+  "score": 114.8,
+  "w": 1280,
+  "x": 50,
+  "y": 100
+ },
+ "vitex-rotundifolia": {
+  "edge": 73.2,
+  "h": 960,
+  "img": "assets/img/field/vitex-rotundifolia-1.webp",
+  "ratio": 0.773,
+  "score": 104.9,
+  "w": 1280,
+  "x": 0,
+  "y": 100
+ },
+ "zanthoxylum-beecheyanum": {
+  "edge": 79.3,
+  "h": 853,
+  "img": "assets/img/field/zanthoxylum-beecheyanum-1.webp",
+  "ratio": 0.772,
+  "score": 109.8,
+  "w": 1280,
+  "x": 75,
+  "y": 100
+ },
+ "zephyranthes-candida": {
+  "edge": 86.4,
+  "h": 853,
+  "img": "assets/img/field/zephyranthes-candida-1.webp",
+  "ratio": 0.889,
+  "score": 122.5,
+  "w": 1280,
+  "x": 100,
+  "y": 100
+ },
+ "zephyranthes-grandiflora": {
+  "edge": 54.3,
+  "h": 853,
+  "img": "assets/img/field/zephyranthes-grandiflora-1.webp",
+  "ratio": 0.811,
+  "score": 92.1,
+  "w": 1280,
+  "x": 50,
+  "y": 100
+ }
+}

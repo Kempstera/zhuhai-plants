@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 """珠海草木志 / Flora of Zhuhai —— static site builder (bilingual)"""
 import hashlib, json, shutil, re
+from collections import Counter
 from datetime import date
 from pathlib import Path
 
@@ -268,6 +269,32 @@ TXT = {
              "Whatever you were looking for has most likely been carried off by the wind. Go back to the beginning and start again from a banyan."),
     "nf_home": ("回到封面", "Back to the cover"),
     "nf_atlas": ("翻看图鉴", "Open the atlas"),
+
+    # —— 看图认植物（首页互动）
+    "quiz_eyebrow": ("Look Close", "Look Close"),
+    "quiz_h": ("放大一处，认一认这是谁", "Close in, and name that plant"),
+    "quiz_p": ("图片是从珠海的实景照里裁下来的一块，不是插画。认出来就继续；"
+               "认错了会告诉你是哪一种，并把你选的那一种摆到旁边——绿的深浅、"
+               "叶的疏密，放在一起才看得出差别。",
+               "Each picture is a square lifted out of a field photograph taken in Zhuhai. "
+               "Guess right and you move on; guess wrong and you will be shown the answer, "
+               "with the one you picked set beside it — shade and leaf are only obvious side by side."),
+    "quiz_ask": ("这一处，是哪一种？", "Which plant is this?"),
+    "quiz_hint_btn": ("给点提示", "A hint"),
+    "quiz_hint_used": ("再看一处", "Look again"),
+    "quiz_hint_k": ("叶", "Leaf"),
+    "quiz_prog": ("第 {0} 题 · 共 {1} 题", "Question {0} of {1}"),
+    "quiz_right": ("答对了", "That's it"),
+    "quiz_wrong": ("不对，这是 {0}", "Not quite — this is {0}"),
+    "quiz_chose": ("你选的是 {0}。两种都在珠海的同一片绿荫里长着，放在一起看看：",
+                   "You picked {0}. Both grow in the same shade in Zhuhai — here they are together:"),
+    "quiz_open": ("看它的页面", "Open its page"),
+    "quiz_cmp_a": ("正确答案", "The answer"),
+    "quiz_cmp_b": ("你选的", "You picked"),
+    "quiz_next": ("下一题", "Next"),
+    "quiz_result": ("这一轮答对 {0} / {1}", "You got {0} of {1}"),
+    "quiz_restart": ("再来一轮", "Play again"),
+    "quiz_noscript": ("这个小题需要开启 JavaScript。", "This quiz needs JavaScript."),
 }
 
 
@@ -561,6 +588,267 @@ def card_html(p, prefix="/", show_lead=True):
       </a>"""
 
 
+# ---------------------------------------------------------------- 看图认植物
+
+QUIZ_N = 8
+
+# 裁切位置由 scripts/quiz_crops.py 离线算好：它会在每张实景照上找边缘最密集的
+# 那一块，避开天空、水面、路面。放这里只读，构建时不依赖 PIL。
+# 出题时排除的物种：这些照片无论怎么裁，一格都主要是什么树皮、路面、水面、
+# 楼房或光秃的枝条，放大之后认不出是哪种植物。人工逐张看过一遍才定的名单，
+# 不是按分数筛的——分数只用来挑窗口位置，判断不了「这一格能不能认出物种」。
+# 要恢复某一项，先看一眼 assets/img/field 里它那张图。
+QUIZ_EXCLUDE = {
+    "ipomoea-imperati",        # 厚藤：全图是树皮纹理
+    "kandelia-obovata",        # 秋茄：大半是水面和滩涂
+    "livistona-chinensis",     # 蒲葵：一格是柏油路
+    "fagraea-ceilanica",       # 灰莉：树干和岩壁
+    "pandanus-tectorius",      # 露兜树：一格是楼房外墙
+    "casuarina-equisetifolia", # 木麻黄：枝条稀疏，大半天空
+    "ficus-microcarpa",        # 细叶榕：一格是树荫下的路
+    "chukrasia-tabularis",     # 麻楝：落叶期，只剩光枝
+    "bischofia-javanica",      # 秋枫：整张都是远景树冠，裁到哪都是一团绿
+}
+
+# 说明：不再按分数卡候选。分数只用来「在一张图里挑哪一格」，它判断不了
+# 这张图本身能不能认出物种——比如睡莲那张（白花瓣、几乎无色差）分数很低，
+# 但裁出来是最好的题；反过来满格绿树的照片分数很高，却什么也认不出。
+
+# 出题时排除的物种：这些照片无论怎么裁，一格都主要是什么树皮、路面、水面、
+# 楼房或光秃的枝条，放大之后认不出是哪种植物。人工逐张看过一遍才定的名单，
+# 不是按分数筛的——分数只用来挑窗口位置，判断不了「这一格能不能认出物种」。
+# 要恢复某一项，先看一眼 assets/img/field 里它那张图。
+QUIZ_EXCLUDE = {
+    "ipomoea-imperati",        # 厚藤：全图是树皮纹理
+    "kandelia-obovata",        # 秋茄：大半是水面和滩涂
+    "livistona-chinensis",     # 蒲葵：一格是柏油路
+    "fagraea-ceilanica",       # 灰莉：树干和岩壁
+    "pandanus-tectorius",      # 露兜树：一格是楼房外墙
+    "casuarina-equisetifolia", # 木麻黄：枝条稀疏，大半天空
+    "ficus-microcarpa",        # 细叶榕：一格是树荫下的路
+    "chukrasia-tabularis",     # 麻楝：落叶期，只剩光枝
+    "bischofia-javanica",      # 秋枫：整张都是远景树冠，裁到哪都是一团绿
+}
+
+# 说明：不再按分数卡候选。分数只用来「在一张图里挑哪一格」，它判断不了
+# 这张图本身能不能认出物种——比如睡莲那张（白花瓣、几乎无色差）分数很低，
+# 但裁出来是最好的题；反过来满格绿树的照片分数很高，却什么也认不出。
+
+_CROPS = {}
+_cp = ROOT / "data" / "quiz_crops.json"
+if _cp.exists():
+    _CROPS = json.loads(_cp.read_text(encoding="utf-8"))
+
+
+def _qz_seed(*parts):
+    """稳定的整数哈希。内置 hash() 每个进程盐不同，会让每次构建排出不同的题。"""
+    return int(hashlib.md5("|".join(map(str, parts)).encode()).hexdigest()[:8], 16)
+
+
+def _field_img(p):
+    shots = ZH_PHOTOS.get(p["slug"]) or []
+    return ("/assets/img/field/" + shots[0]["file"]) if shots else ("/assets/img/%s.webp" % p["slug"])
+
+
+def quiz_data(m0):
+    """排出这一轮要问的 8 种植物。
+
+    干扰项由近到远取：同属 → 同科 → 同一类群。同属的几种（比如榕属那几棵）
+    本来就最容易认错，拿它们当选项，题才有意思；随便凑四种八竿子打不着的，
+    一眼排除三个，选项再多也没用。
+
+    难度 = 同属里有几种：同属越多越难分。列表按难度排，再切成三段取 3/3/2，
+    题序自然从易到难。同分时优先「这个月正在开」的，让题目跟着季节走。
+    """
+    usable = [p for p in PLANTS
+              if p["slug"] in _CROPS
+              and p["slug"] not in QUIZ_EXCLUDE]
+    if len(usable) < QUIZ_N * 2:
+        return []
+
+    genus_n = Counter(p["genus"] for p in usable)
+    fam_n = Counter(p["family"] for p in usable)
+    by_slug = {p["slug"]: p for p in usable}
+
+    def peers(p):
+        out = []
+        for field in ("genus", "family", "cat"):
+            for x in usable:
+                if x["slug"] != p["slug"] and x[field] == p[field] and x["slug"] not in out:
+                    out.append(x["slug"])
+        for x in usable:
+            if x["slug"] != p["slug"] and x["slug"] not in out:
+                out.append(x["slug"])
+        return out
+
+    cand = [(p, peers(p)) for p in usable]
+    cand.sort(key=lambda t: (genus_n[t[0]["genus"]], fam_n[t[0]["family"]], t[0]["slug"]))
+
+    want = [3, 3, QUIZ_N - 6]
+    third = max(1, len(cand) // 3)
+    bands = [cand[:third], cand[third:third * 2], cand[third * 2:]]
+    picked = []
+
+    def cat_full(p, cap=2):
+        return sum(1 for q in picked if q[0]["cat"] == p["cat"]) >= cap
+
+    for i, (band, need) in enumerate(zip(bands, want)):
+        if not band or need <= 0:
+            continue
+        # 同月开花的往前放，再按月做一个确定性轮转
+        band = sorted(band, key=lambda t: (0 if m0 in t[0]["months"] else 1,))
+        off = _qz_seed("pquiz", m0, i) % len(band)
+        rot = band[off:] + band[:off]
+        for cap in (2, 99):
+            for p, pe in rot:
+                if need <= 0:
+                    break
+                if any(p["slug"] == q[0]["slug"] for q in picked):
+                    continue
+                if cat_full(p, cap):
+                    continue
+                picked.append((p, pe))
+                need -= 1
+            if need <= 0:
+                break
+
+    if len(picked) < QUIZ_N:
+        have = {q[0]["slug"] for q in picked}
+        for p, pe in cand:
+            if p["slug"] not in have:
+                picked.append((p, pe))
+                if len(picked) >= QUIZ_N:
+                    break
+
+    def entry(p, right=False):
+        return {
+            "slug": p["slug"],
+            "name": p["name"],
+            "latin": p["latin"],
+            "href": "/species/" + p["slug"],
+            "img": _field_img(p),
+            "right": right,
+        }
+
+    out = []
+    used = []          # 已经用过的选项组（含正确答案），用来避免两组题长得一模一样
+    answers = {p["slug"] for p, _ in picked}
+    for p, pe in picked:
+        c = _CROPS[p["slug"]]
+        # 别的题的正确答案不能拿来当这题的干扰项。否则会出现「上一题刚问过这只，
+        # 这一题它变成选项」，两组题的四个名字互相套用，玩起来像同一道题反复出。
+        pe = [s for s in pe if s not in answers or s == p["slug"]]
+        # 同一组选项也不要重复：先只避开「整组一模一样」（调整最轻），不行再收紧。
+        # 反过来做会把好题拆掉——为了不重复，把同科的干扰项换成八竿子打不着的，
+        # 选项一眼就能排除，题反而没意思了。
+        trio = pe[:3]
+        # 只比干扰项本身：两组题如果干扰项几乎一样，就算正确答案换了，
+        # 玩家看到的还是「这几个名字里挑一个」，等于同一道题出了两遍。
+        # 只要不是「三个完全一样」就放行：收得太紧会把同科的干扰项换成八竿子
+        # 打不着的（比如拿苏铁去凑旅人蕉的选项），题看着不重复了，但一眼能排除
+        # 三个，反而没了意思。
+        for limit in (3, 4):
+            got = None
+            for shift in range(0, max(1, len(pe) - 2)):
+                cand = pe[shift:shift + 3]
+                if len(cand) < 3:
+                    break
+                if all(len(set(cand) & u) < limit for u in used):
+                    got = cand
+                    break
+            if got:
+                trio = got
+                break
+        used.append(set(trio))
+        opts = [entry(by_slug[s]) for s in trio] + [entry(p, True)]
+        k = _qz_seed("pos", m0, p["slug"]) % len(opts)
+        opts[k], opts[-1] = opts[-1], opts[k]
+        out.append({
+            "slug": p["slug"],
+            "name": p["name"],
+            "latin": p["latin"],
+            "href": "/species/" + p["slug"],
+            "img": _field_img(p),
+            "x": c["x"], "y": c["y"], "zoom": 2,
+            # 提示用「叶」的描述：这是看图时最先能对上的特征，而且是站内原有的
+            # 数据，不另写一套说法，两边不会互相矛盾。
+            "hint": p.get("leaf") or "",
+            "hint2": p.get("flower") or "",
+            "opts": opts,
+        })
+    return out
+
+
+def build_quiz(m0):
+    qs = quiz_data(m0)
+    if not qs:
+        return ""
+
+    blob = json.dumps(qs, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    q0 = qs[0]
+    first_opts = "\n".join(
+        f"""            <li><button type="button" data-slug="{esc(o['slug'])}" disabled>
+              <span class="pquiz__k">{'ABCD'[i]}</span>
+              <span class="pquiz__o"><b>{esc(o['name'])}</b><i>{esc(o['latin'])}</i></span>
+            </button></li>"""
+        for i, o in enumerate(q0["opts"]))
+
+    t_attrs = "".join(
+        f' data-t-{k}="{esc(v)}"'
+        for k, v in (
+            ("prog", t("quiz_prog")), ("right", t("quiz_right")),
+            ("wrong", t("quiz_wrong")), ("chose", t("quiz_chose")),
+            ("open", t("quiz_open")), ("next", t("quiz_next")),
+            ("result", t("quiz_result")), ("restart", t("quiz_restart")),
+            ("hint", t("quiz_hint_btn")), ("hintused", t("quiz_hint_used")),
+            ("hintk", t("quiz_hint_k")),
+            ("cmpa", t("quiz_cmp_a")), ("cmpb", t("quiz_cmp_b")),
+        ))
+
+    return f"""
+  <section class="section pquiz" id="quiz">
+    <div class="wrap">
+      <div class="section__head">
+        <div>
+          <div class="eyebrow">{t('quiz_eyebrow')}</div>
+          <h2>{t('quiz_h')}</h2>
+        </div>
+        <p>{t('quiz_p')}</p>
+      </div>
+
+      <div class="pquiz__board" id="pquiz"{t_attrs}>
+        <div class="pquiz__bar">
+          <span class="pquiz__prog" id="pquizProg">{t('quiz_prog', 1, len(qs))}</span>
+          <div class="pquiz__track"><i id="pquizFill" style="width:{100.0/len(qs):.1f}%"></i></div>
+          <span class="pquiz__score" id="pquizScore"></span>
+        </div>
+
+        <div class="pquiz__body">
+          <div class="pquiz__left">
+            <div class="pquiz__tile" id="pquizTile"
+                 style="background-image:url('{q0['img']}');background-position:{q0['x']}% {q0['y']}%">
+              <img class="pquiz__full" id="pquizFull" src="{q0['img']}" alt="" width="900" height="900">
+            </div>
+          </div>
+          <div class="pquiz__right">
+            <p class="pquiz__ask">{t('quiz_ask')}</p>
+            <button class="pquiz__hintbtn" type="button" id="pquizHint">{t('quiz_hint_btn')}</button>
+            <p class="pquiz__hinttext" id="pquizHintText" hidden></p>
+            <ul class="pquiz__opts" id="pquizOpts">
+{first_opts}
+            </ul>
+            <noscript><p class="pquiz__ns">{t('quiz_noscript')}</p></noscript>
+          </div>
+        </div>
+
+        <div class="pquiz__fb" id="pquizFb" role="status" aria-live="polite" hidden></div>
+      </div>
+    </div>
+  </section>
+  <script type="application/json" id="pquizData">{blob}</script>
+"""
+
+
 # ---------------------------------------------------------------- 首页
 
 def build_index():
@@ -645,6 +933,7 @@ def build_index():
     html = head(t("home_title"), "/", t("home_desc"), "home", "/",
                 og_img=f"{SITE}/assets/og/{bp['slug']}.jpg", og_w=1080, og_h=1080,
                 jsonld=home_ld)
+    quiz_html = build_quiz(m0)
     html += f"""
 <main>
   <section class="hero">
@@ -736,6 +1025,7 @@ def build_index():
       </div>
     </div>
   </section>
+{quiz_html}
 
   <section class="section section--tight">
     <div class="wrap" style="border-top:1px solid var(--rule);padding-top:44px;display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:center">
@@ -1511,6 +1801,184 @@ JS = r"""/* 珠海草木志 / Flora of Zhuhai */
     });
   }
   apply();
+})();
+"""
+
+
+# ---------------------------------------------------------------- 看图认植物
+# 题目在构建时排好（build_quiz），这里只管交互。同一个月里每次打开
+# 都是同一套题——不做随机，两个人聊起来才对得上号。
+JS += r"""
+
+(function () {
+  var board = document.getElementById('pquiz');
+  var dataEl = document.getElementById('pquizData');
+  if (!board || !dataEl) return;
+
+  var Q;
+  try { Q = JSON.parse(dataEl.textContent || '[]'); } catch (e) { return; }
+  if (!Q || !Q.length) return;
+
+  var elProg = document.getElementById('pquizProg');
+  var elFill = document.getElementById('pquizFill');
+  var elScore = document.getElementById('pquizScore');
+  var elTile = document.getElementById('pquizTile');
+  var elFull = document.getElementById('pquizFull');
+  var elOpts = document.getElementById('pquizOpts');
+  var elFb = document.getElementById('pquizFb');
+  var elHintBtn = document.getElementById('pquizHint');
+  var elHintTxt = document.getElementById('pquizHintText');
+
+  var D = board.dataset;
+  var T = {
+    prog: D.tProg || '{0} / {1}', right: D.tRight || '',
+    wrong: D.tWrong || '{0}', chose: D.tChose || '{0}',
+    open: D.tOpen || '', next: D.tNext || '',
+    result: D.tResult || '{0} / {1}', restart: D.tRestart || '',
+    hint: D.tHint || '', hintused: D.tHintused || '', hintk: D.tHintk || '',
+    cmpa: D.tCmpa || '', cmpb: D.tCmpb || ''
+  };
+
+  var ESC = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return ESC[c]; });
+  }
+  function fmt(tpl, args) {
+    var n = 0;
+    return String(tpl).replace(/\{[01]\}/g, function () {
+      return n < args.length ? esc(args[n++]) : '';
+    });
+  }
+  function plain(tpl, args) {
+    var n = 0;
+    return String(tpl).replace(/\{[01]\}/g, function () {
+      return n < args.length ? String(args[n++]) : '';
+    });
+  }
+
+  var st = { i: 0, right: 0, answered: false, hints: 0 };
+
+  function renderQuestion() {
+    var q = Q[st.i];
+    st.answered = false;
+    st.hints = 0;
+
+    elTile.classList.remove('is-open');
+    elTile.style.backgroundImage = "url('" + q.img + "')";
+    elTile.style.backgroundPosition = q.x + '% ' + q.y + '%';
+    elFull.src = q.img;
+
+    elFb.hidden = true;
+    elFb.innerHTML = '';
+    elProg.textContent = plain(T.prog, [st.i + 1, Q.length]);
+    elFill.style.width = (st.i / Q.length * 100) + '%';
+    elScore.textContent = st.right ? '✓ ' + st.right : '';
+
+    elHintBtn.hidden = false;
+    elHintBtn.textContent = T.hint;
+    elHintTxt.hidden = true;
+    elHintTxt.innerHTML = '';
+
+    elOpts.innerHTML = '';
+    var keys = ['A', 'B', 'C', 'D'];
+    q.opts.forEach(function (o, idx) {
+      var li = document.createElement('li');
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('data-slug', o.slug);
+      b.innerHTML = '<span class="pquiz__k">' + (keys[idx] || '') + '</span>' +
+        '<span class="pquiz__o"><b></b><i></i></span>';
+      b.querySelector('b').textContent = o.name;
+      b.querySelector('i').textContent = o.latin;
+      b.addEventListener('click', function () { pick(o, b, q); });
+      li.appendChild(b);
+      elOpts.appendChild(li);
+    });
+  }
+
+  /* 两次提示：先看叶，再看花。都是站里原有的描述，不另写一套说法。 */
+  elHintBtn.addEventListener('click', function () {
+    if (st.answered) return;
+    var q = Q[st.i];
+    var txt = st.hints === 0 ? q.hint : (st.hints === 1 ? q.hint2 : '');
+    if (!txt) { elHintBtn.hidden = true; return; }
+    elHintTxt.innerHTML = '<b>' + esc(T.hintk) + '</b>' + esc(txt);
+    elHintTxt.hidden = false;
+    st.hints++;
+    if (st.hints >= 2 || !q.hint2) elHintBtn.hidden = true;
+    else elHintBtn.textContent = T.hintused;
+  });
+
+  function pick(o, btn, q) {
+    if (st.answered) return;
+    st.answered = true;
+    elHintBtn.hidden = true;
+
+    var all = elOpts.querySelectorAll('button');
+    Array.prototype.forEach.call(all, function (x) { x.disabled = true; });
+    elFill.style.width = ((st.i + 1) / Q.length * 100) + '%';
+
+    if (o.right) {
+      st.right++;
+      elScore.textContent = '✓ ' + st.right;
+      btn.classList.add('is-right');
+      elTile.classList.add('is-open');        /* 镜头拉远，让人看到整棵 */
+      elFb.innerHTML = '<p><b>' + esc(T.right) + '</b> · ' + esc(q.name) +
+        '</p><div class="pquiz__acts"><button type="button" data-act="next" class="is-primary">' +
+        esc(T.next) + '</button></div>';
+      elFb.hidden = false;
+      setTimeout(function () { if (st.answered) goNext(); }, 1900);
+    } else {
+      btn.classList.add('is-wrong');
+      Array.prototype.forEach.call(all, function (x) {
+        if (x.getAttribute('data-slug') === q.slug) x.classList.add('is-right');
+        else if (x !== btn) x.classList.add('is-dim');
+      });
+      elFb.innerHTML = '<p><b>' + fmt(T.wrong, [q.name]) + '</b></p>' +
+        '<p>' + fmt(T.chose, [o.name]) + '</p>' +
+        '<div class="pquiz__cmp">' +
+          '<a href="' + esc(q.href) + '"><img src="' + esc(q.img) + '" alt="" loading="lazy">' +
+            '<span><em>' + esc(T.cmpa) + '</em>' + esc(q.name) + '</span></a>' +
+          '<a href="' + esc(o.href) + '"><img src="' + esc(o.img) + '" alt="" loading="lazy">' +
+            '<span><em>' + esc(T.cmpb) + '</em>' + esc(o.name) + '</span></a>' +
+        '</div>' +
+        '<div class="pquiz__acts">' +
+          '<a href="' + esc(o.href) + '" class="is-primary">' + esc(T.open) + ' · ' + esc(o.name) + '</a>' +
+          '<button type="button" data-act="next">' + esc(T.next) + '</button>' +
+        '</div>';
+      elFb.hidden = false;
+    }
+  }
+
+  function goNext() {
+    if (st.i + 1 >= Q.length) { showResult(); return; }
+    st.i++;
+    renderQuestion();
+  }
+
+  function showResult() {
+    st.answered = false;
+    elOpts.innerHTML = '';
+    elProg.textContent = '';
+    elFill.style.width = '100%';
+    elScore.textContent = '✓ ' + st.right;
+    elHintBtn.hidden = true;
+    elHintTxt.hidden = true;
+    elFb.innerHTML = '<p><b>' + plain(T.result, [st.right, Q.length]) + '</b></p>' +
+      '<div class="pquiz__acts"><button type="button" data-act="again" class="is-primary">' +
+      esc(T.restart) + '</button></div>';
+    elFb.hidden = false;
+  }
+
+  elFb.addEventListener('click', function (e) {
+    var t = e.target.closest ? e.target.closest('[data-act]') : null;
+    if (!t) return;
+    var act = t.getAttribute('data-act');
+    if (act === 'next') goNext();
+    else if (act === 'again') { st.i = 0; st.right = 0; renderQuestion(); }
+  });
+
+  renderQuestion();
 })();
 """
 
