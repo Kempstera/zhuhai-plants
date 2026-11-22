@@ -27,6 +27,9 @@ ZH_CATS, ZH_PLANTS, ZH_PHOTOS = CATS, PLANTS, PHOTOS
 CATMAP = {c["id"]: c for c in CATS}
 
 SITE = "https://plants.signupeverywhere.cc"
+# IndexNow 密钥：放在站点根目录的 <key>.txt 里，Bing / Yandex / Seznam / Naver
+# 先来取这个文件确认域名归属，之后就能用一次 POST 通知它们 URL 变了。
+INDEXNOW_KEY = "3898acb4267601cdbe79afa64928d45a"
 
 
 def _guestbook_on():
@@ -1808,6 +1811,7 @@ def build_meta_files():
         + "\n".join(entries) + "\n</urlset>\n", encoding="utf-8")
     (OUT_EN / "robots.txt").write_text(
         f"User-agent: *\nAllow: /\nDisallow: /visits\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
+    (OUT_EN / f"{INDEXNOW_KEY}.txt").write_text(INDEXNOW_KEY + "\n", encoding="utf-8")
     # 英文搬到根路径后，旧的 /en/* 全部 301 过去；站长页也改了名
     (OUT_EN / "_redirects").write_text(
         "# 英文站从 /en/ 迁到根路径\n"
