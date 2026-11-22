@@ -1666,3 +1666,84 @@ html[lang="en"] .bloom__name { gap: 7px; }
   html[lang="en"] .hero h1 { letter-spacing: -.018em; }
   html[lang="en"] .detail__body { hyphens: none; -webkit-hyphens: none; }
 }
+
+/* ---------- 首屏横幅：这个月正在开（首页新增） ---------- */
+.band {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  background: var(--sand, #E8E1D2);
+}
+.band img {
+  display: block;
+  width: 100%;
+  height: clamp(320px, 52vh, 560px);
+  object-fit: cover;
+}
+.band::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 68%;
+  background:
+    linear-gradient(to top,
+      rgba(12, 17, 13, .82) 0%,
+      rgba(12, 17, 13, .58) 34%,
+      rgba(12, 17, 13, .18) 62%,
+      transparent 100%);
+  pointer-events: none;
+}
+.band figcaption {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 1;
+  margin: 0 auto;
+  max-width: var(--w);
+  padding: 0 32px 28px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px 16px;
+  flex-wrap: wrap;
+  color: #F7F3E8;
+  text-shadow: 0 1px 14px rgba(0, 0, 0, .55), 0 1px 3px rgba(0, 0, 0, .4);
+}
+.band__k {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  background: rgba(12, 17, 13, .34);
+  border: 1px solid rgba(247, 243, 232, .38);
+  border-radius: 99px;
+  padding: 4px 12px;
+  color: rgba(250, 247, 238, .96);
+  text-shadow: none;
+  backdrop-filter: blur(4px);
+}
+.band__t {
+  font-family: var(--font-serif);
+  font-size: clamp(20px, 2.4vw, 29px);
+  letter-spacing: .05em;
+}
+.band__t span {
+  font-family: var(--font-latin);
+  font-style: italic;
+  font-size: .6em;
+  letter-spacing: .04em;
+  opacity: .82;
+  margin-left: 10px;
+}
+.band__p {
+  flex: 1 1 100%;
+  margin: 4px 0 0;
+  max-width: 54em;
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.9;
+  color: rgba(250, 247, 238, .92);
+}
+@media (max-width: 760px) {
+  .band img { height: clamp(230px, 38vh, 340px); }
+  .band figcaption { padding: 0 20px 18px; gap: 6px 12px; }
+  .band__p { font-size: 12.5px; line-height: 1.85; }
+}

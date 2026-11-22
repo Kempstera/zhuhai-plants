@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 """珠海草木志 / Flora of Zhuhai —— static site builder (bilingual)"""
 import hashlib, json, shutil, re
+from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).parent
@@ -366,7 +367,8 @@ LANG_REDIRECT = r"""<script>
 """
 
 
-def head(title, prefix, desc, active, path="/", extra_css=""):
+def head(title, prefix, desc, active, path="/", extra_css="",
+         og_img=None, og_w=1200, og_h=630, jsonld=""):
     en_path = path
     zh_path = "/zh/" if path == "/" else "/zh" + path
     if LANG == "zh":
@@ -376,6 +378,8 @@ def head(title, prefix, desc, active, path="/", extra_css=""):
         self_path, alt_href, alt_label = en_path, zh_path, "中文"
         html_lang, og_locale = "en", "en_GB"
     pref = LANG_REDIRECT if LANG == "en" else ""
+    og = og_img or f"{SITE}/assets/og.png"
+    ld = ("\n" + jsonld) if jsonld else ""
     return f"""<!DOCTYPE html>
 <html lang="{html_lang}">
 <head>{pref}
@@ -390,10 +394,12 @@ def head(title, prefix, desc, active, path="/", extra_css=""):
 <meta property="og:site_name" content="{t('brand')}">
 <meta property="og:locale" content="{og_locale}">
 <meta property="og:url" content="{SITE}{self_path}">
-<meta property="og:image" content="{SITE}/assets/og.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+<meta property="og:image" content="{og}">
+<meta property="og:image:alt" content="{esc(title)}">
+<meta property="og:image:width" content="{og_w}">
+<meta property="og:image:height" content="{og_h}">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{og}">{jsonld}
 <link rel="canonical" href="{SITE}{self_path}">
 <link rel="alternate" hreflang="en" href="{SITE}{en_path}">
 <link rel="alternate" hreflang="zh-CN" href="{SITE}{zh_path}">
@@ -601,7 +607,38 @@ def build_index():
 
     nfam = len({p["family"] for p in PLANTS})
 
-    html = head(t("home_title"), "/", t("home_desc"), "home", "/")
+    # 首屏横幅：挑「这个月正在开」的一种，用实景照。
+    # 比固定一张图好在两点：首屏终于有图了；而且每次进来都可能换一张。
+    m0 = date.today().month
+    bloom = [p for p in PLANTS if m0 in p["months"]]
+    # 视觉冲击力优先：同月开花的里面，挑花序最显眼的几种打头
+    BAND_PREF = ("ceiba-speciosa", "delonix-regia", "bombax-ceiba",
+                 "bougainvillea-spectabilis", "handroanthus-chrysanthus",
+                 "plumeria-rubra", "bauhinia-blakeana")
+    bp = (next((p for slug in BAND_PREF for p in bloom if p["slug"] == slug), None)
+          or (bloom[0] if bloom else PLANTS[0]))
+    ph = (ZH_PHOTOS.get(bp["slug"]) or [])
+    band_img = (f"/assets/img/field/{ph[0]['file']}" if ph
+                else f"/assets/img/{bp['slug']}.webp")
+    band_k = (f"{m0} 月 · 正在开" if LANG == "zh"
+              else f"{MON[m0-1]} · in bloom")
+    band_t = f"{bp['name']} <span>{bp['latin']}</span>"
+
+    home_ld = _ld({
+        "@context": "https://schema.org",
+        "@graph": [
+            {"@type": "WebSite", "@id": SITE + "/#website", "url": SITE + "/",
+             "name": t("brand"), "inLanguage": "zh-CN" if LANG == "zh" else "en"},
+            {"@type": "CollectionPage", "@id": SITE + ("/zh/" if LANG == "zh" else "/"),
+             "name": t("home_title"), "inLanguage": "zh-CN" if LANG == "zh" else "en",
+             "isPartOf": {"@id": SITE + "/#website"},
+             "about": {"@type": "Thing", "name": "Flora of Zhuhai"}},
+        ],
+    })
+
+    html = head(t("home_title"), "/", t("home_desc"), "home", "/",
+                og_img=f"{SITE}/assets/og/{bp['slug']}.jpg", og_w=1080, og_h=1080,
+                jsonld=home_ld)
     html += f"""
 <main>
   <section class="hero">
@@ -619,6 +656,15 @@ def build_index():
       </div>
     </div>
   </section>
+
+  <figure class="band">
+    <img src="{band_img}" alt="{esc(bp['name'])} {esc(bp['latin'])}" width="1280" height="853" fetchpriority="high">
+    <figcaption class="wrap">
+      <span class="band__k">{band_k}</span>
+      <span class="band__t">{band_t}</span>
+      <span class="band__p">{esc(bp['lead'])}</span>
+    </figcaption>
+  </figure>
 
   <section class="section section--tight">
     <div class="wrap">
@@ -750,6 +796,32 @@ def build_atlas():
 
 # ---------------------------------------------------------------- 详情页
 
+def _ld(obj):
+    """一行 JSON-LD。ensure_ascii=False 保留中文，</ 转义避免提前闭合 script。"""
+    raw = json.dumps(obj, ensure_ascii=False, separators=(",", ":"))
+    return '<script type="application/ld+json">%s</script>' % raw.replace("</", "<\\/")
+
+
+def _taxon_ld(p, url, og, cat_name):
+    return _ld({
+        "@context": "https://schema.org",
+        "@graph": [
+            {"@type": "Taxon", "@id": url + "#taxon",
+             "name": p["name"], "scientificName": p["latin"],
+             "alternateName": [x for x in [p.get("alias", ""), p["latin"]] if x],
+             "url": url, "image": og, "description": p.get("lead", ""),
+             "isPartOf": {"@id": SITE + "/#website"}},
+            {"@type": "BreadcrumbList", "itemListElement": [
+                {"@type": "ListItem", "position": 1,
+                 "name": t("nav_atlas"), "item": SITE + "/atlas"},
+                {"@type": "ListItem", "position": 2,
+                 "name": cat_name, "item": SITE + "/atlas?cat=" + p["cat"]},
+                {"@type": "ListItem", "position": 3,
+                 "name": p["name"], "item": url}]},
+        ],
+    })
+
+
 def build_species():
     (OUT / "species").mkdir(exist_ok=True)
     for n, p in enumerate(PLANTS):
@@ -794,8 +866,12 @@ def build_species():
             desc = (f"{p['name']}（{p['latin']}），{p['family']}{p['genus']}，"
                     f"{p['habit']}，花期{flower_text(p['months'])}。{p['lead']}")
 
+        sp_url = f"{SITE}/species/{p['slug']}"
+        sp_og = f"{SITE}/assets/og/{p['slug']}.jpg"
         html = head(t("sp_title", p["name"], p["latin"]), "/", desc,
-                    "atlas", f"/species/{p['slug']}")
+                    "atlas", f"/species/{p['slug']}",
+                    og_img=sp_og, og_w=1080, og_h=1080,
+                    jsonld=_taxon_ld(p, sp_url, sp_og, cat["name"]))
         html += f"""
 <main class="detail">
   <div class="wrap">
@@ -1743,6 +1819,12 @@ def setup_assets():
     (OUT_EN / "assets" / "favicon.svg").write_text(FAVICON, encoding="utf-8")
     if (ROOT / "assets" / "og.png").exists():
         shutil.copy(ROOT / "assets" / "og.png", OUT_EN / "assets" / "og.png")
+    og_src = ROOT / "assets" / "og"
+    if og_src.is_dir():
+        og_dst = OUT_EN / "assets" / "og"
+        og_dst.mkdir(parents=True, exist_ok=True)
+        for f in og_src.glob("*.jpg"):
+            shutil.copy(f, og_dst / f.name)
 
     src_img = ROOT / "assets" / "img"
     dst_img = OUT_EN / "assets" / "img"

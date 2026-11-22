@@ -18,13 +18,18 @@ jobs:
         run: python3 build.py
       - name: Verify output
         run: |
+          # 英文在根目录（站点默认语言），中文镜像到 /zh/
           test -f dist/index.html
           test -f dist/atlas.html
           test -f dist/sitemap.xml
-          test -f dist/en/index.html
-          test -f dist/en/atlas.html
+          test -f dist/zh/index.html
+          test -f dist/zh/atlas.html
           n=$(ls dist/species/*.html | wc -l)
-          m=$(ls dist/en/species/*.html | wc -l)
-          echo "species pages: zh=$n en=$m"
+          m=$(ls dist/zh/species/*.html | wc -l)
+          echo "species pages: en=$n zh=$m"
           test "$n" -ge 28
           test "$m" -eq "$n"
+          # 分享图随物种页一起产出
+          og=$(ls dist/assets/og/*.jpg 2>/dev/null | wc -l)
+          echo "share cards: $og"
+          test "$og" -ge "$n"
